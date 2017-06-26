@@ -54,21 +54,28 @@ public class Templates {
 	@When("^I want to create a \"([^\"]*)\" template$")
 	public void i_want_to_create_a_template(String arg1) throws Throwable {
 		PageFactory.initElements(driver, CoreControls.class);
-		WebDriverWait waitForMeanuTabs = new WebDriverWait(driver, 10000);
-		CoreControls.templateManagement = waitForMeanuTabs
-				.until(ExpectedConditions.elementToBeClickable(CoreControls.templateManagement));
-		CoreControls.templateManagement.click();
+
+		// WebDriverWait waitForMeanuTabs = new WebDriverWait(driver, 10000);
+		// CoreControls.templateManagement = waitForMeanuTabs
+		// .until(ExpectedConditions.elementToBeClickable(CoreControls.templateManagement));
+		System.out.println("------------before clicking menue tab");
+		// CoreControls.templateManagement.click();
 		PageFactory.initElements(driver, TemplatesPages.class);
 		if (arg1.equals("SMS corro")) {
 			PageFactory.initElements(driver, TemplatesPages.class);
 			CoreControls.corroTemp.click();
-			WebDriverWait waitForCreateButton = new WebDriverWait(driver, 10000);
+			WebDriverWait waitForCreateButton = new WebDriverWait(driver, 100000);
 			CoreControls.templateManagement = waitForCreateButton
 					.until(ExpectedConditions.elementToBeClickable(TemplatesPages.createNewCorroTemplate));
 			TemplatesPages.createNewCorroTemplate.click();
 			TemplatesPages.templateType.sendKeys("SMS");
 		} else if (arg1.equals("Email corro")) {
-			WebDriverWait waitForCorroTempButtonButton = new WebDriverWait(driver, 10000);
+			System.out.println("------------Inside email loop");
+			WebDriverWait waitForMeanuTabs = new WebDriverWait(driver, 10000);
+			CoreControls.templateManagement = waitForMeanuTabs
+					.until(ExpectedConditions.elementToBeClickable(CoreControls.templateManagement));
+			CoreControls.templateManagement.click();
+			WebDriverWait waitForCorroTempButtonButton = new WebDriverWait(driver, 100000);
 			CoreControls.templateManagement = waitForCorroTempButtonButton
 					.until(ExpectedConditions.elementToBeClickable(CoreControls.corroTemp));
 			CoreControls.corroTemp.click();
@@ -78,6 +85,7 @@ public class Templates {
 			TemplatesPages.createNewCorroTemplate.click();
 			TemplatesPages.templateType.sendKeys("Email");
 			TemplatesPages.emailSubSystem.sendKeys("CBDM Core");
+			TemplatesPages.appBbeforeSending.sendKeys("No");
 		} else if (arg1.equals("certificates")) {
 			CoreControls.certificatesTemp.click();
 		}
@@ -105,7 +113,7 @@ public class Templates {
 		TemplatesPages.relatedSms.sendKeys(arg1);
 	}
 
-	@When("^I make the \"([^\"]*)\" boy text \"([^\"]*)\"$")
+	@When("^I make the \"([^\"]*)\" body text \"([^\"]*)\"$")
 	public void i_make_the(String arg1, String arg2) throws Throwable {
 		System.out.println("-----arg1--------the value is: " + arg1);
 		System.out.println("-----arg2--------the value is: " + arg2);
@@ -133,6 +141,7 @@ public class Templates {
 		LoginPage.coreAdminUsignin_button = waitForMessage
 				.until(ExpectedConditions.elementToBeClickable(TemplatesPages.successfullySaved));
 		TemplatesPages.successfullySaved.getText().contains("is successfully saved!");
+		System.out.println("This is after checking message successfuly saved!");
 		// driver.quit();
 	}
 
