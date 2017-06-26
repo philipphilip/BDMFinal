@@ -85,7 +85,7 @@ public class Templates {
 			TemplatesPages.createNewCorroTemplate.click();
 			TemplatesPages.templateType.sendKeys("Email");
 			TemplatesPages.emailSubSystem.sendKeys("CBDM Core");
-			TemplatesPages.appBbeforeSending.sendKeys("No");
+			//TemplatesPages.appBeforeSending.sendKeys("No");
 		} else if (arg1.equals("certificates")) {
 			CoreControls.certificatesTemp.click();
 		}
