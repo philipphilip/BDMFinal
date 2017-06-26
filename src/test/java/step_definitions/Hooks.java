@@ -28,7 +28,7 @@ public class Hooks {
 		// "drivers/geckodriver-v0.16.1-win64/geckodriver.exe");
 		// System.setProperty("webdriver.chrome.driver",
 		// "drivers/chrome-2.29-winx32/chromedriver.exe");
-		System.setProperty("webdriver.gecko.driver", "drivers/geckodriver-v0.16.1-linux64p/geckodriver.exe");
+		System.setProperty("webdriver.gecko.driver", "drivers/geckodriver-v0.16.1-linux64/geckodriver.exe");
 		driver = new FirefoxDriver();
 		driver.manage().deleteAllCookies();
 		driver.manage().window().maximize();
