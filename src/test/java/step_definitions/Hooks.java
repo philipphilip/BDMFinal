@@ -37,7 +37,7 @@ public class Hooks {
 
 		// System.setProperty("webdriver.chrome.driver",
 		// "C:/Users/PPhilip/Projects/core-automation-testing/drivers/chrome-2.29-winx32/chromedriver.exe");
-		System.setProperty("webdriver.chrome.driver", "C:/Program Files (x86)/Google/Chrome/Application/chrome.exe");
+		System.setProperty("webdriver.chrome.driver", "C:/Users/Administrator/selenium ");
 		driver = new ChromeDriver();
 		driver.manage().deleteAllCookies();
 		driver.manage().window().maximize();
