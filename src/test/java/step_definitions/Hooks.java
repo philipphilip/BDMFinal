@@ -7,6 +7,7 @@ import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebDriverException;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 
 import cucumber.api.Scenario;
 import cucumber.api.java.After;
@@ -24,12 +25,19 @@ public class Hooks {
 	 */
 	public void openBrowser() throws MalformedURLException {
 		System.out.println("Called openBrowser");
+
 		// System.setProperty("webdriver.gecko.driver",
 		// "drivers/geckodriver-v0.16.1-win64/geckodriver.exe");
-		// System.setProperty("webdriver.chrome.driver",
-		// "drivers/chrome-2.29-winx32/chromedriver.exe");
-		System.setProperty("webdriver.gecko.driver", "drivers/geckodriver-v0.16.1-linux64/geckodriver.exe");
-		driver = new FirefoxDriver();
+		// System.setProperty("webdriver.gecko.driver",
+		// "drivers/geckodriver-v0.16.1-linux64/geckodriver.exe");
+		// driver = new FirefoxDriver();
+		// ChromeOptions chromeOptions = new ChromeOptions();
+		// chromeOptions.setBinary("C:/Users/PPhilip/Projects/core-automation-testing/drivers/chrome-61.0.3-Canary");
+		// chromeOptions.addArguments("--headless");
+
+		System.setProperty("webdriver.chrome.driver",
+				"C:/Users/PPhilip/Projects/core-automation-testing/drivers/chrome-2.29-winx32/chromedriver.exe");
+		driver = new ChromeDriver();
 		driver.manage().deleteAllCookies();
 		driver.manage().window().maximize();
 	}
@@ -51,7 +59,7 @@ public class Hooks {
 			}
 
 		}
-		// driver.quit();
+		driver.quit();
 
 	}
 
