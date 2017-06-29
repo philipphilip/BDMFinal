@@ -12,7 +12,7 @@ public class CoreControls extends BaseClass {
 		super(driver);
 	}
 
-	@FindBy(xpath = ".//*/a[contains(text(),'New')]")
+	@FindBy(xpath = ".//*/li[3]/a[contains(text(),'New')]")
 	public static WebElement new_tab;
 
 	@FindBy(xpath = "//*//li[2]/a[contains(text(),'Birth Registration Statement')]")

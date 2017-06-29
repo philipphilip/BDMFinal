@@ -42,7 +42,7 @@ public class BDMForm {
 
 	@When("^I open Core website$")
 	public void i_open_Core_website() throws Throwable {
-		driver.get("http://10.22.3.205/core/login");
+		 driver.get("http://10.22.3.205/core/login");
 	}
 
 	@When("^I sign in$")
@@ -50,6 +50,7 @@ public class BDMForm {
 		PageFactory.initElements(driver, AutomationHomePage.class);
 		PageFactory.initElements(driver, LoginPage.class);
 		SignInAction.Execute(driver, datamap.get(0));
+		
 	}
 
 	@Then("^I sign out$")
@@ -60,13 +61,18 @@ public class BDMForm {
 	@When("^I navigate to \"(.*?)\" new form$")
 	public void i_navigate_to_new_form(String arg1) throws Throwable {
 		PageFactory.initElements(driver, CoreControls.class);
+		System.out.println("--------I am at the scenario where I nagigate to form " + arg1);
 		if (arg1.equals("NOB")) {
+			System.out.println("--------I am in the condition of running the NOB");
 			GoToNOBForm.Execute(driver, arg1);
 		} else if (arg1.equals("BRS")) {
+			System.out.println("--------I am in the condition of running the BRS");
 			GoToBRSForm.Execute(driver);
 		} else if (arg1.equals("DRS")) {
+			System.out.println("--------I am in the condition of running the DRS");
 			GoToDRSForm.Execute(driver, arg1);
 		} else if (arg1.equals("COD")) {
+			System.out.println("--------I am in the condition of running the COD");
 			GoToCODForm.Execute(driver);
 		}
 	}

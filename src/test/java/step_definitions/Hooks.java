@@ -8,6 +8,7 @@ import org.openqa.selenium.Platform;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebDriverException;
+import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
 
@@ -17,7 +18,7 @@ import cucumber.api.java.Before;
 
 public class Hooks {
 	public static WebDriver driver;
-	private String nodrul = "http://10.8.8.62:5556/wd/hub";
+	private String nodrul = "http://10.8.8.62:4444/wd/hub";
 
 	@Before
 	/**
@@ -27,32 +28,19 @@ public class Hooks {
 	public void openBrowser() throws MalformedURLException {
 		System.out.println("Called openBrowser");
 
-		// System.setProperty("webdriver.gecko.driver",
-		// "drivers/geckodriver-v0.16.1-win64/geckodriver.exe");
-		// System.setProperty("webdriver.gecko.driver",
-		// "drivers/geckodriver-v0.16.1-linux64/geckodriver.exe");
-		// driver = new FirefoxDriver();
-		// ChromeOptions chromeOptions = new ChromeOptions();
-		// chromeOptions.setBinary("C:/Users/PPhilip/Projects/core-automation-testing/drivers/chrome-61.0.3-Canary");
-		// chromeOptions.addArguments("--headless");
-		// System.setProperty("webdriver.chrome.driver",
-		// "C:/Users/PPhilip/Projects/core-automation-testing/drivers/chrome-2.29-winx32/chromedriver.exe");
-
-		// ChromeOptions chromeOptions = new ChromeOptions();
-		// chromeOptions.setBinary("drivers/chrome-2.29-winx32/chromedriver.exe");
-		// chromeOptions.addArguments("--headless");
-		//
-		// System.setProperty("webdriver.chrome.driver",
-		// "drivers/chrome-2.29-winx32/chromedriver.exe");
-		// driver = new ChromeDriver(chromeOptions);
-
-		DesiredCapabilities caps = DesiredCapabilities.firefox();
-		caps.setBrowserName("firefox");
-		caps.setPlatform(Platform.LINUX);
+		DesiredCapabilities caps = DesiredCapabilities.chrome();
+		caps.setBrowserName("chrome");
+		caps.setPlatform(Platform.ANY);
+		System.out.println("Just before we open browser");
 		driver = new RemoteWebDriver(new URL(nodrul), caps);
+		System.out.println("Right after we open browser");
+
+		// System.setProperty("webdriver.gecko.driver","drivers/geckodriver-v0.16.1-win64/geckodriver.exe");
+		// driver = new FirefoxDriver();
 
 		driver.manage().deleteAllCookies();
 		driver.manage().window().maximize();
+
 	}
 
 	@After
@@ -72,7 +60,7 @@ public class Hooks {
 			}
 
 		}
-		driver.quit();
+		// driver.quit();
 
 	}
 
