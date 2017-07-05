@@ -4,23 +4,10 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
-import modules.FillBRSForm;
-import modules.FillCODForm;
-import modules.FillDRSForm;
-import modules.FillNOBForm;
-import modules.GoToBRSForm;
-import modules.GoToCODForm;
-import modules.GoToDRSForm;
-import modules.GoToNOBForm;
-import modules.SignInAction;
-import modules.SignoutAction;
+import modules.*;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
-import pageobjects.AutomationHomePage;
-import pageobjects.BRSPage;
-import pageobjects.CoreControls;
-import pageobjects.LoginPage;
-import pageobjects.NOBPage;
+import pageobjects.*;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 
@@ -57,6 +44,55 @@ public class BDMForm {
 	public void i_sign_out() throws Throwable {
 		SignoutAction.Execute(driver);
 	}
+
+
+	@When("^I open ePublic website$")
+	public void i_open_ePublic_website() throws Throwable {
+		driver.get("http://10.22.1.200/epublic/login");
+	}
+
+	@When("^I sign in ePublic$")
+	public void i_sign_in_ePublic() throws Throwable {
+		PageFactory.initElements(driver, AutomationHomePage.class);
+		PageFactory.initElements(driver, EpublicLoginPage.class);
+		EpublicSignInAction.Execute(driver, datamap.get(0));
+
+	}
+
+	@When("^I navigate to \"(.*?)\" in ePublic$")
+	public void i_navigate_in_ePublic$(String arg1) throws Throwable {
+		PageFactory.initElements(driver, EpublicControls.class);
+		System.out.println("--------I am at the scenario where I nagigate to form " + arg1);
+		if (arg1.equals("NOB")) {
+			System.out.println("--------I am in the condition of running the NOB");
+			GoToNOBForm.Execute(driver, arg1);
+		} else if (arg1.equals("BRS")) {
+			System.out.println("--------I am in the condition of running the BRS");
+			GoToEpublicBRSForm.Execute(driver);
+		} else if (arg1.equals("DRS")) {
+			System.out.println("--------I am in the condition of running the DRS");
+			GoToDRSForm.Execute(driver, arg1);
+		} else if (arg1.equals("COD")) {
+			System.out.println("--------I am in the condition of running the COD");
+			GoToCODForm.Execute(driver);
+		}
+	}
+
+
+	@When("^I fill in the \"(.*?)\" of BRS in epublic$")
+	public void i_fill_brs_in_ePublic$(String arg1) throws Throwable {
+		Thread.sleep(3000);
+		System.out.println("--------I fill brs form in epublic " + arg1);
+		if (arg1.equals("Child's details")) {
+			System.out.println("--------I am in the condition of filling Child's details of BRS in epublic");
+			FillEpublicBrsChildDetailForm.Execute(driver);
+		}else if (arg1.equals("Parent details")) {
+			System.out.println("--------I am in the condition of filling Parent details of BRS in epublic");
+			FillEpublicBrsParentDetailForm.Execute(driver);
+		}
+	}
+
+
 
 	@When("^I navigate to \"(.*?)\" new form$")
 	public void i_navigate_to_new_form(String arg1) throws Throwable {
