@@ -10,7 +10,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import pageobjects.BRSPage;
 import pageobjects.CoreControls;
 import pageobjects.EpublicBrsChildDetailPage;
-
+import pageobjects.EpublicControls;
 
 
 public class FillEpublicBrsChildDetailForm {
@@ -20,7 +20,7 @@ public class FillEpublicBrsChildDetailForm {
 		PageFactory.initElements(driver, EpublicBrsChildDetailPage.class);
 
 		EpublicBrsChildDetailPage.familyName.sendKeys("smith");
-		EpublicBrsChildDetailPage.firstName.sendKeys("tom");
+		EpublicBrsChildDetailPage.firstName.sendKeys("mary");
 		EpublicBrsChildDetailPage.birthday.sendKeys("05/07/2017");
 		EpublicBrsChildDetailPage.birthday.sendKeys(Keys.TAB);
 		EpublicBrsChildDetailPage.sex.sendKeys("Female");
@@ -42,7 +42,7 @@ public class FillEpublicBrsChildDetailForm {
 		EpublicBrsChildDetailPage.hospitalSuburblist.click();
 
 
-		EpublicBrsChildDetailPage.nextButton.click();
+		EpublicControls.nextButton.click();
 
 	}
 

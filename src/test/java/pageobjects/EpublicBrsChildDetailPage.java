@@ -43,7 +43,6 @@ public class EpublicBrsChildDetailPage extends BaseClass {
 	@FindBy(id = "select2-brs-childDetails-childDetails-hospitalTownSuburbCity-results")
 	public static WebElement hospitalSuburblist;
 
-	@FindBy(xpath = ".//*/button[contains(text(),'Next')]")
-	public static WebElement nextButton;
+
 
 }

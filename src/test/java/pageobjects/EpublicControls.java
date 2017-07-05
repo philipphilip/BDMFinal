@@ -20,4 +20,7 @@ public class EpublicControls extends BaseClass {
 
 	@FindBy(xpath = ".//*/button[contains(text(),'I agree')]")
 	public static WebElement i_agree;
+
+	@FindBy(xpath = ".//*/button[contains(text(),'Next')]")
+	public static WebElement nextButton;
 }

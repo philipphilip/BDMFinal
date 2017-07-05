@@ -5,6 +5,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
 import pageobjects.EpublicBrsChildDetailPage;
 import pageobjects.EpublicBrsParentDetailPage;
+import pageobjects.EpublicControls;
 
 
 public class FillEpublicBrsParentDetailForm {
@@ -28,7 +29,7 @@ public class FillEpublicBrsParentDetailForm {
 		//EpublicBrsParentDetailPage.addressState.sendKeys("VIC");
 		//EpublicBrsParentDetailPage.postcode.sendKeys("3555");
 
-		EpublicBrsChildDetailPage.nextButton.click();
+		EpublicControls.nextButton.click();
 
 	}
 

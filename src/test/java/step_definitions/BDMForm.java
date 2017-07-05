@@ -89,7 +89,21 @@ public class BDMForm {
 		}else if (arg1.equals("Parent details")) {
 			System.out.println("--------I am in the condition of filling Parent details of BRS in epublic");
 			FillEpublicBrsParentDetailForm.Execute(driver);
+		}else if (arg1.equals("Second parent details")) {
+			System.out.println("--------I am in the condition of filling Second parent details of BRS in epublic");
+			FillEpublicBrsSecondParentDetailForm.Execute(driver);
 		}
+
+
+	}
+	@When("^I click \"(.*?)\" button on \"(.*?)\" page of \"(.*?)\" in \"(.*?)\"$")
+	public void i_click_button$(String arg1, String arg2, String arg3, String arg4) throws Throwable {
+		if (arg1.equals("Next")) {
+			System.out.println("--------I am clicking Next button");
+			Thread.sleep(2000);
+			EpublicControls.nextButton.click();
+		}
+
 	}
 
 

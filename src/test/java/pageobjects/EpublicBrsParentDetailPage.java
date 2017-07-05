@@ -49,7 +49,6 @@ public class EpublicBrsParentDetailPage extends BaseClass {
 	@FindBy(id = "brs-parent1Details-residence-postcode")
 	public static WebElement postcode;
 
-	@FindBy(xpath = ".//*/button[contains(text(),'Next')]")
-	public static WebElement nextButton;
+
 
 }
