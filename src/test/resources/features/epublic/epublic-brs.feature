@@ -1,3 +1,5 @@
+@epublic
+
 Feature: ePublic brs
 
   Scenario: ePublic brs form

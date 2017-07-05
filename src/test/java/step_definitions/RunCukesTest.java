@@ -10,7 +10,7 @@ import cucumber.api.junit.Cucumber;
 @CucumberOptions(
 		features = "classpath:features",
 		plugin = {"pretty", "html:target/cucumber-html-report"},
-		tags = {}
+		tags = {"@epublic"}
 		)
 public class RunCukesTest{
 	
