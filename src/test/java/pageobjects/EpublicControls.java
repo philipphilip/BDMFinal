@@ -23,4 +23,31 @@ public class EpublicControls extends BaseClass {
 
 	@FindBy(xpath = ".//*/button[contains(text(),'Next')]")
 	public static WebElement nextButton;
+
+	@FindBy(xpath = ".//*/button[contains(text(),'Save')]")
+	public static WebElement saveButton;
+
+	@FindBy(xpath = ".//*/button[contains(text(),'Continue')]")
+	public static WebElement continueButton;
+
+	@FindBy(xpath = ".//*/button[contains(text(),'Close')]")
+	public static WebElement closeButton;
+
+	@FindBy(xpath = "//*[@id='ACTIVE0']")
+	public static WebElement submitOrderButton;
+
+	@FindBy(id = "reviewDraftRequest-declaration")
+	public static WebElement reviewDeclaration;
+
+	@FindBy(xpath = ".//*/button[contains(text(),'Submit')]")
+	public static WebElement submitButton;
+
+
+	@FindBy(xpath = "/html/body/app/div/brs-form/div/div/div[2]/form/div[1]/alerts/alert/div/span")
+	public static WebElement message;
+
+	@FindBy(xpath = "/html/body/app/div/header/nav/nav/div/div[3]/ul/li[2]/a")
+	public static WebElement dashBoard;
+
+
 }

@@ -9,9 +9,11 @@ import cucumber.api.junit.Cucumber;
 @RunWith(Cucumber.class)
 @CucumberOptions(
 		features = "classpath:features",
-		plugin = {"pretty", "html:target/cucumber-html-report"},
+		//plugin = {"pretty", "html:target/cucumber-html-report"},
+		plugin = {"json:target/report.json"},
 		tags = {"@epublic"}
 		)
+
 public class RunCukesTest{
 	
 }

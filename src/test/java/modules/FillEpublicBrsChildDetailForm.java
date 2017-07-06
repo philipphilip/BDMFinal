@@ -18,11 +18,12 @@ public class FillEpublicBrsChildDetailForm {
 	public static void Execute(WebDriver driver) throws Exception {
 
 		PageFactory.initElements(driver, EpublicBrsChildDetailPage.class);
-
+		Thread.sleep(3000);
 		EpublicBrsChildDetailPage.familyName.sendKeys("smith");
 		EpublicBrsChildDetailPage.firstName.sendKeys("mary");
-		EpublicBrsChildDetailPage.birthday.sendKeys("05/07/2017");
-		EpublicBrsChildDetailPage.birthday.sendKeys(Keys.TAB);
+		EpublicBrsChildDetailPage.dateOfBirth.sendKeys("05/07/2017");
+		EpublicBrsChildDetailPage.dateOfBirth.sendKeys(Keys.TAB);
+		Thread.sleep(1000);
 		EpublicBrsChildDetailPage.sex.sendKeys("Female");
 		//EpublicBrsChildDetailPage.multipleBirthNO.click();
 		//EpublicBrsChildDetailPage.bornAliveYes.click();

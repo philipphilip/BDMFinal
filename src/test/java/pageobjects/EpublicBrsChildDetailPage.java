@@ -17,7 +17,7 @@ public class EpublicBrsChildDetailPage extends BaseClass {
 	public static WebElement firstName;
 
 	@FindBy(id = "brs-childDetails-childDetails-dateOfBirth")
-	public static WebElement birthday;
+	public static WebElement dateOfBirth;
 
 	@FindBy(id = "brs-childDetails-childDetails-sexOfChild")
 	public static WebElement sex;

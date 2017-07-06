@@ -46,8 +46,13 @@ public class Hooks {
 
 
 		driver.manage().deleteAllCookies();
-		driver.manage().window().maximize();
+		//driver.manage().window().maximize();
 
+	}
+
+	@After
+	public void closeDriver(Scenario scenario) {
+		driver.quit();
 	}
 
 	@After

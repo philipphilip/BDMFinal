@@ -1,5 +1,7 @@
 package modules;
 
+import helpers.DataHelper;
+import org.apache.commons.lang3.RandomStringUtils;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
@@ -13,11 +15,18 @@ public class FillEpublicBrsParentDetailForm {
 	public static void Execute(WebDriver driver) throws Exception {
 
 		PageFactory.initElements(driver, EpublicBrsParentDetailPage.class);
-
+		Thread.sleep(3000);
 		EpublicBrsParentDetailPage.parentType.sendKeys("Mother");
-		EpublicBrsParentDetailPage.familyName.sendKeys("Citizen");
-		EpublicBrsParentDetailPage.familyNameAtBirth.sendKeys("Citizenbirth");
-		EpublicBrsParentDetailPage.givenName.sendKeys("Jane");
+
+		String brsMotherFamilyName = DataHelper.getRandomStringAs("brsMotherFamilyName",10);
+		EpublicBrsParentDetailPage.familyName.sendKeys(brsMotherFamilyName);
+
+		String brsMotherFamilyNameAtBirth = DataHelper.getRandomStringAs("brsMotherFamilyNameAtBirth",10);
+		EpublicBrsParentDetailPage.familyNameAtBirth.sendKeys(brsMotherFamilyNameAtBirth);
+
+		String brsMotherGivenName = DataHelper.getRandomStringAs("brsMotherGivenName",10);
+		EpublicBrsParentDetailPage.givenName.sendKeys(brsMotherGivenName);
+
 		EpublicBrsParentDetailPage.birthday.sendKeys("05/07/1990");
 		EpublicBrsParentDetailPage.birthday.sendKeys(Keys.TAB);
 		EpublicBrsParentDetailPage.suburb.sendKeys("ringwood");

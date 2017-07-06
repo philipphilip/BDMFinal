@@ -5,6 +5,7 @@ import java.util.HashMap;
 import java.util.List;
 
 import modules.*;
+import org.junit.Assert;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
 import pageobjects.*;
@@ -81,7 +82,7 @@ public class BDMForm {
 
 	@When("^I fill in the \"(.*?)\" of BRS in epublic$")
 	public void i_fill_brs_in_ePublic$(String arg1) throws Throwable {
-		Thread.sleep(3000);
+		Thread.sleep(2000);
 		System.out.println("--------I fill brs form in epublic " + arg1);
 		if (arg1.equals("Child's details")) {
 			System.out.println("--------I am in the condition of filling Child's details of BRS in epublic");
@@ -92,19 +93,81 @@ public class BDMForm {
 		}else if (arg1.equals("Second parent details")) {
 			System.out.println("--------I am in the condition of filling Second parent details of BRS in epublic");
 			FillEpublicBrsSecondParentDetailForm.Execute(driver);
+		}else if (arg1.equals("Relationship details")) {
+			System.out.println("--------I am in the condition of filling Relationship details of BRS in epublic");
+			FillEpublicBrsRelationshipDetailForm.Execute(driver);
+		}else if (arg1.equals("Second parent participation details")) {
+			System.out.println("--------I am in the condition of filling Relationship details of BRS in epublic");
+			FillEpublicBrsSecondParentParticipationDetailForm.Execute(driver);
+		}else if (arg1.equals("Informant 1 details")) {
+			System.out.println("--------I am in the condition of filling Informant 1 details of BRS in epublic");
+			FillEpublicBrsInformant1DetailForm.Execute(driver);
 		}
 
 
+
+
 	}
+
+
 	@When("^I click \"(.*?)\" button on \"(.*?)\" page of \"(.*?)\" in \"(.*?)\"$")
 	public void i_click_button$(String arg1, String arg2, String arg3, String arg4) throws Throwable {
 		if (arg1.equals("Next")) {
 			System.out.println("--------I am clicking Next button");
 			Thread.sleep(2000);
 			EpublicControls.nextButton.click();
+		} else if (arg1.equals("Save")) {
+			System.out.println("--------I am clicking Save button");
+			Thread.sleep(2000);
+			EpublicControls.saveButton.click();
+		} else if (arg1.equals("DashBoard")) {
+			System.out.println("--------I am clicking DashBoard button");
+			Thread.sleep(2000);
+			EpublicControls.dashBoard.click();
+		} else if (arg1.equals("Continue")) {
+			System.out.println("--------I am clicking Continue button");
+			Thread.sleep(2000);
+			EpublicControls.continueButton.click();
+		} else if (arg1.equals("Close")) {
+			System.out.println("--------I am clicking Continue button");
+			Thread.sleep(2000);
+			EpublicControls.closeButton.click();
+		} else if (arg1.equals("Submit Order")) {
+			System.out.println("--------I am clicking Submit Order button");
+			Thread.sleep(2000);
+			EpublicControls.submitOrderButton.click();
+		} else if (arg1.equals("accept the terms and conditions")) {
+			System.out.println("--------I am clicking accept the terms and conditions button");
+			Thread.sleep(2000);
+			EpublicControls.reviewDeclaration.click();
+		} else if (arg1.equals("Submit")) {
+			System.out.println("--------I am clicking Submit button");
+			Thread.sleep(2000);
+			EpublicControls.submitButton.click();
 		}
 
+
+
+
+
+
+
+
+
+
 	}
+
+	@When("^I can see \"(.*?)\" on page$")
+	public void i_can_see$(String arg1) throws Throwable {
+
+		System.out.println("--------I am checking the message");
+		Thread.sleep(1000);
+		String result = EpublicControls.message.getText();
+
+		Assert.assertTrue("result message not found", result.contains(arg1));
+
+	}
+
 
 
 
