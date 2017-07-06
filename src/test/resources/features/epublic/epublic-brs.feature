@@ -22,7 +22,7 @@ Feature: ePublic brs
     And I click "DashBoard" button on "Declaration" page of "BRS" in "epublic"
     And I click "Submit Order" button on "Declaration" page of "BRS" in "epublic"
     And I click "accept the terms and conditions" button on "Review" page of "BRS" in "epublic"
-    And I click "Submit" button on "Review" page of "BRS" in "epublic"
+    Then I click "Submit" button on "Review" page of "BRS" in "epublic"
 
 
     #And I click "Close" button on "Add Documents" page of "BRS" in "epublic"

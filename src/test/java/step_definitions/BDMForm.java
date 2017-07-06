@@ -122,7 +122,7 @@ public class BDMForm {
 			EpublicControls.saveButton.click();
 		} else if (arg1.equals("DashBoard")) {
 			System.out.println("--------I am clicking DashBoard button");
-			Thread.sleep(2000);
+			Thread.sleep(3000);
 			EpublicControls.dashBoard.click();
 		} else if (arg1.equals("Continue")) {
 			System.out.println("--------I am clicking Continue button");
