@@ -12,7 +12,7 @@ public class FillEpublicBrsRelationshipDetailForm {
 	public static void Execute(WebDriver driver) throws Exception {
 
 		PageFactory.initElements(driver, EpublicBrsRelationshipDetailPage.class);
-		Thread.sleep(2000);
+		Thread.sleep(3000);
 		EpublicBrsRelationshipDetailPage.relationship.sendKeys("Married");
 		Thread.sleep(1000);
 		EpublicBrsRelationshipDetailPage.relationshipDate.sendKeys("01/01/2010");
