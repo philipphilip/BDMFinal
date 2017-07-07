@@ -3,7 +3,6 @@ package modules;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
 import pageobjects.EpublicBrsRelationshipDetailPage;
-import pageobjects.EpublicBrsSecondParentDetailPage;
 import pageobjects.EpublicControls;
 
 

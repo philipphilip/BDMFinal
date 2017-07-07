@@ -4,16 +4,16 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
-public class EpublicLoginPage extends BaseClass {
+public class EregistryLoginPage extends BaseClass {
 
-	public EpublicLoginPage(WebDriver driver) {
+	public EregistryLoginPage(WebDriver driver) {
 		super(driver);
 	}
 
-	@FindBy(xpath = ".//*[@id='login-username']")
+	@FindBy(xpath = ".//*[@id='Username']")
 	public static WebElement username;
 
-	@FindBy(xpath = ".//*[@id='login-password']")
+	@FindBy(xpath = ".//*[@id='Password']")
 	public static WebElement password;
 
 	@FindBy(xpath = ".//*/button[contains(text(),'Login')]")

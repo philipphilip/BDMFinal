@@ -1,9 +1,8 @@
 package step_definitions;
 
-import org.junit.runner.RunWith;
-
 import cucumber.api.CucumberOptions;
 import cucumber.api.junit.Cucumber;
+import org.junit.runner.RunWith;
 
 
 @RunWith(Cucumber.class)
@@ -11,7 +10,7 @@ import cucumber.api.junit.Cucumber;
 		features = "classpath:features",
 		//plugin = {"pretty", "html:target/cucumber-html-report"},
 		plugin = {"json:target/report.json"},
-		tags = {"@epublic"}
+		tags = {"@eregistry"}
 		)
 
 public class RunCukesTest{

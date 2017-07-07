@@ -3,10 +3,7 @@ package modules;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
-
-import pageobjects.BRSPage;
 import pageobjects.CoreControls;
-import step_definitions.Hooks;
 
 public class GoToBRSForm {
 

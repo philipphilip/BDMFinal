@@ -3,8 +3,6 @@ package modules;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
-
-import pageobjects.CODPage;
 import pageobjects.CoreControls;
 
 public class GoToCODForm {

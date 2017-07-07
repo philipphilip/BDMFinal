@@ -1,11 +1,9 @@
 package modules;
 
 import helpers.DataHelper;
-import org.apache.commons.lang3.RandomStringUtils;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
-import pageobjects.EpublicBrsChildDetailPage;
 import pageobjects.EpublicBrsParentDetailPage;
 import pageobjects.EpublicControls;
 

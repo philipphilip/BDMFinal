@@ -1,12 +1,11 @@
 package modules;
 
 import helpers.Log;
-import java.util.HashMap;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Reporter;
 import pageobjects.LoginPage;
+
+import java.util.HashMap;
 
 public class SignInAction {
 

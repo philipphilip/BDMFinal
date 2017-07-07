@@ -1,16 +1,16 @@
 package step_definitions;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-
+import cucumber.api.java.en.Then;
+import cucumber.api.java.en.When;
 import modules.*;
 import org.junit.Assert;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
 import pageobjects.*;
-import cucumber.api.java.en.Then;
-import cucumber.api.java.en.When;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
 
 public class BDMForm {
 	public WebDriver driver;
@@ -46,17 +46,24 @@ public class BDMForm {
 		SignoutAction.Execute(driver);
 	}
 
-
-	@When("^I open ePublic website$")
-	public void i_open_ePublic_website() throws Throwable {
-		driver.get("http://10.22.1.200/epublic/login");
+	@When("^I open \"(.*?)\" website$")
+	public void i_open_website(String website) throws Throwable {
+		if(website.equals("ePublic")) {
+			driver.get("http://10.22.1.200/epublic/login");
+		}else if(website.equals("eRegistry")) {
+			driver.get("http://10.22.1.200/eregistry/login");
+		}
 	}
 
-	@When("^I sign in ePublic$")
-	public void i_sign_in_ePublic() throws Throwable {
-		PageFactory.initElements(driver, AutomationHomePage.class);
-		PageFactory.initElements(driver, EpublicLoginPage.class);
-		EpublicSignInAction.Execute(driver, datamap.get(0));
+	@When("^I sign in \"(.*?)\"")
+	public void i_sign_in_site(String website) throws Throwable {
+		if(website.equals("ePublic")) {
+			PageFactory.initElements(driver, EpublicLoginPage.class);
+			EpublicSignInAction.Execute(driver, datamap.get(0));
+		}else if(website.equals("eRegistry")) {
+			PageFactory.initElements(driver, EregistryLoginPage.class);
+			EregistrySignInAction.Execute(driver, datamap.get(0));
+		}
 
 	}
 
