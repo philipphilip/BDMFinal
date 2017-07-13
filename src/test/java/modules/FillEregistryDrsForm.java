@@ -7,96 +7,93 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
 import pageobjects.EpublicBrsChildDetailPage;
 import pageobjects.EpublicControls;
-import pageobjects.EregistryCodPage;
 import pageobjects.EregistryDrsPage;
-import step_definitions.BDMForm;
 
 
 public class FillEregistryDrsForm {
 
-	public static void Execute(WebDriver driver) throws Exception {
+	public static void Execute(WebDriver driver) throws Throwable {
 
 		PageFactory.initElements(driver, EregistryDrsPage.class);
-		Thread.sleep(3000);
+		//Thread.sleep(3000);
 
 		String drsFamilyName = DataHelper.getRandomStringAs("DrsFamilyName",10);
-		EregistryDrsPage.familyName.sendKeys(drsFamilyName);
+		Helper.inputItem(EregistryDrsPage.familyName,drsFamilyName);
 		String drsGivenName = DataHelper.getRandomStringAs("DrsGivenName",10);
-		EregistryDrsPage.givenName.sendKeys(drsGivenName);
+		Helper.inputItem(EregistryDrsPage.givenName,drsGivenName);
 
-		Helper.selectDropDownList( EregistryDrsPage.sex,"Female");
+		Helper.inputItem(EregistryDrsPage.sex,"Female");
 
-		EregistryDrsPage.dateOfDeathType.sendKeys("On");
-		EregistryDrsPage.deathDay.sendKeys("07");
-		EregistryDrsPage.deathMonth.sendKeys("07");
-		EregistryDrsPage.deathYear.sendKeys("2017");
+		Helper.inputItem(EregistryDrsPage.dateOfDeathType,"On");
+		Helper.inputItem(EregistryDrsPage.deathDay,"07");
+		Helper.inputItem(EregistryDrsPage.deathMonth,"07");
+		Helper.inputItem(EregistryDrsPage.deathYear,"2017");
 
-		EregistryDrsPage.dateOfBirthType.sendKeys("On");
-		EregistryDrsPage.birthDay.sendKeys("07");
-		EregistryDrsPage.birthMonth.sendKeys("07");
-		EregistryDrsPage.birthYear.sendKeys("1937");
+		Helper.inputItem(EregistryDrsPage.dateOfBirthType,"On");
+		Helper.inputItem(EregistryDrsPage.birthDay,"07");
+		Helper.inputItem(EregistryDrsPage.birthMonth,"07");
+		Helper.inputItem(EregistryDrsPage.birthYear,"1937");
 
-		EregistryDrsPage.deathWhere.sendKeys("Hospital");
-		Helper.selectDropDownList( EregistryDrsPage.hospitalName,"Abel Tasman Village");
-		Helper.selectDropDownList( EregistryDrsPage.hospitalTownSuburbCity,"Wollongong");
+		Helper.inputItem(EregistryDrsPage.deathWhere,"Hospital");
+		Helper.inputItem(EregistryDrsPage.hospitalName,"Abel Tasman Village");
+		Helper.inputItem(EregistryDrsPage.hospitalTownSuburbCity,"Wollongong");
 
-		EregistryDrsPage.birthSuburb.sendKeys("ringwood");
+		Helper.inputItem(EregistryDrsPage.birthSuburb,"ringwood");
 
-		EregistryDrsPage.residenceLine1.sendKeys("22 station st");
-		EregistryDrsPage.residenceSuburb.sendKeys("ringwood");
-		EregistryDrsPage.residencePostcode.sendKeys("3333");
+		Helper.inputItem(EregistryDrsPage.residenceLine1,"22 station st");
+		Helper.inputItem(EregistryDrsPage.residenceSuburb,"ringwood");
+		Helper.inputItem(EregistryDrsPage.residencePostcode,"3333");
+		Helper.inputItem(EregistryDrsPage.occupation,"accountant");
+		Helper.inputItem(EregistryDrsPage.aboriginal,"Neither Aboriginal or Torres Strait Islander");
 
-		Helper.selectDropDownList( EregistryDrsPage.occupation,"accountant");
-		Helper.selectDropDownList( EregistryDrsPage.aboriginal,"Neither Aboriginal or Torres Strait Islander");
+		Helper.inputItem(EregistryDrsPage.relationship,"Married");
+		Helper.inputItem(EregistryDrsPage.relationshipSuburb,"ringwood");
+		Helper.inputItem(EregistryDrsPage.relationshipAge,"20");
 
-		EregistryDrsPage.relationship.sendKeys("Married");
-		EregistryDrsPage.relationshipSuburb.sendKeys("ringwood");
-		EregistryDrsPage.relationshipAge.sendKeys("20");
+		Helper.inputItem(EregistryDrsPage.spouseFamilyName,"Smith");
+		Helper.inputItem(EregistryDrsPage.spouseGivenName,"Tom");
 
-		EregistryDrsPage.spouseFamilyName.sendKeys("Smith");
-		EregistryDrsPage.spouseGivenName.sendKeys("Tom");
+		Helper.inputItem(EregistryDrsPage.numberPreviousRelationships,"0");
+		Helper.inputItem(EregistryDrsPage.numberOfChildren,"0");
 
-		EregistryDrsPage.numberPreviousRelationships.sendKeys("0");
-		EregistryDrsPage.numberOfChildren.sendKeys("0");
+		Helper.inputItem(EregistryDrsPage.parent1Type,"Mother");
+		Helper.inputItem(EregistryDrsPage.parent1FamilyName,"Maria");
+		Helper.inputItem(EregistryDrsPage.parent1GivenName,"Mary");
+		Helper.inputItem(EregistryDrsPage.parent1Occupation,"accountant");
 
-		EregistryDrsPage.parent1Type.sendKeys("Mother");
-		EregistryDrsPage.parent1FamilyName.sendKeys("Maria");
-		EregistryDrsPage.parent1GivenName.sendKeys("Mary");
-		Helper.selectDropDownList( EregistryDrsPage.parent1Occupation,"accountant");
+		Helper.inputItem(EregistryDrsPage.parent2Type,"Father");
+		Helper.inputItem(EregistryDrsPage.parent2FamilyName,"Murry");
+		Helper.inputItem(EregistryDrsPage.parent2GivenName,"David");
+		Helper.inputItem(EregistryDrsPage.parent2Occupation,"accountant");
 
-		EregistryDrsPage.parent2Type.sendKeys("Father");
-		EregistryDrsPage.parent2FamilyName.sendKeys("Murry");
-		EregistryDrsPage.parent2GivenName.sendKeys("David");
-		Helper.selectDropDownList( EregistryDrsPage.parent2Occupation,"accountant");
+		Helper.inputItem(EregistryDrsPage.under18,"Yes");
+		Helper.inputItem(EregistryDrsPage.numberSibling,"0");
 
-		EregistryDrsPage.under18.sendKeys("Yes");
-		EregistryDrsPage.numberSibling.sendKeys("0");
+		Helper.inputItem(EregistryDrsPage.informantRelationship,"FATHER");
+		Helper.inputItem(EregistryDrsPage.informantFamilyName,"Murry");
+		Helper.inputItem(EregistryDrsPage.informantGivenName,"David");
+		Helper.inputItem(EregistryDrsPage.informantLine1,"22 station rd");
+		Helper.inputItem(EregistryDrsPage.informantSuburb,"ringwood");
+		Helper.inputItem(EregistryDrsPage.informantPostcode,"3333");
+		Helper.inputItem(EregistryDrsPage.informantSameasPostalAddress,"Yes");
 
-		EregistryDrsPage.informantRelationship.sendKeys("FATHER");
-		EregistryDrsPage.informantFamilyName.sendKeys("Murry");
-		EregistryDrsPage.informantGivenName.sendKeys("David");
-		EregistryDrsPage.informantLine1.sendKeys("22 station rd");
-		EregistryDrsPage.informantSuburb.sendKeys("ringwood");
-		EregistryDrsPage.informantPostcode.sendKeys("3333");
-		EregistryDrsPage.informantSameasPostalAddress.sendKeys("Yes");
+		Helper.inputItem(EregistryDrsPage.informantTelephone,"99998888");
 
-		EregistryDrsPage.informantTelephone.sendKeys("99998888");
+		Helper.inputItem(EregistryDrsPage.methodOfDisposal,"Buried");
+		Helper.inputItem(EregistryDrsPage.disposalDay,"07");
+		Helper.inputItem(EregistryDrsPage.disposalMonth,"07");
+		Helper.inputItem(EregistryDrsPage.disposalYear,"2017");
+		Helper.inputItem(EregistryDrsPage.within30Days,"Yes");
 
-		EregistryDrsPage.methodOfDisposal.sendKeys("Buried");
-		EregistryDrsPage.disposalDay.sendKeys("07");
-		EregistryDrsPage.disposalMonth.sendKeys("07");
-		EregistryDrsPage.disposalYear.sendKeys("2017");
-		EregistryDrsPage.within30Days.sendKeys("Yes");
-		Thread.sleep(1000);
-		Helper.selectDropDownList( EregistryDrsPage.cemeteryName,"Melbourne General Cemetery");
-		EregistryDrsPage.cemeteryLine1.sendKeys("122 station rd");
-		EregistryDrsPage.cemeterySuburb.sendKeys("ringwood");
-		EregistryDrsPage.cemeteryPostcode.sendKeys("3333");
+		Helper.inputItem(EregistryDrsPage.cemeteryName,"Melbourne General Cemetery");
+		Helper.inputItem(EregistryDrsPage.cemeteryLine1,"122 station rd");
+		Helper.inputItem(EregistryDrsPage.cemeterySuburb,"ringwood");
+		Helper.inputItem(EregistryDrsPage.cemeteryPostcode,"3333");
 
-		EregistryDrsPage.deathCertifiedBy.sendKeys("Coroner");
-		EregistryDrsPage.coronerSuburb.sendKeys("ringwood");
+		Helper.inputItem(EregistryDrsPage.deathCertifiedBy,"Coroner");
+		Helper.inputItem(EregistryDrsPage.coronerSuburb,"ringwood");
 
-		EregistryDrsPage.saveButton.click();
+		Helper.clickItem(EregistryDrsPage.saveButton);
 
 
 	}

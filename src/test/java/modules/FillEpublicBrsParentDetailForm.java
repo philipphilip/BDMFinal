@@ -16,22 +16,23 @@ public class FillEpublicBrsParentDetailForm {
 	public static void Execute(WebDriver driver) throws Throwable {
 
 		PageFactory.initElements(driver, EpublicBrsParentDetailPage.class);
-		Thread.sleep(3000);
-		EpublicBrsParentDetailPage.parentType.sendKeys("Mother");
+		//Thread.sleep(3000);
+		Helper.inputItem(EpublicBrsParentDetailPage.parentType,"Mother");
 
 		String brsMotherFamilyName = DataHelper.getRandomStringAs("brsMotherFamilyName",10);
-		EpublicBrsParentDetailPage.familyName.sendKeys(brsMotherFamilyName);
+		Helper.inputItem(EpublicBrsParentDetailPage.familyName,brsMotherFamilyName);
 
 		String brsMotherFamilyNameAtBirth = DataHelper.getRandomStringAs("brsMotherFamilyNameAtBirth",10);
-		EpublicBrsParentDetailPage.familyNameAtBirth.sendKeys(brsMotherFamilyNameAtBirth);
+		Helper.inputItem(EpublicBrsParentDetailPage.familyNameAtBirth,brsMotherFamilyNameAtBirth);
 
 		String brsMotherGivenName = DataHelper.getRandomStringAs("brsMotherGivenName",10);
-		EpublicBrsParentDetailPage.givenName.sendKeys(brsMotherGivenName);
+		Helper.inputItem(EpublicBrsParentDetailPage.givenName,brsMotherGivenName);
 
-		EpublicBrsParentDetailPage.birthday.sendKeys("05/07/1990");
+		Helper.inputItem(EpublicBrsParentDetailPage.birthday,"05/07/1990");
 		EpublicBrsParentDetailPage.birthday.sendKeys(Keys.TAB);
-		EpublicBrsParentDetailPage.suburb.sendKeys("ringwood");
-		EpublicBrsParentDetailPage.state.sendKeys("VIC");
+
+		Helper.inputItem(EpublicBrsParentDetailPage.suburb,"ringwood");
+		Helper.inputItem(EpublicBrsParentDetailPage.state,"VIC");
 		Helper.selectDropDownList( EpublicBrsParentDetailPage.aboriginal,"Neither Aboriginal or Torres Strait Islander");
 		Helper.selectDropDownList( EpublicBrsParentDetailPage.occupation,"accountant");
 		//EpublicBrsParentDetailPage.street.sendKeys("22 statioin st");
@@ -39,7 +40,7 @@ public class FillEpublicBrsParentDetailForm {
 		//EpublicBrsParentDetailPage.addressState.sendKeys("VIC");
 		//EpublicBrsParentDetailPage.postcode.sendKeys("3555");
 
-		EpublicControls.nextButton.click();
+		Helper.clickItem(EpublicControls.nextButton);
 
 	}
 

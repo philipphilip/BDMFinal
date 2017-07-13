@@ -16,11 +16,12 @@ public class FillEpublicBrsChildDetailForm {
 		PageFactory.initElements(driver, EpublicBrsChildDetailPage.class);
 		//Thread.sleep(3000);
 		Helper.inputItem(EpublicBrsChildDetailPage.familyName,"smith");
-		EpublicBrsChildDetailPage.firstName.sendKeys("mary");
-		EpublicBrsChildDetailPage.dateOfBirth.sendKeys("05/07/2017");
+		Helper.inputItem(EpublicBrsChildDetailPage.firstName,"mary");
+		Helper.inputItem(EpublicBrsChildDetailPage.dateOfBirth,"05/07/2017");
 		EpublicBrsChildDetailPage.dateOfBirth.sendKeys(Keys.TAB);
+
 		Thread.sleep(1000);
-		EpublicBrsChildDetailPage.sex.sendKeys("Female");
+		Helper.inputItem(EpublicBrsChildDetailPage.sex,"Female");
 		//EpublicBrsChildDetailPage.multipleBirthNO.click();
 		//EpublicBrsChildDetailPage.bornAliveYes.click();
 		//EpublicBrsChildDetailPage.hospitalYes.click();
@@ -39,7 +40,7 @@ public class FillEpublicBrsChildDetailForm {
 		EpublicBrsChildDetailPage.hospitalSuburblist.click();
 
 
-		EpublicControls.nextButton.click();
+		Helper.clickItem(EpublicControls.nextButton);
 
 	}
 

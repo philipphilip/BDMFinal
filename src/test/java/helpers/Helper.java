@@ -21,8 +21,8 @@ public class Helper {
 			item.sendKeys(value);
 		}catch (Throwable e)
 		{
-			System.out.println("Input item failed, wait for 20 seconds to input again.");
-			Thread.sleep(20000);
+			System.out.println("Input item failed, wait for 10 seconds to input again.");
+			Thread.sleep(10000);
 			item.sendKeys(value);
 		}
 	}
@@ -36,8 +36,8 @@ public class Helper {
 			item.click();
 		}catch (Throwable e)
 		{
-			System.out.println("Click item failed, wait for 20 seconds to click again.");
-			Thread.sleep(20000);
+			System.out.println("Click item failed, wait for 10 seconds to click again.");
+			Thread.sleep(10000);
 			item.click();
 		}
 	}
@@ -80,8 +80,8 @@ public class Helper {
 			wait.until(ExpectedConditions.textToBePresentInElement(textItem, text ));
 		}catch (Throwable e)
 		{
-			System.out.println("Get text from item failed, wait for 20 seconds to get again.");
-			Thread.sleep(20000);
+			System.out.println("Get text from item failed, wait for 10 seconds to get again.");
+			Thread.sleep(10000);
 
 		}
 		String result = textItem.getText();

@@ -1,5 +1,6 @@
 package modules;
 
+import helpers.Helper;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
 import pageobjects.EpublicBrsSecondParentParticipationDetailPage;
@@ -11,11 +12,11 @@ public class FillEpublicBrsSecondParentParticipationDetailForm {
 	public static void Execute(WebDriver driver) throws Throwable {
 
 		PageFactory.initElements(driver, EpublicBrsSecondParentParticipationDetailPage.class);
-		Thread.sleep(2000);
+		//Thread.sleep(2000);
 
-		EpublicBrsSecondParentParticipationDetailPage.telephone.sendKeys("99996666");
+		Helper.inputItem(EpublicBrsSecondParentParticipationDetailPage.telephone,"99996666");
 
-		EpublicControls.nextButton.click();
+		Helper.clickItem(EpublicControls.nextButton);
 
 	}
 

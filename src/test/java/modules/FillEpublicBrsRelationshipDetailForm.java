@@ -1,5 +1,6 @@
 package modules;
 
+import helpers.Helper;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
 import pageobjects.EpublicBrsRelationshipDetailPage;
@@ -11,12 +12,12 @@ public class FillEpublicBrsRelationshipDetailForm {
 	public static void Execute(WebDriver driver) throws Throwable {
 
 		PageFactory.initElements(driver, EpublicBrsRelationshipDetailPage.class);
-		Thread.sleep(3000);
-		EpublicBrsRelationshipDetailPage.relationship.sendKeys("Married");
-		Thread.sleep(1000);
-		EpublicBrsRelationshipDetailPage.relationshipDate.sendKeys("01/01/2010");
+		//Thread.sleep(3000);
+		Helper.inputItem(EpublicBrsRelationshipDetailPage.relationship,"Married");
+		//Thread.sleep(1000);
+		Helper.inputItem(EpublicBrsRelationshipDetailPage.relationshipDate,"01/01/2010");
 
-		EpublicControls.nextButton.click();
+		Helper.clickItem(EpublicControls.nextButton);
 
 	}
 
