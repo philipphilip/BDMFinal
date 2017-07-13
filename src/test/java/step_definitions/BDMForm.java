@@ -123,7 +123,7 @@ public class BDMForm {
 
 	@When("^I fill in the \"(.*?)\" of \"(.*?)\" in \"(.*?)\"$")
 	public void i_fill_form$(String page, String form, String site) throws Throwable {
-		Thread.sleep(3000);
+		//Thread.sleep(3000);
 
 		System.out.println("--------I fill " + form + " form in " + site + " page: " + page);
 		if( site.equals("epublic")) {
@@ -285,33 +285,32 @@ public class BDMForm {
 	public void i_can_see$(String text, String page, String site) throws Throwable {
 
 		System.out.println("--------I am checking the message");
-		Thread.sleep(2000);
+		//Thread.sleep(2000);
 
 		String result = "";
 
 		if (site.equals("epublic")) {
 			if (page.equals("brs Submit result")) {
-				Thread.sleep(3000);
-				result = EpublicControls.brsSubmitResult.getText();
+				//Thread.sleep(3000);
+				Helper.checkText(EpublicControls.brsSubmitResult, text);
 			} else {
-				Thread.sleep(1000);
-				result = EpublicControls.message.getText();
+				//Thread.sleep(1000);
+				Helper.checkText(EpublicControls.message, text);
 			}
 
 		}else if(site.equals("eregistry")) {
 			if(page.equals("drs Submit result"))
 			{
-				result = EregistryControls.submitResultMessage.getText();
+				Helper.checkText(EregistryControls.submitResultMessage, text);
 			} else if(page.equals("cod Submit result"))
 			{
-				result = EregistryControls.submitResultMessage.getText();
+				Helper.checkText(EregistryControls.submitResultMessage, text);
 			} else if (page.equals("Drs")){
-				result = EregistryControls.drsMessage.getText();
+				Helper.checkText(EregistryControls.drsMessage, text);
 			}else if (page.equals("COD")){
-				result = EregistryControls.codMessage.getText();
+				Helper.checkText(EregistryControls.codMessage, text);
 			}
 		}
-		Assert.assertTrue("result message not found", result.contains(text));
 
 	}
 

@@ -1,10 +1,12 @@
 package helpers;
 
 
+import org.junit.Assert;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import pageobjects.EregistryControls;
 import step_definitions.Hooks;
 import java.util.List;
 
@@ -70,5 +72,21 @@ public class Helper {
 	}
 
 	//TODO: check page text
+	public static void checkText(WebElement textItem, String text) throws Throwable{
+
+		try {
+			WebDriverWait wait = new WebDriverWait(Hooks.driver, 60);
+			wait.until(ExpectedConditions.visibilityOf(textItem));
+			wait.until(ExpectedConditions.textToBePresentInElement(textItem, text ));
+		}catch (Throwable e)
+		{
+			System.out.println("Get text from item failed, wait for 20 seconds to get again.");
+			Thread.sleep(20000);
+
+		}
+		String result = textItem.getText();
+		Assert.assertTrue("result message not found", result.contains(text));
+	}
+
 
 }
