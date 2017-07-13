@@ -1,19 +1,21 @@
 package modules;
 
+import helpers.Helper;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
 import pageobjects.EpublicBrsChildDetailPage;
 import pageobjects.EpublicControls;
+import step_definitions.BDMForm;
 
 
 public class FillEpublicBrsChildDetailForm {
 
-	public static void Execute(WebDriver driver) throws Exception {
+	public static void Execute(WebDriver driver) throws Throwable {
 
 		PageFactory.initElements(driver, EpublicBrsChildDetailPage.class);
-		Thread.sleep(3000);
-		EpublicBrsChildDetailPage.familyName.sendKeys("smith");
+		//Thread.sleep(3000);
+		Helper.inputItem(EpublicBrsChildDetailPage.familyName,"smith");
 		EpublicBrsChildDetailPage.firstName.sendKeys("mary");
 		EpublicBrsChildDetailPage.dateOfBirth.sendKeys("05/07/2017");
 		EpublicBrsChildDetailPage.dateOfBirth.sendKeys(Keys.TAB);

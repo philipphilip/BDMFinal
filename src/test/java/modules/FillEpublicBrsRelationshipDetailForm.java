@@ -8,7 +8,7 @@ import pageobjects.EpublicControls;
 
 public class FillEpublicBrsRelationshipDetailForm {
 
-	public static void Execute(WebDriver driver) throws Exception {
+	public static void Execute(WebDriver driver) throws Throwable {
 
 		PageFactory.initElements(driver, EpublicBrsRelationshipDetailPage.class);
 		Thread.sleep(3000);

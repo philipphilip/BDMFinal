@@ -1,16 +1,19 @@
 package modules;
 
 import helpers.DataHelper;
+import helpers.Helper;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
 import pageobjects.EpublicBrsParentDetailPage;
 import pageobjects.EpublicControls;
+import pageobjects.EregistryCodPage;
+import step_definitions.BDMForm;
 
 
 public class FillEpublicBrsParentDetailForm {
 
-	public static void Execute(WebDriver driver) throws Exception {
+	public static void Execute(WebDriver driver) throws Throwable {
 
 		PageFactory.initElements(driver, EpublicBrsParentDetailPage.class);
 		Thread.sleep(3000);
@@ -29,8 +32,8 @@ public class FillEpublicBrsParentDetailForm {
 		EpublicBrsParentDetailPage.birthday.sendKeys(Keys.TAB);
 		EpublicBrsParentDetailPage.suburb.sendKeys("ringwood");
 		EpublicBrsParentDetailPage.state.sendKeys("VIC");
-		EpublicBrsParentDetailPage.aboriginal.sendKeys("Neither Aboriginal or Torres Strait Islander");
-		EpublicBrsParentDetailPage.occupation.sendKeys("accountant");
+		Helper.selectDropDownList( EpublicBrsParentDetailPage.aboriginal,"Neither Aboriginal or Torres Strait Islander");
+		Helper.selectDropDownList( EpublicBrsParentDetailPage.occupation,"accountant");
 		//EpublicBrsParentDetailPage.street.sendKeys("22 statioin st");
 		//EpublicBrsParentDetailPage.addressSuburb.sendKeys("ringwood");
 		//EpublicBrsParentDetailPage.addressState.sendKeys("VIC");

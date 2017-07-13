@@ -8,10 +8,10 @@ import pageobjects.EpublicControls;
 
 public class FillEpublicBrsSecondParentDetailForm {
 
-	public static void Execute(WebDriver driver) throws Exception {
+	public static void Execute(WebDriver driver) throws Throwable {
 
 		PageFactory.initElements(driver, EpublicBrsSecondParentDetailPage.class);
-		Thread.sleep(2000);
+		Thread.sleep(3000);
 		EpublicBrsSecondParentDetailPage.familyName.sendKeys("Smith");
 		EpublicBrsSecondParentDetailPage.givenName.sendKeys("Tom");
 		Thread.sleep(1000);

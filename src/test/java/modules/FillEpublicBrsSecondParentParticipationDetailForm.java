@@ -8,7 +8,7 @@ import pageobjects.EpublicControls;
 
 public class FillEpublicBrsSecondParentParticipationDetailForm {
 
-	public static void Execute(WebDriver driver) throws Exception {
+	public static void Execute(WebDriver driver) throws Throwable {
 
 		PageFactory.initElements(driver, EpublicBrsSecondParentParticipationDetailPage.class);
 		Thread.sleep(2000);

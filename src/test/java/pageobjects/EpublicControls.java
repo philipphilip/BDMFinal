@@ -34,6 +34,10 @@ public class EpublicControls extends BaseClass {
 	@FindBy(xpath = "//*[@id='ACTIVE0']")
 	public static WebElement submitOrderButton;
 
+	@FindBy(xpath = ".//*/button[contains(text(),'Checkout')]")
+	public static WebElement checkoutButton;
+
+
 	@FindBy(id = "reviewDraftRequest-declaration")
 	public static WebElement reviewDeclaration;
 
@@ -41,11 +45,16 @@ public class EpublicControls extends BaseClass {
 	public static WebElement submitButton;
 
 
-	@FindBy(xpath = "/html/body/app/div/brs-form/div/div/div[2]/form/div[1]/alerts/alert/div/span")
+	@FindBy(xpath = "/html/body/app/div/brs-form/div/div/div[2]/form/div[1]/alerts/alert/div")
 	public static WebElement message;
 
-	@FindBy(xpath = "/html/body/app/div/header/nav/nav/div/div[3]/ul/li[2]/a")
-	public static WebElement dashBoard;
+	@FindBy(xpath = "/html/body/app/div/registered-item-order-certificates/order-certificates/form/div/div/button[3]")
+	public static WebElement proceedButton;
+
+	@FindBy(xpath = "/html/body/app/div/payment-completion/div[2]/div[1]/div[4]/div[3]")
+	public static WebElement brsSubmitResult;
+
+
 
 
 }

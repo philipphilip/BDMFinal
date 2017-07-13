@@ -3,10 +3,7 @@ package step_definitions;
 import cucumber.api.Scenario;
 import cucumber.api.java.After;
 import cucumber.api.java.Before;
-import org.openqa.selenium.OutputType;
-import org.openqa.selenium.TakesScreenshot;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebDriverException;
+import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
 
 import java.net.MalformedURLException;
@@ -40,13 +37,14 @@ public class Hooks {
 
 
 		driver.manage().deleteAllCookies();
-		//driver.manage().window().maximize();
+		driver.manage().window().setPosition(new Point(1600,70));
+		driver.manage().window().maximize();
 
 	}
 
 	@After
 	public void closeDriver(Scenario scenario) {
-		driver.quit();
+		//driver.quit(); //disable temporarily
 	}
 
 	@After

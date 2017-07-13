@@ -20,6 +20,7 @@ public class DataHelper {
 		dataBuffer.put(name, str);
 		return str;
 	}
+
 	public static void storeDataBuffer (String name, String value)
 	{
 		dataBuffer.put(name, value);
