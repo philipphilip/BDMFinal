@@ -16,6 +16,10 @@ import org.openqa.selenium.remote.RemoteWebDriver;
 import cucumber.api.Scenario;
 import cucumber.api.java.After;
 import cucumber.api.java.Before;
+import org.openqa.selenium.*;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+import java.net.MalformedURLException;
 
 public class Hooks {
 	public static WebDriver driver;
@@ -43,8 +47,15 @@ public class Hooks {
 				"C:/Users/PPhilip/Projects/core-automation-testing/drivers/chrome-2.29-winx32/chromedriver.exe");
 
 		driver = new ChromeDriver();
+
 		driver.manage().deleteAllCookies();
+		driver.manage().window().setPosition(new Point(1600, 70));
 		driver.manage().window().maximize();
+	}
+
+	@After
+	public void closeDriver(Scenario scenario) {
+		// driver.quit(); //disable temporarily
 	}
 
 	@After

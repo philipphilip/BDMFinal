@@ -1,10 +1,11 @@
 package modules;
 
 import helpers.Log;
-import java.util.concurrent.TimeUnit;
 import org.openqa.selenium.WebDriver;
 import org.testng.Reporter;
 import pageobjects.AutomationHomePage;
+
+import java.util.concurrent.TimeUnit;
 
 public class SignoutAction {
 

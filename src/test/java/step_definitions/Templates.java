@@ -1,25 +1,19 @@
 package step_definitions;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.PageFactory;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
-
-import com.sun.org.apache.xerces.internal.impl.xpath.XPath;
-
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
-import pageobjects.CODPage;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import pageobjects.CoreControls;
 import pageobjects.LoginPage;
 import pageobjects.TemplatesPages;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
 
 public class Templates {
 	public WebDriver driver;

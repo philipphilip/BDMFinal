@@ -1,17 +1,36 @@
 package helpers;
 
-import java.io.File;
-import java.io.FileInputStream;
-import java.util.HashMap;
-import java.util.List;
-
+import org.apache.commons.lang3.RandomStringUtils;
 import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
+import java.io.FileInputStream;
+import java.util.HashMap;
+import java.util.List;
+
 public class DataHelper {
-	
+
+	private final static HashMap<String,String> dataBuffer = new HashMap<String,String>();
+
+	public static String getRandomStringAs ( String name, int length)
+	{
+		String str = RandomStringUtils.randomAlphabetic(length);
+		dataBuffer.put(name, str);
+		return str;
+	}
+
+	public static void storeDataBuffer (String name, String value)
+	{
+		dataBuffer.put(name, value);
+	}
+
+	public static String getStoredData (String name)
+	{
+		return dataBuffer.get(name);
+	}
+
 	public static List<HashMap<String,String>> data()
 	{
 
