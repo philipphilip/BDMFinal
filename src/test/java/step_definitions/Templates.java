@@ -36,7 +36,7 @@ public class Templates {
 		datamap.add(sampleData);
 	}
 
-	private static String baseURL = "http://10.22.1.200/admin/home";
+	private static String baseURL = "http://10.22.1.110/admin/login";
 
 	@Given("^I am on CORE Admin site$")
 	public void i_am_on_CORE_Admin_site() throws Throwable {
@@ -55,41 +55,44 @@ public class Templates {
 	public void i_want_to_create_a_template(String arg1) throws Throwable {
 		PageFactory.initElements(driver, CoreControls.class);
 
-		// WebDriverWait waitForMeanuTabs = new WebDriverWait(driver, 10000);
-		// CoreControls.templateManagement = waitForMeanuTabs
-		// .until(ExpectedConditions.elementToBeClickable(CoreControls.templateManagement));
 		System.out.println("------------before clicking menue tab");
-		// CoreControls.templateManagement.click();
+
 		PageFactory.initElements(driver, TemplatesPages.class);
 		if (arg1.equals("SMS corro")) {
-			PageFactory.initElements(driver, TemplatesPages.class);
+			Thread.sleep(2000);
+			CoreControls.templateManagement.click();
+
+			Thread.sleep(2000);
 			CoreControls.corroTemp.click();
-			WebDriverWait waitForCreateButton = new WebDriverWait(driver, 100000);
-			CoreControls.templateManagement = waitForCreateButton
-					.until(ExpectedConditions.elementToBeClickable(TemplatesPages.createNewCorroTemplate));
+
+			Thread.sleep(2000);
 			TemplatesPages.createNewCorroTemplate.click();
 			TemplatesPages.templateType.sendKeys("SMS");
 		} else if (arg1.equals("Email corro")) {
 			System.out.println("------------Inside email loop");
-			WebDriverWait waitForMeanuTabs = new WebDriverWait(driver, 10000);
-			CoreControls.templateManagement = waitForMeanuTabs
-					.until(ExpectedConditions.elementToBeClickable(CoreControls.templateManagement));
+			Thread.sleep(3000);
 			CoreControls.templateManagement.click();
-			WebDriverWait waitForCorroTempButtonButton = new WebDriverWait(driver, 100000);
-			CoreControls.templateManagement = waitForCorroTempButtonButton
-					.until(ExpectedConditions.elementToBeClickable(CoreControls.corroTemp));
+			Thread.sleep(3000);
 			CoreControls.corroTemp.click();
-			WebDriverWait waitForCreateButton = new WebDriverWait(driver, 10000);
-			CoreControls.templateManagement = waitForCreateButton
-					.until(ExpectedConditions.elementToBeClickable(TemplatesPages.createNewCorroTemplate));
+			Thread.sleep(3000);
 			TemplatesPages.createNewCorroTemplate.click();
 			TemplatesPages.templateType.sendKeys("Email");
-			TemplatesPages.emailSubSystem.sendKeys("CBDM Core");
-			//TemplatesPages.appBeforeSending.sendKeys("No");
-		} else if (arg1.equals("certificates")) {
-			CoreControls.certificatesTemp.click();
+			TemplatesPages.subSystem.sendKeys("CBDM Core");
+			TemplatesPages.appBeforeSending.sendKeys("No");
+		} else if (arg1.equals("letter corro")) {
+			PageFactory.initElements(driver, CoreControls.class);
+			Thread.sleep(6000);
+			System.out.println("we are the stage of clciking template manage and the arg1 is: " + arg1);
+			CoreControls.templateManagement.click();
+			System.out.println("------------Inside email loop");
+			Thread.sleep(6000);
+			CoreControls.corroTemp.click();
+			Thread.sleep(6000);
+			TemplatesPages.createNewCorroTemplate.click();
+			TemplatesPages.templateType.sendKeys("Letter");
+			TemplatesPages.subSystem.sendKeys("CBDM Core");
+			TemplatesPages.appBeforeSending.sendKeys("No");
 		}
-
 	}
 
 	@When("^I want to make the title \"([^\"]*)\"$")
@@ -113,24 +116,18 @@ public class Templates {
 		TemplatesPages.relatedSms.sendKeys(arg1);
 	}
 
-	@When("^I make the \"([^\"]*)\" body text \"([^\"]*)\"$")
-	public void i_make_the(String arg1, String arg2) throws Throwable {
+	@When("^I make the boy text \"([^\"]*)\"$")
+	public void i_make_the_boy_text(String arg1) throws Throwable {
 		System.out.println("-----arg1--------the value is: " + arg1);
-		System.out.println("-----arg2--------the value is: " + arg2);
 		PageFactory.initElements(driver, TemplatesPages.class);
 		TemplatesPages.templateEditorTab.click();
-		if (arg1.equals("SMS")) {
-			TemplatesPages.smsBody.sendKeys(arg2);
-		} else if (arg1.equals("Email")) {
-			TemplatesPages.pageZise.sendKeys("A4");
-			TemplatesPages.topMargin.sendKeys("20");
-			TemplatesPages.rightMargin.sendKeys("20");
-			TemplatesPages.bottomMargin.sendKeys("20");
-			TemplatesPages.leftMargin.sendKeys("20");
-			TemplatesPages.emailBody.sendKeys(arg2);
-
-		}
-
+		// TemplatesPages.smsBody.sendKeys(arg1);
+		TemplatesPages.pageZise.sendKeys("A4");
+		TemplatesPages.topMargin.sendKeys("20");
+		TemplatesPages.rightMargin.sendKeys("20");
+		TemplatesPages.bottomMargin.sendKeys("20");
+		TemplatesPages.leftMargin.sendKeys("20");
+		// TemplatesPages.emailBody.sendKeys(arg1);
 	}
 
 	@Then("^I can save it as a \"([^\"]*)\" template placeholder$")

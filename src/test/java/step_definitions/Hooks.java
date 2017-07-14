@@ -8,6 +8,7 @@ import org.openqa.selenium.Platform;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebDriverException;
+import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
@@ -26,21 +27,24 @@ public class Hooks {
 	 * between tests
 	 */
 	public void openBrowser() throws MalformedURLException {
-		System.out.println("Called openBrowser");
 
-		DesiredCapabilities caps = DesiredCapabilities.chrome();
-		caps.setBrowserName("chrome");
-		caps.setPlatform(Platform.ANY);
-		System.out.println("Just before we open browser");
-		driver = new RemoteWebDriver(new URL(nodrul), caps);
-		System.out.println("Right after we open browser");
+		// -----Run on a node------//
+		// DesiredCapabilities caps = DesiredCapabilities.chrome();
+		// caps.setBrowserName("chrome");
+		// caps.setPlatform(Platform.ANY);
+		// driver = new RemoteWebDriver(new URL(nodrul), caps);
 
+		// -----Run locally on FireFox Browser------//
 		// System.setProperty("webdriver.gecko.driver","drivers/geckodriver-v0.16.1-win64/geckodriver.exe");
 		// driver = new FirefoxDriver();
 
+		// -----Run locally on Chrome Browser------//
+		System.setProperty("webdriver.chrome.driver",
+				"C:/Users/PPhilip/Projects/core-automation-testing/drivers/chrome-2.29-winx32/chromedriver.exe");
+
+		driver = new ChromeDriver();
 		driver.manage().deleteAllCookies();
 		driver.manage().window().maximize();
-
 	}
 
 	@After

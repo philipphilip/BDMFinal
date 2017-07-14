@@ -12,20 +12,23 @@ public class CoreControls extends BaseClass {
 		super(driver);
 	}
 
-	@FindBy(xpath = ".//*/li[3]/a[contains(text(),'New')]")
+	@FindBy(xpath = "//*/a[text()='New']")
 	public static WebElement new_tab;
 
-	@FindBy(xpath = "//*//li[2]/a[contains(text(),'Birth Registration Statement')]")
-	public static WebElement BRS_form;
+	@FindBy(xpath = "//*/a[text()='Birth Registration Statement']")
+	public static WebElement newBRS;
 
-	@FindBy(xpath = ".//*/a[contains(text(),'of Birth')]")
+	@FindBy(xpath = "//*/a[text()='Notice of Birth']")
 	public static WebElement newNOB;
 
-	@FindBy(xpath = "//*//li[4]/a[contains(text(),'Death Registration Statement')]")
+	@FindBy(xpath = "//*/a[text()='Death Registration Statement']")
 	public static WebElement newDRS;
 
-	@FindBy(xpath = "//*//li[3]/a[contains(text(),'Cause of Death')]")
+	@FindBy(xpath = "//*/a[text()='Cause of Death']")
 	public static WebElement newCOD;
+
+	@FindBy(xpath = "//*/a[text()='Marriage Notification']")
+	public static WebElement newMR;
 
 	@FindBy(id = "actionMenu")
 	public static WebElement actionList;

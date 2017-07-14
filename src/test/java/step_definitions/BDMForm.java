@@ -7,10 +7,12 @@ import java.util.List;
 import modules.FillBRSForm;
 import modules.FillCODForm;
 import modules.FillDRSForm;
+import modules.FillMRForm;
 import modules.FillNOBForm;
 import modules.GoToBRSForm;
 import modules.GoToCODForm;
 import modules.GoToDRSForm;
+import modules.GoToMRForm;
 import modules.GoToNOBForm;
 import modules.SignInAction;
 import modules.SignoutAction;
@@ -42,7 +44,8 @@ public class BDMForm {
 
 	@When("^I open Core website$")
 	public void i_open_Core_website() throws Throwable {
-		 driver.get("http://10.22.3.205/core/login");
+		// driver.get("http://10.22.3.205/core/login");
+		driver.get("http://52.64.152.134/core/dashboard");
 	}
 
 	@When("^I sign in$")
@@ -50,7 +53,7 @@ public class BDMForm {
 		PageFactory.initElements(driver, AutomationHomePage.class);
 		PageFactory.initElements(driver, LoginPage.class);
 		SignInAction.Execute(driver, datamap.get(0));
-		
+
 	}
 
 	@Then("^I sign out$")
@@ -74,6 +77,9 @@ public class BDMForm {
 		} else if (arg1.equals("COD")) {
 			System.out.println("--------I am in the condition of running the COD");
 			GoToCODForm.Execute(driver);
+		} else if (arg1.equals("MR")) {
+			System.out.println("--------I am in the condition of running the MR");
+			GoToMRForm.Execute(driver, arg1);
 		}
 	}
 
@@ -88,6 +94,8 @@ public class BDMForm {
 			FillDRSForm.Execute(driver);
 		} else if (arg1.equals("COD")) {
 			FillCODForm.Execute(driver);
+		} else if (arg1.equals("MR")) {
+			FillMRForm.Execute(driver);
 		}
 	}
 
