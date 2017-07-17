@@ -1,5 +1,18 @@
 package step_definitions;
 
+import java.net.MalformedURLException;
+import java.net.URL;
+
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.Platform;
+import org.openqa.selenium.TakesScreenshot;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebDriverException;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.remote.DesiredCapabilities;
+import org.openqa.selenium.remote.RemoteWebDriver;
+
 import cucumber.api.Scenario;
 import cucumber.api.java.After;
 import cucumber.api.java.Before;
@@ -18,33 +31,31 @@ public class Hooks {
 	 * between tests
 	 */
 	public void openBrowser() throws MalformedURLException {
-		System.out.println("Called openBrowser");
 
-		//DesiredCapabilities caps = DesiredCapabilities.chrome();
-		//caps.setBrowserName("chrome");
-		//caps.setPlatform(Platform.ANY);
-		//System.out.println("Just before we open browser");
-		//driver = new RemoteWebDriver(new URL(nodrul), caps);
-		//System.out.println("Right after we open browser");
+		// -----Run on a node------//
+		// DesiredCapabilities caps = DesiredCapabilities.chrome();
+		// caps.setBrowserName("chrome");
+		// caps.setPlatform(Platform.ANY);
+		// driver = new RemoteWebDriver(new URL(nodrul), caps);
 
+		// -----Run locally on FireFox Browser------//
 		// System.setProperty("webdriver.gecko.driver","drivers/geckodriver-v0.16.1-win64/geckodriver.exe");
 		// driver = new FirefoxDriver();
 
+		// -----Run locally on Chrome Browser------//
 		System.setProperty("webdriver.chrome.driver",
-				"C:/work/ConnectedBdmRIO/automation-selenium/src/drivers/chrome-2.29-winx32/chromedriver.exe");
+				"C:/Users/PPhilip/Projects/core-automation-testing/drivers/chrome-2.29-winx32/chromedriver.exe");
 
 		driver = new ChromeDriver();
 
-
 		driver.manage().deleteAllCookies();
-		driver.manage().window().setPosition(new Point(1600,70));
+		driver.manage().window().setPosition(new Point(1600, 70));
 		driver.manage().window().maximize();
-
 	}
 
 	@After
 	public void closeDriver(Scenario scenario) {
-		//driver.quit(); //disable temporarily
+		// driver.quit(); //disable temporarily
 	}
 
 	@After

@@ -10,7 +10,7 @@ public class TemplatesPages extends BaseClass {
 		super(driver);
 	}
 
-	@FindBy(xpath = ".//*/div[2]//fieldset[4]/button[contains(text(),'Create New Template')]")
+	@FindBy(xpath = ".//*/fieldset/button[contains(text(),'Create New Template')]")
 	public static WebElement createNewCorroTemplate;
 
 	@FindBy(id = "templateName")
@@ -35,7 +35,10 @@ public class TemplatesPages extends BaseClass {
 	public static WebElement successfullySaved;
 
 	@FindBy(id = "subsystem")
-	public static WebElement emailSubSystem;
+	public static WebElement subSystem;
+
+	@FindBy(id = "app-before-sending")
+	public static WebElement appBeforeSending;
 
 	@FindBy(id = "relatedSms")
 	public static WebElement relatedSms;
@@ -55,7 +58,7 @@ public class TemplatesPages extends BaseClass {
 	@FindBy(id = "leftMargin")
 	public static WebElement leftMargin;
 
-	@FindBy(xpath = "//*[@id='tinymce']")
+	@FindBy(xpath = ".//*[@id='tinymce']/p")
 	public static WebElement emailBody;
 
 }
