@@ -1,5 +1,6 @@
 package step_definitions;
 
+import cucumber.api.CucumberOptions;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 import helpers.DataHelper;
@@ -34,6 +35,21 @@ public class BDMForm {
 		datamap.add(sampleData);
 	}
 
+	static String st2 = "10.22.3.205";
+	static String st3 = "10.22.1.200";
+	static String fat = "52.64.152.134";
+
+
+	@When("^I open \"(.*?)\" website$")
+	public void i_open_website(String website) throws Throwable {
+		String base_url = st3;
+		if(website.equals("ePublic")) {
+			driver.get("http://" + base_url + "/epublic/login");
+		}else if(website.equals("eRegistry")) {
+			driver.get("http://" + base_url + "/eregistry/login");
+		}
+	}
+
 
 
 	@When("^I open Core website$")
@@ -54,17 +70,6 @@ public class BDMForm {
 		SignoutAction.Execute(driver);
 	}
 
-	static String st3 = "10.22.1.200";
-	static String fat = "52.64.152.134";
-
-	@When("^I open \"(.*?)\" website$")
-	public void i_open_website(String website) throws Throwable {
-		if(website.equals("ePublic")) {
-			driver.get("http://" + st3 + "/epublic/login");
-		}else if(website.equals("eRegistry")) {
-			driver.get("http://" + st3 + "/eregistry/login");
-		}
-	}
 
 	@When("^I sign in \"(.*?)\"")
 	public void i_sign_in_site(String website) throws Throwable {
@@ -167,6 +172,12 @@ public class BDMForm {
 		Helper.clickItem(EregistryControls.submit);
 	}
 
+
+	@When("^I click \"(.*?)\" link in \"(.*?)\"$")
+	public void i_click_link_by_text$(String linkText, String site) throws Throwable {
+		Helper.clickLinkByText(linkText);
+
+	}
 	@When("^I click \"(.*?)\" button on \"(.*?)\" page of \"(.*?)\" in \"(.*?)\"$")
 	public void i_click_button$(String buttonName, String pageName, String area, String site) throws Throwable {
 		if(site.equals("epublic")) {
