@@ -43,8 +43,12 @@ public class Hooks {
 		// driver = new FirefoxDriver();
 
 		// -----Run locally on Chrome Browser------//
+		//System.setProperty("webdriver.chrome.driver",
+		//		"C:/work/ConnectedBdmRIO/automation-selenium/src/drivers/chrome-2.29-winx32/chromedriver.exe");
+		//System.setProperty("webdriver.chrome.driver",
+		//		"C:/work/ConnectedBdmRIO/automation-selenium/src/drivers/chrome-2.29-winx32/chromedriver.exe");
 		System.setProperty("webdriver.chrome.driver",
-				"C:/Users/PPhilip/Projects/core-automation-testing/drivers/chrome-2.29-winx32/chromedriver.exe");
+				"/usr/local/share/chromedriver");
 
 		driver = new ChromeDriver();
 
