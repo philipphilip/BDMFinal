@@ -53,8 +53,8 @@ public class Hooks {
 		driver = new ChromeDriver();
 
 		driver.manage().deleteAllCookies();
-		driver.manage().window().setPosition(new Point(1600, 70));
-		driver.manage().window().maximize();
+		//driver.manage().window().setPosition(new Point(1600, 70));
+		//driver.manage().window().maximize();
 	}
 
 	@After
