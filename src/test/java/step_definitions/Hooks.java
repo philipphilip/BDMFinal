@@ -48,7 +48,7 @@ public class Hooks {
 		//System.setProperty("webdriver.chrome.driver",
 		//		"C:/work/ConnectedBdmRIO/automation-selenium/src/drivers/chrome-2.29-winx32/chromedriver.exe");
 		System.setProperty("webdriver.chrome.driver",
-				"/usr/local/share/chromedriver");
+				"/usr/lib/chromium-browser/chromedriver");
 
 		driver = new ChromeDriver();
 
