@@ -8,7 +8,7 @@ import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import pageobjects.CoreControls;
-import pageobjects.LoginPage;
+import pageobjects.CoreLoginPage;
 import pageobjects.TemplatesPages;
 
 import java.util.ArrayList;
@@ -35,13 +35,13 @@ public class Templates {
 	@Given("^I am on CORE Admin site$")
 	public void i_am_on_CORE_Admin_site() throws Throwable {
 		driver.get(baseURL);
-		PageFactory.initElements(driver, LoginPage.class);
+		PageFactory.initElements(driver, CoreLoginPage.class);
 		WebDriverWait waitForLoginPage = new WebDriverWait(driver, 10000);
-		LoginPage.coreAdminUsignin_button = waitForLoginPage
-				.until(ExpectedConditions.elementToBeClickable(LoginPage.coreAdminUsignin_button));
-		LoginPage.coreAdminUsername.sendKeys("admin");
-		LoginPage.coreAdminUpassword.sendKeys("a");
-		LoginPage.coreAdminUsignin_button.click();
+		CoreLoginPage.coreAdminUsignin_button = waitForLoginPage
+				.until(ExpectedConditions.elementToBeClickable(CoreLoginPage.coreAdminUsignin_button));
+		CoreLoginPage.coreAdminUsername.sendKeys("admin");
+		CoreLoginPage.coreAdminUpassword.sendKeys("a");
+		CoreLoginPage.coreAdminUsignin_button.click();
 
 	}
 
@@ -129,7 +129,7 @@ public class Templates {
 		System.out.println("the value is:L " + arg1);
 		TemplatesPages.saveDraftButton.click();
 		WebDriverWait waitForMessage = new WebDriverWait(driver, 10000);
-		LoginPage.coreAdminUsignin_button = waitForMessage
+		CoreLoginPage.coreAdminUsignin_button = waitForMessage
 				.until(ExpectedConditions.elementToBeClickable(TemplatesPages.successfullySaved));
 		TemplatesPages.successfullySaved.getText().contains("is successfully saved!");
 		System.out.println("This is after checking message successfuly saved!");

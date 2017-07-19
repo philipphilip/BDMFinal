@@ -1,3 +1,5 @@
+@core
+
 Feature: All Core site testings.
 
   Scenario: Sign in and sign out

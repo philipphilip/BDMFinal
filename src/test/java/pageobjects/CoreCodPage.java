@@ -4,9 +4,9 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
-public class CODPage extends BaseClass {
+public class CoreCodPage extends BaseClass {
 
-	public CODPage(WebDriver driver) {
+	public CoreCodPage(WebDriver driver) {
 		super(driver);
 	}
 

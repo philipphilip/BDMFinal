@@ -3,7 +3,7 @@ package modules;
 import helpers.Log;
 import org.openqa.selenium.WebDriver;
 import org.testng.Reporter;
-import pageobjects.LoginPage;
+import pageobjects.CoreLoginPage;
 
 import java.util.HashMap;
 
@@ -13,9 +13,9 @@ public class SignInAction {
 
 		// LoginPage.username.sendKeys("admin");
 		// LoginPage.password.sendKeys("Friday17");
-		LoginPage.username.sendKeys("objectadmin");
-		LoginPage.password.sendKeys("EipPSZAG0SDXebOW2gd3");
-		LoginPage.signin_button.click();
+		CoreLoginPage.username.sendKeys("objectadmin");
+		CoreLoginPage.password.sendKeys("EipPSZAG0SDXebOW2gd3");
+		CoreLoginPage.signin_button.click();
 
 		Log.info(" is entered in UserName text box");
 		Log.info(" is entered in Password text box");

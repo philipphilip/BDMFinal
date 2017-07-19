@@ -1,18 +1,12 @@
 package step_definitions;
 
-import cucumber.api.CucumberOptions;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 import helpers.DataHelper;
 import helpers.Helper;
 import modules.*;
-import org.junit.Assert;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.Select;
-import org.openqa.selenium.support.ui.WebDriverWait;
 import pageobjects.*;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -28,15 +22,11 @@ import modules.GoToMRForm;
 import modules.GoToNOBForm;
 import modules.SignInAction;
 import modules.SignoutAction;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.support.PageFactory;
 import pageobjects.AutomationHomePage;
-import pageobjects.BRSPage;
+import pageobjects.CoreBrsPage;
 import pageobjects.CoreControls;
-import pageobjects.LoginPage;
-import pageobjects.NOBPage;
-import cucumber.api.java.en.Then;
-import cucumber.api.java.en.When;
+import pageobjects.CoreNobPage;
+import pageobjects.CoreLoginPage;
 
 public class BDMForm {
 	public WebDriver driver;
@@ -52,6 +42,22 @@ public class BDMForm {
 		sampleData.put("password", "Test@123");
 		System.out.println("Current data" + sampleData);
 		datamap.add(sampleData);
+
+		PageFactory.initElements(driver, AutomationHomePage.class);
+
+		PageFactory.initElements(driver, CoreSearchNobPage.class);
+		PageFactory.initElements(driver, CoreLoginPage.class);
+		PageFactory.initElements(driver, CoreControls.class);
+		PageFactory.initElements(driver, CoreNobPage.class);
+		PageFactory.initElements(driver, CoreBrsPage.class);
+
+
+		PageFactory.initElements(driver, EpublicLoginPage.class);
+		PageFactory.initElements(driver, EpublicControls.class);
+
+		PageFactory.initElements(driver, EregistryLoginPage.class);
+		PageFactory.initElements(driver, EregistryControls.class);
+
 	}
 
 
@@ -62,14 +68,48 @@ public class BDMForm {
 
 	@When("^I open \"(.*?)\" website$")
 	public void i_open_website(String website) throws Throwable {
-		String base_url = st3;
+		String testEnv = System.getProperty("test.env");
+		System.out.println("test.env=" + testEnv);
+		String base_url = "";
+		if(testEnv.equals("fat")) {
+			base_url= fat;
+		}else if(testEnv.equals("st3")) {
+			base_url= st3;
+		}else if(testEnv.equals("st2")) {
+			base_url= st2;
+		}else {
+			base_url= fat;
+		}
+
 		if(website.equals("ePublic")) {
 			driver.get("http://" + base_url + "/epublic/login");
 		}else if(website.equals("eRegistry")) {
 			driver.get("http://" + base_url + "/eregistry/login");
+		}else if(website.equals("Core")) {
+			driver.get("http://" + base_url + "/core/dashboard");
 		}
 	}
 
+	@When("^I login \"(.*?)\" as user \"(.*?)\" password \"(.*?)\"$")
+	public void i_sign_user(String website, String user, String password) throws Throwable {
+		if(website.equals("Core")) {
+
+			CoreLoginPage.username.sendKeys(user);
+			CoreLoginPage.password.sendKeys(password);
+			CoreLoginPage.signin_button.click();
+
+		}
+	}
+
+	@When("^I logout from \"(.*?)\"$")
+	public void i_sign_user(String website) throws Throwable {
+		if(website.equals("Core")) {
+
+
+			Helper.clickItem(CoreLoginPage.sign_out);
+
+		}
+	}
 
 
 
@@ -81,8 +121,7 @@ public class BDMForm {
 
 	@When("^I sign in$")
 	public void i_sign_in() throws Throwable {
-		PageFactory.initElements(driver, AutomationHomePage.class);
-		PageFactory.initElements(driver, LoginPage.class);
+
 		SignInAction.Execute(driver, datamap.get(0));
 
 	}
@@ -97,10 +136,10 @@ public class BDMForm {
 	@When("^I sign in \"(.*?)\"")
 	public void i_sign_in_site(String website) throws Throwable {
 		if (website.equals("ePublic")) {
-			PageFactory.initElements(driver, EpublicLoginPage.class);
+
 			EpublicSignInAction.Execute(driver, datamap.get(0));
 		} else if (website.equals("eRegistry")) {
-			PageFactory.initElements(driver, EregistryLoginPage.class);
+
 			EregistrySignInAction.Execute(driver, datamap.get(0));
 		}
 
@@ -108,8 +147,7 @@ public class BDMForm {
 
 	@When("^I navigate to \"(.*?)\" in \"(.*?)\"$")
 	public void i_navigate_in_ePublic$(String tab, String site) throws Throwable {
-		PageFactory.initElements(driver, EpublicControls.class);
-		PageFactory.initElements(driver, EregistryControls.class);
+
 		System.out.println("--------I am at the scenario where I nagigate to form " + tab);
 		if (site.equals("ePublic")) {
 			if (tab.equals("BRS")) {
@@ -179,13 +217,46 @@ public class BDMForm {
 				System.out.println("--------I am in the condition of filling COD in eregistry");
 				FillEregistryCodForm.Execute(driver);
 			}
+		}else if ( site.equals("Core"))
+		{
+			if (form.equals("BR")) {
+				if (page.equals("BRS")) {
+					FillCoreBrsFormForBr.Execute(driver);
+				}else if (page.equals("NOB")){
+					FillCoreNobFormForBr.Execute(driver);
+				}
+			}
 		}
 
 	}
 
+	@Then("^I select \"(.*?)\" in \"(.*?)\" dropdown list on \"(.*?)\" page of \"(.*?)\" in \"(.*?)\"$")
+	public void i_select_dropdown(String value, String dropDoneListName, String page, String function, String site) throws Throwable {
+		if (site.equals("Core")) {
+
+			if (dropDoneListName.equals("Reason Code")) {
+				Helper.selectDropDownList(CoreControls.coreBrsReasonCodeList, value);
+			}else if(dropDoneListName.equals("Action List")){
+				Helper.selectDropDownList(CoreControls.actionList,value);
+			}
+
+		}
+	}
+
+	@Then("^I input \"(.*?)\" in \"(.*?)\" input on \"(.*?)\" page of \"(.*?)\" in \"(.*?)\"$")
+	public void i_input(String value, String inputName, String page, String function, String site) throws Throwable {
+		if (site.equals("Core")) {
+
+			if (inputName.equals("Comments")) {
+				Helper.inputItem(CoreControls.coreBrsReasonComments, value);
+			}
+
+		}
+	}
+
 	@Then("^I select stakeholder as \"(.*?)\"$")
 	public void i_select_stakeholder(String stakeholder) throws Throwable {
-		PageFactory.initElements(driver, EregistryControls.class);
+
 		// Thread.sleep(2000);
 		Helper.selectDropDownList(EregistryControls.stakeholderList, stakeholder);
 		// Thread.sleep(1000);
@@ -200,7 +271,35 @@ public class BDMForm {
 	}
 	@When("^I click \"(.*?)\" button on \"(.*?)\" page of \"(.*?)\" in \"(.*?)\"$")
 	public void i_click_button$(String buttonName, String pageName, String area, String site) throws Throwable {
-		if (site.equals("epublic")) {
+		if (site.equals("Core")) {
+
+			if (area.equals("br")) {
+				if (buttonName.equals("Validate")) {
+					Helper.clickItem(CoreControls.coreBrsValidateButton);
+				} else if (buttonName.equals("Exception List")) {
+					Helper.clickItem(CoreControls.coreBrsExceptionListCheckBox);
+				} else if (buttonName.equals("Override")) {
+					Helper.clickItem(CoreControls.coreBrsExceptionOverrideButton);
+				} else if (buttonName.equals("Do Override")) {
+					Helper.clickItem(CoreControls.coreBrsDoOverrideButton);
+				} else if (buttonName.equals("Check For Duplicates")) {
+					Helper.clickItem(CoreControls.coreBrsCheckForDuplicatesButton);
+				} else if (buttonName.equals("Proceed to Death Check")) {
+					Helper.clickItem(CoreControls.coreBrsProceedToDeathCheckButton);
+				}else if (buttonName.equals("Submit")) {
+					Helper.clickItem(CoreControls.coreBrsSubmitButton);
+				}else if (buttonName.equals("Search")) {
+					Helper.clickItem(CoreSearchNobPage.nobSearchButton);
+				}else if (buttonName.equals("First NOB Search Result")) {
+					Helper.clickItem(CoreControls.coreNobFirstSearchResult);
+				}else if (buttonName.equals("Go")) {
+					Helper.clickItem(CoreControls.go);
+				}
+
+
+			}
+
+		}else if (site.equals("epublic")) {
 			if (buttonName.equals("Next")) {
 				System.out.println("--------I am clicking Next button");
 				// Thread.sleep(2000);
@@ -299,6 +398,12 @@ public class BDMForm {
 				}
 			}
 
+		}else if (site.equals("Core")) {
+			if (page.equals("core nob search")) {
+				if (field.equals("Mother First Name")) {
+					Helper.inputItem(CoreSearchNobPage.mothersFirstName, value);
+				}
+			}
 		}
 
 	}
@@ -330,13 +435,17 @@ public class BDMForm {
 			} else if (page.equals("COD")) {
 				Helper.checkText(EregistryControls.codMessage, text);
 			}
-		}
+		} else if (site.equals("Core")) {
+			if (page.equals("br")) {
+				Helper.checkText(CoreControls.coreResultMessage, text);
 
+			}
+		}
 	}
 
 	@When("^I navigate to \"(.*?)\" new form$")
 	public void i_navigate_to_new_form(String arg1) throws Throwable {
-		PageFactory.initElements(driver, CoreControls.class);
+
 		System.out.println("--------I am at the scenario where I nagigate to form " + arg1);
 		Thread.sleep(2000);
 		if (arg1.equals("NOB")) {
@@ -359,7 +468,7 @@ public class BDMForm {
 
 	@Then("^I fill in the \"([^\"]*)\" form$")
 	public void i_fill_in_the_form(String arg1) throws Throwable {
-		PageFactory.initElements(driver, CoreControls.class);
+
 		if (arg1.equals("NOB")) {
 			FillNOBForm.Execute(driver);
 		} else if (arg1.equals("BRS")) {
@@ -377,12 +486,12 @@ public class BDMForm {
 	public void i_submit_blank_form(String arg1) throws Throwable {
 
 		if (arg1.equals("NOB")) {
-			PageFactory.initElements(driver, NOBPage.class);
-			NOBPage.View_NOB_Form_Errors();
+
+			CoreNobPage.View_NOB_Form_Errors();
 
 		} else if (arg1.equals("BRS")) {
-			PageFactory.initElements(driver, BRSPage.class);
-			BRSPage.view_BRS_Form_Errors();
+
+			CoreBrsPage.view_BRS_Form_Errors();
 		}
 
 	}

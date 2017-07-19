@@ -5,9 +5,9 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
 
-public class LoginPage extends BaseClass {
+public class CoreLoginPage extends BaseClass {
 
-	public LoginPage(WebDriver driver) {
+	public CoreLoginPage(WebDriver driver) {
 		super(driver);
 	}
 
@@ -43,4 +43,7 @@ public class LoginPage extends BaseClass {
 
 	@FindBy(xpath = "//*/a[contains(text(),'New Marriage Notification')]")
 	public static WebElement new_marriageNote;
+
+	@FindBy(xpath = "//*/a[contains(text(),'Logout')]")
+	public static WebElement sign_out;
 }

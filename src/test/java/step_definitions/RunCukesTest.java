@@ -11,7 +11,9 @@ import org.junit.runner.RunWith;
 		glue = "step_definitions",
 		//plugin = {"pretty", "html:target/cucumber-html-report"},
 		plugin = {"json:target/report.json"},
-		tags = {"@st3"},
+		//tags = {"@core-br"},
+		//tags = {"@st3"},
+		tags = {"@core"},
 		monochrome = true
 		)
 

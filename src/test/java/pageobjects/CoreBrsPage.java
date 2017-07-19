@@ -4,9 +4,9 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
-public class BRSPage extends BaseClass {
+public class CoreBrsPage extends BaseClass {
 
-	public BRSPage(WebDriver driver) {
+	public CoreBrsPage(WebDriver driver) {
 		super(driver);
 	}
 
@@ -288,6 +288,15 @@ public class BRSPage extends BaseClass {
 
 	@FindBy(id = "relationshipDetails-relationshipStatus")
 	public static WebElement relationshipStatus;
+
+	@FindBy(id = "relationshipDetails-dateOfRelationshipRegistration-day")
+	public static WebElement dateOfRelationshipRegistrationDay;
+
+	@FindBy(id = "relationshipDetails-dateOfRelationshipRegistration-month")
+	public static WebElement dateOfRelationshipRegistrationMonth;
+
+	@FindBy(id = "relationshipDetails-dateOfRelationshipRegistration-year")
+	public static WebElement dateOfRelationshipRegistrationYear;
 
 	@FindBy(id = "relationshipDetails-isTheRelationshipStatusDisputedByParent2")
 	public static WebElement isTheRelationshipStatusDisputedByParent2;

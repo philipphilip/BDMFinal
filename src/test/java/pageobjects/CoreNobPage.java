@@ -4,9 +4,9 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
-public class NOBPage extends BaseClass {
+public class CoreNobPage extends BaseClass {
 
-	public NOBPage(WebDriver driver) {
+	public CoreNobPage(WebDriver driver) {
 		super(driver);
 	}
 
