@@ -59,7 +59,7 @@ public class Hooks {
 
 	@After
 	public void closeDriver(Scenario scenario) {
-		// driver.quit(); //disable temporarily
+		driver.quit(); //disable temporarily
 	}
 
 	@After
