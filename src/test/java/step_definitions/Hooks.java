@@ -47,19 +47,19 @@ public class Hooks {
 		//		"C:/work/ConnectedBdmRIO/automation-selenium/src/drivers/chrome-2.29-winx32/chromedriver.exe");
 		//System.setProperty("webdriver.chrome.driver",
 		//		"C:/work/ConnectedBdmRIO/automation-selenium/src/drivers/chrome-2.29-winx32/chromedriver.exe");
-		System.setProperty("webdriver.chrome.driver",
-				"/usr/lib/node_modules/chromedriver/lib/chromedriver/chromedriver");
+		//System.setProperty("webdriver.chrome.driver",
+		//		"/usr/lib/node_modules/chromedriver/lib/chromedriver/chromedriver");
 
-		driver = new ChromeDriver();
+		//driver = new ChromeDriver();
 
-		driver.manage().deleteAllCookies();
+		//driver.manage().deleteAllCookies();
 		//driver.manage().window().setPosition(new Point(1600, 70));
 		//driver.manage().window().maximize();
 	}
 
 	@After
 	public void closeDriver(Scenario scenario) {
-		driver.quit(); //disable temporarily
+		//driver.quit(); //disable temporarily
 	}
 
 	@After
