@@ -1,4 +1,4 @@
-@eregistry @st3 @temp
+@eregistry @eregistry-cod-st3 @eregistry-cod @st3 @temp
 
 Feature: eregistry cod
 
