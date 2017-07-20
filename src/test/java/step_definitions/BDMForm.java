@@ -335,9 +335,12 @@ public class BDMForm {
 		} else if (arg1.equals("COD")) {
 			System.out.println("--------I am in the condition of running the COD");
 			GoToCODForm.Execute(driver);
-		} else if (arg1.equals("MR")) {
+		} else if (arg1.equals("MN")) {
 			System.out.println("--------I am in the condition of running the MR");
 			GoToMRForm.Execute(driver, arg1);
+		} else if (arg1.equals("Application")) {
+			System.out.println("--------I am in the condition of running the application");
+			GoToApplicationForm.Execute(driver);
 		}
 	}
 
@@ -352,8 +355,10 @@ public class BDMForm {
 			FillDRSForm.Execute(driver);
 		} else if (arg1.equals("COD")) {
 			FillCODForm.Execute(driver);
-		} else if (arg1.equals("MR")) {
+		} else if (arg1.equals("MN")) {
 			FillMRForm.Execute(driver);
+		} else if (arg1.equals("Application")) {
+			FillDCApplicationForm.Execute(driver);
 		}
 	}
 

@@ -48,6 +48,12 @@ public class CoreControls extends BaseClass {
 	@FindBy(xpath = ".//*[@id='error-message']/div/div")
 	public static WebElement successMessage;
 
+	@FindBy(xpath = ".//*/button-panel/div/div/input[1]")
+	public static WebElement validateForm;
+
+	@FindBy(xpath = ".//*/a[text()='Application']")
+	public static WebElement application;
+
 	public static void selectSave() {
 		actionList.sendKeys("Save");
 	}

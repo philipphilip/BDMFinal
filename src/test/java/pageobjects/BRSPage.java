@@ -289,6 +289,15 @@ public class BRSPage extends BaseClass {
 	@FindBy(id = "relationshipDetails-relationshipStatus")
 	public static WebElement relationshipStatus;
 
+	@FindBy(id = "relationshipDetails-dateOfRelationshipRegistration-day")
+	public static WebElement dateRelationshipRegistredDay;
+
+	@FindBy(id = "relationshipDetails-dateOfRelationshipRegistration-month")
+	public static WebElement dateRelationshipRegistredMonth;
+
+	@FindBy(id = "relationshipDetails-dateOfRelationshipRegistration-year")
+	public static WebElement dateRelationshipRegistredYear;
+
 	@FindBy(id = "relationshipDetails-isTheRelationshipStatusDisputedByParent2")
 	public static WebElement isTheRelationshipStatusDisputedByParent2;
 
@@ -396,9 +405,39 @@ public class BRSPage extends BaseClass {
 	@FindBy(id = "informant2Details-contactDetails-emailAddress")
 	public static WebElement informant2_emailAddress;
 
-	public static void view_BRS_Form_Errors() {
-		validate_BRS_field_button.click();
+	@FindBy(xpath = ".//th[1]/input")
+	public static WebElement validateCheckBox;
 
+	@FindBy(xpath = ".//brs-page//input[@value='Override']")
+	public static WebElement overrideButton;
+
+	@FindBy(xpath = "//form//*[@id='Reason Code *']")
+	public static WebElement acceptionReason;
+
+	@FindBy(id = "Comments *")
+	public static WebElement reasonComment;
+
+	@FindBy(xpath = ".//BRS-page/override-popup/base-popup/div/div/div/div[3]/div/button[text()='Override']")
+	public static WebElement overrideButton2;
+
+	@FindBy(xpath = ".//*[@id='error-message']/div/div")
+	public static WebElement errorBaner;
+
+	public static void validateform() throws Exception {
+		CoreControls.validateForm.click();
+		Thread.sleep(3000);
+		boolean formHasErrors = errorBaner.getText()
+				.equals("There are validation errors in your Birth Registration Statement.");
+		if (formHasErrors) {
+			validateCheckBox.click();
+			overrideButton.click();
+			Thread.sleep(3000);
+			acceptionReason.sendKeys("Court Order");
+			reasonComment.sendKeys("any reason");
+			overrideButton2.click();
+			System.out.println("There were validation errors that got overridden");
+		} else {
+			System.out.println("There are no validation errors");
+		}
 	}
-
 }

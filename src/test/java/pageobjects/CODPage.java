@@ -109,37 +109,38 @@ public class CODPage extends BaseClass {
 	@FindBy(id = "supportingInformation-wasPostMortemHeld")
 	public static WebElement wasPostMortemHeld;
 
+	@FindBy(id = "causeOfDeath-direct-numberOfConditions")
+	public static WebElement numberOfDisease;
+
+	@FindBy(id = "causeOfDeath-antecedent-numberOfConditions")
+	public static WebElement numberOfAntecedentCauses;
+
+	@FindBy(id = "causeOfDeath-other-numberOfConditions")
+	public static WebElement numberofOtherSignificantConditions;
+
 	@FindBy(id = "supportingInformation-disposalOrganiser")
 	public static WebElement WhoIsOrganisingDisposalOfDeceasedRemains;
-	
-	
-	
+
 	@FindBy(id = "supportingInformation-funeralDirector-funeralDirectorsIdNumber")
 	public static WebElement funeralDirectorIDNumber;
-	
+
 	@FindBy(id = "supportingInformation-funeralDirector-name-familyName")
 	public static WebElement funeralDirectorFamilyName;
-	
+
 	@FindBy(id = "supportingInformation-funeralDirector-funeralDirectorsBusinessName")
 	public static WebElement funeralDirectorBusinessName;
-	
+
 	@FindBy(id = "supportingInformation-funeralDirector-funeralDirectorAddress-line1")
 	public static WebElement funeralDirectorAddressLine1;
-	
+
 	@FindBy(id = "supportingInformation-funeralDirector-funeralDirectorAddress-suburb")
 	public static WebElement funeralDirectorSuburb;
-	
+
 	@FindBy(id = "supportingInformation-funeralDirector-funeralDirectorAddress-postcode")
 	public static WebElement funeralDirectorPostcode;
-	
+
 	@FindBy(id = "supportingInformation-funeralDirector-funeralDirectorEmail")
 	public static WebElement funeralDirectorEmailAddress;
-	
-	
-	
-	
-	
-	
 
 	@FindBy(id = "siblingsOfTheDeceased-deceasedUnder18")
 	public static WebElement wasTheDeceasedUnder18;

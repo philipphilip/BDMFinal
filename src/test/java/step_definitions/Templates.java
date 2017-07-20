@@ -30,7 +30,7 @@ public class Templates {
 		datamap.add(sampleData);
 	}
 
-	private static String baseURL = "http://10.22.1.110/admin/login";
+	private static String baseURL = "http://10.22.1.200/admin";
 
 	@Given("^I am on CORE Admin site$")
 	public void i_am_on_CORE_Admin_site() throws Throwable {
@@ -40,7 +40,7 @@ public class Templates {
 		LoginPage.coreAdminUsignin_button = waitForLoginPage
 				.until(ExpectedConditions.elementToBeClickable(LoginPage.coreAdminUsignin_button));
 		LoginPage.coreAdminUsername.sendKeys("admin");
-		LoginPage.coreAdminUpassword.sendKeys("a");
+		LoginPage.coreAdminUpassword.sendKeys("Friday17");
 		LoginPage.coreAdminUsignin_button.click();
 
 	}
@@ -115,12 +115,12 @@ public class Templates {
 		System.out.println("-----arg1--------the value is: " + arg1);
 		PageFactory.initElements(driver, TemplatesPages.class);
 		TemplatesPages.templateEditorTab.click();
-		// TemplatesPages.smsBody.sendKeys(arg1);
-		TemplatesPages.pageZise.sendKeys("A4");
-		TemplatesPages.topMargin.sendKeys("20");
-		TemplatesPages.rightMargin.sendKeys("20");
-		TemplatesPages.bottomMargin.sendKeys("20");
-		TemplatesPages.leftMargin.sendKeys("20");
+		TemplatesPages.smsBody.sendKeys(arg1);
+//		TemplatesPages.pageZise.sendKeys("A4");
+//		TemplatesPages.topMargin.sendKeys("20");
+//		TemplatesPages.rightMargin.sendKeys("20");
+//		TemplatesPages.bottomMargin.sendKeys("20");
+//		TemplatesPages.leftMargin.sendKeys("20");
 		// TemplatesPages.emailBody.sendKeys(arg1);
 	}
 

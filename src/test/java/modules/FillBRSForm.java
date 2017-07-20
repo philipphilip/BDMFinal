@@ -5,6 +5,8 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+
+import helpers.Helper;
 import pageobjects.BRSPage;
 import pageobjects.CoreControls;
 
@@ -25,6 +27,7 @@ public class FillBRSForm {
 		BRSPage.childs_DOB_month.sendKeys("04");
 		BRSPage.childs_DOB_year.sendKeys("2017");
 		BRSPage.sexAtBirth.sendKeys("male");
+		BRSPage.was_childs_bornAlive.sendKeys("Yes");
 		BRSPage.childs_weight.sendKeys("3500");
 		BRSPage.hospitalName.sendKeys("Auburn District Hospital");
 		BRSPage.hospitalTownSuburbCity.sendKeys("Auburn");
@@ -37,7 +40,7 @@ public class FillBRSForm {
 		BRSPage.parent1_dateOfBirth_month.sendKeys("12");
 		BRSPage.parent1_dateOfBirth_year.sendKeys("1989");
 		BRSPage.parent1_occupation.sendKeys("accountant");
-		BRSPage.parent1_aboriginal.sendKeys("Decline to Reply");
+		BRSPage.parent1_aboriginal.sendKeys("Unknown");
 		BRSPage.parent1_placeOfBirth_suburbTownCity.sendKeys("Coburg");
 		BRSPage.parent1_usualPlaceOfResidence_line1.sendKeys("23 Stockade AEV");
 		BRSPage.parent1_usualPlaceOfResidence_Suburb.sendKeys("Coburg");
@@ -55,13 +58,16 @@ public class FillBRSForm {
 		BRSPage.parent2dateOfBirth_month.sendKeys("04");
 		BRSPage.parent2dateOfBirth_year.sendKeys("1980");
 		BRSPage.parent2_occupation.sendKeys("Test");
-		BRSPage.parent2_aboriginal.sendKeys("Decline to Reply");
+		BRSPage.parent2_aboriginal.sendKeys("Unknown");
 		BRSPage.parent2_suburbTownCity.sendKeys("Fawkner");
 		BRSPage.parent2_usualPlaceOfResidence_line1.sendKeys("16 Preston st");
 		BRSPage.parent2_usualPlaceOfResidence_suburb.sendKeys("Fawkner");
 		BRSPage.parent2_usualPlaceOfResidence_postcode.sendKeys("3060");
 		BRSPage.parent2_emailAddress.sendKeys("billing@test.com");
 		BRSPage.relationshipStatus.sendKeys("Married");
+		BRSPage.dateRelationshipRegistredDay.sendKeys("10");
+		BRSPage.dateRelationshipRegistredMonth.sendKeys("08");
+		BRSPage.dateRelationshipRegistredYear.sendKeys("1998");
 		BRSPage.childrenOfThisRelationship_Suburb.sendKeys("Carlton");
 		BRSPage.informant1_relationshipToSubject.sendKeys("Parent 1");
 		String randTextInformnt1_fmlyN = RandomStringUtils.randomAlphabetic(6);
@@ -93,7 +99,9 @@ public class FillBRSForm {
 		BRSPage.informant2_contactAddress_suburb.sendKeys("North Melbounre");
 		BRSPage.informant2_contactAddress_postcode.sendKeys("3051");
 		BRSPage.informant2_emailAddress.sendKeys("adfd@ss.com");
+		BRSPage.validateform();
 		CoreControls.selectSave();
+		Thread.sleep(3000);
 		CoreControls.clickGo();
 
 	}

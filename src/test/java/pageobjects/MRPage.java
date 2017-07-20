@@ -280,8 +280,9 @@ public class MRPage extends BaseClass {
 	@FindBy(id = "originalMarriageDocumentsReceived-originalMarriageDocumentsReceived")
 	public static WebElement originalMarriageDocumentsReceived;
 
-	@FindBy(xpath = ".//marriage-notification-page//button-panel/div/div/input[1]")
-	public static WebElement validateButton;
+	// @FindBy(xpath =
+	// ".//marriage-notification-page//button-panel/div/div/input[1]")
+	// public static WebElement validateButton;
 
 	@FindBy(xpath = ".//*[@id='error-message']/div/div")
 	public static WebElement errorBaner;
@@ -289,7 +290,7 @@ public class MRPage extends BaseClass {
 	@FindBy(xpath = ".//marriage-notification-page//table/tbody/tr[1]/th[1]/input")
 	public static WebElement validateCheckBox;
 
-	@FindBy(xpath = ".//marriage-notification-page//accordion-group/div/div[2]/div/div[3]/input")
+	@FindBy(xpath = ".//marriage-notification-page//input[@value='Override']")
 	public static WebElement overrideButton;
 
 	@FindBy(xpath = ".//*[@id='Reason Code *']")
@@ -302,7 +303,7 @@ public class MRPage extends BaseClass {
 	public static WebElement overrideButton2;
 
 	public static void validateform() throws Exception {
-		validateButton.click();
+		CoreControls.validateForm.click();
 		Thread.sleep(3000);
 		boolean formHasErrors = errorBaner.getText()
 				.equals("There are validation errors in your Marriage Notification.");

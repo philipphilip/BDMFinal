@@ -20,7 +20,7 @@ public class FillCODForm {
 		CODPage.deceasedFamilyName.sendKeys(randDeceasedFamilyName);
 		CODPage.deceasedfirstName.sendKeys("skjfhadsfxx");
 		CODPage.sex.sendKeys("Male");
-		CODPage.aboriginalOrTorresStraitIslanderOrigin.sendKeys("Decline to Reply");
+		CODPage.aboriginalOrTorresStraitIslanderOrigin.sendKeys("Unknown");
 		CODPage.howDidYouConfirmTheNameOfTtheDeceased.sendKeys("Medical Records");
 		CODPage.dateOfBirthType.sendKeys("On");
 		CODPage.deceasedDOBDay.sendKeys("10");
@@ -49,8 +49,10 @@ public class FillCODForm {
 		CODPage.abilityToAccuratelyAdviseCOBOtherAdvice.sendKeys("No");
 		CODPage.IsThereCardiacPacemakerOrBatteryPoweredDeviceInTheBody.sendKeys("No");
 		CODPage.wasPostMortemHeld.sendKeys("No");
+		CODPage.numberOfDisease.sendKeys("0");
+		CODPage.numberOfAntecedentCauses.sendKeys("0");
+		CODPage.numberofOtherSignificantConditions.sendKeys("0");
 		CODPage.WhoIsOrganisingDisposalOfDeceasedRemains.sendKeys("Funeral Director");
-
 		CODPage.funeralDirectorIDNumber.sendKeys("2452345");
 		CODPage.funeralDirectorFamilyName.sendKeys("asdfasjs");
 		CODPage.funeralDirectorBusinessName.sendKeys("The xyz");
@@ -58,7 +60,6 @@ public class FillCODForm {
 		CODPage.funeralDirectorSuburb.sendKeys("Melbourne");
 		CODPage.funeralDirectorPostcode.sendKeys("3000");
 		CODPage.funeralDirectorEmailAddress.sendKeys("asdf@asdkf.com");
-
 		CODPage.wasTheDeceasedUnder18.sendKeys("No");
 		CODPage.medicalPractitionerFamilyName.sendKeys("afsdfasdfa");
 		CODPage.medicalPractitionerFirstName.sendKeys("jsiekdeod");

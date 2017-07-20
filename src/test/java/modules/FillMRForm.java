@@ -105,6 +105,7 @@ public class FillMRForm {
 		MRPage.celebrantOath.sendKeys("Yes");
 		MRPage.originalMarriageDocumentsReceived.sendKeys("Yes");
 		MRPage.validateform();
+		
 		CoreControls.selectSave();
 		CoreControls.clickGo();
 

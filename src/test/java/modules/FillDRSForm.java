@@ -30,12 +30,12 @@ public class FillDRSForm {
 		DRSPage.usualAddressPostcode.sendKeys("3000");
 		DRSPage.placeOfBirthSuburb.sendKeys("Sydny");
 		DRSPage.occupationDuringWorkingLife.sendKeys("accouintant");
-		DRSPage.aboriginalOrTorresStraitIslanderOrigin.sendKeys("Decline to Reply");
+		DRSPage.aboriginalOrTorresStraitIslanderOrigin.sendKeys("Unknown");
 		DRSPage.relationshipStatusAtTimeOfDeath.sendKeys("Not in a Relationship");
 		DRSPage.parentOneFirstName.sendKeys("asdfa");
 		DRSPage.parentTwoFirstName.sendKeys("asdfasdfA");
 		DRSPage.WasTheDeceasedUnder18.sendKeys("No");
-		DRSPage.informantRelationshipToSubject.sendKeys("AGENT");
+		DRSPage.informantRelationshipToSubject.sendKeys("Not in Relationship");
 		DRSPage.informatFamilyName.sendKeys("asdfA");
 		DRSPage.informatFirstName.sendKeys("fallksjgflag");
 		DRSPage.informantAddressLine1.sendKeys("32 asdjfs st");

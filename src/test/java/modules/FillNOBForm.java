@@ -22,7 +22,7 @@ public class FillNOBForm {
 		NOBPage.mothersDOBDay.sendKeys("25");
 		NOBPage.mothersDOBMonth.sendKeys("12");
 		NOBPage.mothersDOBYear.sendKeys("1989");
-		NOBPage.aboriginal_or_torres_strait_islander_origin.sendKeys("Decline to reply");
+		NOBPage.aboriginal_or_torres_strait_islander_origin.sendKeys("Unknown");
 		NOBPage.street_and_number.sendKeys("12");
 		NOBPage.address_line_two.sendKeys("Canning st");
 		NOBPage.suburb.sendKeys("North Melbourne");
