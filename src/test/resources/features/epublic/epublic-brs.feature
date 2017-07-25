@@ -1,4 +1,4 @@
-@epublic @st3
+@epublic @st3 @epublic-brs
 
 Feature: ePublic brs
 

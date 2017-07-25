@@ -68,18 +68,19 @@ public class BDMForm {
 
 	@When("^I open \"(.*?)\" website$")
 	public void i_open_website(String website) throws Throwable {
-		String testEnv = System.getProperty("test.env");
-		System.out.println("test.env=" + testEnv);
-		String base_url = "";
-		if(testEnv.equals("fat")) {
-			base_url= fat;
-		}else if(testEnv.equals("st3")) {
-			base_url= st3;
-		}else if(testEnv.equals("st2")) {
-			base_url= st2;
-		}else {
-			base_url= fat;
-		}
+		//String testEnv = System.getProperty("test.env");
+		//System.out.println("test.env=" + testEnv);
+		String base_url = st3;
+
+		//if(testEnv.equals("fat")) {
+		//	base_url= fat;
+		//}else if(testEnv.equals("st3")) {
+		//	base_url= st3;
+		//}else if(testEnv.equals("st2")) {
+		//	base_url= st2;
+		//}else {
+		//	base_url= fat;
+		//}
 
 		if(website.equals("ePublic")) {
 			driver.get("http://" + base_url + "/epublic/login");
@@ -189,26 +190,42 @@ public class BDMForm {
 		// Thread.sleep(3000);
 
 		System.out.println("--------I fill " + form + " form in " + site + " page: " + page);
-		if (site.equals("epublic")) {
-			if (page.equals("Child's details")) {
-				System.out.println("--------I am in the condition of filling Child's details of BRS in epublic");
-				FillEpublicBrsChildDetailForm.Execute(driver);
-			} else if (page.equals("Parent details")) {
-				System.out.println("--------I am in the condition of filling Parent details of BRS in epublic");
-				FillEpublicBrsParentDetailForm.Execute(driver);
-			} else if (page.equals("Second parent details")) {
-				System.out.println("--------I am in the condition of filling Second parent details of BRS in epublic");
-				FillEpublicBrsSecondParentDetailForm.Execute(driver);
-			} else if (page.equals("Relationship details")) {
-				System.out.println("--------I am in the condition of filling Relationship details of BRS in epublic");
-				FillEpublicBrsRelationshipDetailForm.Execute(driver);
-			} else if (page.equals("Second parent participation details")) {
-				System.out.println("--------I am in the condition of filling Relationship details of BRS in epublic");
-				FillEpublicBrsSecondParentParticipationDetailForm.Execute(driver);
-			} else if (page.equals("Informant 1 details")) {
-				System.out.println("--------I am in the condition of filling Informant 1 details of BRS in epublic");
-				FillEpublicBrsInformant1DetailForm.Execute(driver);
+		if (site.toLowerCase().equals("epublic".toLowerCase())) {
+			if(form.equals("BRS")) {
+				if (page.equals("Child's details")) {
+					System.out.println("--------I am in the condition of filling Child's details of BRS in epublic");
+					FillEpublicBrsChildDetailForm.Execute(driver);
+				} else if (page.equals("Parent details")) {
+					System.out.println("--------I am in the condition of filling Parent details of BRS in epublic");
+					FillEpublicBrsParentDetailForm.Execute(driver);
+				} else if (page.equals("Second parent details")) {
+					System.out.println("--------I am in the condition of filling Second parent details of BRS in epublic");
+					FillEpublicBrsSecondParentDetailForm.Execute(driver);
+				} else if (page.equals("Relationship details")) {
+					System.out.println("--------I am in the condition of filling Relationship details of BRS in epublic");
+					FillEpublicBrsRelationshipDetailForm.Execute(driver);
+				} else if (page.equals("Second parent participation details")) {
+					System.out.println("--------I am in the condition of filling Relationship details of BRS in epublic");
+					FillEpublicBrsSecondParentParticipationDetailForm.Execute(driver);
+				} else if (page.equals("Informant 1 details")) {
+					System.out.println("--------I am in the condition of filling Informant 1 details of BRS in epublic");
+					FillEpublicBrsInformant1DetailForm.Execute(driver);
+				} else if (page.equals("Informant 1 details")) {
+					System.out.println("--------I am in the condition of filling Informant 1 details of BRS in epublic");
+					FillEpublicBrsInformant1DetailForm.Execute(driver);
+				}
+			}else if(form.equals("application")) {
+				if (page.equals("Applicant details")) {
+					System.out.println("--------I am in the condition of filling Applicant details of application in epublic");
+					FillEpublicApplicationApplicantDetailForm.Execute(driver);
+				}else if (page.equals("Subject details")) {
+					System.out.println("--------I am in the condition of filling Subject details of application in epublic");
+					FillEpublicApplicationSubjectDetailForm.Execute(driver);
+				}
+
+
 			}
+
 		} else if (site.equals("eregistry")) {
 			if (page.equals("DRS")) {
 				System.out.println("--------I am in the condition of filling DRS in eregistry");
@@ -243,6 +260,12 @@ public class BDMForm {
 		}
 	}
 
+	@Then("^I input \"(.*?)\" in field with id \"(.*?)\" in \"(.*?)\"$")
+	public void i_input_by_id(String value, String id, String site) throws Throwable {
+		Helper.inputById(id, value );
+	}
+
+
 	@Then("^I input \"(.*?)\" in \"(.*?)\" input on \"(.*?)\" page of \"(.*?)\" in \"(.*?)\"$")
 	public void i_input(String value, String inputName, String page, String function, String site) throws Throwable {
 		if (site.equals("Core")) {
@@ -269,6 +292,16 @@ public class BDMForm {
 		Helper.clickLinkByText(linkText);
 
 	}
+
+	@When("^I click \"(.*?)\" button in \"(.*?)\"$")
+	public void i_click_button_by_text$(String buttonText, String site) throws Throwable {
+		Helper.clickButtonByText(buttonText);
+
+	}
+
+
+
+
 	@When("^I click \"(.*?)\" button on \"(.*?)\" page of \"(.*?)\" in \"(.*?)\"$")
 	public void i_click_button$(String buttonName, String pageName, String area, String site) throws Throwable {
 		if (site.equals("Core")) {

@@ -1,8 +1,9 @@
-@core
+@core-br
+
 
 Feature: Create BRS and NOB, then generate BR in Core
 
-  Scenario: Create BRS in core
+  Scenario: Create BR in core
     Given I open "Core" website
     When I login "Core" as user "objectadmin" password "EipPSZAG0SDXebOW2gd3"
     And I navigate to "NOB" new form
@@ -30,7 +31,7 @@ Feature: Create BRS and NOB, then generate BR in Core
     And I click "First NOB Search Result" button on "core nob search" page of "br" in "Core"
     And I select "Register" in "Action List" dropdown list on "Notice of Birth" page of "br" in "Core"
     And I click "Go" button on "Notice of Birth" page of "br" in "Core"
-    And I can see "This Birth Registration has been successfully registered" on "br" page of "Core"
+    Then I can see "This Birth Registration has been successfully registered" on "br" page of "Core"
 
 
 

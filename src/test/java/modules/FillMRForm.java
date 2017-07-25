@@ -1,7 +1,6 @@
 package modules;
 
-import java.awt.GraphicsDevice.WindowTranslucency;
-
+import helpers.Helper;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
 
@@ -13,7 +12,7 @@ public class FillMRForm {
 	public static void Execute(WebDriver driver) throws Exception {
 		PageFactory.initElements(driver, MRPage.class);
 		Thread.sleep(3000);
-		MRPage.celebrantCode.sendKeys("A Civil Ceremony");
+		Helper.selectDropDownList(MRPage.celebrantCode,"A Civil Ceremony");
 		MRPage.celebrantRegistrationNumber.sendKeys("12341324");
 		MRPage.dateOfMarriageDay.sendKeys("01");
 		MRPage.dateOfMarriageMonth.sendKeys("07");
