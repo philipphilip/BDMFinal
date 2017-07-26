@@ -54,6 +54,8 @@ public class EpublicControls extends BaseClass {
 	@FindBy(xpath = "/html/body/app/div/payment-completion/div/div[1]/div[4]/div[3]")
 	public static WebElement brsSubmitResult;
 
+	@FindBy(xpath = "/html/body/app/div/payment-completion/div/div[1]/div[5]/div[4]")
+	public static WebElement paymentResult;
 
 
 

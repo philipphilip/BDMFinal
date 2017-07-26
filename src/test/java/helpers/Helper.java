@@ -51,6 +51,13 @@ public class Helper {
 		inputItem( item, value, 0, true);
 	}
 
+	public static void clickById( String id ) throws Throwable{
+		Thread.sleep(2000);
+		WebElement item = Hooks.driver.findElement(By.id(id));
+		clickItem( item);
+	}
+
+
 	public static void clickItem(WebElement item) throws Throwable{
 
 		try {

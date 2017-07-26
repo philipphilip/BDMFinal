@@ -221,6 +221,9 @@ public class BDMForm {
 				}else if (page.equals("Subject details")) {
 					System.out.println("--------I am in the condition of filling Subject details of application in epublic");
 					FillEpublicApplicationSubjectDetailForm.Execute(driver);
+				}else if (page.equals("Payment details")) {
+					System.out.println("--------I am in the condition of filling Payment details of application in epublic");
+					FillEpublicApplicationPaymentDetailForm.Execute(driver);
 				}
 
 
@@ -286,6 +289,11 @@ public class BDMForm {
 		Helper.clickItem(EregistryControls.submit);
 	}
 
+	@When("^I click \"(.*?)\" item by id \"(.*?)\" in \"(.*?)\"$")
+	public void i_click_link_by_text$(String item, String id, String site) throws Throwable {
+		Helper.clickById(id);
+
+	}
 
 	@When("^I click \"(.*?)\" link in \"(.*?)\"$")
 	public void i_click_link_by_text$(String linkText, String site) throws Throwable {
@@ -453,7 +461,10 @@ public class BDMForm {
 			if (page.equals("brs Submit result")) {
 				// Thread.sleep(3000);
 				Helper.checkText(EpublicControls.brsSubmitResult, text);
-			} else {
+			}else if(page.equals("application payment result")){
+				Helper.checkText(EpublicControls.paymentResult, text);
+			}
+			else {
 				// Thread.sleep(1000);
 				Helper.checkText(EpublicControls.message, text);
 			}
