@@ -432,6 +432,11 @@ public class CoreBrsPage extends BaseClass {
 	@FindBy(xpath = ".//*[@id='error-message']/div/div")
 	public static WebElement errorBaner;
 
+	public static void view_BRS_Form_Errors() {
+		validate_BRS_field_button.click();
+
+	}
+
 	public static void validateform() throws Exception {
 		CoreControls.validateForm.click();
 		Thread.sleep(3000);
@@ -449,4 +454,5 @@ public class CoreBrsPage extends BaseClass {
 			System.out.println("There are no validation errors");
 		}
 	}
+
 }

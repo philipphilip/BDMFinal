@@ -1,4 +1,4 @@
-@eregistry @eregistry-cod-fat @eregistry-cod @fat
+@eregistry-cod-fat @fat
 
 Feature: eregistry cod
 

@@ -13,7 +13,7 @@ public class EregistryDrsPage extends BaseClass {
 	@FindBy(id = "deceasedDetails-name-familyName")
 	public static WebElement familyName;
 
-	@FindBy(id = "deceasedDetails-name-givenNames")
+	@FindBy(id = "deceasedDetails-name-firstGivenName")
 	public static WebElement givenName;
 
 	@FindBy(id = "deceasedDetails-sex")
@@ -97,7 +97,7 @@ public class EregistryDrsPage extends BaseClass {
 	@FindBy(id = "parentsOfDeceased-parent1-familyName")
 	public static WebElement parent1FamilyName;
 
-	@FindBy(id = "parentsOfDeceased-parent1-givenNames")
+	@FindBy(id = "parentsOfDeceased-parent1-firstGivenName")
 	public static WebElement parent1GivenName;
 
 	@FindBy(id = "parentsOfDeceased-parent1-occupation")
@@ -109,7 +109,7 @@ public class EregistryDrsPage extends BaseClass {
 	@FindBy(id = "parentsOfDeceased-parent2-familyName")
 	public static WebElement parent2FamilyName;
 
-	@FindBy(id = "parentsOfDeceased-parent2-givenNames")
+	@FindBy(id = "parentsOfDeceased-parent2-firstGivenName")
 	public static WebElement parent2GivenName;
 
 	@FindBy(id = "parentsOfDeceased-parent2-occupation")
@@ -127,7 +127,7 @@ public class EregistryDrsPage extends BaseClass {
 	@FindBy(id = "informantDetails-name-familyName")
 	public static WebElement informantFamilyName;
 
-	@FindBy(id = "informantDetails-name-givenNames")
+	@FindBy(id = "informantDetails-name-firstGivenName")
 	public static WebElement informantGivenName;
 
 	@FindBy(id = "informantDetails-residentialAddress-line1")
@@ -179,8 +179,9 @@ public class EregistryDrsPage extends BaseClass {
 	@FindBy(id = "deathCertification-coroner-suburb")
 	public static WebElement coronerSuburb;
 
+
 	@FindBy(xpath = "/html/body/app/ng-component/div[2]/main/div/drs/div/div[2]/form/input[2]")
-	public static WebElement saveButton;
+	public static WebElement save;
 
 
 }

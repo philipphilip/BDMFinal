@@ -66,7 +66,7 @@ public class FillEregistryDrsForm {
 		Helper.inputItem(EregistryDrsPage.parent2GivenName,"David");
 		Helper.inputItem(EregistryDrsPage.parent2Occupation,"accountant");
 
-		Helper.inputItem(EregistryDrsPage.under18,"Yes");
+		Helper.inputItem(EregistryDrsPage.under18,"No");
 		Helper.inputItem(EregistryDrsPage.numberSibling,"0");
 
 		Helper.inputItem(EregistryDrsPage.informantRelationship,"FATHER");
@@ -93,8 +93,7 @@ public class FillEregistryDrsForm {
 		Helper.inputItem(EregistryDrsPage.deathCertifiedBy,"Coroner");
 		Helper.inputItem(EregistryDrsPage.coronerSuburb,"ringwood");
 
-		Helper.clickItem(EregistryDrsPage.saveButton);
-
+		Helper.clickItem(EregistryDrsPage.save);
 
 	}
 
