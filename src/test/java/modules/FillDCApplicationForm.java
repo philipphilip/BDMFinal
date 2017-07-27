@@ -24,7 +24,7 @@ public class FillDCApplicationForm {
 		Thread.sleep(1000);
 		ApplicationPage.relationshipToSubject.sendKeys("Child");
 		ApplicationPage.nextButton.click();
-		ApplicationPage.applicantFamilyName.sendKeys("asdfa");
+		ApplicationPage.applicantFamilyName.sendKeys("Smith");
 		ApplicationPage.applicantGivenName.sendKeys("asdfa");
 		ApplicationPage.applicantDOBDay.sendKeys("14");
 		ApplicationPage.applicantDOBMonth.sendKeys("08");
@@ -43,11 +43,15 @@ public class FillDCApplicationForm {
 		ApplicationPage.deathDetailsGivenNames.sendKeys("asdfas");
 		ApplicationPage.placeOfDeathSuburbTownCity.sendKeys("Melbourne");
 		ApplicationPage.nextButton.click();
-		Thread.sleep(1000);
+		Thread.sleep(3000);
 		ApplicationPage.noMatchButton.click();
-		Thread.sleep(1000);
+		Thread.sleep(3000);
+		ApplicationPage.validateform();
+		Thread.sleep(3000);
+		ApplicationPage.nextButton.click();
+		Thread.sleep(3000);
 		ApplicationPage.submitApplication.click();
-		Thread.sleep(2000);
+		Thread.sleep(3000);
 		String successMessage = ApplicationPage.successMessage.getText();
 		Assert.assertTrue("Application for death certificate Failed", successMessage.contains("successfully saved"));
 

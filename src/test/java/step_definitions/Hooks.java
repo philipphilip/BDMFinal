@@ -39,27 +39,24 @@ public class Hooks {
 		// driver = new RemoteWebDriver(new URL(nodrul), caps);
 
 		// -----Run locally on FireFox Browser------//
-		// System.setProperty("webdriver.gecko.driver","drivers/geckodriver-v0.16.1-win64/geckodriver.exe");
+		// System.setProperty("webdriver.gecko.driver",
+		// "drivers/geckodriver-v0.16.1-win64/geckodriver.exe");
 		// driver = new FirefoxDriver();
 
 		// -----Run locally on Chrome Browser------//
-		//System.setProperty("webdriver.chrome.driver",
-		//		"C:/work/ConnectedBdmRIO/automation-selenium/src/drivers/chrome-2.29-winx32/chromedriver.exe");
-		//System.setProperty("webdriver.chrome.driver",
-		//		"C:/work/ConnectedBdmRIO/automation-selenium/src/drivers/chrome-2.29-winx32/chromedriver.exe");
-		System.setProperty("webdriver.chrome.driver",
-				"/usr/local/share/chromedriver");
-
+		// System.setProperty("webdriver.chrome.driver","C:/work/ConnectedBdmRIO/automation-selenium/src/drivers/chrome-2.29-winx32/chromedriver.exe");
+		// System.setProperty("webdriver.chrome.driver","C:/work/ConnectedBdmRIO/automation-selenium/src/drivers/chrome-2.29-winx32/chromedriver.exe");
+		System.setProperty("webdriver.chrome.driver", "drivers/chrome-2.29-winx32/chromedriver.exe");
 		driver = new ChromeDriver();
 
 		driver.manage().deleteAllCookies();
-		//driver.manage().window().setPosition(new Point(1600, 70));
-		//driver.manage().window().maximize();
+		// driver.manage().window().setPosition(new Point(1600, 70));
+		// driver.manage().window().maximize();
 	}
 
 	@After
 	public void closeDriver(Scenario scenario) {
-		//driver.quit(); //disable temporarily
+		// driver.quit(); //disable temporarily
 	}
 
 	@After

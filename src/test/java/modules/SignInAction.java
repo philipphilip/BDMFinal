@@ -13,12 +13,12 @@ public class SignInAction {
 
 		// LoginPage.username.sendKeys("admin");
 		// LoginPage.password.sendKeys("Friday17");
-		CoreLoginPage.username.sendKeys("objectadmin");
-		CoreLoginPage.password.sendKeys("EipPSZAG0SDXebOW2gd3");
+		 CoreLoginPage.username.sendKeys("admin");
+		 CoreLoginPage.password.sendKeys("Friday17");
+		// CoreLoginPage.username.sendKeys("objectadmin");
+		// CoreLoginPage.password.sendKeys("EipPSZAG0SDXebOW2gd3");
+
 		CoreLoginPage.signin_button.click();
 
-		Log.info(" is entered in UserName text box");
-		Log.info(" is entered in Password text box");
-		Reporter.log("SignIn Action is successfully perfomred");
 	}
 }

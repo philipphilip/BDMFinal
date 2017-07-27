@@ -37,11 +37,20 @@ public class TemplatesPages extends BaseClass {
 	@FindBy(id = "subsystem")
 	public static WebElement subSystem;
 
+	@FindBy(id = "life-event")
+	public static WebElement lifeEvent;
+
 	@FindBy(id = "app-before-sending")
 	public static WebElement appBeforeSending;
 
 	@FindBy(id = "relatedSms")
 	public static WebElement relatedSms;
+
+	@FindBy(id = "signatureBlock")
+	public static WebElement signatureBlock;
+
+	@FindBy(id = "emailSubject")
+	public static WebElement emailSubject;
 
 	@FindBy(id = "pageSize")
 	public static WebElement pageZise;
@@ -58,7 +67,7 @@ public class TemplatesPages extends BaseClass {
 	@FindBy(id = "leftMargin")
 	public static WebElement leftMargin;
 
-	@FindBy(xpath = ".//*[@id='tinymce']/p")
+	@FindBy(id = "tinyMceId_ifr")
 	public static WebElement emailBody;
 
 }

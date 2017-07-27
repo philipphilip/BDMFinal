@@ -1,20 +1,35 @@
 package step_definitions;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.PageFactory;
+
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 import helpers.DataHelper;
 import helpers.Helper;
-import modules.*;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.support.PageFactory;
-import pageobjects.*;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
+import modules.EpublicSignInAction;
+import modules.EregistrySignInAction;
+import modules.FillBRSForm;
 import modules.FillCODForm;
+import modules.FillCoreBrsFormForBr;
+import modules.FillCoreNobFormForBr;
+import modules.FillDCApplicationForm;
 import modules.FillDRSForm;
+import modules.FillEpublicBrsChildDetailForm;
+import modules.FillEpublicBrsInformant1DetailForm;
+import modules.FillEpublicBrsParentDetailForm;
+import modules.FillEpublicBrsRelationshipDetailForm;
+import modules.FillEpublicBrsSecondParentDetailForm;
+import modules.FillEpublicBrsSecondParentParticipationDetailForm;
+import modules.FillEregistryCodForm;
+import modules.FillEregistryDrsForm;
 import modules.FillMRForm;
 import modules.FillNOBForm;
+import modules.GoToApplicationForm;
 import modules.GoToBRSForm;
 import modules.GoToCODForm;
 import modules.GoToDRSForm;
@@ -25,8 +40,13 @@ import modules.SignoutAction;
 import pageobjects.AutomationHomePage;
 import pageobjects.CoreBrsPage;
 import pageobjects.CoreControls;
-import pageobjects.CoreNobPage;
 import pageobjects.CoreLoginPage;
+import pageobjects.CoreNobPage;
+import pageobjects.CoreSearchNobPage;
+import pageobjects.EpublicControls;
+import pageobjects.EpublicLoginPage;
+import pageobjects.EregistryControls;
+import pageobjects.EregistryLoginPage;
 
 public class BDMForm {
 	public WebDriver driver;
@@ -57,7 +77,7 @@ public class BDMForm {
 	}
 
 	static String st2 = "10.22.3.205";
-	static String st3 = "10.22.1.200";
+	static String st3 = "http://10.22.1.200/core/login";
 	static String fat = "52.64.152.134";
 
 	@When("^I open \"(.*?)\" website$")
@@ -106,8 +126,9 @@ public class BDMForm {
 
 	@When("^I open Core website$")
 	public void i_open_Core_website() throws Throwable {
-		// driver.get("http://10.22.3.205/core/login");
-		driver.get("http://52.64.152.134/core/dashboard");
+		// driver.get(st2);
+		driver.get(st3);
+		// driver.get(fat);
 	}
 
 	@When("^I sign in$")

@@ -104,5 +104,39 @@ public class ApplicationPage extends BaseClass {
 
 	@FindBy(xpath = ".//*/div[@class='alert-full']/alert/div")
 	public static WebElement successMessage;
-	
+
+	@FindBy(xpath = ".//*[@id='error-message']/div/div[text()='There are validation errors in your application.']")
+	public static WebElement errorBaner;
+
+	@FindBy(xpath = ".//th[1]/input")
+	public static WebElement validateCheckBox;
+
+	@FindBy(xpath = ".//input[@value='Override']")
+	public static WebElement overrideButton;
+
+	@FindBy(xpath = ".//*[@id='Reason Code *']")
+	public static WebElement acceptionReason;
+
+	@FindBy(xpath = ".//application-wiz-page/override-popup/base-popup//div[@class='cge-input-field']/cge-wrapped-text-area/textarea[@id='Comments *']")
+	public static WebElement reasonComment;
+
+	@FindBy(xpath = ".//*/override-popup/base-popup/div/div/div/div[3]/div/button[text()='Override']")
+	public static WebElement overrideButton2;
+
+	public static void validateform() throws Exception {
+		Thread.sleep(3000);
+		boolean formHasErrors = errorBaner.getText().equals("There are validation errors in your application.");
+		if (formHasErrors) {
+			validateCheckBox.click();
+			overrideButton.click();
+			Thread.sleep(3000);
+			acceptionReason.sendKeys("Court Order");
+			reasonComment.sendKeys("any reason");
+			overrideButton2.click();
+			System.out.println("There were validation errors that got overridden");
+		} else {
+			System.out.println("There are no validation errors");
+		}
+	}
+
 }
