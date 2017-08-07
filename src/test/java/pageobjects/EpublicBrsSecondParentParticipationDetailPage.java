@@ -12,6 +12,16 @@ public class EpublicBrsSecondParentParticipationDetailPage extends BaseClass {
 
 	@FindBy(id = "brs-parent2Details-contactDetails-mobileNumber")
 	public static WebElement telephone;
+	
+	@FindBy(id = "brs-parent2ParticipationDetails-safetyConcernsFromParent2BeingContacted0")
+	public static WebElement safetyConcernsFromParent2;
 
 
+
+	
+	
+	
+	
+	
+	
 }

@@ -11,10 +11,8 @@ public class SignInAction {
 
 	public static void Execute(WebDriver driver, HashMap<String, String> map) throws Exception {
 
-		// LoginPage.username.sendKeys("admin");
-		// LoginPage.password.sendKeys("Friday17");
-		 CoreLoginPage.username.sendKeys("admin");
-		 CoreLoginPage.password.sendKeys("Friday17");
+		CoreLoginPage.username.sendKeys("admin");
+		CoreLoginPage.password.sendKeys("Friday17");
 		// CoreLoginPage.username.sendKeys("objectadmin");
 		// CoreLoginPage.password.sendKeys("EipPSZAG0SDXebOW2gd3");
 

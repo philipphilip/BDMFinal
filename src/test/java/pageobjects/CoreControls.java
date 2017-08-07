@@ -15,6 +15,15 @@ public class CoreControls extends BaseClass {
 	@FindBy(xpath = "//*/a[text()='New']")
 	public static WebElement new_tab;
 
+	@FindBy(xpath = "//*/a[text()='Search']")
+	public static WebElement search_tab;
+
+	@FindBy(xpath = "//*/a[text()='Marriage Notification Search']")
+	public static WebElement merriageNotificationSearch;
+
+	@FindBy(xpath = ".//marriage-notification-page//input[@value='Search']")
+	public static WebElement searchButton;
+
 	@FindBy(xpath = "//*/a[text()='Birth Registration Statement']")
 	public static WebElement newBRS;
 
@@ -90,12 +99,18 @@ public class CoreControls extends BaseClass {
 	public static void selectSave() {
 		actionList.sendKeys("Save");
 	}
+	
+	public static void selectRegister() {
+		actionList.sendKeys("Register");
+		
+	}
 
 	public static void clickGo() {
 		go.click();
-		WebDriverWait waitForSuccessMessage = new WebDriverWait(driver, 10000);
-		CoreCodPage.causeOfDeathType = waitForSuccessMessage.until(ExpectedConditions.elementToBeClickable(successMessage));
-		successMessage.getText().contains("successfully saved");
+//		WebDriverWait waitForSuccessMessage = new WebDriverWait(driver, 10000);
+//		CoreCodPage.causeOfDeathType = waitForSuccessMessage
+//				.until(ExpectedConditions.elementToBeClickable(successMessage));
+//		successMessage.getText().contains("successfully saved");
 	}
 
 }

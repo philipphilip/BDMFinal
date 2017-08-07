@@ -290,7 +290,6 @@ public class CoreBrsPage extends BaseClass {
 	public static WebElement relationshipStatus;
 
 	@FindBy(id = "relationshipDetails-dateOfRelationshipRegistration-day")
-
 	public static WebElement dateRelationshipRegistredDay;
 
 	@FindBy(id = "relationshipDetails-dateOfRelationshipRegistration-month")
@@ -299,8 +298,7 @@ public class CoreBrsPage extends BaseClass {
 	@FindBy(id = "relationshipDetails-dateOfRelationshipRegistration-year")
 	public static WebElement dateRelationshipRegistredYear;
 
-	public static WebElement dateOfRelationshipRegistrationDay;
-
+	
 	@FindBy(id = "relationshipDetails-dateOfRelationshipRegistration-month")
 	public static WebElement dateOfRelationshipRegistrationMonth;
 

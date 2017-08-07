@@ -4,9 +4,9 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
-public class MRPage extends BaseClass {
+public class MNPage extends BaseClass {
 
-	public MRPage(WebDriver driver) {
+	public MNPage(WebDriver driver) {
 		super(driver);
 	}
 
@@ -302,6 +302,12 @@ public class MRPage extends BaseClass {
 	@FindBy(xpath = ".//marriage-notification-page/override-popup/base-popup/div/div/div/div[3]/div/button[text()='Override']")
 	public static WebElement overrideButton2;
 
+	@FindBy(xpath = ".//marriage-notification-page//search-results//table//tr[2]/td[1]/div/a")
+	public static WebElement matchingNotifivation;
+
+	@FindBy(xpath = ".//marriage-notification-page//side-panel//a[contains(text(),'Marriage Registration')]")
+	public static WebElement marriageRegLink;
+
 	public static void validateform() throws Exception {
 		CoreControls.validateForm.click();
 		Thread.sleep(3000);
@@ -310,6 +316,8 @@ public class MRPage extends BaseClass {
 		if (formHasErrors) {
 			validateCheckBox.click();
 			overrideButton.click();
+			Thread.sleep(3000);
+			System.out.println("after clicking the override button");
 			acceptionReason.sendKeys("Court Order");
 			reasonComment.sendKeys("any reason");
 			overrideButton2.click();

@@ -14,8 +14,10 @@ public class FillEpublicBrsSecondParentParticipationDetailForm {
 		PageFactory.initElements(driver, EpublicBrsSecondParentParticipationDetailPage.class);
 		//Thread.sleep(2000);
 
-		Helper.inputItem(EpublicBrsSecondParentParticipationDetailPage.telephone,"99996666");
-
+		
+//		Helper.inputItem(EpublicBrsSecondParentParticipationDetailPage.telephone,"99996666");
+		Thread.sleep(3000);
+		EpublicBrsSecondParentParticipationDetailPage.safetyConcernsFromParent2.click();
 		Helper.clickItem(EpublicControls.nextButton);
 
 	}

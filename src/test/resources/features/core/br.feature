@@ -1,15 +1,14 @@
 @core-br
-
-
 Feature: Create BRS and NOB, then generate BR in Core
 
   Scenario: Create BR in core
-    Given I open "Core" website
-    When I login "Core" as user "objectadmin" password "EipPSZAG0SDXebOW2gd3"
+    When I open Core website
+    #When I login "Core" as user "objectadmin" password "EipPSZAG0SDXebOW2gd3"
+    And I sign in
     And I navigate to "NOB" new form
     And I fill in the "NOB" of "BR" in "Core"
     And I logout from "Core"
-    And I login "Core" as user "Yatin.Patel" password "Yv3eGjfZWUthN4iVjkz9"
+    And I login "Core" as user "admin2" password "Friday17"
     And I navigate to "BRS" new form
     And I fill in the "BRS" of "BR" in "Core"
     And I click "Validate" button on "brs" page of "br" in "Core"
@@ -21,9 +20,8 @@ Feature: Create BRS and NOB, then generate BR in Core
     And I click "Check For Duplicates" button on "brs" page of "br" in "Core"
     And I click "Proceed to Death Check" button on "brs" page of "br" in "Core"
     And I click "Submit" button on "brs" page of "br" in "Core"
-
     And I logout from "Core"
-    And I login "Core" as user "Grace.Vella" password "upAP5ZqFAP"
+    And I login "Core" as user "pp" password "2bO=wnO)56<A"
     And I click "Search" link in "Core"
     And I click "Notice of Birth Search" link in "Core"
     And I input "@coreBrMotherFirstName" in "Mother First Name" on "core nob search" page of "Core"
@@ -32,7 +30,3 @@ Feature: Create BRS and NOB, then generate BR in Core
     And I select "Register" in "Action List" dropdown list on "Notice of Birth" page of "br" in "Core"
     And I click "Go" button on "Notice of Birth" page of "br" in "Core"
     Then I can see "This Birth Registration has been successfully registered" on "br" page of "Core"
-
-
-
-

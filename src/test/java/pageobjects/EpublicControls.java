@@ -25,6 +25,9 @@ public class EpublicControls extends BaseClass {
 	@FindBy(xpath = ".//*/button[contains(text(),'Save')]")
 	public static WebElement saveButton;
 
+	@FindBy(xpath = ".//*[@id='certificate-order-declaration']//button[contains(text(),'Order a certificate')] ")
+	public static WebElement noCertificate;
+
 	@FindBy(xpath = ".//*/button[contains(text(),'Continue')]")
 	public static WebElement continueButton;
 
@@ -37,13 +40,11 @@ public class EpublicControls extends BaseClass {
 	@FindBy(xpath = ".//*/button[contains(text(),'Checkout')]")
 	public static WebElement checkoutButton;
 
-
 	@FindBy(id = "reviewDraftRequest-declaration")
 	public static WebElement reviewDeclaration;
 
 	@FindBy(xpath = ".//*/button[contains(text(),'Submit')]")
 	public static WebElement submitButton;
-
 
 	@FindBy(xpath = "/html/body/app/div/brs-form/div/div/div[2]/form/div[1]/alerts/alert/div")
 	public static WebElement message;
@@ -56,7 +57,5 @@ public class EpublicControls extends BaseClass {
 
 	@FindBy(xpath = "/html/body/app/div/payment-completion/div/div[1]/div[5]/div[4]")
 	public static WebElement paymentResult;
-
-
 
 }

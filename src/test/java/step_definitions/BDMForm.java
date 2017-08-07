@@ -19,6 +19,9 @@ import modules.FillCoreBrsFormForBr;
 import modules.FillCoreNobFormForBr;
 import modules.FillDCApplicationForm;
 import modules.FillDRSForm;
+import modules.FillEpublicApplicationApplicantDetailForm;
+import modules.FillEpublicApplicationPaymentDetailForm;
+import modules.FillEpublicApplicationSubjectDetailForm;
 import modules.FillEpublicBrsChildDetailForm;
 import modules.FillEpublicBrsInformant1DetailForm;
 import modules.FillEpublicBrsParentDetailForm;
@@ -27,14 +30,15 @@ import modules.FillEpublicBrsSecondParentDetailForm;
 import modules.FillEpublicBrsSecondParentParticipationDetailForm;
 import modules.FillEregistryCodForm;
 import modules.FillEregistryDrsForm;
-import modules.FillMRForm;
+import modules.FillMNForm;
 import modules.FillNOBForm;
 import modules.GoToApplicationForm;
 import modules.GoToBRSForm;
 import modules.GoToCODForm;
 import modules.GoToDRSForm;
-import modules.GoToMRForm;
+import modules.GoToMNForm;
 import modules.GoToNOBForm;
+import modules.SearchForMNAndMakeMR;
 import modules.SignInAction;
 import modules.SignoutAction;
 import pageobjects.AutomationHomePage;
@@ -77,26 +81,12 @@ public class BDMForm {
 	}
 
 	static String st2 = "10.22.3.205";
-	static String st3 = "http://10.22.1.200/core/login";
+	static String st3 = "10.22.1.200";
 	static String fat = "52.64.152.134";
 
 	@When("^I open \"(.*?)\" website$")
 	public void i_open_website(String website) throws Throwable {
-
-		//String testEnv = System.getProperty("test.env");
-		//System.out.println("test.env=" + testEnv);
 		String base_url = st3;
-
-		//if(testEnv.equals("fat")) {
-		//	base_url= fat;
-		//}else if(testEnv.equals("st3")) {
-		//	base_url= st3;
-		//}else if(testEnv.equals("st2")) {
-		//	base_url= st2;
-		//}else {
-		//	base_url= fat;
-		//}
-
 
 		if (website.equals("ePublic")) {
 			driver.get("http://" + base_url + "/epublic/login");
@@ -129,9 +119,10 @@ public class BDMForm {
 
 	@When("^I open Core website$")
 	public void i_open_Core_website() throws Throwable {
-		// driver.get(st2);
-		driver.get(st3);
-		// driver.get(fat);
+		// driver.get("http://10.22.3.205/core/login");
+		// driver.get("http://10.22.1.200/core/login");
+		// driver.get("http://52.64.152.134/core/login");
+		driver.get("http://10.22.1.110/core/login");
 	}
 
 	@When("^I sign in$")
@@ -174,22 +165,22 @@ public class BDMForm {
 		} else if (site.equals("eRegistry")) {
 			if (tab.equals("DRS")) {
 				System.out.println("--------I am in the condition of running the DRS");
-				// Thread.sleep(2000);
+
 				Helper.clickItem(EregistryControls.deathsLink);
 				Helper.clickItem(EregistryControls.drsLink);
 			} else if (tab.equals("DRS draft list")) {
 				System.out.println("--------I am in the condition of going to DRS draft list");
-				// Thread.sleep(2000);
+
 				Helper.clickItem(EregistryControls.deathsLink);
 				Helper.clickItem(EregistryControls.drsDraftList);
 			} else if (tab.equals("Cause of Death")) {
 				System.out.println("--------I am in the condition of going to Cause of Death");
-				// Thread.sleep(2000);
+
 				Helper.clickItem(EregistryControls.codLink);
 				Helper.clickItem(EregistryControls.newCodLink);
 			} else if (tab.equals("COD draft list")) {
 				System.out.println("--------I am in the condition of going to COD draft list");
-				// Thread.sleep(2000);
+
 				Helper.clickItem(EregistryControls.codLink);
 				Helper.clickItem(EregistryControls.codDraftList);
 			}
@@ -199,11 +190,10 @@ public class BDMForm {
 
 	@When("^I fill in the \"(.*?)\" of \"(.*?)\" in \"(.*?)\"$")
 	public void i_fill_form$(String page, String form, String site) throws Throwable {
-		// Thread.sleep(3000);
 
 		System.out.println("--------I fill " + form + " form in " + site + " page: " + page);
 		if (site.toLowerCase().equals("epublic".toLowerCase())) {
-			if(form.equals("BRS")) {
+			if (form.equals("BRS")) {
 				if (page.equals("Child's details")) {
 					System.out.println("--------I am in the condition of filling Child's details of BRS in epublic");
 					FillEpublicBrsChildDetailForm.Execute(driver);
@@ -211,33 +201,40 @@ public class BDMForm {
 					System.out.println("--------I am in the condition of filling Parent details of BRS in epublic");
 					FillEpublicBrsParentDetailForm.Execute(driver);
 				} else if (page.equals("Second parent details")) {
-					System.out.println("--------I am in the condition of filling Second parent details of BRS in epublic");
+					System.out.println(
+							"--------I am in the condition of filling Second parent details of BRS in epublic");
 					FillEpublicBrsSecondParentDetailForm.Execute(driver);
 				} else if (page.equals("Relationship details")) {
-					System.out.println("--------I am in the condition of filling Relationship details of BRS in epublic");
+					System.out
+							.println("--------I am in the condition of filling Relationship details of BRS in epublic");
 					FillEpublicBrsRelationshipDetailForm.Execute(driver);
 				} else if (page.equals("Second parent participation details")) {
-					System.out.println("--------I am in the condition of filling Relationship details of BRS in epublic");
+					System.out
+							.println("--------I am in the condition of filling Relationship details of BRS in epublic");
 					FillEpublicBrsSecondParentParticipationDetailForm.Execute(driver);
 				} else if (page.equals("Informant 1 details")) {
-					System.out.println("--------I am in the condition of filling Informant 1 details of BRS in epublic");
+					System.out
+							.println("--------I am in the condition of filling Informant 1 details of BRS in epublic");
 					FillEpublicBrsInformant1DetailForm.Execute(driver);
 				} else if (page.equals("Informant 1 details")) {
-					System.out.println("--------I am in the condition of filling Informant 1 details of BRS in epublic");
+					System.out
+							.println("--------I am in the condition of filling Informant 1 details of BRS in epublic");
 					FillEpublicBrsInformant1DetailForm.Execute(driver);
 				}
-			}else if(form.equals("application")) {
+			} else if (form.equals("application")) {
 				if (page.equals("Applicant details")) {
-					System.out.println("--------I am in the condition of filling Applicant details of application in epublic");
+					System.out.println(
+							"--------I am in the condition of filling Applicant details of application in epublic");
 					FillEpublicApplicationApplicantDetailForm.Execute(driver);
-				}else if (page.equals("Subject details")) {
-					System.out.println("--------I am in the condition of filling Subject details of application in epublic");
+				} else if (page.equals("Subject details")) {
+					System.out.println(
+							"--------I am in the condition of filling Subject details of application in epublic");
 					FillEpublicApplicationSubjectDetailForm.Execute(driver);
-				}else if (page.equals("Payment details")) {
-					System.out.println("--------I am in the condition of filling Payment details of application in epublic");
+				} else if (page.equals("Payment details")) {
+					System.out.println(
+							"--------I am in the condition of filling Payment details of application in epublic");
 					FillEpublicApplicationPaymentDetailForm.Execute(driver);
 				}
-
 
 			}
 
@@ -277,9 +274,8 @@ public class BDMForm {
 
 	@Then("^I input \"(.*?)\" in field with id \"(.*?)\" in \"(.*?)\"$")
 	public void i_input_by_id(String value, String id, String site) throws Throwable {
-		Helper.inputById(id, value );
+		Helper.inputById(id, value);
 	}
-
 
 	@Then("^I input \"(.*?)\" in \"(.*?)\" input on \"(.*?)\" page of \"(.*?)\" in \"(.*?)\"$")
 	public void i_input(String value, String inputName, String page, String function, String site) throws Throwable {
@@ -295,12 +291,10 @@ public class BDMForm {
 	@Then("^I select stakeholder as \"(.*?)\"$")
 	public void i_select_stakeholder(String stakeholder) throws Throwable {
 
-		// Thread.sleep(2000);
 		Helper.selectDropDownList(EregistryControls.stakeholderList, stakeholder);
-		// Thread.sleep(1000);
+
 		Helper.clickItem(EregistryControls.submit);
 	}
-
 
 	@When("^I click \"(.*?)\" item by id \"(.*?)\" in \"(.*?)\"$")
 	public void i_click_link_by_text$(String item, String id, String site) throws Throwable {
@@ -308,23 +302,17 @@ public class BDMForm {
 
 	}
 
-
 	@When("^I click \"(.*?)\" link in \"(.*?)\"$")
 	public void i_click_link_by_text$(String linkText, String site) throws Throwable {
 		Helper.clickLinkByText(linkText);
 
 	}
 
-
 	@When("^I click \"(.*?)\" button in \"(.*?)\"$")
 	public void i_click_button_by_text$(String buttonText, String site) throws Throwable {
 		Helper.clickButtonByText(buttonText);
 
 	}
-
-
-
-
 
 	@When("^I click \"(.*?)\" button on \"(.*?)\" page of \"(.*?)\" in \"(.*?)\"$")
 	public void i_click_button$(String buttonName, String pageName, String area, String site) throws Throwable {
@@ -358,78 +346,78 @@ public class BDMForm {
 		} else if (site.equals("epublic")) {
 			if (buttonName.equals("Next")) {
 				System.out.println("--------I am clicking Next button");
-				// Thread.sleep(2000);
+
 				Helper.clickItem(EpublicControls.nextButton);
 			} else if (buttonName.equals("Save")) {
 				System.out.println("--------I am clicking Save button");
-				// Thread.sleep(3000);
+
 				Helper.clickItem(EpublicControls.saveButton);
 			} else if (buttonName.equals("DashBoard")) {
 				System.out.println("--------I am clicking DashBoard button");
-				// Thread.sleep(5000);
+
 				Helper.clickItem(EpublicControls.proceedButton);
 			} else if (buttonName.equals("Continue")) {
 				System.out.println("--------I am clicking Continue button");
-				// Thread.sleep(2000);
+
 				Helper.clickItem(EpublicControls.continueButton);
 			} else if (buttonName.equals("Close")) {
 				System.out.println("--------I am clicking Continue button");
-				// Thread.sleep(2000);
+
 				Helper.clickItem(EpublicControls.closeButton);
 			} else if (buttonName.equals("Submit Order")) {
 				System.out.println("--------I am clicking Submit Order button");
-				// Thread.sleep(4000);
+
 				Helper.clickItem(EpublicControls.submitOrderButton);
 
 			} else if (buttonName.equals("Checkout")) {
 				System.out.println("--------I am clicking Checkout button");
-				// Thread.sleep(5000);
+
 				Helper.clickItem(EpublicControls.checkoutButton);
 
 			} else if (buttonName.equals("accept the terms and conditions")) {
 				System.out.println("--------I am clicking accept the terms and conditions button");
-				// Thread.sleep(5000);
+
 				Helper.clickItem(EpublicControls.reviewDeclaration);
 			} else if (buttonName.equals("Submit")) {
 				System.out.println("--------I am clicking Submit button");
-				// Thread.sleep(2000);
+
 				Helper.clickItem(EpublicControls.submitButton);
 			}
 		} else if (site.equals("eregistry")) {
 			if (area.equals("Drs")) {
 				if (buttonName.equals("Refresh")) {
 					System.out.println("--------I am clicking Refresh button");
-					// Thread.sleep(2000);
+
 					Helper.clickItem(EregistryControls.drsSearchRefreshButton);
 				} else if (buttonName.equals("searchResult")) {
 					System.out.println("--------I am clicking searchResult");
-					// Thread.sleep(2000);
+
 					Helper.clickItem(EregistryControls.drsSearchResult1);
 				} else if (buttonName.equals("Submit Drs")) {
 					System.out.println("--------I am clicking Submit");
-					// Thread.sleep(2000);
+
 					Helper.clickItem(EregistryControls.submitDrsButton);
 				} else if (buttonName.equals("Confirm Submit")) {
 					System.out.println("--------I am clicking Confirm Submit");
-					// Thread.sleep(2000);
+
 					Helper.clickItem(EregistryControls.submitConfirmButton);
 				}
 			} else if (area.equals("cod")) {
 				if (buttonName.equals("Refresh")) {
 					System.out.println("--------I am clicking Refresh button");
-					// Thread.sleep(2000);
+
 					Helper.clickItem(EregistryControls.codSearchRefreshButton);
 				} else if (buttonName.equals("searchResult")) {
 					System.out.println("--------I am clicking searchResult");
-					// Thread.sleep(2000);
+
 					Helper.clickItem(EregistryControls.codSearchResult1);
 				} else if (buttonName.equals("Submit cod")) {
 					System.out.println("--------I am clicking Submit");
-					// Thread.sleep(2000);
+
 					Helper.clickItem(EregistryControls.submitCodButton);
 				} else if (buttonName.equals("Confirm Submit")) {
 					System.out.println("--------I am clicking Confirm Submit");
-					// Thread.sleep(2000);
+
 					Helper.clickItem(EregistryControls.submitConfirmButton);
 				}
 			}
@@ -476,10 +464,11 @@ public class BDMForm {
 			if (page.equals("brs Submit result")) {
 				// Thread.sleep(3000);
 				Helper.checkText(EpublicControls.brsSubmitResult, text);
-			}else if(page.equals("application payment result")){
+				Helper.clickItem(EpublicControls.noCertificate);
+
+			} else if (page.equals("application payment result")) {
 				Helper.checkText(EpublicControls.paymentResult, text);
-			}
-			else {
+			} else {
 				// Thread.sleep(1000);
 				Helper.checkText(EpublicControls.message, text);
 			}
@@ -508,29 +497,22 @@ public class BDMForm {
 		System.out.println("--------I am at the scenario where I nagigate to form " + arg1);
 		Thread.sleep(2000);
 		if (arg1.equals("NOB")) {
-			System.out.println("--------I am in the condition of running the NOB");
 			GoToNOBForm.Execute(driver, arg1);
 		} else if (arg1.equals("BRS")) {
-			System.out.println("--------I am in the condition of running the BRS");
 			GoToBRSForm.Execute(driver);
 		} else if (arg1.equals("DRS")) {
-			System.out.println("--------I am in the condition of running the DRS");
 			GoToDRSForm.Execute(driver, arg1);
 		} else if (arg1.equals("COD")) {
-			System.out.println("--------I am in the condition of running the COD");
 			GoToCODForm.Execute(driver);
 		} else if (arg1.equals("MN")) {
-			System.out.println("--------I am in the condition of running the MR");
-			GoToMRForm.Execute(driver, arg1);
+			GoToMNForm.Execute(driver);
 		} else if (arg1.equals("Application")) {
-			System.out.println("--------I am in the condition of running the application");
 			GoToApplicationForm.Execute(driver);
 		}
 	}
 
 	@Then("^I fill in the \"([^\"]*)\" form$")
 	public void i_fill_in_the_form(String arg1) throws Throwable {
-
 		if (arg1.equals("NOB")) {
 			FillNOBForm.Execute(driver);
 		} else if (arg1.equals("BRS")) {
@@ -540,7 +522,9 @@ public class BDMForm {
 		} else if (arg1.equals("COD")) {
 			FillCODForm.Execute(driver);
 		} else if (arg1.equals("MN")) {
-			FillMRForm.Execute(driver);
+			FillMNForm.Execute(driver);
+		} else if (arg1.equals("MR")) {
+			SearchForMNAndMakeMR.Execute(driver);
 		} else if (arg1.equals("Application")) {
 			FillDCApplicationForm.Execute(driver);
 		}
