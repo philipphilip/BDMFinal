@@ -120,16 +120,14 @@ public class BDMForm {
 	@When("^I open Core website$")
 	public void i_open_Core_website() throws Throwable {
 		// driver.get("http://10.22.3.205/core/login");
-		// driver.get("http://10.22.1.200/core/login");
+		driver.get("http://10.22.1.200/core/login");
 		// driver.get("http://52.64.152.134/core/login");
-		driver.get("http://10.22.1.110/core/login");
+		// driver.get("http://10.22.1.110/core/login");
 	}
 
 	@When("^I sign in$")
 	public void i_sign_in() throws Throwable {
-
 		SignInAction.Execute(driver, datamap.get(0));
-
 	}
 
 	@Then("^I sign out$")
@@ -140,10 +138,8 @@ public class BDMForm {
 	@When("^I sign in \"(.*?)\"")
 	public void i_sign_in_site(String website) throws Throwable {
 		if (website.equals("ePublic")) {
-
 			EpublicSignInAction.Execute(driver, datamap.get(0));
 		} else if (website.equals("eRegistry")) {
-
 			EregistrySignInAction.Execute(driver, datamap.get(0));
 		}
 
@@ -284,34 +280,28 @@ public class BDMForm {
 			if (inputName.equals("Comments")) {
 				Helper.inputItem(CoreControls.coreBrsReasonComments, value);
 			}
-
 		}
 	}
 
 	@Then("^I select stakeholder as \"(.*?)\"$")
 	public void i_select_stakeholder(String stakeholder) throws Throwable {
-
 		Helper.selectDropDownList(EregistryControls.stakeholderList, stakeholder);
-
 		Helper.clickItem(EregistryControls.submit);
 	}
 
 	@When("^I click \"(.*?)\" item by id \"(.*?)\" in \"(.*?)\"$")
 	public void i_click_link_by_text$(String item, String id, String site) throws Throwable {
 		Helper.clickById(id);
-
 	}
 
 	@When("^I click \"(.*?)\" link in \"(.*?)\"$")
 	public void i_click_link_by_text$(String linkText, String site) throws Throwable {
 		Helper.clickLinkByText(linkText);
-
 	}
 
 	@When("^I click \"(.*?)\" button in \"(.*?)\"$")
 	public void i_click_button_by_text$(String buttonText, String site) throws Throwable {
 		Helper.clickButtonByText(buttonText);
-
 	}
 
 	@When("^I click \"(.*?)\" button on \"(.*?)\" page of \"(.*?)\" in \"(.*?)\"$")
@@ -441,7 +431,6 @@ public class BDMForm {
 					EregistryControls.codSearchFamilyName.sendKeys(value);
 				}
 			}
-
 		} else if (site.equals("Core")) {
 			if (page.equals("core nob search")) {
 				if (field.equals("Mother First Name")) {
@@ -454,22 +443,16 @@ public class BDMForm {
 
 	@When("^I can see \"(.*?)\" on \"(.*?)\" page of \"(.*?)\"$")
 	public void i_can_see$(String text, String page, String site) throws Throwable {
-
 		System.out.println("--------I am checking the message");
-		// Thread.sleep(2000);
-
 		String result = "";
 
 		if (site.equals("epublic")) {
 			if (page.equals("brs Submit result")) {
-				// Thread.sleep(3000);
 				Helper.checkText(EpublicControls.brsSubmitResult, text);
 				Helper.clickItem(EpublicControls.noCertificate);
-
 			} else if (page.equals("application payment result")) {
 				Helper.checkText(EpublicControls.paymentResult, text);
 			} else {
-				// Thread.sleep(1000);
 				Helper.checkText(EpublicControls.message, text);
 			}
 
@@ -486,7 +469,6 @@ public class BDMForm {
 		} else if (site.equals("Core")) {
 			if (page.equals("br")) {
 				Helper.checkText(CoreControls.coreResultMessage, text);
-
 			}
 		}
 	}
@@ -494,7 +476,6 @@ public class BDMForm {
 	@When("^I navigate to \"(.*?)\" new form$")
 	public void i_navigate_to_new_form(String arg1) throws Throwable {
 
-		System.out.println("--------I am at the scenario where I nagigate to form " + arg1);
 		Thread.sleep(2000);
 		if (arg1.equals("NOB")) {
 			GoToNOBForm.Execute(driver, arg1);
@@ -534,19 +515,14 @@ public class BDMForm {
 	public void i_submit_blank_form(String arg1) throws Throwable {
 
 		if (arg1.equals("NOB")) {
-
 			CoreNobPage.View_NOB_Form_Errors();
-
 		} else if (arg1.equals("BRS")) {
-
 			CoreBrsPage.view_BRS_Form_Errors();
 		}
-
 	}
 
 	@Then("^I should Get all mandatory fields validation$")
 	public void i_should_Get_all_mandatory_fields_validation() throws Throwable {
-
 	}
 
 }
