@@ -10,32 +10,47 @@ import pageobjects.DRSPage;
 
 public class FillDRSForm {
 
+	static String randDeceasedFamilyName = RandomStringUtils.randomAlphabetic(6);
+	static String randDeceasedFirstName = RandomStringUtils.randomAlphabetic(6);
+	static String randparentOneGivenName = RandomStringUtils.randomAlphabetic(6);
+	static String randparentTwoFamilyNameAtBirth = RandomStringUtils.randomAlphabetic(6);
+	static String randparentTwoGivenName = RandomStringUtils.randomAlphabetic(6);
+	static String randaddressLine1 = RandomStringUtils.randomAlphabetic(5);
+
 	public static void Execute(WebDriver driver) throws Exception {
 		PageFactory.initElements(driver, DRSPage.class);
 		WebDriverWait waitForTabsMenue = new WebDriverWait(driver, 10000);
 		DRSPage.FuneralDirectorTelephone = waitForTabsMenue
 				.until(ExpectedConditions.elementToBeClickable(DRSPage.FuneralDirectorTelephone));
-		String randDeceasedFamilyName = RandomStringUtils.randomAlphabetic(6);
-		DRSPage.deceasedFamilyName.sendKeys(randDeceasedFamilyName);
-		DRSPage.deceasedFirstName.sendKeys("skjfhadsfxx");
+		DRSPage.deceasedFamilyName.sendKeys("automate" + randDeceasedFamilyName);
+		DRSPage.deceasedFirstName.sendKeys("automate" + randDeceasedFirstName);
 		DRSPage.Sex.sendKeys("Male");
-		DRSPage.DateOfDeathDay.sendKeys("11");
-		DRSPage.DateOfDeathMoth.sendKeys("06");
+		DRSPage.DateOfDeathDay.sendKeys("30");
+		DRSPage.DateOfDeathMoth.sendKeys("07");
 		DRSPage.DateOfDeathYear.sendKeys("2017");
 		DRSPage.deceasedDOBDay.sendKeys("12");
 		DRSPage.deceasedDOBMonth.sendKeys("03");
 		DRSPage.deceasedDOBYear.sendKeys("1980");
-		DRSPage.usualAddressLine1.sendKeys("12 Bedtting st");
+		DRSPage.placeOfDeath.sendKeys("Hospital");
+		DRSPage.hospitalName.sendKeys("Albury Base Hospital");
+		DRSPage.hospitalTown.sendKeys("Wollongong");
+		DRSPage.usualAddressLine1.sendKeys("12 " + randaddressLine1 + " st");
 		DRSPage.usualAddressSuburb.sendKeys("Testing");
 		DRSPage.usualAddressPostcode.sendKeys("3000");
 		DRSPage.placeOfBirthSuburb.sendKeys("Sydny");
 		DRSPage.occupationDuringWorkingLife.sendKeys("accouintant");
-		DRSPage.aboriginalOrTorresStraitIslanderOrigin.sendKeys("Unknown");
+		DRSPage.aboriginalOrTorresStraitIslanderOrigin.sendKeys("Neither Aboriginal or Torres Strait Islander");
 		DRSPage.relationshipStatusAtTimeOfDeath.sendKeys("Not in a Relationship");
-		DRSPage.parentOneFirstName.sendKeys("asdfa");
-		DRSPage.parentTwoFirstName.sendKeys("asdfasdfA");
+		DRSPage.parentsOfDeceasedType.sendKeys("Father");
+		DRSPage.parentOneFamilyName.sendKeys("automate" + randDeceasedFamilyName);
+		DRSPage.parentOneFamilyNameAtBirth.sendKeys("automate" + randDeceasedFamilyName);
+		DRSPage.parentOneFirstName.sendKeys("automate" + randparentOneGivenName);
+		DRSPage.parentsTwoOfDeceasedType.sendKeys("Mother");
+		DRSPage.parentTwoFamilyName.sendKeys("automate" + randDeceasedFamilyName);
+		DRSPage.parentTwoFamilyNameAtBirth.sendKeys("automate" + randparentTwoFamilyNameAtBirth);
+		DRSPage.parentTwoFirstName.sendKeys("automate" + randparentTwoGivenName);
 		DRSPage.WasTheDeceasedUnder18.sendKeys("No");
-		DRSPage.informantRelationshipToSubject.sendKeys("Not in Relationship");
+		DRSPage.informantRelationshipToSubject.sendKeys("AGENT");
 		DRSPage.informatFamilyName.sendKeys("asdfA");
 		DRSPage.informatFirstName.sendKeys("fallksjgflag");
 		DRSPage.informantAddressLine1.sendKeys("32 asdjfs st");
@@ -43,8 +58,8 @@ public class FillDRSForm {
 		DRSPage.informantAddressPostcode.sendKeys("3000");
 		DRSPage.postalAddressSameAsResidential.sendKeys("Yes");
 		DRSPage.informantEmail.sendKeys("asdfsds@kadflgj.com");
-		DRSPage.DateOfDisposalOrSentOverseasDay.sendKeys("18");
-		DRSPage.DateOfDisposalOrSentOverseasMonth.sendKeys("06");
+		DRSPage.DateOfDisposalOrSentOverseasDay.sendKeys("07");
+		DRSPage.DateOfDisposalOrSentOverseasMonth.sendKeys("08");
 		DRSPage.DateOfDisposalOrSentOverseasYear.sendKeys("2017");
 		DRSPage.methodOfDisposal.sendKeys("Burial");
 		DRSPage.remainsDisposedOffWithin30Days.sendKeys("Yes");
@@ -55,9 +70,6 @@ public class FillDRSForm {
 		DRSPage.FuneralDirectorNumber.sendKeys("43123");
 		DRSPage.FuneralDirectorFamilyName.sendKeys("New name");
 		DRSPage.FuneralDirectorTelephone.sendKeys("039878972637");
-
-		CoreControls.selectSave();
-		CoreControls.clickGo();
+		CoreControls.saveForm();
 	}
-
 }

@@ -14,15 +14,18 @@ public class FillDCApplicationForm {
 
 		PageFactory.initElements(driver, ApplicationPage.class);
 		Thread.sleep(1000);
-		ApplicationPage.dateReceivedAtRegistry.sendKeys("18/07/2017");
+		ApplicationPage.dateReceivedAtRegistry.sendKeys("01/08/2017");
 		ApplicationPage.dateReceivedAtRegistry.sendKeys(Keys.TAB);
 		ApplicationPage.dateReceivedAtRegistry.sendKeys(Keys.TAB);
-		Thread.sleep(1000);
-		ApplicationPage.productCode.sendKeys("DRS");
+		Thread.sleep(1000);	
+		ApplicationPage.productCode.sendKeys("DS1");
 		Thread.sleep(1000);
 		ApplicationPage.reasonCertificateIsRequired.sendKeys("Administration");
+		ApplicationPage.productCode.sendKeys("DRS");
 		Thread.sleep(1000);
 		ApplicationPage.relationshipToSubject.sendKeys("Child");
+		ApplicationPage.productCode.sendKeys("DS1");
+		ApplicationPage.productDetailsTemplate.sendKeys("DR Certificate");
 		ApplicationPage.nextButton.click();
 		ApplicationPage.applicantFamilyName.sendKeys("Smith");
 		ApplicationPage.applicantGivenName.sendKeys("asdfa");
@@ -33,6 +36,9 @@ public class FillDCApplicationForm {
 		ApplicationPage.applicantAddressSuburb.sendKeys("Melbourne");
 		ApplicationPage.applicantAddressPostcode.sendKeys("3000");
 		ApplicationPage.applicantPhoneNumber.sendKeys("0456487956");
+		ApplicationPage.nextButton.click();
+		ApplicationPage.deliveryMethod.sendKeys("StandardPOST");
+		ApplicationPage.deliveryAddressCopyFrom.sendKeys("Smith");
 		ApplicationPage.nextButton.click();
 		ApplicationPage.matchType.sendKeys("Detailed Criteria");
 		ApplicationPage.dateOfDeathTypeDay.sendKeys("12");
@@ -54,7 +60,5 @@ public class FillDCApplicationForm {
 		Thread.sleep(3000);
 		String successMessage = ApplicationPage.successMessage.getText();
 		Assert.assertTrue("Application for death certificate Failed", successMessage.contains("successfully saved"));
-
 	}
-
 }

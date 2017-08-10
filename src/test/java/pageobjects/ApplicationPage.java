@@ -25,6 +25,9 @@ public class ApplicationPage extends BaseClass {
 	@FindBy(id = "applicationDetails-applicationDetails-relationshipToSubject")
 	public static WebElement relationshipToSubject;
 
+	@FindBy(id = "productDetails-productDetails-template")
+	public static WebElement productDetailsTemplate;
+
 	@FindBy(id = "productDetails-productDetails-submittedWithNotification")
 	public static WebElement submittedWithNotification;
 
@@ -57,6 +60,12 @@ public class ApplicationPage extends BaseClass {
 
 	@FindBy(id = "applicantDetails-applicantDetails-phoneNumber")
 	public static WebElement applicantPhoneNumber;
+
+	@FindBy(id = "orderDeliveryDetails-applicantPostalDetails-deliveryOption")
+	public static WebElement deliveryMethod;
+
+	@FindBy(id = "orderDeliveryDetails-deliveryAddress-copyFrom")
+	public static WebElement deliveryAddressCopyFrom;
 
 	@FindBy(id = "orderDeliveryDetails-deliveryAddress-familyName")
 	public static WebElement deliveryAddressFamilyName;

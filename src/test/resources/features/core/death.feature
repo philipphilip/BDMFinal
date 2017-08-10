@@ -11,3 +11,9 @@ Feature: List of Death scenarios.
     And I sign in
     And I navigate to "COD" new form
     Then I fill in the "COD" form
+
+  #Scenario: Create a Death Registration
+    #When I open Core website
+    #And I sign in
+    #And I navigate to "COD" new form
+    #Then I fill in the "COD" form

@@ -436,7 +436,7 @@ public class CoreBrsPage extends BaseClass {
 	}
 
 	public static void validateform() throws Exception {
-		CoreControls.validateForm.click();
+		CoreControls.validateButton.click();
 		Thread.sleep(3000);
 		boolean formHasErrors = errorBaner.getText()
 				.equals("There are validation errors in your Birth Registration Statement.");

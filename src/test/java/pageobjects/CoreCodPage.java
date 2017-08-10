@@ -103,6 +103,15 @@ public class CoreCodPage extends BaseClass {
 	@FindBy(id = "abilityToAccuratelyAdviseCauseOfDeath-otherAdvice")
 	public static WebElement abilityToAccuratelyAdviseCOBOtherAdvice;
 
+	@FindBy(id = "causeOfDeath-direct-numberOfConditions")
+	public static WebElement numberOfConditionDirect;
+
+	@FindBy(id = "causeOfDeath-antecedent-numberOfConditions")
+	public static WebElement numberOfConditionsAntecedent;
+
+	@FindBy(id = "causeOfDeath-other-numberOfConditions")
+	public static WebElement numberOfConditionsOther;
+
 	@FindBy(id = "supportingInformation-cardiacPacemakerPresent")
 	public static WebElement IsThereCardiacPacemakerOrBatteryPoweredDeviceInTheBody;
 
@@ -171,5 +180,31 @@ public class CoreCodPage extends BaseClass {
 
 	@FindBy(id = "declarationByMedicalPractitioner-acquiredBenefits")
 	public static WebElement DidYouAcquireOrAnticipateAnyBenefitByReasonOfThisDeath;
+
+	@FindBy(xpath = ".//*[@id='error-message']/div/div")
+	public static WebElement errorBaner;
+
+	@FindBy(xpath = ".//th[1]/input")
+	public static WebElement validateCheckBox;
+
+	@FindBy(xpath = ".//input[@value='Override']")
+	public static WebElement overrideButton;
+
+	@FindBy(xpath = ".//*[@id='Reason Code *']")
+	public static WebElement acceptionReason;
+
+	@FindBy(id = "Comments *")
+	public static WebElement reasonComment;
+	@FindBy(xpath = ".//button[text()='Override']")
+	public static WebElement overrideButton2;
+
+	public static void clearCheckListInCODForm() throws Exception {
+		validateCheckBox.click();
+		overrideButton.click();
+		Thread.sleep(2000);
+		acceptionReason.sendKeys("Court Order");
+		reasonComment.sendKeys("any text");
+		overrideButton2.click();
+	}
 
 }

@@ -18,7 +18,6 @@ public class FillNOBForm {
 				.until(ExpectedConditions.elementToBeClickable(CoreNobPage.notifier_email));
 		CoreNobPage.mothersFamilyName.sendKeys("McDonald");
 		String motherFirstName = RandomStringUtils.randomAlphabetic(6);
-
 		CoreNobPage.mothersGivenName_Core.sendKeys("auto" + motherFirstName);
 		CoreNobPage.mothersDOBDay.sendKeys("25");
 		CoreNobPage.mothersDOBMonth.sendKeys("12");
@@ -38,10 +37,7 @@ public class FillNOBForm {
 		CoreNobPage.notifier_family_name.sendKeys("Smith");
 		CoreNobPage.notifier_given_name.sendKeys("JOhn");
 		CoreNobPage.notifier_email.sendKeys("john.smith@info.com");
-
-		CoreControls.selectSave();
-		CoreControls.clickGo();
-
+		CoreControls.saveForm();
 	}
 
 }

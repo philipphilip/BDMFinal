@@ -26,8 +26,7 @@ public class SearchForMNAndMakeMR {
 		MNPage.matchingNotifivation.click();
 		Thread.sleep(2000);
 		CoreControls.selectRegister();
-		Thread.sleep(2000);
-		CoreControls.clickGo();
+		Thread.sleep(1000);
 		driver.navigate().refresh();
 		Thread.sleep(2000);
 		boolean marriageRegistrationLink = MNPage.marriageRegLink.getText().contains("Marriage Registration");

@@ -91,26 +91,36 @@ public class CoreControls extends BaseClass {
 	public static WebElement successMessage;
 
 	@FindBy(xpath = ".//*/button-panel/div/div/input[1]")
-	public static WebElement validateForm;
+	public static WebElement validateButton;
 
 	@FindBy(xpath = ".//*/a[text()='Application']")
 	public static WebElement application;
 
-	public static void selectSave() {
+	public static void saveForm() throws Exception {
 		actionList.sendKeys("Save");
+		Thread.sleep(2000);
+		go.click();
 	}
-	
+
 	public static void selectRegister() {
 		actionList.sendKeys("Register");
-		
-	}
-
-	public static void clickGo() {
 		go.click();
-//		WebDriverWait waitForSuccessMessage = new WebDriverWait(driver, 10000);
-//		CoreCodPage.causeOfDeathType = waitForSuccessMessage
-//				.until(ExpectedConditions.elementToBeClickable(successMessage));
-//		successMessage.getText().contains("successfully saved");
 	}
 
+	public static void editForm() {
+		actionList.sendKeys("Edit");
+		go.click();
+	}
+
+	public static void validateForm() {
+		validateButton.click();
+	}
+	
+	public static void matchCODAndDRS() {
+		actionList.sendKeys("Match");
+		go.click();
+	}
+	// public static void clickGo() {
+	// go.click();
+	// }
 }

@@ -37,6 +37,15 @@ public class DRSPage extends BaseClass {
 	@FindBy(id = "deceasedDetails-relevantDates-dateOfBirth-year")
 	public static WebElement deceasedDOBYear;
 
+	@FindBy(id = "deceasedDetails-relevantDates-whereDidDeathOccur")
+	public static WebElement placeOfDeath;
+
+	@FindBy(id = "deceasedDetails-placeOfDeath-hospitalName")
+	public static WebElement hospitalName;
+
+	@FindBy(id = "deceasedDetails-placeOfDeath-hospitalTownSuburbCity")
+	public static WebElement hospitalTown;
+
 	@FindBy(id = "deceasedDetails-usualResidentialAddress-line1")
 	public static WebElement usualAddressLine1;
 
@@ -58,8 +67,26 @@ public class DRSPage extends BaseClass {
 	@FindBy(id = "deceasedRelationshipDetails-relationshipStatusAtTimeOfDeath")
 	public static WebElement relationshipStatusAtTimeOfDeath;
 
+	@FindBy(id = "parentsOfDeceased-parentOne-parentType")
+	public static WebElement parentsOfDeceasedType;
+
+	@FindBy(id = "parentsOfDeceased-parentOne-familyName")
+	public static WebElement parentOneFamilyName;
+
+	@FindBy(id = "parentsOfDeceased-parentOne-familyNameAtBirth")
+	public static WebElement parentOneFamilyNameAtBirth;
+
 	@FindBy(id = "parentsOfDeceased-parentOne-firstGivenName")
 	public static WebElement parentOneFirstName;
+
+	@FindBy(id = "parentsOfDeceased-parentTwo-parentType")
+	public static WebElement parentsTwoOfDeceasedType;
+
+	@FindBy(id = "parentsOfDeceased-parentTwo-familyName")
+	public static WebElement parentTwoFamilyName;
+
+	@FindBy(id = "parentsOfDeceased-parentTwo-familyNameAtBirth")
+	public static WebElement parentTwoFamilyNameAtBirth;
 
 	@FindBy(id = "parentsOfDeceased-parentTwo-firstGivenName")
 	public static WebElement parentTwoFirstName;

@@ -118,9 +118,7 @@ public class FillMNForm {
 		MNPage.originalMarriageDocumentsReceived.sendKeys("Yes");
 		MNPage.validateform();
 		Thread.sleep(2000);
-		CoreControls.selectSave();
-		CoreControls.clickGo();
-
+		CoreControls.saveForm();
 	}
 
 }

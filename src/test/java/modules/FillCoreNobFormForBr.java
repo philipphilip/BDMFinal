@@ -24,8 +24,6 @@ public class FillCoreNobFormForBr {
 		System.out.println("nob coreBrMotherFirstName=" + coreBrMotherFirstName);
 		CoreNobPage.mothersFamilyName.sendKeys(coreBrMotherFamilyName);
 		CoreNobPage.mothersGivenName_Core.sendKeys(coreBrMotherFirstName);
-
-
 		CoreNobPage.mothersDOBDay.sendKeys("25");
 		CoreNobPage.mothersDOBMonth.sendKeys("12");
 		CoreNobPage.mothersDOBYear.sendKeys("1989");
@@ -41,16 +39,12 @@ public class FillCoreNobFormForBr {
 		CoreNobPage.chiled_sex_at_birth.sendKeys("male");
 		Helper.selectDropDownList(CoreNobPage.hospital_name,"Auburn District Hospital");
 		Helper.selectDropDownList(CoreNobPage.Hospital_town_suburb,"Auburn");
-
 		String notifierFamilyName = DataHelper.getRandomStringAs("notifierFamilyName",10);
 		String notifierGivenName = DataHelper.getRandomStringAs("notifierGivenName",10);
 		CoreNobPage.notifier_family_name.sendKeys(notifierFamilyName);
 		CoreNobPage.notifier_given_name.sendKeys(notifierGivenName);
-
 		CoreNobPage.notifier_email.sendKeys("john.smith@info.com");
-		CoreControls.selectSave();
-		CoreControls.clickGo();
-
+		CoreControls.saveForm();
 	}
 
 }

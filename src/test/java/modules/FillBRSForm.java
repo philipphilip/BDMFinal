@@ -95,10 +95,7 @@ public class FillBRSForm {
 		CoreBrsPage.informant2_contactAddress_suburb.sendKeys("North Melbounre");
 		CoreBrsPage.informant2_contactAddress_postcode.sendKeys("3051");
 		CoreBrsPage.informant2_emailAddress.sendKeys("adfd@ss.com");
-		CoreControls.selectSave();
-		Thread.sleep(3000);
-		CoreControls.clickGo();
-
+		CoreControls.saveForm();
 	}
 
 }
