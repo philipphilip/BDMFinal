@@ -190,11 +190,12 @@ public class CoreCodPage extends BaseClass {
 	@FindBy(xpath = ".//input[@value='Override']")
 	public static WebElement overrideButton;
 
-	@FindBy(xpath = ".//*[@id='Reason Code *']")
+	@FindBy(id = "override-reasonCode")
 	public static WebElement acceptionReason;
 
-	@FindBy(id = "Comments *")
+	@FindBy(id = "override-comment")
 	public static WebElement reasonComment;
+
 	@FindBy(xpath = ".//button[text()='Override']")
 	public static WebElement overrideButton2;
 

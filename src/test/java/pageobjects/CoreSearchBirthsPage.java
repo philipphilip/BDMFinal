@@ -4,9 +4,9 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
-public class CoreSearchNobPage extends BaseClass {
+public class CoreSearchBirthsPage extends BaseClass {
 
-	public CoreSearchNobPage(WebDriver driver) {
+	public CoreSearchBirthsPage(WebDriver driver) {
 		super(driver);
 	}
 
@@ -15,5 +15,18 @@ public class CoreSearchNobPage extends BaseClass {
 
 	@FindBy(xpath = "/html/body/app/ng-component/div[2]/main/div/nob-page/div/div[2]/form/button-panel/div/div/input[1]")
 	public static WebElement nobSearchButton;
+	
+	@FindBy(id = "subjectsDetails-name-familyName")
+	public static WebElement childFamilyName;
+	
+	@FindBy(xpath = ".//birth-registration-page//tr[2]/td[2]/div")
+	public static WebElement childFamilyNameInSeachResults;
+	
+	
+	
+	
+	
+	
+	
 
 }

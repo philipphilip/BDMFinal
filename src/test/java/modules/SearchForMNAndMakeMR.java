@@ -6,7 +6,6 @@ import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-import helpers.Helper;
 import pageobjects.CoreControls;
 import pageobjects.MNPage;
 
@@ -15,9 +14,9 @@ public class SearchForMNAndMakeMR {
 	public static void Execute(WebDriver driver) throws Exception {
 		PageFactory.initElements(driver, MNPage.class);
 		WebDriverWait waitForTabsMenue = new WebDriverWait(driver, 10000);
-		CoreControls.search_tab = waitForTabsMenue
-				.until(ExpectedConditions.elementToBeClickable(CoreControls.search_tab));
-		CoreControls.search_tab.click();
+		CoreControls.searchTab = waitForTabsMenue
+				.until(ExpectedConditions.elementToBeClickable(CoreControls.searchTab));
+		CoreControls.searchTab.click();
 		CoreControls.merriageNotificationSearch.click();
 		Thread.sleep(1000);
 		MNPage.groomsNameFamilyName.sendKeys("automatic" + FillMNForm.groomsFamilyName);

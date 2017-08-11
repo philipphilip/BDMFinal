@@ -1,5 +1,6 @@
 package pageobjects;
 
+import org.junit.Assert;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -13,15 +14,18 @@ public class CoreControls extends BaseClass {
 	}
 
 	@FindBy(xpath = "//*/a[text()='New']")
-	public static WebElement new_tab;
+	public static WebElement newTab;
 
 	@FindBy(xpath = "//*/a[text()='Search']")
-	public static WebElement search_tab;
+	public static WebElement searchTab;
+	
+	@FindBy(xpath = ".//a[text() = 'Birth Registration Search']")
+	public static WebElement birthRegistrationSearch;
 
 	@FindBy(xpath = "//*/a[text()='Marriage Notification Search']")
 	public static WebElement merriageNotificationSearch;
 
-	@FindBy(xpath = ".//marriage-notification-page//input[@value='Search']")
+	@FindBy(xpath = ".//button-panel/div/div/input[@value = 'Search']")
 	public static WebElement searchButton;
 
 	@FindBy(xpath = "//*/a[text()='Birth Registration Statement']")
@@ -96,6 +100,15 @@ public class CoreControls extends BaseClass {
 	@FindBy(xpath = ".//*/a[text()='Application']")
 	public static WebElement application;
 
+	@FindBy(xpath = ".//matching-panel/div[1]//tr[2]/td[1]/input")
+	public static WebElement firstRadioButtonMatch;
+	
+	@FindBy(xpath = ".//input[@value = 'Match with selected Notification']")
+	public static WebElement matchButton;
+	
+	@FindBy(xpath = "//*[@id='error-message']/div/div")
+	public static WebElement registrationCreatedMessage;	
+	
 	public static void saveForm() throws Exception {
 		actionList.sendKeys("Save");
 		Thread.sleep(2000);
@@ -115,10 +128,21 @@ public class CoreControls extends BaseClass {
 	public static void validateForm() {
 		validateButton.click();
 	}
-	
+
 	public static void matchCODAndDRS() {
 		actionList.sendKeys("Match");
 		go.click();
+	}
+	
+	public static void matchNOBAndBRS() throws Exception {
+		actionList.sendKeys("Match");
+		go.click();
+		Thread.sleep(2000);
+		firstRadioButtonMatch.click();
+		matchButton.click();
+		Thread.sleep(2000);
+		String successmessage = registrationCreatedMessage.getText();
+		Assert.assertTrue("The Birth Registration did not get created", successmessage.equals("This Birth Registration has been successfully registered."));
 	}
 	// public static void clickGo() {
 	// go.click();

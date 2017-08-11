@@ -12,8 +12,8 @@ public class GoToApplicationForm {
 	public static void Execute(WebDriver driver) throws Exception {
 
 		WebDriverWait waitForTabsMenue = new WebDriverWait(driver, 10000);
-		CoreControls.new_tab = waitForTabsMenue.until(ExpectedConditions.elementToBeClickable(CoreControls.new_tab));
-		CoreControls.new_tab.click();
+		CoreControls.newTab = waitForTabsMenue.until(ExpectedConditions.elementToBeClickable(CoreControls.newTab));
+		CoreControls.newTab.click();
 		CoreControls.application.click();
 
 	}

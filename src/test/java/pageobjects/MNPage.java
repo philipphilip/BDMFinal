@@ -293,10 +293,10 @@ public class MNPage extends BaseClass {
 	@FindBy(xpath = ".//marriage-notification-page//input[@value='Override']")
 	public static WebElement overrideButton;
 
-	@FindBy(xpath = ".//*[@id='Reason Code *']")
+	@FindBy(id = "override-reasonCode")
 	public static WebElement acceptionReason;
 
-	@FindBy(id = "Comments *")
+	@FindBy(id = "override-comment")
 	public static WebElement reasonComment;
 
 	@FindBy(xpath = ".//marriage-notification-page/override-popup/base-popup/div/div/div/div[3]/div/button[text()='Override']")

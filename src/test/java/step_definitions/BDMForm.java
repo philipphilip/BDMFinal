@@ -39,6 +39,7 @@ import modules.GoToDRSForm;
 import modules.GoToMNForm;
 import modules.GoToNOBForm;
 import modules.SearchForMNAndMakeMR;
+import modules.SearchforBRCreated;
 import modules.SignInAction;
 import modules.SignoutAction;
 import pageobjects.AutomationHomePage;
@@ -46,7 +47,7 @@ import pageobjects.CoreBrsPage;
 import pageobjects.CoreControls;
 import pageobjects.CoreLoginPage;
 import pageobjects.CoreNobPage;
-import pageobjects.CoreSearchNobPage;
+import pageobjects.CoreSearchBirthsPage;
 import pageobjects.EpublicControls;
 import pageobjects.EpublicLoginPage;
 import pageobjects.EregistryControls;
@@ -68,7 +69,7 @@ public class BDMForm {
 		datamap.add(sampleData);
 
 		PageFactory.initElements(driver, AutomationHomePage.class);
-		PageFactory.initElements(driver, CoreSearchNobPage.class);
+		PageFactory.initElements(driver, CoreSearchBirthsPage.class);
 		PageFactory.initElements(driver, CoreLoginPage.class);
 		PageFactory.initElements(driver, CoreControls.class);
 		PageFactory.initElements(driver, CoreNobPage.class);
@@ -324,7 +325,7 @@ public class BDMForm {
 				} else if (buttonName.equals("Submit")) {
 					Helper.clickItem(CoreControls.coreBrsSubmitButton);
 				} else if (buttonName.equals("Search")) {
-					Helper.clickItem(CoreSearchNobPage.nobSearchButton);
+					Helper.clickItem(CoreSearchBirthsPage.nobSearchButton);
 				} else if (buttonName.equals("First NOB Search Result")) {
 					Helper.clickItem(CoreControls.coreNobFirstSearchResult);
 				} else if (buttonName.equals("Go")) {
@@ -434,7 +435,7 @@ public class BDMForm {
 		} else if (site.equals("Core")) {
 			if (page.equals("core nob search")) {
 				if (field.equals("Mother First Name")) {
-					Helper.inputItem(CoreSearchNobPage.mothersFirstName, value);
+					Helper.inputItem(CoreSearchBirthsPage.mothersFirstName, value);
 				}
 			}
 		}
@@ -493,20 +494,22 @@ public class BDMForm {
 	}
 
 	@Then("^I fill in the \"([^\"]*)\" form$")
-	public void i_fill_in_the_form(String arg1) throws Throwable {
-		if (arg1.equals("NOB")) {
+	public void i_fill_in_the_form(String formName) throws Throwable {
+		if (formName.equals("NOB")) {
 			FillNOBForm.Execute(driver);
-		} else if (arg1.equals("BRS")) {
+		} else if (formName.equals("BRS")) {
 			FillBRSForm.Execute(driver);
-		} else if (arg1.equals("DRS")) {
+		} else if (formName.equals("BR")) {
+			SearchforBRCreated.Execute(driver);
+		} else if (formName.equals("DRS")) {
 			FillDRSForm.Execute(driver);
-		} else if (arg1.equals("COD")) {
+		} else if (formName.equals("COD")) {
 			FillCODForm.Execute(driver);
-		} else if (arg1.equals("MN")) {
+		} else if (formName.equals("MN")) {
 			FillMNForm.Execute(driver);
-		} else if (arg1.equals("MR")) {
+		} else if (formName.equals("MR")) {
 			SearchForMNAndMakeMR.Execute(driver);
-		} else if (arg1.equals("Application")) {
+		} else if (formName.equals("Application")) {
 			FillDCApplicationForm.Execute(driver);
 		}
 	}

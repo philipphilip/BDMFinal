@@ -290,20 +290,22 @@ public class CoreBrsPage extends BaseClass {
 	public static WebElement relationshipStatus;
 
 	@FindBy(id = "relationshipDetails-dateOfRelationshipRegistration-day")
-	public static WebElement dateRelationshipRegistredDay;
+	public static WebElement dateOfRelationshipRegistrationDay;
 
-	@FindBy(id = "relationshipDetails-dateOfRelationshipRegistration-month")
-	public static WebElement dateRelationshipRegistredMonth;
-
-	@FindBy(id = "relationshipDetails-dateOfRelationshipRegistration-year")
-	public static WebElement dateRelationshipRegistredYear;
-
-	
 	@FindBy(id = "relationshipDetails-dateOfRelationshipRegistration-month")
 	public static WebElement dateOfRelationshipRegistrationMonth;
 
 	@FindBy(id = "relationshipDetails-dateOfRelationshipRegistration-year")
 	public static WebElement dateOfRelationshipRegistrationYear;
+
+	// @FindBy(id = "relationshipDetails-dateOfRelationshipRegistration-day")
+	// public static WebElement dateRelationshipRegistredDay;
+	//
+	// @FindBy(id = "relationshipDetails-dateOfRelationshipRegistration-month")
+	// public static WebElement dateRelationshipRegistredMonth;
+	//
+	// @FindBy(id = "relationshipDetails-dateOfRelationshipRegistration-year")
+	// public static WebElement dateRelationshipRegistredYear;
 
 	@FindBy(id = "relationshipDetails-isTheRelationshipStatusDisputedByParent2")
 	public static WebElement isTheRelationshipStatusDisputedByParent2;
@@ -418,10 +420,13 @@ public class CoreBrsPage extends BaseClass {
 	@FindBy(xpath = ".//brs-page//input[@value='Override']")
 	public static WebElement overrideButton;
 
-	@FindBy(xpath = "//form//*[@id='Reason Code *']")
+//	@FindBy(xpath = "//form//*[@id='Reason Code *']")
+//	public static WebElement acceptionReason;
+	
+	@FindBy(xpath = "//*[@id='override-reasonCode']")
 	public static WebElement acceptionReason;
-
-	@FindBy(id = "Comments *")
+	
+	@FindBy(id = "override-comment")
 	public static WebElement reasonComment;
 
 	@FindBy(xpath = ".//BRS-page/override-popup/base-popup/div/div/div/div[3]/div/button[text()='Override']")

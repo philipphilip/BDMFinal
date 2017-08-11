@@ -123,10 +123,10 @@ public class ApplicationPage extends BaseClass {
 	@FindBy(xpath = ".//input[@value='Override']")
 	public static WebElement overrideButton;
 
-	@FindBy(xpath = ".//*[@id='Reason Code *']")
+	@FindBy(id = "override-reasonCode")
 	public static WebElement acceptionReason;
 
-	@FindBy(xpath = ".//application-wiz-page/override-popup/base-popup//div[@class='cge-input-field']/cge-wrapped-text-area/textarea[@id='Comments *']")
+	@FindBy(id = "override-comment")
 	public static WebElement reasonComment;
 
 	@FindBy(xpath = ".//*/override-popup/base-popup/div/div/div/div[3]/div/button[text()='Override']")
