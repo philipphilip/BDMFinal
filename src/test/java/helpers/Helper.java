@@ -30,7 +30,7 @@ public class Helper {
 		}catch (Throwable e)
 		{
 			System.out.println("Input item failed, wait for 10 seconds to input again.");
-			Thread.sleep(10000);
+			Thread.sleep(5000);
 			if(clean) {
 				if (item.getTagName().equals("input")) {
 					item.clear();
@@ -46,13 +46,13 @@ public class Helper {
 	}
 
 	public static void inputById( String id, String value ) throws Throwable{
-		Thread.sleep(2000);
+		Thread.sleep(5000);
 		WebElement item = Hooks.driver.findElement(By.id(id));
 		inputItem( item, value, 0, true);
 	}
 
 	public static void clickById( String id ) throws Throwable{
-		Thread.sleep(2000);
+		Thread.sleep(5000);
 		WebElement item = Hooks.driver.findElement(By.id(id));
 		clickItem( item);
 	}
@@ -67,12 +67,12 @@ public class Helper {
 			item.click();
 		}catch (Throwable e) {
 			System.out.println("Click item failed, wait for 10 seconds to click again.");
-			Thread.sleep(10000);
+			Thread.sleep(5000);
 			try {
 				item.click();
 			} catch (Throwable e1){
 				System.out.println("Click item failed, wait for 120 seconds to click again.");
-				Thread.sleep(120000);
+				Thread.sleep(10000);
 				item.click();
 			}
 		}

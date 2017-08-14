@@ -1,5 +1,4 @@
 @epublic-bcp
-
 Feature: ePublic purchase birth certificate
 
   Scenario: purchase birth certificate
@@ -24,10 +23,13 @@ Feature: ePublic purchase birth certificate
     And I click "confirm Button" item by id "confirmButton" in "ePublic"
     Then I can see "Your order request has been submitted" on "application payment result" page of "epublic"
 
-
+  Scenario: purchase birth certificate (Updated Scenario)
+  
+  
+  
+  
+  
+  
+  
+  
   #4242424242424242 4111111111111111 4444333322221111
-
-
-
-
-

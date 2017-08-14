@@ -32,8 +32,10 @@ import modules.FillEregistryCodForm;
 import modules.FillEregistryDrsForm;
 import modules.FillMNForm;
 import modules.FillNOBForm;
+import modules.FilltheBRSInEpublic;
 import modules.GoToApplicationForm;
 import modules.GoToBRSForm;
+import modules.GoToBRSInePublic;
 import modules.GoToCODForm;
 import modules.GoToDRSForm;
 import modules.GoToMNForm;
@@ -81,20 +83,17 @@ public class BDMForm {
 
 	}
 
-	static String st2 = "10.22.3.205";
-	static String st3 = "10.22.1.200";
-	static String fat = "52.64.152.134";
+	// static String st2 = "10.22.3.205";
+	// static String st3 = "10.22.1.200";
+	// static String fat = "52.64.152.134";
 
 	@When("^I open \"(.*?)\" website$")
 	public void i_open_website(String website) throws Throwable {
-		String base_url = st3;
-
+		// String base_url = st3;
 		if (website.equals("ePublic")) {
-			driver.get("http://" + base_url + "/epublic/login");
-		} else if (website.equals("eRegistry")) {
-			driver.get("http://" + base_url + "/eregistry/login");
-		} else if (website.equals("Core")) {
-			driver.get("http://" + base_url + "/core/dashboard");
+			driver.get("http://10.22.1.200/epublic/login");
+		} else {
+			driver.get("http://10.22.1.200/eregistry/login");
 		}
 	}
 
@@ -148,36 +147,25 @@ public class BDMForm {
 
 	@When("^I navigate to \"(.*?)\" in \"(.*?)\"$")
 	public void i_navigate_in_ePublic$(String tab, String site) throws Throwable {
-
 		System.out.println("--------I am at the scenario where I nagigate to form " + tab);
+
 		if (site.equals("ePublic")) {
-			if (tab.equals("BRS")) {
-				System.out.println("--------I am in the condition of running the BRS");
-				System.out.println("--------after waiting for 'briths New' tab to load------------");
-				Helper.clickItem(EpublicControls.briths_tab);
-				System.out.println("--------after trying to click 'briths New' tab------------");
-				Helper.clickItem(EpublicControls.BRS_form);
-				Helper.clickItem(EpublicControls.i_agree);
-			}
-		} else if (site.equals("eRegistry")) {
+			GoToBRSInePublic.Execute(driver);
+		} else {
 			if (tab.equals("DRS")) {
 				System.out.println("--------I am in the condition of running the DRS");
-
 				Helper.clickItem(EregistryControls.deathsLink);
 				Helper.clickItem(EregistryControls.drsLink);
 			} else if (tab.equals("DRS draft list")) {
 				System.out.println("--------I am in the condition of going to DRS draft list");
-
 				Helper.clickItem(EregistryControls.deathsLink);
 				Helper.clickItem(EregistryControls.drsDraftList);
 			} else if (tab.equals("Cause of Death")) {
 				System.out.println("--------I am in the condition of going to Cause of Death");
-
 				Helper.clickItem(EregistryControls.codLink);
 				Helper.clickItem(EregistryControls.newCodLink);
 			} else if (tab.equals("COD draft list")) {
 				System.out.println("--------I am in the condition of going to COD draft list");
-
 				Helper.clickItem(EregistryControls.codLink);
 				Helper.clickItem(EregistryControls.codDraftList);
 			}
@@ -188,7 +176,8 @@ public class BDMForm {
 	@When("^I fill in the \"(.*?)\" of \"(.*?)\" in \"(.*?)\"$")
 	public void i_fill_form$(String page, String form, String site) throws Throwable {
 
-		System.out.println("--------I fill " + form + " form in " + site + " page: " + page);
+		// System.out.println("--------I fill " + form + " form in " + site + "
+		// page: " + page);
 		if (site.toLowerCase().equals("epublic".toLowerCase())) {
 			if (form.equals("BRS")) {
 				if (page.equals("Child's details")) {
@@ -254,6 +243,14 @@ public class BDMForm {
 		}
 
 	}
+
+	@Then("^I can fill and submit the \"([^\"]*)\" form$")
+	public void i_can_fill_and_submit_the_form(String arg1) throws Throwable {
+		FilltheBRSInEpublic.Execute(driver);
+	}
+	
+	
+	
 
 	@Then("^I select \"(.*?)\" in \"(.*?)\" dropdown list on \"(.*?)\" page of \"(.*?)\" in \"(.*?)\"$")
 	public void i_select_dropdown(String value, String dropDoneListName, String page, String function, String site)

@@ -57,5 +57,13 @@ public class EpublicControls extends BaseClass {
 
 	@FindBy(xpath = "/html/body/app/div/payment-completion/div/div[1]/div[5]/div[4]")
 	public static WebElement paymentResult;
-
+	
+	@FindBy(xpath = ".//button[text() = 'Proceed']")
+	public static WebElement proceedButtonOnBRS;
+	
+	@FindBy(xpath = ".//button[contains(text(), 'Proceed without ordering a certificate')]")
+	public static WebElement proceedWithoutOrderingCertificate;
+	
+	@FindBy(xpath = ".//div[contains(text(), 'Your BDM Order no.')]")
+	public static WebElement bdmOrderNo; 
 }

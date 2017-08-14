@@ -15,6 +15,12 @@ public class EpublicBrsRelationshipDetailPage extends BaseClass {
 
 	@FindBy(id = "brs-relationshipDetails-dateOfRelationshipRegistration")
 	public static WebElement relationshipDate;
+	
+	@FindBy(id = "brs-relationshipDetails-suburbTownCity")
+	public static WebElement relationshipSuburb;
+
+	
+	
 
 
 }
