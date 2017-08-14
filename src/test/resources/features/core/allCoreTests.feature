@@ -16,7 +16,7 @@ Feature: All Core site testings.
     And I sign in
     And I navigate to "NOB" new form
     Then I fill in the "NOB" form
-    
+
   Scenario: Check the automatic creation of Birth Certificate
     When I open Core website
     And I sign in

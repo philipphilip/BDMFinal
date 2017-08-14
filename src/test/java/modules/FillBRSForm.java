@@ -27,6 +27,7 @@ public class FillBRSForm {
 	public static void Execute(WebDriver driver) throws Exception {
 
 		PageFactory.initElements(driver, CoreBrsPage.class);
+		PageFactory.initElements(driver, CoreControls.class);
 		WebDriverWait waitForTabsMenue = new WebDriverWait(driver, 10000);
 		CoreBrsPage.informant2_emailAddress = waitForTabsMenue
 				.until(ExpectedConditions.elementToBeClickable(CoreBrsPage.informant2_emailAddress));
@@ -104,7 +105,8 @@ public class FillBRSForm {
 		CoreBrsPage.informant2_contactAddress_suburb.sendKeys("North Melbounre");
 		CoreBrsPage.informant2_contactAddress_postcode.sendKeys("3051");
 		CoreBrsPage.informant2_emailAddress.sendKeys("adfd@ss.com");
-		CoreBrsPage.validateform();
+		CoreControls.validateForm();
+		CoreControls.overrideExceptionsOnform();
 		CoreControls.saveForm();
 	}
 

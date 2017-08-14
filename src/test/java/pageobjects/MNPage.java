@@ -284,23 +284,26 @@ public class MNPage extends BaseClass {
 	// ".//marriage-notification-page//button-panel/div/div/input[1]")
 	// public static WebElement validateButton;
 
-	@FindBy(xpath = ".//*[@id='error-message']/div/div")
-	public static WebElement errorBaner;
+	// @FindBy(xpath = ".//*[@id='error-message']/div/div")
+	// public static WebElement errorBaner;
+	
+	// @FindBy(xpath =
+	// ".//marriage-notification-page//table/tbody/tr[1]/th[1]/input")
+	// public static WebElement validateCheckBox;
+	
+	// @FindBy(xpath =
+	// ".//marriage-notification-page//input[@value='Override']")
+	// public static WebElement overrideButton;
+	
+	// @FindBy(id = "override-reasonCode")
+	// public static WebElement acceptionReason;
 
-	@FindBy(xpath = ".//marriage-notification-page//table/tbody/tr[1]/th[1]/input")
-	public static WebElement validateCheckBox;
+	// @FindBy(id = "override-comment")
+	// public static WebElement reasonComment;
 
-	@FindBy(xpath = ".//marriage-notification-page//input[@value='Override']")
-	public static WebElement overrideButton;
-
-	@FindBy(id = "override-reasonCode")
-	public static WebElement acceptionReason;
-
-	@FindBy(id = "override-comment")
-	public static WebElement reasonComment;
-
-	@FindBy(xpath = ".//marriage-notification-page/override-popup/base-popup/div/div/div/div[3]/div/button[text()='Override']")
-	public static WebElement overrideButton2;
+	// @FindBy(xpath =
+	// ".//marriage-notification-page/override-popup/base-popup/div/div/div/div[3]/div/button[text()='Override']")
+	// public static WebElement overrideButton2;
 
 	@FindBy(xpath = ".//marriage-notification-page//search-results//table//tr[2]/td[1]/div/a")
 	public static WebElement matchingNotifivation;
@@ -308,22 +311,22 @@ public class MNPage extends BaseClass {
 	@FindBy(xpath = ".//marriage-notification-page//side-panel//a[contains(text(),'Marriage Registration')]")
 	public static WebElement marriageRegLink;
 
-	public static void validateform() throws Exception {
-		CoreControls.validateButton.click();
-		Thread.sleep(3000);
-		boolean formHasErrors = errorBaner.getText()
-				.equals("There are validation errors in your Marriage Notification.");
-		if (formHasErrors) {
-			validateCheckBox.click();
-			overrideButton.click();
-			Thread.sleep(3000);
-			System.out.println("after clicking the override button");
-			acceptionReason.sendKeys("Court Order");
-			reasonComment.sendKeys("any reason");
-			overrideButton2.click();
-			System.out.println("There were validation errors that got overridden");
-		} else {
-			System.out.println("There are no validation errors");
-		}
-	}
+	// public static void validateform() throws Exception {
+	// CoreControls.validateButton.click();
+	// Thread.sleep(3000);
+	// boolean formHasErrors = errorBaner.getText()
+	// .equals("There are validation errors in your Marriage Notification.");
+	// if (formHasErrors) {
+	// validateCheckBox.click();
+	// overrideButton.click();
+	// Thread.sleep(3000);
+	// System.out.println("after clicking the override button");
+	// acceptionReason.sendKeys("Court Order");
+	// reasonComment.sendKeys("any reason");
+	// overrideButton2.click();
+	// System.out.println("There were validation errors that got overridden");
+	// } else {
+	// System.out.println("There are no validation errors");
+	// }
+	// }
 }

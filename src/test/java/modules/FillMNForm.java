@@ -16,8 +16,9 @@ public class FillMNForm {
 
 	public static void Execute(WebDriver driver) throws Exception {
 		PageFactory.initElements(driver, MNPage.class);
+		PageFactory.initElements(driver, CoreControls.class);
 		Thread.sleep(3000);
-		Helper.selectDropDownList(MNPage.celebrantCode, "A Civil Ceremony");
+		Helper.selectDropDownList(MNPage.celebrantCode, "A");
 		MNPage.celebrantRegistrationNumber.sendKeys("12341324");
 		MNPage.dateOfMarriageDay.sendKeys("01");
 		MNPage.dateOfMarriageMonth.sendKeys("07");
@@ -46,7 +47,6 @@ public class FillMNForm {
 		MNPage.groomsMothersDetailsFamilyNameAtBirth.sendKeys("sjsncjdsks");
 		String groomMotherFirstName = RandomStringUtils.randomAlphabetic(6);
 		MNPage.groomsMothersDetailsFirstGivenName.sendKeys("automatic" + groomMotherFirstName);
-
 		String brideFamilyName = RandomStringUtils.randomAlphabetic(6);
 		MNPage.bridesNameFamilyName.sendKeys("automatic" + brideFamilyName);
 		String brideFirstName = RandomStringUtils.randomAlphabetic(6);
@@ -85,17 +85,11 @@ public class FillMNForm {
 		MNPage.groomsvidenceOfBirth.sendKeys("Australian Passport");
 		MNPage.groomsPassportNumber.sendKeys("12341234");
 		MNPage.groomsIdentityConfirmed.sendKeys("Yes");
-		// MRPage.groomsIdentificationDocumentType.sendKeys("Passport");
-		// MRPage.groomsIdentificationPlaceOfIssue.sendKeys("Victoria");
-		// MRPage.groomsIdentificationDocumentNumber.sendKeys("123");
 		MNPage.groomsSignatureDeclarationsForm14.sendKeys("Yes");
 		MNPage.groomsIdentificationIssueOfDocumentsS425a.sendKeys("No");
 		MNPage.bridesEvidenceOfBirth.sendKeys("Australian Passport");
 		MNPage.bridesPassportNumber.sendKeys("342");
 		MNPage.bridesIdentityConfirmed.sendKeys("Yes");
-		// MRPage.bridesDdocumentType.sendKeys("Passport");
-		// MRPage.bridesPlaceOfIssue.sendKeys("Victoria");
-		// MRPage.bridesDocumentNumber.sendKeys("41234");
 		MNPage.bridesIssueOfDocumentsS425a.sendKeys("No");
 		MNPage.statutoryRequirementsShorteningOfTimeApprovalReceived.sendKeys("No");
 		MNPage.statutoryRequirementsShorteningOfTimeSighted.sendKeys("No");
@@ -116,7 +110,8 @@ public class FillMNForm {
 		MNPage.witnessTwoSignedForm16.sendKeys("Yes");
 		MNPage.celebrantOath.sendKeys("Yes");
 		MNPage.originalMarriageDocumentsReceived.sendKeys("Yes");
-		MNPage.validateform();
+		CoreControls.validateForm();
+		CoreControls.overrideExceptionsOnform();
 		Thread.sleep(2000);
 		CoreControls.saveForm();
 	}

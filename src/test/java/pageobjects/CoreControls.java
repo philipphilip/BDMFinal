@@ -18,7 +18,7 @@ public class CoreControls extends BaseClass {
 
 	@FindBy(xpath = "//*/a[text()='Search']")
 	public static WebElement searchTab;
-	
+
 	@FindBy(xpath = ".//a[text() = 'Birth Registration Search']")
 	public static WebElement birthRegistrationSearch;
 
@@ -102,13 +102,31 @@ public class CoreControls extends BaseClass {
 
 	@FindBy(xpath = ".//matching-panel/div[1]//tr[2]/td[1]/input")
 	public static WebElement firstRadioButtonMatch;
-	
+
 	@FindBy(xpath = ".//input[@value = 'Match with selected Notification']")
 	public static WebElement matchButton;
-	
+
 	@FindBy(xpath = "//*[@id='error-message']/div/div")
-	public static WebElement registrationCreatedMessage;	
-	
+	public static WebElement registrationCreatedMessage;
+
+	@FindBy(xpath = ".//*[@id='error-message']/div/div")
+	public static WebElement errorBaner;
+
+	@FindBy(xpath = ".//th[1]/input")
+	public static WebElement validateCheckBox;
+
+	@FindBy(xpath = ".//input[@value = 'Override']")
+	public static WebElement overrideButton;
+
+	@FindBy(xpath = "//*[@id='override-reasonCode']")
+	public static WebElement acceptionReason;
+
+	@FindBy(id = "override-comment")
+	public static WebElement reasonComment;
+
+	@FindBy(xpath = ".//override-popup/base-popup//div/button[text() = 'Override']")
+	public static WebElement overrideButton2;
+
 	public static void saveForm() throws Exception {
 		actionList.sendKeys("Save");
 		Thread.sleep(2000);
@@ -133,7 +151,7 @@ public class CoreControls extends BaseClass {
 		actionList.sendKeys("Match");
 		go.click();
 	}
-	
+
 	public static void matchNOBAndBRS() throws Exception {
 		actionList.sendKeys("Match");
 		go.click();
@@ -142,7 +160,24 @@ public class CoreControls extends BaseClass {
 		matchButton.click();
 		Thread.sleep(2000);
 		String successmessage = registrationCreatedMessage.getText();
-		Assert.assertTrue("The Birth Registration did not get created", successmessage.equals("This Birth Registration has been successfully registered."));
+		Assert.assertTrue("The Birth Registration did not get created",
+				successmessage.equals("This Birth Registration has been successfully registered."));
+	}
+
+	public static void overrideExceptionsOnform() throws Exception {
+		Thread.sleep(5000);
+		boolean formHasErrors = errorBaner.getText().contains("are validation errors");
+		if (formHasErrors) {
+			validateCheckBox.click();
+			overrideButton.click();
+			Thread.sleep(3000);
+			acceptionReason.sendKeys("Court Order");
+			reasonComment.sendKeys("any reason");
+			overrideButton2.click();
+			System.out.println("There were validation errors that got overridden");
+		} else {
+			System.out.println("There are no validation errors");
+		}
 	}
 	// public static void clickGo() {
 	// go.click();
