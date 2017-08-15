@@ -13,7 +13,7 @@ public class FillEpublicApplicationApplicantDetailForm {
 	public static void Execute(WebDriver driver) throws Throwable {
 
 		PageFactory.initElements(driver, EpublicApplicationApplicantDetailPage.class);
-
+		
 		Helper.inputItem(EpublicApplicationApplicantDetailPage.applicantGivenName,"Tom");
 		Helper.inputItem(EpublicApplicationApplicantDetailPage.streetNo,"22 station st");
 		Helper.inputItem(EpublicApplicationApplicantDetailPage.suburb,"ringwood");

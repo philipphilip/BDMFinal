@@ -299,6 +299,7 @@ public class BDMForm {
 
 	@When("^I click \"(.*?)\" button in \"(.*?)\"$")
 	public void i_click_button_by_text$(String buttonText, String site) throws Throwable {
+		System.out.println("================the value of buttonText is: " + buttonText);
 		Helper.clickButtonByText(buttonText);
 	}
 
