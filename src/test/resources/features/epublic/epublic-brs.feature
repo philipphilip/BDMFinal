@@ -27,7 +27,7 @@ Feature: ePublic brs
     #And I click "Submit" button on "Review" page of "BRS" in "epublic"
     #Then I can see "Your order request has been submitted" on "brs Submit result" page of "epublic"
         
-    Scenario: purchase birth certificate (Updated Scenario)
+    Scenario: Request a BRS (Updated Scenario)
     Given I open "ePublic" website
     When I sign in "ePublic"
 		And I navigate to "BRS" in "ePublic"

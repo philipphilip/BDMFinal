@@ -16,7 +16,3 @@ Feature: eregistry drs
     And I click "Submit Drs" button on "drs draft search" page of "Drs" in "eregistry"
     And I click "Confirm Submit" button on "Confirmation required" page of "Drs" in "eregistry"
     Then I can see "Successfully submitted notifications" on "drs Submit result" page of "eregistry"
-
-
-
-

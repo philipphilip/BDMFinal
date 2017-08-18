@@ -123,6 +123,7 @@ public class BDMForm {
 		driver.get("http://10.22.1.200/core/login");
 		// driver.get("http://52.64.152.134/core/login");
 		// driver.get("http://10.22.1.110/core/login");
+		driver.manage().window().maximize();
 	}
 
 	@When("^I sign in$")
