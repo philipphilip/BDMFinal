@@ -41,8 +41,9 @@ public class FilltheBRSInEpublic {
 		System.out.println("after wait, before click hospital list");
 		EpublicBrsChildDetailPage.hospitallist.click();
 		System.out.println("after click hospital list");
-		EpublicBrsChildDetailPage.hospitalSuburb.click();
-		EpublicBrsChildDetailPage.hospitalSuburblist.click();
+		//EpublicBrsChildDetailPage.hospitalSuburb.click();
+		//EpublicBrsChildDetailPage.hospitalSuburblist.click();
+		Helper.inputItem(EpublicBrsChildDetailPage.hospitalSuburb, "UPPER FERNTREE GULLY");
 		Helper.clickItem(EpublicControls.nextButton);
 
 		// FillEpublicBrsParentDetailForm.Execute(driver);

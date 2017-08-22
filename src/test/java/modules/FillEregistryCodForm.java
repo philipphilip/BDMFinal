@@ -78,7 +78,7 @@ public class FillEregistryCodForm {
 
 		EregistryCodPage.telephoneNo.clear();
 		Helper.inputItem(EregistryCodPage.telephoneNo,"99998888");
-		Helper.inputItem(EregistryCodPage.AHPRA,"MED0000938719");
+		//Helper.inputItem(EregistryCodPage.AHPRA,"MED0000938719");
 		Helper.inputItem(EregistryCodPage.declaration,"Yes");
 
 

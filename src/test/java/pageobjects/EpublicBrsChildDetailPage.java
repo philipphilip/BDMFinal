@@ -31,16 +31,20 @@ public class EpublicBrsChildDetailPage extends BaseClass {
 	@FindBy(id = "brs-childDetails-childDetails-wasTheChildBornInHospital0")
 	public static WebElement hospitalYes;
 
-	@FindBy(xpath = "//*[@id=\"childDetails\"]/div/div[2]/div/div[3]/cge-dropdown-ref[1]/div/div[2]/cge-wrapped-select2/select2/span")
+	//@FindBy(xpath = "//*[@id=\\\"childDetails\\\"]/div/div[2]/div/div[3]/cge-dropdown-ref[1]/div/div[2]/cge-wrapped-select2/select2/span")
+	@FindBy(id = "select2-brs-childDetails-childDetails-hospitalName-container")
 	public static WebElement hospital;
 
-	@FindBy(id = "select2-brs-childDetails-childDetails-hospitalName-results")
+	//@FindBy(id = "select2-brs-childDetails-childDetails-hospitalName-results")//*[@id="select2-brs-childDetails-childDetails-hospitalName-results"]/li[4]
+	@FindBy(xpath = "//*[@id=\"select2-brs-childDetails-childDetails-hospitalName-results\"]/li[5]")
 	public static WebElement hospitallist;
 
-	@FindBy(xpath = "//*[@id=\"childDetails\"]/div/div[2]/div/div[3]/cge-dropdown-ref[2]/div/div[2]/cge-wrapped-select2/select2/span")
+	//@FindBy(xpath = "//*[@id=\"childDetails\"]/div/div[2]/div/div[3]/cge-dropdown-ref[2]/div/div[2]/cge-wrapped-select2/select2/span")
+	@FindBy(id = "brs-childDetails-childDetails-hospitalTownSuburbCity")
 	public static WebElement hospitalSuburb;
 
-	@FindBy(id = "select2-brs-childDetails-childDetails-hospitalTownSuburbCity-results")
+	//@FindBy(id = "select2-brs-childDetails-childDetails-hospitalTownSuburbCity-results")
+	@FindBy(xpath = "//*[@id=\"brs-childDetails-childDetails-hospitalTownSuburbCity\"]/option[2]")
 	public static WebElement hospitalSuburblist;
 
 

@@ -36,6 +36,7 @@ import modules.FilltheBRSInEpublic;
 import modules.GoToApplicationForm;
 import modules.GoToBRSForm;
 import modules.GoToBRSInePublic;
+import modules.GoToBRSInePublicDev;
 import modules.GoToCODForm;
 import modules.GoToDRSForm;
 import modules.GoToMNForm;
@@ -92,9 +93,17 @@ public class BDMForm {
 		// String base_url = st3;
 		if (website.equals("ePublic")) {
 			driver.get("http://10.22.1.200/epublic/login");
+		// Adding Core, ePublic and eRegistry Development environments for smoke tests to deploy to System Test environment
+		} else if (website.equals("ePublic Dev")) {
+			driver.get("http://10.22.1.15/epublic/login");
+		} else if (website.equals("eRegistry Dev")) {
+			driver.get("http://10.22.1.15/eregistry/login");
+		} else if (website.equals("Core Dev")) {
+			driver.get("http://10.22.1.15/core/login");
 		} else {
 			driver.get("http://10.22.1.200/eregistry/login");
 		}
+		driver.manage().window().maximize();
 	}
 
 	@When("^I login \"(.*?)\" as user \"(.*?)\" password \"(.*?)\"$")
@@ -152,6 +161,8 @@ public class BDMForm {
 
 		if (site.equals("ePublic")) {
 			GoToBRSInePublic.Execute(driver);
+		} else if (site.equals("ePublic Dev")) {
+			GoToBRSInePublicDev.Execute(driver);
 		} else {
 			if (tab.equals("DRS")) {
 				System.out.println("--------I am in the condition of running the DRS");

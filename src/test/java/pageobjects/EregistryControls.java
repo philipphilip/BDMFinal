@@ -10,10 +10,12 @@ public class EregistryControls extends BaseClass {
 		super(driver);
 	}
 
-	@FindBy(xpath = "/html/body/app/stakeholder/div/form/div/select")
+	@FindBy(xpath = "/html/body/app/stakeholder/div/div/form/div[1]/select")
+	//changed xpath from "/html/body/app/stakeholder/div/form/div/select" to "/html/body/app/stakeholder/div/div/form/div[1]/select"
 	public static WebElement stakeholderList;
 
-	@FindBy(xpath = "/html/body/app/stakeholder/div/form/div/input")
+	@FindBy(xpath = "/html/body/app/stakeholder/div/div/form/div[2]/input")
+	//changed xpath from "/html/body/app/stakeholder/div/form/div/input" to "/html/body/app/stakeholder/div/div/form/div[2]/input"
 	public static WebElement submit;
 
 	@FindBy(xpath = "//*[@id=\"navbar\"]/ul/li[1]/a")

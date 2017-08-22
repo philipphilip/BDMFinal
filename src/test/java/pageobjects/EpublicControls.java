@@ -15,6 +15,10 @@ public class EpublicControls extends BaseClass {
 
 	@FindBy(xpath = "/html/body/app/div/product-page/div/div/div/div/div[1]/a/img")
 	public static WebElement BRS_form;
+	
+	//Birth Reg Service tab is different in dev environment than the ST environment
+	@FindBy(xpath = "/html/body/app/div/product-page/div/div/div/div/div[3]/a/img")
+	public static WebElement BRS_form_ePublicDev;
 
 	@FindBy(xpath = ".//*/button[contains(text(),'I agree')]")
 	public static WebElement i_agree;
@@ -55,7 +59,9 @@ public class EpublicControls extends BaseClass {
 	@FindBy(xpath = "/html/body/app/div/payment-completion/div/div[1]/div[4]/div[3]")
 	public static WebElement brsSubmitResult;
 
-	@FindBy(xpath = "/html/body/app/div/payment-completion/div/div[1]/div[5]/div[4]")
+	//CHANGING THIS TO MATCH THE XPATH FOR THE RESULT OF SELECTING THE PAYMENT OPTION AS 'Pay in person'
+	//@FindBy(xpath = "/html/body/app/div/payment-completion/div/div[1]/div[5]/div[4]")
+	@FindBy(xpath = "/html/body/app/div/payment-completion/div/div[1]/div[5]/div[3]")
 	public static WebElement paymentResult;
 	
 	@FindBy(xpath = ".//button[text() = 'Proceed']")
