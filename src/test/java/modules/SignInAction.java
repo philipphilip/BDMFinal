@@ -13,8 +13,8 @@ public class SignInAction {
 
 		CoreLoginPage.username.sendKeys("admin");
 		CoreLoginPage.password.sendKeys("Friday17");
-		// CoreLoginPage.username.sendKeys("objectadmin");
-		// CoreLoginPage.password.sendKeys("EipPSZAG0SDXebOW2gd3");
+//		 CoreLoginPage.username.sendKeys("objectadmin");
+//		 CoreLoginPage.password.sendKeys("EipPSZAG0SDXebOW2gd3");
 
 		CoreLoginPage.signin_button.click();
 

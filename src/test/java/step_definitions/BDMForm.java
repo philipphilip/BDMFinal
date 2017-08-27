@@ -13,6 +13,7 @@ import helpers.DataHelper;
 import helpers.Helper;
 import modules.EpublicSignInAction;
 import modules.EregistrySignInAction;
+import modules.FillBCApplicationForm;
 import modules.FillBRSForm;
 import modules.FillCODForm;
 import modules.FillCoreBrsFormForBr;
@@ -93,6 +94,7 @@ public class BDMForm {
 		// String base_url = st3;
 		if (website.equals("ePublic")) {
 			driver.get("http://10.22.1.200/epublic/login");
+			//driver.get("http://52.64.152.134/epublic/login");
 		// Adding Core, ePublic and eRegistry Development environments for smoke tests to deploy to System Test environment
 		} else if (website.equals("ePublic Dev")) {
 			driver.get("http://10.22.1.15/epublic/login");
@@ -100,7 +102,10 @@ public class BDMForm {
 			driver.get("http://10.22.1.15/eregistry/login");
 		} else if (website.equals("Core Dev")) {
 			driver.get("http://10.22.1.15/core/login");
+		} else if (website.equals("Core")) {
+			driver.get("http://10.22.1.200/core/login");
 		} else {
+			//driver.get("http://52.64.152.134/eregistry/login");
 			driver.get("http://10.22.1.200/eregistry/login");
 		}
 		driver.manage().window().maximize();
@@ -521,6 +526,8 @@ public class BDMForm {
 			SearchForMNAndMakeMR.Execute(driver);
 		} else if (formName.equals("Application")) {
 			FillDCApplicationForm.Execute(driver);
+		} else if (formName.equals("Birth Application")) {
+			FillBCApplicationForm.Execute(driver);
 		}
 	}
 

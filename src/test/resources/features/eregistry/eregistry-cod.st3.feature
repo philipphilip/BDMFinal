@@ -5,7 +5,7 @@ Feature: eregistry cod
   Scenario: eregistry create cod and submit to core
     Given I open "eRegistry" website
     When I sign in "eRegistry"
-    And I select stakeholder as "abc Medical Practitioner"
+    And I select stakeholder as "Manningham Medical Practitioner"
     And I navigate to "Cause of Death" in "eRegistry"
     And I fill in the "COD" of "COD form" in "eregistry"
     And I can see "This Cause of Death has been successfully saved" on "COD" page of "eregistry"

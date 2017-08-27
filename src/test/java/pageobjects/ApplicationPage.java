@@ -131,6 +131,25 @@ public class ApplicationPage extends BaseClass {
 
 	@FindBy(xpath = ".//*/override-popup/base-popup/div/div/div/div[3]/div/button[text()='Override']")
 	public static WebElement overrideButton2;
+	
+	@FindBy(id = "subjectDetails-dateOfEvent-dateOfBirth-on-day")
+	public static WebElement dateOfBirthDay;
+	
+	@FindBy(id = "subjectDetails-dateOfEvent-dateOfBirth-on-month")
+	public static WebElement dateOfBirthMonth;
+	
+	@FindBy(id = "subjectDetails-dateOfEvent-dateOfBirth-on-year")
+	public static WebElement dateOfBirthYear;
+	
+	@FindBy(id = "subjectDetails-subjectBirthDetails-familyName")
+	public static WebElement birthDetailsFamilyName;
+	
+	@FindBy(id = "subjectDetails-subjectBirthDetails-givenNames")
+	public static WebElement birthDetailsGivenName;
+	
+	@FindBy(id = "subjectDetails-subjectBirthDetails-placeOfBirthSuburbTownCity")
+	public static WebElement placeOfBirthSuburbTownCity;
+		
 
 	public static void validateform() throws Exception {
 		Thread.sleep(3000);

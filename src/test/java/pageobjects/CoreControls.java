@@ -102,9 +102,15 @@ public class CoreControls extends BaseClass {
 
 	@FindBy(xpath = ".//matching-panel/div[1]//tr[2]/td[1]/input")
 	public static WebElement firstRadioButtonMatch;
+	
+	@FindBy(xpath = ".//application-wiz-match-results/div[2]//tr[2]/td[1]/input")
+	public static WebElement firstRadioButtonMatchApplication;
 
 	@FindBy(xpath = ".//input[@value = 'Match with selected Notification']")
 	public static WebElement matchButton;
+	
+	@FindBy(xpath = ".//input[@value = 'Match with selected']")
+	public static WebElement matchButtonApplication;
 
 	@FindBy(xpath = "//*[@id='error-message']/div/div")
 	public static WebElement registrationCreatedMessage;
@@ -162,6 +168,18 @@ public class CoreControls extends BaseClass {
 		String successmessage = registrationCreatedMessage.getText();
 		Assert.assertTrue("The Birth Registration did not get created",
 				successmessage.equals("This Birth Registration has been successfully registered."));
+	}
+	
+	public static void matchBirthCertificateAndBR() throws Exception {
+//		actionList.sendKeys("Match");
+//		go.click();
+		Thread.sleep(2000);
+		firstRadioButtonMatchApplication.click();
+		matchButtonApplication.click();
+		Thread.sleep(2000);
+//		String successmessage = registrationCreatedMessage.getText();
+//		Assert.assertTrue("The Birth Registration did not get created",
+//				successmessage.equals("This Birth Registration has been successfully registered."));
 	}
 
 	public static void overrideExceptionsOnform() throws Exception {

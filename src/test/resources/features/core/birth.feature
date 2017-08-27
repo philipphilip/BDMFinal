@@ -16,3 +16,9 @@ Feature: List of Birth scenarios.
     When I open Core website
     And I sign in
     Then I fill in the "BR" form
+    
+  Scenario: Request a Birth certificate
+    When I open "Core" website
+    And I sign in
+    And I navigate to "Application" new form
+    Then I fill in the "Birth Application" form
