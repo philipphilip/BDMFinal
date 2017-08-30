@@ -19,11 +19,17 @@ public class CoreControls extends BaseClass {
 	@FindBy(xpath = "//*/a[text()='Search']")
 	public static WebElement searchTab;
 
+	@FindBy(xpath = ".//a[text() = 'Notice of Birth Search']")
+	public static WebElement nobSearch;
+
 	@FindBy(xpath = ".//a[text() = 'Birth Registration Search']")
 	public static WebElement birthRegistrationSearch;
 
 	@FindBy(xpath = "//*/a[text()='Marriage Notification Search']")
 	public static WebElement merriageNotificationSearch;
+
+	@FindBy(xpath = "//*/a[text() = 'Marriage Registration Search']")
+	public static WebElement merriageRegistrationSearch;
 
 	@FindBy(xpath = ".//button-panel/div/div/input[@value = 'Search']")
 	public static WebElement searchButton;
@@ -64,14 +70,17 @@ public class CoreControls extends BaseClass {
 	@FindBy(xpath = "/html/body/app/ng-component/div[2]/main/div/brs-page/override-popup/base-popup/div/div/div/div[3]/div/button[1]")
 	public static WebElement coreBrsDoOverrideButton;
 
-	@FindBy(xpath = "/html/body/app/ng-component/div[2]/main/div/brs-page/div/div[2]/form/button-panel/div/div/input[2]")
-	public static WebElement coreBrsCheckForDuplicatesButton;
+	@FindBy(xpath = ".//*/input[@value = 'Check For Duplicates']")
+	public static WebElement checkForDuplicatesButton;
+
+	@FindBy(xpath = ".//*/input[@value = 'Proceed To Review']")
+	public static WebElement proceedToReviewButton;
 
 	@FindBy(xpath = "/html/body/app/ng-component/div[2]/main/div/brs-page/div/div[2]/form/button-panel/div/div/input[3]")
 	public static WebElement coreBrsProceedToDeathCheckButton;
 
-	@FindBy(xpath = "/html/body/app/ng-component/div[2]/main/div/brs-page/div/div[2]/form/button-panel/div/div/input[2]")
-	public static WebElement coreBrsSubmitButton;
+	@FindBy(xpath = ".//*/input[@value = 'Submit']")
+	public static WebElement submitButton;
 
 	@FindBy(xpath = "/html/body/app/ng-component/div[2]/main/div/nob-page/div/div[2]/form/div/search-results/div/table/tbody/tr[2]/td[1]/div/a")
 	public static WebElement coreNobFirstSearchResult;
@@ -102,13 +111,13 @@ public class CoreControls extends BaseClass {
 
 	@FindBy(xpath = ".//matching-panel/div[1]//tr[2]/td[1]/input")
 	public static WebElement firstRadioButtonMatch;
-	
+
 	@FindBy(xpath = ".//application-wiz-match-results/div[2]//tr[2]/td[1]/input")
 	public static WebElement firstRadioButtonMatchApplication;
 
 	@FindBy(xpath = ".//input[@value = 'Match with selected Notification']")
 	public static WebElement matchButton;
-	
+
 	@FindBy(xpath = ".//input[@value = 'Match with selected']")
 	public static WebElement matchButtonApplication;
 
@@ -132,6 +141,9 @@ public class CoreControls extends BaseClass {
 
 	@FindBy(xpath = ".//override-popup/base-popup//div/button[text() = 'Override']")
 	public static WebElement overrideButton2;
+
+	@FindBy(xpath = ".//search-results/div/table/tbody/tr[2]/td[1]/div/a")
+	public static WebElement nobSearchResult;
 
 	public static void saveForm() throws Exception {
 		actionList.sendKeys("Save");
@@ -158,7 +170,7 @@ public class CoreControls extends BaseClass {
 		go.click();
 	}
 
-	public static void matchNOBAndBRS() throws Exception {
+	public static void matchNoticesToCreateRegistration() throws Exception {
 		actionList.sendKeys("Match");
 		go.click();
 		Thread.sleep(2000);
@@ -166,20 +178,21 @@ public class CoreControls extends BaseClass {
 		matchButton.click();
 		Thread.sleep(2000);
 		String successmessage = registrationCreatedMessage.getText();
-		Assert.assertTrue("The Birth Registration did not get created",
-				successmessage.equals("This Birth Registration has been successfully registered."));
+		Assert.assertTrue("Registration did not get created",
+				successmessage.contains("Registration has been successfully registered."));
 	}
-	
+
 	public static void matchBirthCertificateAndBR() throws Exception {
-//		actionList.sendKeys("Match");
-//		go.click();
+		// actionList.sendKeys("Match");
+		// go.click();
 		Thread.sleep(2000);
 		firstRadioButtonMatchApplication.click();
 		matchButtonApplication.click();
 		Thread.sleep(2000);
-//		String successmessage = registrationCreatedMessage.getText();
-//		Assert.assertTrue("The Birth Registration did not get created",
-//				successmessage.equals("This Birth Registration has been successfully registered."));
+		// String successmessage = registrationCreatedMessage.getText();
+		// Assert.assertTrue("The Birth Registration did not get created",
+		// successmessage.equals("This Birth Registration has been successfully
+		// registered."));
 	}
 
 	public static void overrideExceptionsOnform() throws Exception {
@@ -192,12 +205,20 @@ public class CoreControls extends BaseClass {
 			acceptionReason.sendKeys("Court Order");
 			reasonComment.sendKeys("any reason");
 			overrideButton2.click();
+			Thread.sleep(1000);
+			checkForDuplicatesButton.click();
+			Thread.sleep(1000);
+			proceedToReviewButton.click();
+			Thread.sleep(1000);
+			submitButton.click();
 			System.out.println("There were validation errors that got overridden");
 		} else {
+			checkForDuplicatesButton.click();
+			Thread.sleep(1000);
+			proceedToReviewButton.click();
+			Thread.sleep(1000);
+			submitButton.click();
 			System.out.println("There are no validation errors");
 		}
 	}
-	// public static void clickGo() {
-	// go.click();
-	// }
 }

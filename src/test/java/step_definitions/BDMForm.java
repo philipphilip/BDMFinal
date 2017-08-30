@@ -85,17 +85,14 @@ public class BDMForm {
 
 	}
 
-	// static String st2 = "10.22.3.205";
-	// static String st3 = "10.22.1.200";
-	// static String fat = "52.64.152.134";
-
 	@When("^I open \"(.*?)\" website$")
 	public void i_open_website(String website) throws Throwable {
-		// String base_url = st3;
 		if (website.equals("ePublic")) {
 			driver.get("http://10.22.1.200/epublic/login");
-			//driver.get("http://52.64.152.134/epublic/login");
-		// Adding Core, ePublic and eRegistry Development environments for smoke tests to deploy to System Test environment
+			// driver.get("https://web-st.objectconsulting.com.au/epublic/");
+			// driver.get("http://52.64.152.134/epublic/login");
+			// Adding Core, ePublic and eRegistry Development environments for
+			// smoke tests to deploy to System Test environment
 		} else if (website.equals("ePublic Dev")) {
 			driver.get("http://10.22.1.15/epublic/login");
 		} else if (website.equals("eRegistry Dev")) {
@@ -105,8 +102,9 @@ public class BDMForm {
 		} else if (website.equals("Core")) {
 			driver.get("http://10.22.1.200/core/login");
 		} else {
-			//driver.get("http://52.64.152.134/eregistry/login");
+			// driver.get("http://52.64.152.134/eregistry/login");
 			driver.get("http://10.22.1.200/eregistry/login");
+			// driver.get("https://web-st.objectconsulting.com.au/eregistry/");
 		}
 		driver.manage().window().maximize();
 	}
@@ -134,6 +132,8 @@ public class BDMForm {
 	@When("^I open Core website$")
 	public void i_open_Core_website() throws Throwable {
 		// driver.get("http://10.22.3.205/core/login");
+		// driver.get("http://10.22.1.200/core/login");
+		// driver.get("https://web-st.objectconsulting.com.au/core/login");
 		driver.get("http://10.22.1.200/core/login");
 		// driver.get("http://52.64.152.134/core/login");
 		// driver.get("http://10.22.1.110/core/login");
@@ -265,9 +265,6 @@ public class BDMForm {
 	public void i_can_fill_and_submit_the_form(String arg1) throws Throwable {
 		FilltheBRSInEpublic.Execute(driver);
 	}
-	
-	
-	
 
 	@Then("^I select \"(.*?)\" in \"(.*?)\" dropdown list on \"(.*?)\" page of \"(.*?)\" in \"(.*?)\"$")
 	public void i_select_dropdown(String value, String dropDoneListName, String page, String function, String site)
@@ -334,11 +331,11 @@ public class BDMForm {
 				} else if (buttonName.equals("Do Override")) {
 					Helper.clickItem(CoreControls.coreBrsDoOverrideButton);
 				} else if (buttonName.equals("Check For Duplicates")) {
-					Helper.clickItem(CoreControls.coreBrsCheckForDuplicatesButton);
+					Helper.clickItem(CoreControls.checkForDuplicatesButton);
 				} else if (buttonName.equals("Proceed to Death Check")) {
 					Helper.clickItem(CoreControls.coreBrsProceedToDeathCheckButton);
 				} else if (buttonName.equals("Submit")) {
-					Helper.clickItem(CoreControls.coreBrsSubmitButton);
+					Helper.clickItem(CoreControls.submitButton);
 				} else if (buttonName.equals("Search")) {
 					Helper.clickItem(CoreSearchBirthsPage.nobSearchButton);
 				} else if (buttonName.equals("First NOB Search Result")) {

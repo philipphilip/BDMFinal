@@ -38,7 +38,7 @@ public class FillNOBForm {
 		CoreNobPage.notifier_email.sendKeys("john.smith@info.com");
 		CoreControls.saveForm();
 		Thread.sleep(2000);
-		CoreControls.matchNOBAndBRS();
+		// CoreControls.matchNoticesToCreateRegistration();
 	}
 
 }

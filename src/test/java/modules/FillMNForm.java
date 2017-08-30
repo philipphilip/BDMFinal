@@ -112,8 +112,7 @@ public class FillMNForm {
 		MNPage.originalMarriageDocumentsReceived.sendKeys("Yes");
 		CoreControls.validateForm();
 		CoreControls.overrideExceptionsOnform();
-		Thread.sleep(2000);
-		CoreControls.saveForm();
+		// Thread.sleep(2000);
+		// CoreControls.saveForm();
 	}
-
 }

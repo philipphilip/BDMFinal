@@ -6,6 +6,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import pageobjects.CoreControls;
+import pageobjects.CoreNobPage;
 import pageobjects.CoreSearchBirthsPage;
 
 public class SearchforBRCreated {
@@ -16,6 +17,14 @@ public class SearchforBRCreated {
 		WebDriverWait waitForTabsMenue = new WebDriverWait(driver, 10000);
 		CoreControls.searchTab = waitForTabsMenue
 				.until(ExpectedConditions.elementToBeClickable(CoreControls.searchTab));
+		CoreControls.searchTab.click();
+		Thread.sleep(2000);
+		CoreControls.nobSearch.click();
+		CoreNobPage.mothersFamilyName.sendKeys("Automated" + FillBRSForm.randChildFamilyName);
+		CoreControls.searchButton.click();
+		Thread.sleep(2000);
+		CoreControls.nobSearchResult.click();
+		CoreControls.matchNoticesToCreateRegistration();
 		CoreControls.searchTab.click();
 		Thread.sleep(2000);
 		CoreControls.birthRegistrationSearch.click();

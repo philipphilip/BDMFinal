@@ -18,7 +18,7 @@ public class CoreNobPage extends BaseClass {
 
 	@FindBy(xpath = ".//*/a[contains(text(),'of Birth')]")
 	public static WebElement newNOB;
-
+				  
 	@FindBy(id = "birthMothersDetails-name-familyName")
 	public static WebElement mothersFamilyName;
 
