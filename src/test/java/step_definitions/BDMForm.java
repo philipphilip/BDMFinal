@@ -33,8 +33,10 @@ import modules.FillEregistryCodForm;
 import modules.FillEregistryDrsForm;
 import modules.FillMNForm;
 import modules.FillNOBForm;
+import modules.FilltheApplicationInEpublic;
 import modules.FilltheBRSInEpublic;
 import modules.GoToApplicationForm;
+import modules.GoToApplicationInePublic;
 import modules.GoToBRSForm;
 import modules.GoToBRSInePublic;
 import modules.GoToBRSInePublicDev;
@@ -165,9 +167,11 @@ public class BDMForm {
 		System.out.println("--------I am at the scenario where I nagigate to form " + tab);
 
 		if (site.equals("ePublic")) {
+			if (tab.equals("BRS")) {
 			GoToBRSInePublic.Execute(driver);
-		} else if (site.equals("ePublic Dev")) {
-			GoToBRSInePublicDev.Execute(driver);
+			} else if (tab.equals("Application")) {
+			  GoToApplicationInePublic.Execute(driver);
+			}
 		} else {
 			if (tab.equals("DRS")) {
 				System.out.println("--------I am in the condition of running the DRS");
@@ -262,8 +266,12 @@ public class BDMForm {
 	}
 
 	@Then("^I can fill and submit the \"([^\"]*)\" form$")
-	public void i_can_fill_and_submit_the_form(String arg1) throws Throwable {
+	public void i_can_fill_and_submit_the_form(String form) throws Throwable {
+		if (form.equals("BRS")) {
 		FilltheBRSInEpublic.Execute(driver);
+		} else if (form.equals("Application")) {
+		FilltheApplicationInEpublic.Execute(driver);
+		}
 	}
 	
 	

@@ -149,8 +149,26 @@ public class ApplicationPage extends BaseClass {
 	
 	@FindBy(id = "subjectDetails-subjectBirthDetails-placeOfBirthSuburbTownCity")
 	public static WebElement placeOfBirthSuburbTownCity;
-		
-
+	
+	@FindBy(xpath = ".//input[@value='Create Transaction']")
+	public static WebElement createTransactionButton;
+	
+	@FindBy(id = "Paid - TODO REMOVE ME")
+	public static WebElement paidCheckbox;
+	
+	@FindBy(xpath = ".//input[@value='Save']")
+	public static WebElement saveTransactionButton;
+	
+	@FindBy(xpath = ".//input[@value='Generate Certificate']")
+	public static WebElement generateCertificateButton;
+	
+	@FindBy(xpath = ".//input[@value='Print']")
+	public static WebElement printCertificateButton;
+	
+	@FindBy(xpath = ".//action-panel//h3[contains(text(), 'Application')]")
+	public static WebElement pageHeader;
+	
+	
 	public static void validateform() throws Exception {
 		Thread.sleep(3000);
 		boolean formHasErrors = errorBaner.getText().equals("There are validation errors in your application.");

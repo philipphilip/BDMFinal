@@ -27,4 +27,7 @@ public class EpublicApplicationApplicantDetailPage extends BaseClass {
 
 	@FindBy(id = "coo-applicantDetails-telephoneNo")
 	public static WebElement telephoneNo;
+	
+	@FindBy(xpath = ".//*/button[contains(text(),'Next')]")
+	public static WebElement nextButton;
 }

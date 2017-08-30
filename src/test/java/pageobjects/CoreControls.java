@@ -132,6 +132,9 @@ public class CoreControls extends BaseClass {
 
 	@FindBy(xpath = ".//override-popup/base-popup//div/button[text() = 'Override']")
 	public static WebElement overrideButton2;
+	
+	@FindBy(xpath = ".//simple-action-panel//button[contains(text(), 'Go' )]")
+	public static WebElement goPrintCertificate;
 
 	public static void saveForm() throws Exception {
 		actionList.sendKeys("Save");
@@ -196,6 +199,12 @@ public class CoreControls extends BaseClass {
 		} else {
 			System.out.println("There are no validation errors");
 		}
+	}
+	
+	public static void printForm() throws Exception {
+		actionList.sendKeys("Print");
+		Thread.sleep(2000);
+		goPrintCertificate.click();
 	}
 	// public static void clickGo() {
 	// go.click();

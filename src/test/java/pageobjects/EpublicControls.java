@@ -10,15 +10,17 @@ public class EpublicControls extends BaseClass {
 		super(driver);
 	}
 
-	@FindBy(xpath = ".//*/li/a[contains(text(),'Births')]")
-	public static WebElement briths_tab;
-
-	@FindBy(xpath = "/html/body/app/div/product-page/div/div/div/div/div[1]/a/img")
-	public static WebElement BRS_form;
+	@FindBy(xpath = ".//li[2]/a[contains(text(),'Register a life event')]")
+	public static WebElement registerALifeEvent_tab;
 	
-	//Birth Reg Service tab is different in dev environment than the ST environment
-	@FindBy(xpath = "/html/body/app/div/product-page/div/div/div/div/div[3]/a/img")
-	public static WebElement BRS_form_ePublicDev;
+	@FindBy(xpath = ".//li[4]/a[contains(text(),'Order certificates')]")
+	public static WebElement orderCertificates_tab;
+
+	@FindBy(xpath = ".//li[2]//li[1]/a[contains(text(),'Birth')]")
+	public static WebElement birthLink;
+	
+	@FindBy(xpath = ".//li[4]//li[1]/a[contains(text(),'Birth')]")
+	public static WebElement birthLinkCertificates;
 
 	@FindBy(xpath = ".//*/button[contains(text(),'I agree')]")
 	public static WebElement i_agree;

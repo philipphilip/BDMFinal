@@ -5,13 +5,13 @@ import org.openqa.selenium.WebDriver;
 import helpers.Helper;
 import pageobjects.EpublicControls;
 
-public class GoToBRSInePublic {
+public class GoToApplicationInePublic {
 
 	public static void Execute(WebDriver driver) throws Throwable {
 
-		Helper.clickItem(EpublicControls.registerALifeEvent_tab);
+		Helper.clickItem(EpublicControls.orderCertificates_tab);
 		Thread.sleep(3000);
-		EpublicControls.birthLink.click();
+		EpublicControls.birthLinkCertificates.click();
 		Thread.sleep(3000);
 		Helper.clickItem(EpublicControls.i_agree);
 	}

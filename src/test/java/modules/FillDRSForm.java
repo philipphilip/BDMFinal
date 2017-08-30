@@ -50,7 +50,7 @@ public class FillDRSForm {
 		CoreDRSPage.parentTwoFamilyNameAtBirth.sendKeys("automate" + randparentTwoFamilyNameAtBirth);
 		CoreDRSPage.parentTwoFirstName.sendKeys("automate" + randparentTwoGivenName);
 		CoreDRSPage.WasTheDeceasedUnder18.sendKeys("No");
-		CoreDRSPage.informantRelationshipToSubject.sendKeys("AGENT");
+		CoreDRSPage.informantRelationshipToSubject.sendKeys("Sibling");
 		CoreDRSPage.informatFamilyName.sendKeys("asdfA");
 		CoreDRSPage.informatFirstName.sendKeys("fallksjgflag");
 		CoreDRSPage.informantAddressLine1.sendKeys("32 asdjfs st");
