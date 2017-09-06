@@ -50,6 +50,7 @@ public class FillNOBForm {
 		CoreNobPage.notifier_family_name.sendKeys("auto" + randTextInformant2_fmlyN);
 		CoreNobPage.notifier_given_name.sendKeys("auto" + randparent2FirstName);
 		CoreNobPage.notifier_email.sendKeys("john.smith@info.com");
+
 		CoreControls.validateForm();
 		CoreControls.overrideExceptionsOnform();
 

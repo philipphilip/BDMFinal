@@ -6,29 +6,24 @@ import java.util.List;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
-import helpers.DataHelper;
 import helpers.Helper;
 import modules.EpublicSignInAction;
 import modules.EregistrySignInAction;
+import modules.FillApplicationCoreSearchForm;
 import modules.FillBCApplicationForm;
 import modules.FillBRSForm;
+import modules.FillCODCoreSearchForm;
 import modules.FillCODForm;
-import modules.FillCoreBrsFormForBr;
-import modules.FillCoreNobFormForBr;
+
 import modules.FillDCApplicationForm;
+import modules.FillDRSCoreSearchForm;
 import modules.FillDRSForm;
-import modules.FillEpublicApplicationApplicantDetailForm;
-import modules.FillEpublicApplicationPaymentDetailForm;
-import modules.FillEpublicApplicationSubjectDetailForm;
-import modules.FillEpublicBrsChildDetailForm;
-import modules.FillEpublicBrsInformant1DetailForm;
-import modules.FillEpublicBrsParentDetailForm;
-import modules.FillEpublicBrsRelationshipDetailForm;
-import modules.FillEpublicBrsSecondParentDetailForm;
-import modules.FillEpublicBrsSecondParentParticipationDetailForm;
+import modules.FillEregistryCertificatesForm;
 import modules.FillEregistryCodForm;
 import modules.FillEregistryDrsForm;
 import modules.FillMNForm;
@@ -39,11 +34,12 @@ import modules.GoToApplicationForm;
 import modules.GoToApplicationInePublic;
 import modules.GoToBRSForm;
 import modules.GoToBRSInePublic;
-// import modules.GoToBRSInePublicDev;
 import modules.GoToCODForm;
 import modules.GoToDRSForm;
 import modules.GoToMNForm;
 import modules.GoToNOBForm;
+import modules.SearchAndMakeCodCompliant;
+import modules.SearchAndMakeDrsCompliant;
 import modules.SearchForMNAndMakeMR;
 import modules.SearchforBRCreated;
 import modules.SignInAction;
@@ -164,7 +160,6 @@ public class BDMForm {
 
 	@When("^I navigate to \"(.*?)\" in \"(.*?)\"$")
 	public void i_navigate_in_ePublic$(String tab, String site) throws Throwable {
-		System.out.println("--------I am at the scenario where I nagigate to form " + tab);
 
 		if (site.equals("ePublic")) {
 			if (tab.equals("BRS")) {
@@ -172,60 +167,59 @@ public class BDMForm {
 			} else if (tab.equals("Application")) {
 				GoToApplicationInePublic.Execute(driver);
 			}
-		} else {
+		} else if (site.equals("Core")) {
+			if (tab.equals("Search DRS")) {
+				WebDriverWait waitForTabsMenue = new WebDriverWait(driver, 10000);
+				CoreControls.searchTab = waitForTabsMenue
+						.until(ExpectedConditions.elementToBeClickable(CoreControls.searchTab));
+				CoreControls.searchTab.click();
+				CoreControls.drsSearch.click();
+			} else if (tab.equals("Search COD")) {
+				WebDriverWait waitForTabsMenue = new WebDriverWait(driver, 10000);
+				CoreControls.searchTab = waitForTabsMenue
+						.until(ExpectedConditions.elementToBeClickable(CoreControls.searchTab));
+				CoreControls.searchTab.click();
+				CoreControls.codSearch.click();
+			} else if (tab.equals("Search Application")) {
+				WebDriverWait waitForTabsMenue = new WebDriverWait(driver, 10000);
+				CoreControls.searchTab = waitForTabsMenue
+						.until(ExpectedConditions.elementToBeClickable(CoreControls.searchTab));
+				CoreControls.searchTab.click();
+				CoreControls.idSearch.click();
+			}
+		} else if (site.equals("eRegistry")) {
 			if (tab.equals("DRS")) {
-				System.out.println("--------I am in the condition of running the DRS");
 				Helper.clickItem(EregistryControls.deathsLink);
 				Helper.clickItem(EregistryControls.drsLink);
-			} else if (tab.equals("DRS draft list")) {
-				System.out.println("--------I am in the condition of going to DRS draft list");
-				Helper.clickItem(EregistryControls.deathsLink);
-				Helper.clickItem(EregistryControls.drsDraftList);
-			} else if (tab.equals("Cause of Death")) {
-				System.out.println("--------I am in the condition of going to Cause of Death");
+			} else if (tab.equals("COD")) {
 				Helper.clickItem(EregistryControls.codLink);
 				Helper.clickItem(EregistryControls.newCodLink);
-			} else if (tab.equals("COD draft list")) {
-				System.out.println("--------I am in the condition of going to COD draft list");
-				Helper.clickItem(EregistryControls.codLink);
-				Helper.clickItem(EregistryControls.codDraftList);
+			} else if (tab.equals("Certificates")) {
+				Helper.clickItem(EregistryControls.certificatesLink);
+				Helper.clickItem(EregistryControls.newCertificateLink);
 			}
 
 		}
 	}
 
-	@When("^I fill in the \"(.*?)\" of \"(.*?)\" in \"(.*?)\"$")
-	public void i_fill_form$(String page, String form, String site) throws Throwable {
+	@Then("^I can fill and submit the \"([^\"]*)\" form in \"([^\"]*)\"$")
+	public void i_can_fill_and_submit_the_form_in(String form, String site) throws Throwable {
+		if (site.equals("ePublic")) {
+			if (form.equals("BRS")) {
+				FilltheBRSInEpublic.Execute(driver);
+			} else if (form.equals("Application")) {
+				FilltheApplicationInEpublic.Execute(driver);
+			}
+		}
 
-		// System.out.println("--------I fill " + form + " form in " + site + "
-		// page: " + page);
-
-		if (site.equals("eregistry")) {
-			if (page.equals("DRS")) {
-				System.out.println("--------I am in the condition of filling DRS in eregistry");
+		if (site.equals("eRegistry")) {
+			if (form.equals("DRS")) {
 				FillEregistryDrsForm.Execute(driver);
-			} else if (page.equals("COD")) {
-				System.out.println("--------I am in the condition of filling COD in eregistry");
+			} else if (form.equals("COD")) {
 				FillEregistryCodForm.Execute(driver);
+			} else if (form.equals("Certificates")) {
+				FillEregistryCertificatesForm.Execute(driver);
 			}
-		} else if (site.equals("Core")) {
-			if (form.equals("BR")) {
-				if (page.equals("BRS")) {
-					FillCoreBrsFormForBr.Execute(driver);
-				} else if (page.equals("NOB")) {
-					FillCoreNobFormForBr.Execute(driver);
-				}
-			}
-		}
-
-	}
-
-	@Then("^I can fill and submit the \"([^\"]*)\" form$")
-	public void i_can_fill_and_submit_the_form(String form) throws Throwable {
-		if (form.equals("BRS")) {
-			FilltheBRSInEpublic.Execute(driver);
-		} else if (form.equals("Application")) {
-			FilltheApplicationInEpublic.Execute(driver);
 		}
 	}
 
@@ -261,7 +255,7 @@ public class BDMForm {
 	@Then("^I select stakeholder as \"(.*?)\"$")
 	public void i_select_stakeholder(String stakeholder) throws Throwable {
 		Helper.selectDropDownList(EregistryControls.stakeholderList, stakeholder);
-		Helper.clickItem(EregistryControls.submit);
+		Helper.clickItem(EregistryControls.submitButton);
 	}
 
 	@When("^I click \"(.*?)\" item by id \"(.*?)\" in \"(.*?)\"$")
@@ -278,149 +272,6 @@ public class BDMForm {
 	public void i_click_button_by_text$(String buttonText, String site) throws Throwable {
 		System.out.println("================the value of buttonText is: " + buttonText);
 		Helper.clickButtonByText(buttonText);
-	}
-
-	@When("^I click \"(.*?)\" button on \"(.*?)\" page of \"(.*?)\" in \"(.*?)\"$")
-	public void i_click_button$(String buttonName, String pageName, String area, String site) throws Throwable {
-
-		if (site.equals("epublic")) {
-			if (buttonName.equals("Next")) {
-				System.out.println("--------I am clicking Next button");
-
-				Helper.clickItem(EpublicControls.nextButton);
-			} else if (buttonName.equals("Save")) {
-				System.out.println("--------I am clicking Save button");
-
-				Helper.clickItem(EpublicControls.saveButton);
-			} else if (buttonName.equals("DashBoard")) {
-				System.out.println("--------I am clicking DashBoard button");
-
-				Helper.clickItem(EpublicControls.proceedButton);
-			} else if (buttonName.equals("Continue")) {
-				System.out.println("--------I am clicking Continue button");
-
-				Helper.clickItem(EpublicControls.continueButton);
-			} else if (buttonName.equals("Close")) {
-				System.out.println("--------I am clicking Continue button");
-
-				Helper.clickItem(EpublicControls.closeButton);
-			} else if (buttonName.equals("Submit Order")) {
-				System.out.println("--------I am clicking Submit Order button");
-
-				Helper.clickItem(EpublicControls.submitOrderButton);
-
-			} else if (buttonName.equals("Checkout")) {
-				System.out.println("--------I am clicking Checkout button");
-
-				Helper.clickItem(EpublicControls.checkoutButton);
-
-			} else if (buttonName.equals("accept the terms and conditions")) {
-				System.out.println("--------I am clicking accept the terms and conditions button");
-
-				Helper.clickItem(EpublicControls.reviewDeclaration);
-			} else if (buttonName.equals("Submit")) {
-				System.out.println("--------I am clicking Submit button");
-
-				Helper.clickItem(EpublicControls.submitButton);
-			}
-		} else if (site.equals("eregistry")) {
-			if (area.equals("Drs")) {
-				if (buttonName.equals("Refresh")) {
-					System.out.println("--------I am clicking Refresh button");
-
-					Helper.clickItem(EregistryControls.drsSearchRefreshButton);
-				} else if (buttonName.equals("searchResult")) {
-					System.out.println("--------I am clicking searchResult");
-
-					Helper.clickItem(EregistryControls.drsSearchResult1);
-				} else if (buttonName.equals("Submit Drs")) {
-					System.out.println("--------I am clicking Submit");
-
-					Helper.clickItem(EregistryControls.submitDrsButton);
-				} else if (buttonName.equals("Confirm Submit")) {
-					System.out.println("--------I am clicking Confirm Submit");
-
-					Helper.clickItem(EregistryControls.submitConfirmButton);
-				}
-			} else if (area.equals("cod")) {
-				if (buttonName.equals("Refresh")) {
-					System.out.println("--------I am clicking Refresh button");
-
-					Helper.clickItem(EregistryControls.codSearchRefreshButton);
-				} else if (buttonName.equals("searchResult")) {
-					System.out.println("--------I am clicking searchResult");
-
-					Helper.clickItem(EregistryControls.codSearchResult1);
-				} else if (buttonName.equals("Submit cod")) {
-					System.out.println("--------I am clicking Submit");
-
-					Helper.clickItem(EregistryControls.submitCodButton);
-				} else if (buttonName.equals("Confirm Submit")) {
-					System.out.println("--------I am clicking Confirm Submit");
-
-					Helper.clickItem(EregistryControls.submitConfirmButton);
-				}
-			}
-
-		}
-	}
-
-	@When("^I input \"(.*?)\" in \"(.*?)\" on \"(.*?)\" page of \"(.*?)\"$")
-	public void i_can_see$(String value, String field, String page, String site) throws Throwable {
-		if (value.startsWith("@")) {
-			String name = value.substring(1);
-			value = DataHelper.getStoredData(name);
-		}
-		if (site.equals("eregistry")) {
-			if (page.equals("drs draft search")) {
-				if (field.equals("Deceased's Family Name")) {
-					EregistryControls.drsSearchFamilyName.sendKeys(value);
-				}
-			} else if (page.equals("cod draft search")) {
-				if (field.equals("Deceased's Family Name")) {
-					EregistryControls.codSearchFamilyName.sendKeys(value);
-				}
-			}
-		} else if (site.equals("Core")) {
-			if (page.equals("core nob search")) {
-				if (field.equals("Mother First Name")) {
-					Helper.inputItem(CoreSearchBirthsPage.mothersFirstName, value);
-				}
-			}
-		}
-
-	}
-
-	@When("^I can see \"(.*?)\" on \"(.*?)\" page of \"(.*?)\"$")
-	public void i_can_see$(String text, String page, String site) throws Throwable {
-		System.out.println("--------I am checking the message");
-		String result = "";
-
-		if (site.equals("epublic")) {
-			if (page.equals("brs Submit result")) {
-				Helper.checkText(EpublicControls.brsSubmitResult, text);
-				Helper.clickItem(EpublicControls.noCertificate);
-			} else if (page.equals("application payment result")) {
-				Helper.checkText(EpublicControls.paymentResult, text);
-			} else {
-				Helper.checkText(EpublicControls.message, text);
-			}
-
-		} else if (site.equals("eregistry")) {
-			if (page.equals("drs Submit result")) {
-				Helper.checkText(EregistryControls.submitResultMessage, text);
-			} else if (page.equals("cod Submit result")) {
-				Helper.checkText(EregistryControls.submitResultMessage, text);
-			} else if (page.equals("Drs")) {
-				Helper.checkText(EregistryControls.drsMessage, text);
-			} else if (page.equals("COD")) {
-				Helper.checkText(EregistryControls.codMessage, text);
-			}
-		} else if (site.equals("Core")) {
-			if (page.equals("br")) {
-				Helper.checkText(CoreControls.coreResultMessage, text);
-			}
-		}
 	}
 
 	@When("^I navigate to \"(.*?)\" new form$")
@@ -472,6 +323,28 @@ public class BDMForm {
 			CoreNobPage.View_NOB_Form_Errors();
 		} else if (arg1.equals("BRS")) {
 			CoreBrsPage.view_BRS_Form_Errors();
+		}
+	}
+
+	@Then("^I search for \"([^\"]*)\" form$")
+	public void i_search_for_form(String form) throws Throwable {
+
+		if (form.equals("DRS")) {
+			FillDRSCoreSearchForm.Execute(driver);
+		} else if (form.equals("COD")) {
+			FillCODCoreSearchForm.Execute(driver);
+		} else if (form.equals("Application")) {
+			FillApplicationCoreSearchForm.Execute(driver);
+		}
+	}
+
+	@Then("^I search for \"([^\"]*)\" form and make it compliant$")
+	public void i_search_for_form_and_make_it_compliant(String form) throws Throwable {
+
+		if (form.equals("DRS")) {
+			SearchAndMakeDrsCompliant.Execute(driver);
+		} else if (form.equals("COD")) {
+			SearchAndMakeCodCompliant.Execute(driver);
 		}
 	}
 

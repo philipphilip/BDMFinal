@@ -4,8 +4,6 @@ import org.junit.Assert;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class CoreControls extends BaseClass {
 
@@ -24,6 +22,15 @@ public class CoreControls extends BaseClass {
 
 	@FindBy(xpath = ".//a[text() = 'Birth Registration Search']")
 	public static WebElement birthRegistrationSearch;
+
+	@FindBy(xpath = ".//a[text() = 'Death Registration Statement Search']")
+	public static WebElement drsSearch;
+
+	@FindBy(xpath = ".//a[text() = 'Cause of Death Search']")
+	public static WebElement codSearch;
+
+	@FindBy(xpath = ".//a[text() = 'ID Search']")
+	public static WebElement idSearch;
 
 	@FindBy(xpath = "//*/a[text()='Marriage Notification Search']")
 	public static WebElement merriageNotificationSearch;
@@ -58,21 +65,11 @@ public class CoreControls extends BaseClass {
 	@FindBy(xpath = "/html/body/app/ng-component/div[2]/main/div/brs-page/div/div[2]/form/div/validation-panel/compliance-exceptions/accordion/accordion-group/div/div[2]/div/div[2]/table/tbody/tr[1]/th[1]/input")
 	public static WebElement coreBrsExceptionListCheckBox;
 
-//	//
-//	@FindBy(xpath = "/html/body/app/ng-component/div[2]/main/div/brs-page/div/div[2]/form/div/validation-panel/compliance-exceptions/accordion/accordion-group/div/div[2]/div/div[3]/input")
-//	public static WebElement coreBrsExceptionOverrideButton;
-//	//
-	
 	@FindBy(xpath = "/html/body/app/ng-component/div[2]/main/div/brs-page/override-popup/base-popup/div/div/div/div[2]/div/form/cge-dropdown-ref/div/div[2]/select")
 	public static WebElement coreBrsReasonCodeList;
 
 	@FindBy(xpath = "/html/body/app/ng-component/div[2]/main/div/brs-page/override-popup/base-popup/div/div/div/div[2]/div/form/cge-text-area/div/div[2]/cge-wrapped-text-area/textarea")
 	public static WebElement coreBrsReasonComments;
-
-//	//
-//	@FindBy(xpath = "/html/body/app/ng-component/div[2]/main/div/brs-page/override-popup/base-popup/div/div/div/div[3]/div/button[1]")
-//	public static WebElement coreBrsDoOverrideButton;
-//	//
 
 	@FindBy(xpath = ".//*/input[@value = 'Check For Duplicates']")
 	public static WebElement checkForDuplicatesButton;
@@ -82,9 +79,6 @@ public class CoreControls extends BaseClass {
 
 	@FindBy(xpath = "/html/body/app/ng-component/div[2]/main/div/brs-page/div/div[2]/form/button-panel/div/div/input[3]")
 	public static WebElement coreBrsProceedToDeathCheckButton;
-
-	@FindBy(xpath = ".//*/input[@value = 'Submit']")
-	public static WebElement submitButton;
 
 	@FindBy(xpath = "/html/body/app/ng-component/div[2]/main/div/nob-page/div/div[2]/form/div/search-results/div/table/tbody/tr[2]/td[1]/div/a")
 	public static WebElement coreNobFirstSearchResult;
@@ -107,7 +101,7 @@ public class CoreControls extends BaseClass {
 	@FindBy(xpath = ".//*[@id='error-message']/div/div")
 	public static WebElement successMessage;
 
-	@FindBy(xpath = ".//*/button-panel/div/div/input[1]")
+	@FindBy(xpath = ".//input[@value = 'Validate']")
 	public static WebElement validateButton;
 
 	@FindBy(xpath = ".//*/a[text()='Application']")
@@ -149,6 +143,12 @@ public class CoreControls extends BaseClass {
 	@FindBy(xpath = ".//simple-action-panel//button[contains(text(), 'Go' )]")
 	public static WebElement goPrintCertificate;
 
+	@FindBy(xpath = ".//input[@value = 'Check For Duplicates']")
+	public static WebElement checkDuplicatesButton;
+
+	@FindBy(xpath = ".//input[@value = 'Submit']")
+	public static WebElement submitButton;
+
 	@FindBy(xpath = ".//search-results/div/table/tbody/tr[2]/td[1]/div/a")
 	public static WebElement nobSearchResult;
 
@@ -157,11 +157,6 @@ public class CoreControls extends BaseClass {
 		Thread.sleep(2000);
 		go.click();
 	}
-
-	// public static void selectRegister() {
-	// actionList.sendKeys("Register");
-	// go.click();
-	// }
 
 	public static void editForm() {
 		actionList.sendKeys("Edit");
@@ -172,18 +167,13 @@ public class CoreControls extends BaseClass {
 		validateButton.click();
 	}
 
-	// public static void matchCODAndDRS() {
-	// actionList.sendKeys("Match");
-	// go.click();
-	// }
-
 	public static void matchNoticesToCreateRegistration() throws Exception {
 		actionList.sendKeys("Match");
 		go.click();
-		Thread.sleep(2000);
+		Thread.sleep(3000);
 		firstRadioButtonMatch.click();
 		matchButton.click();
-		Thread.sleep(2000);
+		Thread.sleep(3000);
 		String successmessage = registrationCreatedMessage.getText();
 		Assert.assertTrue("Registration did not get created",
 				successmessage.contains("Registration has been successfully registered."));
