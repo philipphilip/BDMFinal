@@ -37,7 +37,7 @@ public class FillNOBForm {
 		CoreNobPage.notifier_given_name.sendKeys("auto" + FillBRSForm.randTextInformant1_fstGvnN);
 		CoreNobPage.notifier_email.sendKeys("john.smith@info.com");
 		CoreControls.saveForm();
-		Thread.sleep(2000);
+		Thread.sleep(3000);
 		CoreControls.matchNOBAndBRS();
 	}
 

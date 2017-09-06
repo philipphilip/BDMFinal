@@ -15,6 +15,9 @@ public class EregistryCodPage extends BaseClass {
 
 	@FindBy(id = "deceasedDetails-name-deceasedName-familyName")
 	public static WebElement familyName;
+	
+	@FindBy(id = "deceasedDetails-name-deceasedName-familyNameAtBirth")
+	public static WebElement familyNameAtBirth;
 
 	@FindBy(id = "deceasedDetails-name-deceasedName-firstGivenName")
 	public static WebElement givenName;
@@ -145,7 +148,6 @@ public class EregistryCodPage extends BaseClass {
 	@FindBy(id = "supportingInformation-otherPersonsDetail-otherPersonsTelephoneNo")
 	public static WebElement otherPersonTelephoneNo;
 
-
 	@FindBy(id = "siblingsOfTheDeceased-deceasedUnder18")
 	public static WebElement under18;
 
@@ -157,11 +159,5 @@ public class EregistryCodPage extends BaseClass {
 
 	@FindBy(id = "declarationByMedicalPractitioner-acquiredBenefits")
 	public static WebElement declaration;
-
-
-
-	@FindBy(xpath = "/html/body/app/ng-component/div[2]/main/div/cod/div/div[2]/form/input[2]")
-	public static WebElement saveButton;
-
 
 }

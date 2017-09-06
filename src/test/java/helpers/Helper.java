@@ -63,12 +63,12 @@ public class Helper {
 			wait.until(ExpectedConditions.elementToBeClickable(item));
 			item.click();
 		} catch (Throwable e) {
-			System.out.println("Click item failed, wait for 10 seconds to click again.");
+			System.out.println("Click item failed, waiting for 5 seconds to click again.");
 			Thread.sleep(5000);
 			try {
 				item.click();
 			} catch (Throwable e1) {
-				System.out.println("Click item failed, wait for 120 seconds to click again.");
+				System.out.println("Click item failed, waiting for 10 seconds to click again.");
 				Thread.sleep(10000);
 				item.click();
 			}
@@ -85,7 +85,6 @@ public class Helper {
 		for (int i = 0; i < valueList.size(); i++) {
 			if (value.toLowerCase().equals(valueList.get(i).getText().toLowerCase())) {
 				dropdownList.selectByIndex(i);
-				System.out.println("Found item to select:" + value);
 				return;
 			}
 		}

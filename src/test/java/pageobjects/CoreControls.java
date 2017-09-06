@@ -21,6 +21,15 @@ public class CoreControls extends BaseClass {
 
 	@FindBy(xpath = ".//a[text() = 'Birth Registration Search']")
 	public static WebElement birthRegistrationSearch;
+	
+	@FindBy(xpath = ".//a[text() = 'Death Registration Statement Search']")
+	public static WebElement drsSearch;
+	
+	@FindBy(xpath = ".//a[text() = 'Cause of Death Search']")
+	public static WebElement codSearch;
+	
+	@FindBy(xpath = ".//a[text() = 'ID Search']")
+	public static WebElement idSearch;
 
 	@FindBy(xpath = "//*/a[text()='Marriage Notification Search']")
 	public static WebElement merriageNotificationSearch;
@@ -94,7 +103,7 @@ public class CoreControls extends BaseClass {
 	@FindBy(xpath = ".//*[@id='error-message']/div/div")
 	public static WebElement successMessage;
 
-	@FindBy(xpath = ".//*/button-panel/div/div/input[1]")
+	@FindBy(xpath = ".//input[@value = 'Validate']")
 	public static WebElement validateButton;
 
 	@FindBy(xpath = ".//*/a[text()='Application']")
@@ -135,6 +144,12 @@ public class CoreControls extends BaseClass {
 	
 	@FindBy(xpath = ".//simple-action-panel//button[contains(text(), 'Go' )]")
 	public static WebElement goPrintCertificate;
+	
+	@FindBy(xpath = ".//input[@value = 'Check For Duplicates']")
+	public static WebElement checkDuplicatesButton;
+	
+	@FindBy(xpath = ".//input[@value = 'Submit']")
+	public static WebElement submitButton;
 
 	public static void saveForm() throws Exception {
 		actionList.sendKeys("Save");
@@ -164,10 +179,10 @@ public class CoreControls extends BaseClass {
 	public static void matchNOBAndBRS() throws Exception {
 		actionList.sendKeys("Match");
 		go.click();
-		Thread.sleep(2000);
+		Thread.sleep(3000);
 		firstRadioButtonMatch.click();
 		matchButton.click();
-		Thread.sleep(2000);
+		Thread.sleep(3000);
 		String successmessage = registrationCreatedMessage.getText();
 		Assert.assertTrue("The Birth Registration did not get created",
 				successmessage.equals("This Birth Registration has been successfully registered."));

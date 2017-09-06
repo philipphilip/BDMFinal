@@ -1,56 +1,48 @@
 package modules;
 
-import helpers.DataHelper;
 import helpers.Helper;
+
+import org.apache.commons.lang3.RandomStringUtils;
+import org.junit.Assert;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
 import pageobjects.EregistryCodPage;
-import pageobjects.EregistryDrsPage;
-import step_definitions.BDMForm;
+import pageobjects.EregistryControls;
 
 
 public class FillEregistryCodForm {
+	
+	static String deceasedFamilyName = RandomStringUtils.randomAlphabetic(5);
+	static String deceasedGivenName = RandomStringUtils.randomAlphabetic(5);
+	static String motherGivenName = RandomStringUtils.randomAlphabetic(5);
 
 	public static void Execute(WebDriver driver) throws Throwable {
 
 		PageFactory.initElements(driver, EregistryCodPage.class);
-		//Thread.sleep(3000);
 
 		Helper.inputItem(EregistryCodPage.codType,"MCCD");
-
-		String codFamilyName = DataHelper.getRandomStringAs("CodFamilyName",10);
-		Helper.inputItem(EregistryCodPage.familyName,codFamilyName);
-		String codGivenName = DataHelper.getRandomStringAs("CodGivenName",10);
-		Helper.inputItem(EregistryCodPage.givenName,codGivenName);
-
+		Helper.inputItem(EregistryCodPage.familyName,"Automated" + deceasedFamilyName);
+		Helper.inputItem(EregistryCodPage.familyNameAtBirth,"Automated" + deceasedFamilyName);
+		Helper.inputItem(EregistryCodPage.givenName,"Automated" + deceasedGivenName);
 		Helper.inputItem(EregistryCodPage.sex,"Female");
-
 		Helper.selectDropDownList( EregistryCodPage.aboriginal,"Neither Aboriginal or Torres Strait Islander");
-
 		Helper.selectDropDownList( EregistryCodPage.confirmName,"Medical Records");
-
 		Helper.inputItem(EregistryCodPage.dateOfBirthType,"On");
 		Helper.inputItem(EregistryCodPage.dateOfBirthDay,"07");
 		Helper.inputItem(EregistryCodPage.dateOfBirthMonth,"07");
 		Helper.inputItem(EregistryCodPage.dateOfBirthYear,"1937");
-
-		Helper.inputItem(EregistryCodPage.motherFamilyName,"Smith");
-		Helper.inputItem(EregistryCodPage.motherGivenName,"Mary");
+		Helper.inputItem(EregistryCodPage.motherFamilyName,"Automated" + deceasedFamilyName);
+		Helper.inputItem(EregistryCodPage.motherGivenName,"Automated" + motherGivenName);
 		Helper.inputItem(EregistryCodPage.motherDateOfBirthDay,"07");
 		Helper.inputItem(EregistryCodPage.motherDateOfBirthMonth,"07");
 		Helper.inputItem(EregistryCodPage.motherDateOfBirthYear,"1900");
-
 		Helper.inputItem(EregistryCodPage.deathDateType,"On");
 		Helper.inputItem(EregistryCodPage.deathDateDay,"07");
 		Helper.inputItem(EregistryCodPage.deathDateMonth,"07");
 		Helper.inputItem(EregistryCodPage.deathDateYear,"2017");
-
 		Helper.inputItem(EregistryCodPage.deathOccur,"Hospital");
-
 		Helper.selectDropDownList( EregistryCodPage.hospitalName,"Abel Tasman Village");
 		Helper.selectDropDownList( EregistryCodPage.hospitalTown,"Wollongong");
-
-
 		Helper.inputItem(EregistryCodPage.reviewable,"No");
 		Helper.inputItem(EregistryCodPage.examineDody,"yes");
 		Helper.inputItem(EregistryCodPage.examineDay,"07");
@@ -75,15 +67,26 @@ public class FillEregistryCodForm {
 		Helper.inputItem(EregistryCodPage.otherPersonFirstName,"David");
 		Helper.inputItem(EregistryCodPage.otherPersonTelephoneNo,"99998888");
 		Helper.inputItem(EregistryCodPage.under18,"No");
-
 		EregistryCodPage.telephoneNo.clear();
 		Helper.inputItem(EregistryCodPage.telephoneNo,"99998888");
 		//Helper.inputItem(EregistryCodPage.AHPRA,"MED0000938719");
 		Helper.inputItem(EregistryCodPage.declaration,"Yes");
-
-
-		Helper.clickItem(EregistryCodPage.saveButton);
-
+		Helper.clickItem(EregistryControls.saveButton);		
+		String codSavedMessage;
+		Thread.sleep(3000);
+		codSavedMessage = EregistryControls.codMessage.getText();
+		Assert.assertTrue("result message not found", codSavedMessage.contains("This Cause of Death has been successfully saved"));		
+		Helper.clickItem(EregistryControls.codLink);
+		Helper.clickItem(EregistryControls.draftList);		
+		Helper.inputItem(EregistryControls.codSearchFamilyName, "Automated" + deceasedFamilyName);		
+		Helper.clickItem(EregistryControls.refreshButton);
+		Helper.clickItem(EregistryControls.searchResult1);
+		Helper.clickItem(EregistryControls.submitButton);		
+		Helper.clickItem(EregistryControls.submitButton);
+		String codSubmissionMessage;
+		Thread.sleep(3000);
+		codSubmissionMessage = EregistryControls.submitResultMessage.getText();
+		Assert.assertTrue("result message not found", codSubmissionMessage.contains("Successfully submitted notifications"));
 
 	}
 

@@ -12,9 +12,6 @@ public class EpublicSignInAction {
 
 		Helper.inputItem(EpublicLoginPage.username,"a1");
 		Helper.inputItem(EpublicLoginPage.password,"password");
-
-		// System.out.println(" before click login button ");
 		Helper.clickItem(EpublicLoginPage.signin_button);
-		// System.out.println(" after click login button ");
 	}
 }

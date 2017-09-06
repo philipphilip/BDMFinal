@@ -11,12 +11,7 @@ public class EregistryControls extends BaseClass {
 	}
 
 	@FindBy(xpath = "/html/body/app/stakeholder/div/div/form/div[1]/select")
-	//changed xpath from "/html/body/app/stakeholder/div/form/div/select" to "/html/body/app/stakeholder/div/div/form/div[1]/select"
 	public static WebElement stakeholderList;
-
-	@FindBy(xpath = "/html/body/app/stakeholder/div/div/form/div[2]/input")
-	//changed xpath from "/html/body/app/stakeholder/div/form/div/input" to "/html/body/app/stakeholder/div/div/form/div[2]/input"
-	public static WebElement submit;
 
 	@FindBy(xpath = "//*[@id=\"navbar\"]/ul/li[1]/a")
 	public static WebElement deathsLink;
@@ -24,6 +19,11 @@ public class EregistryControls extends BaseClass {
 	@FindBy(xpath = "//*[@id=\"navbar\"]/ul/li[1]/ul/li[1]/a")
 	public static WebElement drsLink;
 
+	@FindBy(xpath = "//*[@id=\"navbar\"]/ul/li[1]/a")
+	public static WebElement certificatesLink;
+	
+	@FindBy(xpath = "//*[@id=\"navbar\"]/ul/li[1]/ul/li[1]/a")
+	public static WebElement newCertificateLink;
 
 	@FindBy(xpath = "//*[@id=\"navbar\"]/ul/li[1]/a")
 	public static WebElement codLink;
@@ -32,7 +32,7 @@ public class EregistryControls extends BaseClass {
 	public static WebElement newCodLink;
 
 	@FindBy(xpath = "//*[@id=\"navbar\"]/ul/li[1]/ul/li[2]/a")
-	public static WebElement codDraftList;
+	public static WebElement draftList;
 
 	@FindBy(xpath = "/html/body/app/ng-component/div[2]/main/div/drs/div/div[2]/form/alert/div")
 	public static WebElement drsMessage;
@@ -43,42 +43,42 @@ public class EregistryControls extends BaseClass {
 	@FindBy(id = "cod-draftList-deceasedFamilyName")
 	public static WebElement codSearchFamilyName;
 
-	@FindBy(xpath = "/html/body/app/ng-component/div[2]/main/div/ng-component/div/div[2]/form/div/div/input[1]")
-	public static WebElement codSearchRefreshButton;
-
-	@FindBy(xpath = "/html/body/app/ng-component/div[2]/main/div/ng-component/div/div[2]/form/div/div/div/table/tbody/tr[2]/td[1]/input")
-	public static WebElement codSearchResult1;
-
-	@FindBy(xpath = "/html/body/app/ng-component/div[2]/main/div/ng-component/div/div[2]/form/div/div/div/input[2]")
-	public static WebElement submitCodButton;
-
-	@FindBy(xpath = "//*[@id=\"navbar\"]/ul/li[1]/ul/li[2]/a")
-	public static WebElement drsDraftList;
-
 	@FindBy(id = "drs-draftList-deceasedFamilyName")
 	public static WebElement drsSearchFamilyName;
 
-	@FindBy(xpath = "/html/body/app/ng-component/div[2]/main/div/draft-drs/div/div[2]/form/div/div/input[1]")
-	public static WebElement drsSearchRefreshButton;
-
-	@FindBy(xpath = "/html/body/app/ng-component/div[2]/main/div/draft-drs/div/div[2]/form/div/div/div/table/tbody/tr[2]/td[1]/input")
-	public static WebElement drsSearchResult1;
-
-	@FindBy(xpath = "/html/body/app/ng-component/div[2]/main/div/draft-drs/div/div[2]/form/input[2]")
-	public static WebElement submitDrsButton;
-
-	@FindBy(xpath = "//*[@id=\"compliantList\"]/div/div[2]/div/div[2]/input[1]")
-	public static WebElement submitConfirmButton;
-
 	@FindBy(xpath = "//*[@id=\"compliantCodList\"]/div/div[1]/div/div/div")
 	public static WebElement submitResultMessage;
-
-
-
-
-
-
-
-
-
+	
+	@FindBy(xpath = ".//input[@value = 'Next']")
+	public static WebElement nextButton;
+	
+	@FindBy(xpath = ".//input[@value = 'Save']")
+	public static WebElement saveButton;
+	
+	@FindBy(xpath = ".//input[@value = 'Refresh']")
+	public static WebElement refreshButton;
+	
+	@FindBy(xpath = "//*[contains(@id, 'checkone')]")
+	public static WebElement searchResult1;
+	
+	@FindBy(xpath = ".//input[@value = 'Submit']")
+	public static WebElement submitButton;
+	
+	@FindBy(xpath = "//*[@id=\"compliantCodList\"]/div/div[1]/div/div/div")
+	public static WebElement certificatesSubmitMessage;
+	
+	@FindBy(xpath = ".//input[@value = 'Make payment']")
+	public static WebElement makePaymentButton;
+	
+	@FindBy(xpath = ".//input[@value = 'Make Payment']")
+	public static WebElement makePaymentConfirmationButton;
+	
+	@FindBy(xpath = ".//input[@value = 'Start Payment']")
+	public static WebElement startPaymentButton;
+	
+	@FindBy(xpath = ".//input[@value = 'Pay Now']")
+	public static WebElement payNowButton;
+	
+	@FindBy(xpath = "//*[@id=\"navbar\"]/ul/li[1]/ul/li[3]/a")
+	public static WebElement submitList;
 }
