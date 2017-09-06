@@ -1,10 +1,10 @@
 Feature: Smoke tests on Development environment for deployment to System Test Environment
 
-  Scenario: Request a BRS (Updated Scenario)
-    Given I open "ePublic Dev" website
-    When I sign in "ePublic"
-		And I navigate to "BRS" in "ePublic"
-		Then I can fill and submit the "BRS" form in "ePublic"
+  #Scenario: Request a BRS (Updated Scenario)
+    #Given I open "ePublic Dev" website
+    #When I sign in "ePublic"
+#		And I navigate to "BRS" in "ePublic"
+#		Then I can fill and submit the "BRS" form in "ePublic"
 		
   Scenario: eregistry create drs and submit to Core
     Given I open "eRegistry Dev" website
