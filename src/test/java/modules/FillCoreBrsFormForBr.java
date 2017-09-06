@@ -31,7 +31,7 @@ public class FillCoreBrsFormForBr {
 		CoreBrsPage.childs_DOB_month.sendKeys("07");
 		CoreBrsPage.childs_DOB_year.sendKeys("2017");
 		CoreBrsPage.sexAtBirth.sendKeys("male");
-		CoreBrsPage.was_childs_bornAlive.sendKeys("Yes");
+		CoreBrsPage.child_born_Alive.sendKeys("Yes");
 		CoreBrsPage.childs_weight.sendKeys("3500");
 		Helper.selectDropDownList(CoreBrsPage.hospitalName, "Auburn District Hospital");
 		Helper.selectDropDownList(CoreBrsPage.hospitalTownSuburbCity, "Auburn");

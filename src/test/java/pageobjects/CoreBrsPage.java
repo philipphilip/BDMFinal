@@ -59,7 +59,7 @@ public class CoreBrsPage extends BaseClass {
 	public static WebElement sexAtBirth;
 
 	@FindBy(id = "childsDetails-birthDetails-bornAlive")
-	public static WebElement was_childs_bornAlive;
+	public static WebElement child_born_Alive;
 
 	@FindBy(id = "childsDetails-birthDetails-gestationPeriod")
 	public static WebElement childs_gestationPeriod;
@@ -69,6 +69,12 @@ public class CoreBrsPage extends BaseClass {
 
 	@FindBy(id = "childsDetails-birthDetails-multipleBirth")
 	public static WebElement multipleBirth;
+
+	@FindBy(id = "childsDetails-birthDetails-birthOrder")
+	public static WebElement birthOrder;
+
+	@FindBy(id = "childsDetails-birthDetails-birthOrderOf")
+	public static WebElement birthOrderOf;
 
 	@FindBy(id = "childsDetails-birthDetails-wasTheChildBornInHospital")
 	public static WebElement wasTheChildBornInHospital;
@@ -222,7 +228,7 @@ public class CoreBrsPage extends BaseClass {
 
 	@FindBy(id = "parent2Details-name-familyName")
 	public static WebElement parent2_familyName;
-
+				  
 	@FindBy(id = "parent2Details-name-firstGivenName")
 	public static WebElement parent2_firstGivenName;
 

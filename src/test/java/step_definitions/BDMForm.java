@@ -33,11 +33,13 @@ import modules.FillEregistryCodForm;
 import modules.FillEregistryDrsForm;
 import modules.FillMNForm;
 import modules.FillNOBForm;
+import modules.FilltheApplicationInEpublic;
 import modules.FilltheBRSInEpublic;
 import modules.GoToApplicationForm;
+import modules.GoToApplicationInePublic;
 import modules.GoToBRSForm;
 import modules.GoToBRSInePublic;
-import modules.GoToBRSInePublicDev;
+// import modules.GoToBRSInePublicDev;
 import modules.GoToCODForm;
 import modules.GoToDRSForm;
 import modules.GoToMNForm;
@@ -165,9 +167,11 @@ public class BDMForm {
 		System.out.println("--------I am at the scenario where I nagigate to form " + tab);
 
 		if (site.equals("ePublic")) {
-			GoToBRSInePublic.Execute(driver);
-		} else if (site.equals("ePublic Dev")) {
-			GoToBRSInePublicDev.Execute(driver);
+			if (tab.equals("BRS")) {
+				GoToBRSInePublic.Execute(driver);
+			} else if (tab.equals("Application")) {
+				GoToApplicationInePublic.Execute(driver);
+			}
 		} else {
 			if (tab.equals("DRS")) {
 				System.out.println("--------I am in the condition of running the DRS");
@@ -195,53 +199,8 @@ public class BDMForm {
 
 		// System.out.println("--------I fill " + form + " form in " + site + "
 		// page: " + page);
-		if (site.toLowerCase().equals("epublic".toLowerCase())) {
-			if (form.equals("BRS")) {
-				if (page.equals("Child's details")) {
-					System.out.println("--------I am in the condition of filling Child's details of BRS in epublic");
-					FillEpublicBrsChildDetailForm.Execute(driver);
-				} else if (page.equals("Parent details")) {
-					System.out.println("--------I am in the condition of filling Parent details of BRS in epublic");
-					FillEpublicBrsParentDetailForm.Execute(driver);
-				} else if (page.equals("Second parent details")) {
-					System.out.println(
-							"--------I am in the condition of filling Second parent details of BRS in epublic");
-					FillEpublicBrsSecondParentDetailForm.Execute(driver);
-				} else if (page.equals("Relationship details")) {
-					System.out
-							.println("--------I am in the condition of filling Relationship details of BRS in epublic");
-					FillEpublicBrsRelationshipDetailForm.Execute(driver);
-				} else if (page.equals("Second parent participation details")) {
-					System.out
-							.println("--------I am in the condition of filling Relationship details of BRS in epublic");
-					FillEpublicBrsSecondParentParticipationDetailForm.Execute(driver);
-				} else if (page.equals("Informant 1 details")) {
-					System.out
-							.println("--------I am in the condition of filling Informant 1 details of BRS in epublic");
-					FillEpublicBrsInformant1DetailForm.Execute(driver);
-				} else if (page.equals("Informant 1 details")) {
-					System.out
-							.println("--------I am in the condition of filling Informant 1 details of BRS in epublic");
-					FillEpublicBrsInformant1DetailForm.Execute(driver);
-				}
-			} else if (form.equals("application")) {
-				if (page.equals("Applicant details")) {
-					System.out.println(
-							"--------I am in the condition of filling Applicant details of application in epublic");
-					FillEpublicApplicationApplicantDetailForm.Execute(driver);
-				} else if (page.equals("Subject details")) {
-					System.out.println(
-							"--------I am in the condition of filling Subject details of application in epublic");
-					FillEpublicApplicationSubjectDetailForm.Execute(driver);
-				} else if (page.equals("Payment details")) {
-					System.out.println(
-							"--------I am in the condition of filling Payment details of application in epublic");
-					FillEpublicApplicationPaymentDetailForm.Execute(driver);
-				}
 
-			}
-
-		} else if (site.equals("eregistry")) {
+		if (site.equals("eregistry")) {
 			if (page.equals("DRS")) {
 				System.out.println("--------I am in the condition of filling DRS in eregistry");
 				FillEregistryDrsForm.Execute(driver);
@@ -262,8 +221,12 @@ public class BDMForm {
 	}
 
 	@Then("^I can fill and submit the \"([^\"]*)\" form$")
-	public void i_can_fill_and_submit_the_form(String arg1) throws Throwable {
-		FilltheBRSInEpublic.Execute(driver);
+	public void i_can_fill_and_submit_the_form(String form) throws Throwable {
+		if (form.equals("BRS")) {
+			FilltheBRSInEpublic.Execute(driver);
+		} else if (form.equals("Application")) {
+			FilltheApplicationInEpublic.Execute(driver);
+		}
 	}
 
 	@Then("^I select \"(.*?)\" in \"(.*?)\" dropdown list on \"(.*?)\" page of \"(.*?)\" in \"(.*?)\"$")
@@ -319,34 +282,8 @@ public class BDMForm {
 
 	@When("^I click \"(.*?)\" button on \"(.*?)\" page of \"(.*?)\" in \"(.*?)\"$")
 	public void i_click_button$(String buttonName, String pageName, String area, String site) throws Throwable {
-		if (site.equals("Core")) {
 
-			if (area.equals("br")) {
-				if (buttonName.equals("Validate")) {
-					Helper.clickItem(CoreControls.coreBrsValidateButton);
-				} else if (buttonName.equals("Exception List")) {
-					Helper.clickItem(CoreControls.coreBrsExceptionListCheckBox);
-				} else if (buttonName.equals("Override")) {
-					Helper.clickItem(CoreControls.coreBrsExceptionOverrideButton);
-				} else if (buttonName.equals("Do Override")) {
-					Helper.clickItem(CoreControls.coreBrsDoOverrideButton);
-				} else if (buttonName.equals("Check For Duplicates")) {
-					Helper.clickItem(CoreControls.checkForDuplicatesButton);
-				} else if (buttonName.equals("Proceed to Death Check")) {
-					Helper.clickItem(CoreControls.coreBrsProceedToDeathCheckButton);
-				} else if (buttonName.equals("Submit")) {
-					Helper.clickItem(CoreControls.submitButton);
-				} else if (buttonName.equals("Search")) {
-					Helper.clickItem(CoreSearchBirthsPage.nobSearchButton);
-				} else if (buttonName.equals("First NOB Search Result")) {
-					Helper.clickItem(CoreControls.coreNobFirstSearchResult);
-				} else if (buttonName.equals("Go")) {
-					Helper.clickItem(CoreControls.go);
-				}
-
-			}
-
-		} else if (site.equals("epublic")) {
+		if (site.equals("epublic")) {
 			if (buttonName.equals("Next")) {
 				System.out.println("--------I am clicking Next button");
 
@@ -536,10 +473,6 @@ public class BDMForm {
 		} else if (arg1.equals("BRS")) {
 			CoreBrsPage.view_BRS_Form_Errors();
 		}
-	}
-
-	@Then("^I should Get all mandatory fields validation$")
-	public void i_should_Get_all_mandatory_fields_validation() throws Throwable {
 	}
 
 }

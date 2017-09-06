@@ -42,6 +42,24 @@ public class EpublicApplicationSubjectDetailPage extends BaseClass {
 
 	@FindBy(id = "coo-birth-parent2-firstGivenName")
 	public static WebElement parentTwoGivenName;
+	
+	@FindBy(xpath = ".//*/button[contains(text(),'Continue')]")
+	public static WebElement continueButton;
+	
+	@FindBy(xpath = ".//*/button[contains(text(),'Proceed')]")
+	public static WebElement proceedButton;
+	
+	@FindBy(id = "orderCertificates-certificateQuantity0")
+	public static WebElement certificateQuantity;
+	
+	@FindBy(xpath = ".//*/button[contains(text(),'Checkout')]")
+	public static WebElement checkoutButton;
+	
+	@FindBy(id = "reviewDraftRequest-declaration")
+	public static WebElement acceptTermsCheckbox;
+	
+	@FindBy(xpath = ".//*/button[contains(text(),'Pay in person')]")
+	public static WebElement payInPersonButton;
 
 
 }

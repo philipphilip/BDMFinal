@@ -58,22 +58,26 @@ public class CoreControls extends BaseClass {
 	@FindBy(xpath = "/html/body/app/ng-component/div[2]/main/div/brs-page/div/div[2]/form/div/validation-panel/compliance-exceptions/accordion/accordion-group/div/div[2]/div/div[2]/table/tbody/tr[1]/th[1]/input")
 	public static WebElement coreBrsExceptionListCheckBox;
 
-	@FindBy(xpath = "/html/body/app/ng-component/div[2]/main/div/brs-page/div/div[2]/form/div/validation-panel/compliance-exceptions/accordion/accordion-group/div/div[2]/div/div[3]/input")
-	public static WebElement coreBrsExceptionOverrideButton;
-
+//	//
+//	@FindBy(xpath = "/html/body/app/ng-component/div[2]/main/div/brs-page/div/div[2]/form/div/validation-panel/compliance-exceptions/accordion/accordion-group/div/div[2]/div/div[3]/input")
+//	public static WebElement coreBrsExceptionOverrideButton;
+//	//
+	
 	@FindBy(xpath = "/html/body/app/ng-component/div[2]/main/div/brs-page/override-popup/base-popup/div/div/div/div[2]/div/form/cge-dropdown-ref/div/div[2]/select")
 	public static WebElement coreBrsReasonCodeList;
 
 	@FindBy(xpath = "/html/body/app/ng-component/div[2]/main/div/brs-page/override-popup/base-popup/div/div/div/div[2]/div/form/cge-text-area/div/div[2]/cge-wrapped-text-area/textarea")
 	public static WebElement coreBrsReasonComments;
 
-	@FindBy(xpath = "/html/body/app/ng-component/div[2]/main/div/brs-page/override-popup/base-popup/div/div/div/div[3]/div/button[1]")
-	public static WebElement coreBrsDoOverrideButton;
+//	//
+//	@FindBy(xpath = "/html/body/app/ng-component/div[2]/main/div/brs-page/override-popup/base-popup/div/div/div/div[3]/div/button[1]")
+//	public static WebElement coreBrsDoOverrideButton;
+//	//
 
 	@FindBy(xpath = ".//*/input[@value = 'Check For Duplicates']")
 	public static WebElement checkForDuplicatesButton;
 
-	@FindBy(xpath = ".//*/input[@value = 'Proceed To Review']")
+	@FindBy(xpath = ".//input[contains( @value, 'Proceed')]")
 	public static WebElement proceedToReviewButton;
 
 	@FindBy(xpath = "/html/body/app/ng-component/div[2]/main/div/brs-page/div/div[2]/form/button-panel/div/div/input[3]")
@@ -142,6 +146,9 @@ public class CoreControls extends BaseClass {
 	@FindBy(xpath = ".//override-popup/base-popup//div/button[text() = 'Override']")
 	public static WebElement overrideButton2;
 
+	@FindBy(xpath = ".//simple-action-panel//button[contains(text(), 'Go' )]")
+	public static WebElement goPrintCertificate;
+
 	@FindBy(xpath = ".//search-results/div/table/tbody/tr[2]/td[1]/div/a")
 	public static WebElement nobSearchResult;
 
@@ -151,10 +158,10 @@ public class CoreControls extends BaseClass {
 		go.click();
 	}
 
-	public static void selectRegister() {
-		actionList.sendKeys("Register");
-		go.click();
-	}
+	// public static void selectRegister() {
+	// actionList.sendKeys("Register");
+	// go.click();
+	// }
 
 	public static void editForm() {
 		actionList.sendKeys("Edit");
@@ -165,10 +172,10 @@ public class CoreControls extends BaseClass {
 		validateButton.click();
 	}
 
-	public static void matchCODAndDRS() {
-		actionList.sendKeys("Match");
-		go.click();
-	}
+	// public static void matchCODAndDRS() {
+	// actionList.sendKeys("Match");
+	// go.click();
+	// }
 
 	public static void matchNoticesToCreateRegistration() throws Exception {
 		actionList.sendKeys("Match");
@@ -183,16 +190,10 @@ public class CoreControls extends BaseClass {
 	}
 
 	public static void matchBirthCertificateAndBR() throws Exception {
-		// actionList.sendKeys("Match");
-		// go.click();
 		Thread.sleep(2000);
 		firstRadioButtonMatchApplication.click();
 		matchButtonApplication.click();
 		Thread.sleep(2000);
-		// String successmessage = registrationCreatedMessage.getText();
-		// Assert.assertTrue("The Birth Registration did not get created",
-		// successmessage.equals("This Birth Registration has been successfully
-		// registered."));
 	}
 
 	public static void overrideExceptionsOnform() throws Exception {
@@ -205,20 +206,26 @@ public class CoreControls extends BaseClass {
 			acceptionReason.sendKeys("Court Order");
 			reasonComment.sendKeys("any reason");
 			overrideButton2.click();
-			Thread.sleep(1000);
+			Thread.sleep(2000);
 			checkForDuplicatesButton.click();
-			Thread.sleep(1000);
+			Thread.sleep(3000);
 			proceedToReviewButton.click();
-			Thread.sleep(1000);
+			Thread.sleep(2000);
 			submitButton.click();
 			System.out.println("There were validation errors that got overridden");
 		} else {
 			checkForDuplicatesButton.click();
-			Thread.sleep(1000);
+			Thread.sleep(2000);
 			proceedToReviewButton.click();
-			Thread.sleep(1000);
+			Thread.sleep(2000);
 			submitButton.click();
 			System.out.println("There are no validation errors");
 		}
+	}
+
+	public static void printForm() throws Exception {
+		actionList.sendKeys("Print");
+		Thread.sleep(2000);
+		goPrintCertificate.click();
 	}
 }

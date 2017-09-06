@@ -70,7 +70,7 @@ public class FillEregistryDrsForm {
 		Helper.inputItem(EregistryDrsPage.numberSibling,"0");
 
 		//Use the below statement for R3 environment
-		Helper.inputItem(EregistryDrsPage.informantRelationship,"FATHER");
+		Helper.inputItem(EregistryDrsPage.informantRelationship,"Sibling");
 		//Use the below statement for FAT environment
 		//Helper.inputItem(EregistryDrsPage.informantRelationship, "Divorced");
 		Helper.inputItem(EregistryDrsPage.informantFamilyName,"Murry");

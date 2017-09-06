@@ -14,16 +14,6 @@ import pageobjects.CoreControls;
 
 public class FillBRSForm {
 
-	static String randChildFamilyName = RandomStringUtils.randomAlphabetic(6);
-	static String randChildFirstName = RandomStringUtils.randomAlphabetic(6);
-	static String randMotherFamilyNameAtBirth = RandomStringUtils.randomAlphabetic(6);
-	static String randparent1FirstName = RandomStringUtils.randomAlphabetic(6);
-	static String randparent2FirstName = RandomStringUtils.randomAlphabetic(6);
-	static String randTextInformnt1_fmlyN = RandomStringUtils.randomAlphabetic(6);
-	static String randTextInformant1_fstGvnN = RandomStringUtils.randomAlphabetic(6);
-	static String randTextInformant2_fmlyN = RandomStringUtils.randomAlphabetic(6);
-	static String randTextInformant2_frstGvnN = RandomStringUtils.randomAlphabetic(6);
-
 	public static void Execute(WebDriver driver) throws Exception {
 
 		PageFactory.initElements(driver, CoreBrsPage.class);
@@ -32,20 +22,23 @@ public class FillBRSForm {
 		CoreBrsPage.informant2_emailAddress = waitForTabsMenue
 				.until(ExpectedConditions.elementToBeClickable(CoreBrsPage.informant2_emailAddress));
 		CoreBrsPage.whyIsntTheParentOfChildCompletingTheForm.sendKeys("Parent whereabouts unknown");
-		CoreBrsPage.childs_familyName.sendKeys("Automated" + randChildFamilyName);
-		CoreBrsPage.childs_firstGivenName.sendKeys("Automated" + randChildFirstName);
+		CoreBrsPage.childs_familyName.sendKeys("Automated" + FillNOBForm.randChildFamilyName);
+		CoreBrsPage.childs_firstGivenName.sendKeys("Automated" + FillNOBForm.randChildFirstName);
 		CoreBrsPage.childs_DOB_day.sendKeys("01");
 		CoreBrsPage.childs_DOB_month.sendKeys("08");
 		CoreBrsPage.childs_DOB_year.sendKeys("2017");
-		CoreBrsPage.sexAtBirth.sendKeys("Femail");
-		CoreBrsPage.childs_gestationPeriod.sendKeys("45");
+		CoreBrsPage.sexAtBirth.sendKeys("mail");
+		CoreBrsPage.child_born_Alive.sendKeys("Yes");
+		CoreBrsPage.multipleBirth.sendKeys("Yes");
+		CoreBrsPage.birthOrder.sendKeys("1");
+		CoreBrsPage.birthOrderOf.sendKeys("2");
 		CoreBrsPage.childs_weight.sendKeys("3000");
 		CoreBrsPage.hospitalName.sendKeys("Ballina District Hospital");
 		CoreBrsPage.hospitalTownSuburbCity.sendKeys("Armidale");
 		CoreBrsPage.parent1_recordAs.sendKeys("Mother");
-		CoreBrsPage.parent1_familyName.sendKeys("Automated" + randChildFamilyName);
-		CoreBrsPage.parent1_familyNameAtBirth.sendKeys("Automated" + randMotherFamilyNameAtBirth);
-		CoreBrsPage.parent1_firstGivenName.sendKeys("Automated" + randparent1FirstName);
+		CoreBrsPage.parent1_familyName.sendKeys("Automated" + FillNOBForm.randChildFamilyName);
+		CoreBrsPage.parent1_familyNameAtBirth.sendKeys("Automated" + FillNOBForm.randMotherFamilyNameAtBirth);
+		CoreBrsPage.parent1_firstGivenName.sendKeys("Automated" + FillNOBForm.randparent1FirstName);
 		CoreBrsPage.parent1_dateOfBirth_day.sendKeys("25");
 		CoreBrsPage.parent1_dateOfBirth_month.sendKeys("12");
 		CoreBrsPage.parent1_dateOfBirth_year.sendKeys("1989");
@@ -58,12 +51,12 @@ public class FillBRSForm {
 		CoreBrsPage.parent1_emailAddress.sendKeys("info@test.com");
 		CoreBrsPage.doYouparent1HaveAnySafetyConcernsFromParent2BeingContacted.sendKeys("No");
 		CoreBrsPage.parent2ParticipationDetails_familyName.sendKeys("Smith");
-		CoreBrsPage.parent2ParticipationDetails_firstGivenName.sendKeys("John");
+		CoreBrsPage.parent2ParticipationDetails_firstGivenName.sendKeys("Automated" + FillNOBForm.randparent2FirstName);
 		CoreBrsPage.parent2ParticipationDetails_emailAddress.sendKeys("billing@test.com");
 		CoreBrsPage.isThereADisputeOfChildsName.sendKeys("No");
 		CoreBrsPage.parent2_recordAs.sendKeys("Father");
-		CoreBrsPage.parent2_familyName.sendKeys("Automated" + randChildFamilyName);
-		CoreBrsPage.parent2_firstGivenName.sendKeys("Automated" + randparent2FirstName);
+		CoreBrsPage.parent2_familyName.sendKeys("Automated" + FillNOBForm.randChildFamilyName);
+		CoreBrsPage.parent2_firstGivenName.sendKeys("Automated" + FillNOBForm.randparent2FirstName);
 		CoreBrsPage.parent2dateOfBirth_day.sendKeys("02");
 		CoreBrsPage.parent2dateOfBirth_month.sendKeys("04");
 		CoreBrsPage.parent2dateOfBirth_year.sendKeys("1980");
@@ -80,8 +73,8 @@ public class FillBRSForm {
 		CoreBrsPage.dateOfRelationshipRegistrationYear.sendKeys("1999");
 		CoreBrsPage.childrenOfThisRelationship_Suburb.sendKeys("Carlton");
 		CoreBrsPage.informant1_relationshipToSubject.sendKeys("Stakeholder");
-		CoreBrsPage.informant1_familyName.sendKeys("auto" + randTextInformnt1_fmlyN);
-		CoreBrsPage.informant1_firstGivenName.sendKeys("auto" + randTextInformant1_fstGvnN);
+		CoreBrsPage.informant1_familyName.sendKeys("auto" + FillNOBForm.randTextInformnt1_fmlyN);
+		CoreBrsPage.informant1_firstGivenName.sendKeys("auto" + FillNOBForm.randTextInformant1_fstGvnN);
 		CoreBrsPage.informant1_DOB_day.sendKeys("12");
 		CoreBrsPage.informant1_DOB_month.sendKeys("05");
 		CoreBrsPage.informant1_DOB_year.sendKeys("1970");
@@ -93,8 +86,8 @@ public class FillBRSForm {
 		CoreBrsPage.informant1_contactAddress_postcode.sendKeys("3051");
 		CoreBrsPage.informant1_emailAddress.sendKeys("john.smith@info.com");
 		CoreBrsPage.informant2_relationshipToSubject.sendKeys("Parent 2");
-		CoreBrsPage.informant2_familyName.sendKeys("auto" + randTextInformant2_fmlyN);
-		CoreBrsPage.informant2_firstGivenName.sendKeys("auto" + randTextInformant2_frstGvnN);
+		CoreBrsPage.informant2_familyName.sendKeys("auto" + FillNOBForm.randTextInformant2_fmlyN);
+		CoreBrsPage.informant2_firstGivenName.sendKeys("auto" + FillNOBForm.randTextInformant2_frstGvnN);
 		CoreBrsPage.informant2_DOB_day.sendKeys("13");
 		CoreBrsPage.informant2_DOB_month.sendKeys("06");
 		CoreBrsPage.informant2_DOB_year.sendKeys("1971");
@@ -106,8 +99,7 @@ public class FillBRSForm {
 		CoreBrsPage.informant2_contactAddress_postcode.sendKeys("3051");
 		CoreBrsPage.informant2_emailAddress.sendKeys("adfd@ss.com");
 		CoreControls.validateForm();
+		// CoreControls.saveForm();
 		CoreControls.overrideExceptionsOnform();
-		CoreControls.saveForm();
 	}
-
 }
