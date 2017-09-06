@@ -59,7 +59,7 @@ public class CoreBrsPage extends BaseClass {
 	public static WebElement sexAtBirth;
 
 	@FindBy(id = "childsDetails-birthDetails-bornAlive")
-	public static WebElement was_childs_bornAlive;
+	public static WebElement child_born_Alive;
 
 	@FindBy(id = "childsDetails-birthDetails-gestationPeriod")
 	public static WebElement childs_gestationPeriod;
@@ -69,6 +69,12 @@ public class CoreBrsPage extends BaseClass {
 
 	@FindBy(id = "childsDetails-birthDetails-multipleBirth")
 	public static WebElement multipleBirth;
+
+	@FindBy(id = "childsDetails-birthDetails-birthOrder")
+	public static WebElement birthOrder;
+
+	@FindBy(id = "childsDetails-birthDetails-birthOrderOf")
+	public static WebElement birthOrderOf;
 
 	@FindBy(id = "childsDetails-birthDetails-wasTheChildBornInHospital")
 	public static WebElement wasTheChildBornInHospital;
@@ -367,8 +373,6 @@ public class CoreBrsPage extends BaseClass {
 	@FindBy(id = "informant1Details-contactDetails-emailAddress")
 	public static WebElement informant1_emailAddress;
 
-	/////////////////
-
 	@FindBy(id = "informant2Details-relationshipToSubject")
 	public static WebElement informant2_relationshipToSubject;
 
@@ -417,47 +421,9 @@ public class CoreBrsPage extends BaseClass {
 	@FindBy(xpath = ".//th[1]/input")
 	public static WebElement validateCheckBox;
 
-	// @FindBy(xpath = ".//brs-page//input[@value='Override']")
-	// public static WebElement overrideButton;
-
-	// @FindBy(xpath = "//form//*[@id='Reason Code *']")
-	// public static WebElement acceptionReason;
-
-	// @FindBy(xpath = "//*[@id='override-reasonCode']")
-	// public static WebElement acceptionReason;
-
-	// @FindBy(id = "override-comment")
-	// public static WebElement reasonComment;
-
-	// @FindBy(xpath =
-	// ".//BRS-page/override-popup/base-popup/div/div/div/div[3]/div/button[text()='Override']")
-	// public static WebElement overrideButton2;
-
-	// @FindBy(xpath = ".//*[@id='error-message']/div/div")
-	// public static WebElement errorBaner;
-
 	public static void view_BRS_Form_Errors() {
 		validate_BRS_field_button.click();
 
 	}
-
-	// public static void validateform() throws Exception {
-	// CoreControls.validateButton.click();
-	// Thread.sleep(3000);
-	// boolean formHasErrors = errorBaner.getText()
-	// .equals("There are validation errors in your Birth Registration
-	// Statement.");
-	// if (formHasErrors) {
-	// validateCheckBox.click();
-	// overrideButton.click();
-	// Thread.sleep(3000);
-	// acceptionReason.sendKeys("Court Order");
-	// reasonComment.sendKeys("any reason");
-	// overrideButton2.click();
-	// System.out.println("There were validation errors that got overridden");
-	// } else {
-	// System.out.println("There are no validation errors");
-	// }
-	// }
 
 }

@@ -6,6 +6,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import pageobjects.CoreControls;
+import pageobjects.CoreNobPage;
 import pageobjects.CoreSearchBirthsPage;
 
 public class SearchforBRCreated {
@@ -18,8 +19,16 @@ public class SearchforBRCreated {
 				.until(ExpectedConditions.elementToBeClickable(CoreControls.searchTab));
 		CoreControls.searchTab.click();
 		Thread.sleep(2000);
+//		CoreControls.nobSearch.click();
+//		CoreNobPage.mothersFamilyName.sendKeys("Automated" + FillBRSForm.randChildFamilyName);
+//		CoreControls.searchButton.click();
+//		Thread.sleep(2000);
+//		CoreControls.nobSearchResult.click();
+//		CoreControls.matchNoticesToCreateRegistration();
+//		CoreControls.searchTab.click();
+//		Thread.sleep(2000);
 		CoreControls.birthRegistrationSearch.click();
-		CoreSearchBirthsPage.childFamilyName.sendKeys("Automated" + FillBRSForm.randChildFamilyName);
+		CoreSearchBirthsPage.childFamilyName.sendKeys("Automated" + FillNOBForm.randChildFamilyName);
 		CoreControls.searchButton.click();
 		Thread.sleep(2000);
 		boolean thereAreSearchResults = CoreSearchBirthsPage.childFamilyNameInSeachResults.isDisplayed();
@@ -27,6 +36,6 @@ public class SearchforBRCreated {
 		nameInSearch = CoreSearchBirthsPage.childFamilyNameInSeachResults.getText();
 		Thread.sleep(2000);
 		Assert.assertTrue("The Birth Registration could not be found in Search for BR",
-				nameInSearch.contains(FillBRSForm.randChildFamilyName));
+				nameInSearch.contains(FillNOBForm.randChildFamilyName));
 	}
 }

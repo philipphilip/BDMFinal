@@ -1,4 +1,3 @@
-@epublic @st3 @epublic-brs
 Feature: ePublic brs
 
   Scenario: Request a BRS (Updated Scenario)

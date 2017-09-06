@@ -35,8 +35,8 @@ public class FillBCApplicationForm {
 		ApplicationPage.productDetailsTemplate.sendKeys("BR Certificate");
 		System.out.println("Certificate Template 'BR Certificate' selected");
 		ApplicationPage.nextButton.click();
-		ApplicationPage.applicantFamilyName.sendKeys("Automated" + FillBRSForm.randChildFamilyName);
-		ApplicationPage.applicantGivenName.sendKeys("Automated" + FillBRSForm.randparent1FirstName);
+		ApplicationPage.applicantFamilyName.sendKeys("Automated" + FillNOBForm.randChildFamilyName);
+		ApplicationPage.applicantGivenName.sendKeys("Automated" + FillNOBForm.randparent1FirstName);
 //		ApplicationPage.applicantFamilyName.sendKeys("AutomatedjEYFWh");
 //		ApplicationPage.applicantGivenName.sendKeys("AutomatedoTyAeS");
 		ApplicationPage.applicantDOBDay.sendKeys("25");
@@ -49,14 +49,14 @@ public class FillBCApplicationForm {
 		ApplicationPage.nextButton.click();
 		ApplicationPage.deliveryMethod.sendKeys("StandardPOST");
 //		ApplicationPage.deliveryAddressCopyFrom.sendKeys("AutomatedjEYFWh");
-		ApplicationPage.deliveryAddressCopyFrom.sendKeys("Automated" + FillBRSForm.randChildFamilyName);
+		ApplicationPage.deliveryAddressCopyFrom.sendKeys("Automated" + FillNOBForm.randChildFamilyName);
 		ApplicationPage.nextButton.click();
 		ApplicationPage.matchType.sendKeys("Detailed Criteria");
 		ApplicationPage.dateOfBirthDay.sendKeys("01");
 		ApplicationPage.dateOfBirthMonth.sendKeys("08");
 		ApplicationPage.dateOfBirthYear.sendKeys("2017");
-		ApplicationPage.birthDetailsFamilyName.sendKeys("Automated" + FillBRSForm.randChildFamilyName);
-		ApplicationPage.birthDetailsGivenName.sendKeys("Automated" + FillBRSForm.randChildFirstName);
+		ApplicationPage.birthDetailsFamilyName.sendKeys("Automated" + FillNOBForm.randChildFamilyName);
+		ApplicationPage.birthDetailsGivenName.sendKeys("Automated" + FillNOBForm.randChildFirstName);
 //		ApplicationPage.birthDetailsFamilyName.sendKeys("AutomatedjEYFWh");
 //		ApplicationPage.birthDetailsGivenName.sendKeys("AutomateddMJxUd ");
 		ApplicationPage.placeOfBirthSuburbTownCity.sendKeys("Armidale");

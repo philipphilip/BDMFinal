@@ -74,10 +74,11 @@ public class FillCODForm {
 		CoreControls.editForm();
 		CoreControls.validateForm();
 		Thread.sleep(2000);
-		CoreCodPage.clearCheckListInCODForm();
-		CoreControls.saveForm();
-		Thread.sleep(2000);
-		CoreControls.matchCODAndDRS();
+		CoreControls.overrideExceptionsOnform();
+		// CoreCodPage.clearCheckListInCODForm();
+		// CoreControls.saveForm();
+		// Thread.sleep(2000);
+		// CoreControls.matchNoticesToCreateRegistration();
 	}
 
 }

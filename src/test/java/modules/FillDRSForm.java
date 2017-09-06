@@ -70,6 +70,7 @@ public class FillDRSForm {
 		CoreDRSPage.FuneralDirectorNumber.sendKeys("43123");
 		CoreDRSPage.FuneralDirectorFamilyName.sendKeys("New name");
 		CoreDRSPage.FuneralDirectorTelephone.sendKeys("039878972637");
-		CoreControls.saveForm();
+		CoreControls.validateForm();
+		CoreControls.overrideExceptionsOnform();
 	}
 }

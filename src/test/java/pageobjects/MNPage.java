@@ -308,8 +308,8 @@ public class MNPage extends BaseClass {
 	@FindBy(xpath = ".//marriage-notification-page//search-results//table//tr[2]/td[1]/div/a")
 	public static WebElement matchingNotifivation;
 
-	@FindBy(xpath = ".//marriage-notification-page//side-panel//a[contains(text(),'Marriage Registration')]")
-	public static WebElement marriageRegLink;
+	@FindBy(xpath = ".//*/div[text() = 'Registered']")
+	public static WebElement marriageRegStatus;
 
 	// public static void validateform() throws Exception {
 	// CoreControls.validateButton.click();

@@ -11,7 +11,6 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
-import helpers.DataHelper;
 import helpers.Helper;
 import modules.EpublicSignInAction;
 import modules.EregistrySignInAction;
@@ -20,20 +19,10 @@ import modules.FillBCApplicationForm;
 import modules.FillBRSForm;
 import modules.FillCODCoreSearchForm;
 import modules.FillCODForm;
-import modules.FillCoreBrsFormForBr;
-import modules.FillCoreNobFormForBr;
+
 import modules.FillDCApplicationForm;
 import modules.FillDRSCoreSearchForm;
 import modules.FillDRSForm;
-import modules.FillEpublicApplicationApplicantDetailForm;
-import modules.FillEpublicApplicationPaymentDetailForm;
-import modules.FillEpublicApplicationSubjectDetailForm;
-import modules.FillEpublicBrsChildDetailForm;
-import modules.FillEpublicBrsInformant1DetailForm;
-import modules.FillEpublicBrsParentDetailForm;
-import modules.FillEpublicBrsRelationshipDetailForm;
-import modules.FillEpublicBrsSecondParentDetailForm;
-import modules.FillEpublicBrsSecondParentParticipationDetailForm;
 import modules.FillEregistryCertificatesForm;
 import modules.FillEregistryCodForm;
 import modules.FillEregistryDrsForm;
@@ -94,17 +83,14 @@ public class BDMForm {
 
 	}
 
-	// static String st2 = "10.22.3.205";
-	// static String st3 = "10.22.1.200";
-	// static String fat = "52.64.152.134";
-
 	@When("^I open \"(.*?)\" website$")
 	public void i_open_website(String website) throws Throwable {
-		// String base_url = st3;
 		if (website.equals("ePublic")) {
 			driver.get("http://10.22.1.200/epublic/login");
-			//driver.get("http://52.64.152.134/epublic/login");
-		// Adding Core, ePublic and eRegistry Development environments for smoke tests to deploy to System Test environment
+			// driver.get("https://web-st.objectconsulting.com.au/epublic/");
+			// driver.get("http://52.64.152.134/epublic/login");
+			// Adding Core, ePublic and eRegistry Development environments for
+			// smoke tests to deploy to System Test environment
 		} else if (website.equals("ePublic Dev")) {
 			driver.get("http://10.22.1.15/epublic/login");
 		} else if (website.equals("eRegistry Dev")) {
@@ -114,8 +100,9 @@ public class BDMForm {
 		} else if (website.equals("Core")) {
 			driver.get("http://10.22.1.200/core/login");
 		} else {
-			//driver.get("http://52.64.152.134/eregistry/login");
+			// driver.get("http://52.64.152.134/eregistry/login");
 			driver.get("http://10.22.1.200/eregistry/login");
+			// driver.get("https://web-st.objectconsulting.com.au/eregistry/");
 		}
 		driver.manage().window().maximize();
 	}
@@ -143,6 +130,8 @@ public class BDMForm {
 	@When("^I open Core website$")
 	public void i_open_Core_website() throws Throwable {
 		// driver.get("http://10.22.3.205/core/login");
+		// driver.get("http://10.22.1.200/core/login");
+		// driver.get("https://web-st.objectconsulting.com.au/core/login");
 		driver.get("http://10.22.1.200/core/login");
 		// driver.get("http://52.64.152.134/core/login");
 		// driver.get("http://10.22.1.110/core/login");
@@ -174,28 +163,31 @@ public class BDMForm {
 
 		if (site.equals("ePublic")) {
 			if (tab.equals("BRS")) {
-			GoToBRSInePublic.Execute(driver);
+				GoToBRSInePublic.Execute(driver);
 			} else if (tab.equals("Application")) {
-			  GoToApplicationInePublic.Execute(driver);
+				GoToApplicationInePublic.Execute(driver);
 			}
 		} else if (site.equals("Core")) {
 			if (tab.equals("Search DRS")) {
 				WebDriverWait waitForTabsMenue = new WebDriverWait(driver, 10000);
-				CoreControls.searchTab = waitForTabsMenue.until(ExpectedConditions.elementToBeClickable(CoreControls.searchTab));
+				CoreControls.searchTab = waitForTabsMenue
+						.until(ExpectedConditions.elementToBeClickable(CoreControls.searchTab));
 				CoreControls.searchTab.click();
 				CoreControls.drsSearch.click();
 			} else if (tab.equals("Search COD")) {
 				WebDriverWait waitForTabsMenue = new WebDriverWait(driver, 10000);
-				CoreControls.searchTab = waitForTabsMenue.until(ExpectedConditions.elementToBeClickable(CoreControls.searchTab));
+				CoreControls.searchTab = waitForTabsMenue
+						.until(ExpectedConditions.elementToBeClickable(CoreControls.searchTab));
 				CoreControls.searchTab.click();
 				CoreControls.codSearch.click();
 			} else if (tab.equals("Search Application")) {
 				WebDriverWait waitForTabsMenue = new WebDriverWait(driver, 10000);
-				CoreControls.searchTab = waitForTabsMenue.until(ExpectedConditions.elementToBeClickable(CoreControls.searchTab));
+				CoreControls.searchTab = waitForTabsMenue
+						.until(ExpectedConditions.elementToBeClickable(CoreControls.searchTab));
 				CoreControls.searchTab.click();
 				CoreControls.idSearch.click();
 			}
-	}	else if (site.equals("eRegistry")) {
+		} else if (site.equals("eRegistry")) {
 			if (tab.equals("DRS")) {
 				Helper.clickItem(EregistryControls.deathsLink);
 				Helper.clickItem(EregistryControls.drsLink);
@@ -210,7 +202,6 @@ public class BDMForm {
 		}
 	}
 
-
 	@Then("^I can fill and submit the \"([^\"]*)\" form in \"([^\"]*)\"$")
 	public void i_can_fill_and_submit_the_form_in(String form, String site) throws Throwable {
 		if (site.equals("ePublic")) {
@@ -220,7 +211,7 @@ public class BDMForm {
 				FilltheApplicationInEpublic.Execute(driver);
 			}
 		}
-		
+
 		if (site.equals("eRegistry")) {
 			if (form.equals("DRS")) {
 				FillEregistryDrsForm.Execute(driver);
@@ -231,9 +222,6 @@ public class BDMForm {
 			}
 		}
 	}
-	
-	
-	
 
 	@Then("^I select \"(.*?)\" in \"(.*?)\" dropdown list on \"(.*?)\" page of \"(.*?)\" in \"(.*?)\"$")
 	public void i_select_dropdown(String value, String dropDoneListName, String page, String function, String site)
@@ -338,10 +326,9 @@ public class BDMForm {
 		}
 	}
 
-	
 	@Then("^I search for \"([^\"]*)\" form$")
 	public void i_search_for_form(String form) throws Throwable {
-		
+
 		if (form.equals("DRS")) {
 			FillDRSCoreSearchForm.Execute(driver);
 		} else if (form.equals("COD")) {
@@ -350,13 +337,13 @@ public class BDMForm {
 			FillApplicationCoreSearchForm.Execute(driver);
 		}
 	}
-	
+
 	@Then("^I search for \"([^\"]*)\" form and make it compliant$")
 	public void i_search_for_form_and_make_it_compliant(String form) throws Throwable {
-		
-		if(form.equals("DRS")) {
+
+		if (form.equals("DRS")) {
 			SearchAndMakeDrsCompliant.Execute(driver);
-		} else if(form.equals("COD")) {
+		} else if (form.equals("COD")) {
 			SearchAndMakeCodCompliant.Execute(driver);
 		}
 	}

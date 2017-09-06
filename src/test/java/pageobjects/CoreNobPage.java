@@ -82,14 +82,20 @@ public class CoreNobPage extends BaseClass {
 	@FindBy(id = "birthDetails-childsDetails-bornAlive")
 	public static WebElement chiled_born_alive;
 
-	@FindBy(id = ".//*/a[contains(text(),'of Birth')]")
-	WebElement weight;
+	@FindBy(id = "birthDetails-childsDetails-weight")
+	public static WebElement weight;
+				  
+	@FindBy(id = "birthDetails-childsDetails-multipleBirth")
+	public static WebElement multiple_Birth;
 
-	@FindBy(id = ".//*/a[contains(text(),'of Birth')]")
-	WebElement muliple_birth;
+	@FindBy(id = "birthDetails-childsDetails-birthOrder")
+	public static WebElement birthOrder;
 
-	@FindBy(id = ".//*/a[contains(text(),'of Birth')]")
-	WebElement was_child_born_in_hospital;
+	@FindBy(id = "birthDetails-childsDetails-birthOrderOf")
+	public static WebElement birthOrderOf;
+
+	@FindBy(id = "birthDetails-childsDetails-bornAlive")
+	public static WebElement was_child_born_in_hospital;
 
 	@FindBy(id = "birthDetails-hospitalBirth-hospitalName")
 	public static WebElement hospital_name;
@@ -103,26 +109,26 @@ public class CoreNobPage extends BaseClass {
 	@FindBy(id = "notifierDetails-name-firstGivenName")
 	public static WebElement notifier_given_name;
 
-	@FindBy(id = ".//*/a[contains(text(),'of Birth')]")
-	WebElement notifier_country;
-
-	@FindBy(id = ".//*/a[contains(text(),'of Birth')]")
-	WebElement notifier_address_line_one;
-
-	@FindBy(id = ".//*/a[contains(text(),'of Birth')]")
-	WebElement notifier_address_line_two;
-
-	@FindBy(id = ".//*/a[contains(text(),'of Birth')]")
-	WebElement notifier_suburb_town_city;
-
-	@FindBy(id = ".//*/a[contains(text(),'of Birth')]")
-	WebElement notifier_state_territotry;
-
-	@FindBy(id = ".//*/a[contains(text(),'of Birth')]")
-	WebElement notifier_postcode;
-
-	@FindBy(id = ".//*/a[contains(text(),'of Birth')]")
-	WebElement notifier_telephone_no;
+//	@FindBy(id = ".//*/a[contains(text(),'of Birth')]")
+//	public static WebElement notifier_country;
+//
+//	@FindBy(id = ".//*/a[contains(text(),'of Birth')]")
+//	public static WebElement notifier_address_line_one;
+//
+//	@FindBy(id = ".//*/a[contains(text(),'of Birth')]")
+//	public static WebElement notifier_address_line_two;
+//
+//	@FindBy(id = ".//*/a[contains(text(),'of Birth')]")
+//	public static WebElement notifier_suburb_town_city;
+//
+//	@FindBy(id = ".//*/a[contains(text(),'of Birth')]")
+//	public static WebElement notifier_state_territotry;
+//
+//	@FindBy(id = ".//*/a[contains(text(),'of Birth')]")
+//	WebElement notifier_postcode;
+//
+//	@FindBy(id = ".//*/a[contains(text(),'of Birth')]")
+//	WebElement notifier_telephone_no;
 
 	@FindBy(id = "notifierDetails-contactDetails-emailAddress")
 	public static WebElement notifier_email;

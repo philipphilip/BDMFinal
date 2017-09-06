@@ -57,7 +57,7 @@ public class FilltheApplicationInEpublic {
 		Helper.clickItem(EpublicApplicationSubjectDetailPage.acceptTermsCheckbox);
 		Helper.clickItem(EpublicApplicationSubjectDetailPage.payInPersonButton);
 		String confirmationNumber;
-		Thread.sleep(3000);
+		Thread.sleep(5000);
 		confirmationNumber = EpublicControls.bdmOrderNo.getText();
 		Assert.assertTrue("The BRS confirmation number is not displayed", confirmationNumber.contains("Your BDM Order no."));
 	}
