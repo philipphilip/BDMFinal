@@ -12,4 +12,4 @@ Feature: eregistry drs
     When I open "Core" website
     And I sign in
     And I navigate to "Search DRS" in "Core"
-    Then I search for "DRS" form
+    Then I search for "DRS" form created in "eRegistry"

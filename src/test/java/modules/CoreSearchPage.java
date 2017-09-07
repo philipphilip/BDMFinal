@@ -18,6 +18,9 @@ public class CoreSearchPage extends BaseClass {
 	@FindBy(id = "deceasedDetails-name-deceasedName-familyName")
 	public static WebElement deceasedFamilyNameCod;
 	
+	@FindBy (id = "childsDetails-name-familyName")
+	public static WebElement brsChildFamilyName;
+	
 	@FindBy(xpath = ".//button-panel//input[@value='Search']")
 	public static WebElement searchButton;
 	
