@@ -14,33 +14,6 @@ public class CoreControls extends BaseClass {
 	@FindBy(xpath = "//*/a[text()='New']")
 	public static WebElement newTab;
 
-	@FindBy(xpath = "//*/a[text()='Search']")
-	public static WebElement searchTab;
-
-	@FindBy(xpath = ".//a[text() = 'Notice of Birth Search']")
-	public static WebElement nobSearch;
-
-	@FindBy(xpath = ".//a[text() = 'Birth Registration Search']")
-	public static WebElement birthRegistrationSearch;
-
-	@FindBy(xpath = ".//a[text() = 'Death Registration Statement Search']")
-	public static WebElement drsSearch;
-
-	@FindBy(xpath = ".//a[text() = 'Cause of Death Search']")
-	public static WebElement codSearch;
-
-	@FindBy(xpath = ".//a[text() = 'ID Search']")
-	public static WebElement idSearch;
-
-	@FindBy(xpath = "//*/a[text()='Marriage Notification Search']")
-	public static WebElement merriageNotificationSearch;
-
-	@FindBy(xpath = "//*/a[text() = 'Marriage Registration Search']")
-	public static WebElement merriageRegistrationSearch;
-
-	@FindBy(xpath = ".//button-panel/div/div/input[@value = 'Search']")
-	public static WebElement searchButton;
-
 	@FindBy(xpath = "//*/a[text()='Birth Registration Statement']")
 	public static WebElement newBRS;
 
@@ -55,6 +28,36 @@ public class CoreControls extends BaseClass {
 
 	@FindBy(xpath = "//*/a[text()='Marriage Notification']")
 	public static WebElement newMR;
+
+	@FindBy(xpath = "//*/a[text()='Search']")
+	public static WebElement searchTab;
+
+	@FindBy(xpath = ".//a[text() = 'ID Search']")
+	public static WebElement idSearch;
+
+	@FindBy(xpath = ".//a[text() = 'Death Registration Statement Search']")
+	public static WebElement drsSearch;
+
+	@FindBy(xpath = ".//a[text() = 'Notice of Birth Search']")
+	public static WebElement nobSearch;
+
+	@FindBy(xpath = ".//a[text() = 'Birth Registration Search']")
+	public static WebElement birthRegistrationSearch;
+
+	@FindBy(xpath = ".//a[text() = 'Cause of Death Search']")
+	public static WebElement codSearch;
+
+	@FindBy(xpath = ".//*/a[text() = 'Death Registration Search']")
+	public static WebElement deathRegistrationSearch;
+
+	@FindBy(xpath = "//*/a[text()='Marriage Notification Search']")
+	public static WebElement merriageNotificationSearch;
+
+	@FindBy(xpath = "//*/a[text() = 'Marriage Registration Search']")
+	public static WebElement merriageRegistrationSearch;
+
+	@FindBy(xpath = ".//button-panel/div/div/input[@value = 'Search']")
+	public static WebElement searchButton;
 
 	@FindBy(id = "actionMenu")
 	public static WebElement actionList;

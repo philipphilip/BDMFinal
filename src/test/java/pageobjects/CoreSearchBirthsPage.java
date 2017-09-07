@@ -15,18 +15,11 @@ public class CoreSearchBirthsPage extends BaseClass {
 
 	@FindBy(xpath = "/html/body/app/ng-component/div[2]/main/div/nob-page/div/div[2]/form/button-panel/div/div/input[1]")
 	public static WebElement nobSearchButton;
-	
+
 	@FindBy(id = "subjectsDetails-name-familyName")
 	public static WebElement childFamilyName;
-	
+
 	@FindBy(xpath = ".//birth-registration-page//tr[2]/td[2]/div")
 	public static WebElement childFamilyNameInSeachResults;
-	
-	
-	
-	
-	
-	
-	
 
 }

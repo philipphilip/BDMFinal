@@ -28,17 +28,22 @@ Feature: All Core site testings.
     And I navigate to "Application" new form
     Then I fill in the "Birth Application" form
 
+  Scenario: Navigate to COD and fill the form
+    When I open Core website
+    And I login "Core" as user "admin2" password "Friday17"
+    And I navigate to "COD" new form
+    Then I fill in the "COD" form
+
   Scenario: Navigate to DRS and fill the form
     When I open Core website
     And I sign in
     And I navigate to "DRS" new form
     Then I fill in the "DRS" form
 
-  Scenario: Navigate to COD and fill the form
+  Scenario: Check the automatic creation of Death Certificate
     When I open Core website
-    And I login "Core" as user "admin2" password "Friday17"
-    And I navigate to "COD" new form
-    Then I fill in the "COD" form
+    And I sign in
+    Then I fill in the "DR" form
 
   Scenario: Navigate to Merriage page and fill the form
     When I open Core website
