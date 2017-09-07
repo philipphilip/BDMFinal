@@ -16,10 +16,10 @@ import modules.EpublicSignInAction;
 import modules.EregistrySignInAction;
 import modules.FillApplicationCoreSearchForm;
 import modules.FillBCApplicationForm;
+import modules.FillBRSCoreSearchForm;
 import modules.FillBRSForm;
 import modules.FillCODCoreSearchForm;
 import modules.FillCODForm;
-
 import modules.FillDCApplicationForm;
 import modules.FillDRSCoreSearchForm;
 import modules.FillDRSForm;
@@ -87,11 +87,7 @@ public class BDMForm {
 	@When("^I open \"(.*?)\" website$")
 	public void i_open_website(String website) throws Throwable {
 		if (website.equals("ePublic")) {
-			driver.get("http://10.22.1.200/epublic/login");
-			// driver.get("https://web-st.objectconsulting.com.au/epublic/");
-			// driver.get("http://52.64.152.134/epublic/login");
-			// Adding Core, ePublic and eRegistry Development environments for
-			// smoke tests to deploy to System Test environment
+			driver.get("https://web-st.objectconsulting.com.au/epublic/");
 		} else if (website.equals("ePublic Dev")) {
 			driver.get("http://10.22.1.15/epublic/login");
 		} else if (website.equals("eRegistry Dev")) {
@@ -99,11 +95,9 @@ public class BDMForm {
 		} else if (website.equals("Core Dev")) {
 			driver.get("http://10.22.1.15/core/login");
 		} else if (website.equals("Core")) {
-			driver.get("http://10.22.1.200/core/login");
+			driver.get("https://web-st.objectconsulting.com.au/core/login");
 		} else {
-			// driver.get("http://52.64.152.134/eregistry/login");
-			driver.get("http://10.22.1.200/eregistry/login");
-			// driver.get("https://web-st.objectconsulting.com.au/eregistry/");
+			driver.get("https://web-st.objectconsulting.com.au/eregistry/");
 		}
 		driver.manage().window().maximize();
 	}
@@ -132,8 +126,8 @@ public class BDMForm {
 	public void i_open_Core_website() throws Throwable {
 		// driver.get("http://10.22.3.205/core/login");
 		// driver.get("http://10.22.1.200/core/login");
-		// driver.get("https://web-st.objectconsulting.com.au/core/login");
-		driver.get("http://10.22.1.200/core/login");
+		driver.get("https://web-st.objectconsulting.com.au/core/login");
+		// driver.get("http://10.22.1.200/core/login");
 		// driver.get("http://52.64.152.134/core/login");
 		// driver.get("http://10.22.1.110/core/login");
 		driver.manage().window().maximize();
@@ -187,6 +181,12 @@ public class BDMForm {
 						.until(ExpectedConditions.elementToBeClickable(CoreControls.searchTab));
 				CoreControls.searchTab.click();
 				CoreControls.idSearch.click();
+			} else if (tab.equals("Search BRS")) {
+				WebDriverWait waitForTabsMenue = new WebDriverWait(driver, 10000);
+				CoreControls.searchTab = waitForTabsMenue
+						.until(ExpectedConditions.elementToBeClickable(CoreControls.searchTab));
+				CoreControls.searchTab.click();
+				CoreControls.brsSearch.click();
 			}
 		} else if (site.equals("eRegistry")) {
 			if (tab.equals("DRS")) {
@@ -328,16 +328,23 @@ public class BDMForm {
 			CoreBrsPage.view_BRS_Form_Errors();
 		}
 	}
+	
+	@Then("^I search for \"([^\"]*)\" form created in \"([^\"]*)\"$")
+	public void i_search_for_form(String form, String site) throws Throwable {
 
-	@Then("^I search for \"([^\"]*)\" form$")
-	public void i_search_for_form(String form) throws Throwable {
-
-		if (form.equals("DRS")) {
-			FillDRSCoreSearchForm.Execute(driver);
-		} else if (form.equals("COD")) {
-			FillCODCoreSearchForm.Execute(driver);
-		} else if (form.equals("Application")) {
-			FillApplicationCoreSearchForm.Execute(driver);
+		if (site.equals("eRegistry")) {
+			if (form.equals("DRS")) {
+				FillDRSCoreSearchForm.Execute(driver);
+			} else if (form.equals("COD")) {
+				FillCODCoreSearchForm.Execute(driver);
+			} else if (form.equals("Application")) {
+				FillApplicationCoreSearchForm.Execute(driver);
+			}
+		}
+		if (site.equals("ePublic")) {
+			if (form.equals("BRS")) {
+				FillBRSCoreSearchForm.Execute(driver);
+			}
 		}
 	}
 

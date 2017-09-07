@@ -40,4 +40,4 @@ Feature: Create a DRS & COD & Death Certificate in eRegistry.
     When I open "Core" website
     And I sign in
     And I navigate to "Search Application" in "Core"
-    Then I search for "Application" form
+    Then I search for "Application" form created in "eRegistry"

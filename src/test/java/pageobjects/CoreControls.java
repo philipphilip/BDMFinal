@@ -47,8 +47,16 @@ public class CoreControls extends BaseClass {
 	@FindBy(xpath = ".//a[text() = 'Cause of Death Search']")
 	public static WebElement codSearch;
 
+<<<<<<< HEAD
 	@FindBy(xpath = ".//*/a[text() = 'Death Registration Search']")
 	public static WebElement deathRegistrationSearch;
+=======
+	@FindBy(xpath = ".//a[text() = 'ID Search']")
+	public static WebElement idSearch;
+	
+	@FindBy(xpath = ".//a[text() = 'Birth Registration Statement Search']")
+	public static WebElement brsSearch;
+>>>>>>> ce9c34f984082526fbf0d686b82f47ed7c0a6c17
 
 	@FindBy(xpath = "//*/a[text()='Marriage Notification Search']")
 	public static WebElement merriageNotificationSearch;

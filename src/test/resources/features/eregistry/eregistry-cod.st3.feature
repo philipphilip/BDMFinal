@@ -12,4 +12,4 @@ Feature: eregistry cod
     When I open "Core" website
     And I sign in
     And I navigate to "Search COD" in "Core"
-    Then I search for "COD" form
+    Then I search for "COD" form created in "eRegistry"
