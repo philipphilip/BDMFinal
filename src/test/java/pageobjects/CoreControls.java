@@ -47,16 +47,11 @@ public class CoreControls extends BaseClass {
 	@FindBy(xpath = ".//a[text() = 'Cause of Death Search']")
 	public static WebElement codSearch;
 
-<<<<<<< HEAD
 	@FindBy(xpath = ".//*/a[text() = 'Death Registration Search']")
 	public static WebElement deathRegistrationSearch;
-=======
-	@FindBy(xpath = ".//a[text() = 'ID Search']")
-	public static WebElement idSearch;
-	
+
 	@FindBy(xpath = ".//a[text() = 'Birth Registration Statement Search']")
 	public static WebElement brsSearch;
->>>>>>> ce9c34f984082526fbf0d686b82f47ed7c0a6c17
 
 	@FindBy(xpath = "//*/a[text()='Marriage Notification Search']")
 	public static WebElement merriageNotificationSearch;
@@ -163,6 +158,9 @@ public class CoreControls extends BaseClass {
 	@FindBy(xpath = ".//search-results/div/table/tbody/tr[2]/td[1]/div/a")
 	public static WebElement nobSearchResult;
 
+	@FindBy(xpath = ".//*/div[contains (text(),'Additional')]")
+	public static WebElement incaseNoDuplicates;
+
 	public static void saveForm() throws Exception {
 		actionList.sendKeys("Save");
 		Thread.sleep(2000);
@@ -197,6 +195,17 @@ public class CoreControls extends BaseClass {
 		Thread.sleep(2000);
 	}
 
+	public static void proceedDuplicates() {
+		try {
+			Boolean noDuplicates = incaseNoDuplicates.isDisplayed();
+			if (noDuplicates) {
+				System.out.println("There are no duplicates to this form.");
+			}
+		} catch (Exception e) {
+			proceedToReviewButton.click();
+		}
+	}
+
 	public static void overrideExceptionsOnform() throws Exception {
 		Thread.sleep(5000);
 		boolean formHasErrors = errorBaner.getText().contains("are validation errors");
@@ -209,15 +218,15 @@ public class CoreControls extends BaseClass {
 			overrideButton2.click();
 			Thread.sleep(2000);
 			checkForDuplicatesButton.click();
-			Thread.sleep(3000);
-			proceedToReviewButton.click();
+			Thread.sleep(2000);
+			proceedDuplicates();
 			Thread.sleep(2000);
 			submitButton.click();
 			System.out.println("There were validation errors that got overridden");
 		} else {
 			checkForDuplicatesButton.click();
 			Thread.sleep(2000);
-			proceedToReviewButton.click();
+			proceedDuplicates();
 			Thread.sleep(2000);
 			submitButton.click();
 			System.out.println("There are no validation errors");

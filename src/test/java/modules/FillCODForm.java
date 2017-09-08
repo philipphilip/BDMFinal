@@ -74,7 +74,6 @@ public class FillCODForm {
 		CoreCodPage.medicalPractitionerEmail.sendKeys("bill@test.com");
 		CoreCodPage.medicalPractitionerAHPRANumber.sendKeys("123456");
 		CoreCodPage.DidYouAcquireOrAnticipateAnyBenefitByReasonOfThisDeath.sendKeys("No");
-		// CoreControls.saveForm();
 		Thread.sleep(2000);
 		CoreControls.editForm();
 		CoreControls.validateForm();
