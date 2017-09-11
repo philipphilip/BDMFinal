@@ -6,6 +6,10 @@ import org.apache.commons.lang3.RandomStringUtils;
 import org.junit.Assert;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+import pageobjects.CoreControls;
 import pageobjects.EregistryCodPage;
 import pageobjects.EregistryControls;
 
@@ -84,7 +88,7 @@ public class FillEregistryCodForm {
 		Helper.clickItem(EregistryControls.submitButton);		
 		Helper.clickItem(EregistryControls.submitButton);
 		String codSubmissionMessage;
-		Thread.sleep(3000);
+		Thread.sleep(5000);
 		codSubmissionMessage = EregistryControls.submitResultMessage.getText();
 		Assert.assertTrue("result message not found", codSubmissionMessage.contains("Successfully submitted notifications"));
 

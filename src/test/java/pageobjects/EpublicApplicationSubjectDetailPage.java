@@ -28,20 +28,35 @@ public class EpublicApplicationSubjectDetailPage extends BaseClass {
 	@FindBy(id = "coo-birth-reasonCertRequired")
 	public static WebElement reason;
 
+	@FindBy(id = "coo-birth-child-familyName")
+	public static WebElement childFamilyName;
+	
 	@FindBy(id = "coo-birth-child-firstGivenName")
 	public static WebElement childGivenName;
 
 	@FindBy(id = "coo-birth-parent1-type")
 	public static WebElement parentOneType;
+	
+	@FindBy(id = "coo-birth-parent1-familyName")
+	public static WebElement parent1FamilyName;
 
 	@FindBy(id = "coo-birth-parent1-firstGivenName")
 	public static WebElement parentOneGivenName;
+	
+	@FindBy(id = "coo-birth-parent1-familyNameAtBirth")
+	public static WebElement parent1FamilyNametAtBirth;
 
 	@FindBy(id = "coo-birth-parent2-type")
 	public static WebElement parentTwoType;
+	
+	@FindBy(id = "coo-birth-parent2-familyName")
+	public static WebElement parent2FamilyName;
 
 	@FindBy(id = "coo-birth-parent2-firstGivenName")
 	public static WebElement parentTwoGivenName;
+	
+	@FindBy(id = "coo-birth-parent2-familyNameAtBirth")
+	public static WebElement parent2FamilyNameAtBirth;
 	
 	@FindBy(xpath = ".//*/button[contains(text(),'Continue')]")
 	public static WebElement continueButton;

@@ -28,6 +28,7 @@ import modules.FillEregistryCodForm;
 import modules.FillEregistryDrsForm;
 import modules.FillMNForm;
 import modules.FillNOBForm;
+import modules.FillePublicApplicationCoreSearchForm;
 import modules.FilltheApplicationInEpublic;
 import modules.FilltheBRSInEpublic;
 import modules.GoToApplicationForm;
@@ -174,7 +175,7 @@ public class BDMForm {
 						.until(ExpectedConditions.elementToBeClickable(CoreControls.searchTab));
 				CoreControls.searchTab.click();
 				CoreControls.codSearch.click();
-			} else if (tab.equals("Search Application")) {
+			} else if (tab.equals("Search Item Id")) {
 				WebDriverWait waitForTabsMenue = new WebDriverWait(driver, 10000);
 				CoreControls.searchTab = waitForTabsMenue
 						.until(ExpectedConditions.elementToBeClickable(CoreControls.searchTab));
@@ -186,6 +187,12 @@ public class BDMForm {
 						.until(ExpectedConditions.elementToBeClickable(CoreControls.searchTab));
 				CoreControls.searchTab.click();
 				CoreControls.brsSearch.click();
+			} else if (tab.equals("Search Application")) {
+				WebDriverWait waitForTabsMenue = new WebDriverWait(driver, 10000);
+				CoreControls.searchTab = waitForTabsMenue
+						.until(ExpectedConditions.elementToBeClickable(CoreControls.searchTab));
+				CoreControls.searchTab.click();
+				CoreControls.applicationQuickSearch.click();
 			}
 		} else if (site.equals("eRegistry")) {
 			if (tab.equals("DRS")) {
@@ -341,6 +348,8 @@ public class BDMForm {
 		if (site.equals("ePublic")) {
 			if (form.equals("BRS")) {
 				FillBRSCoreSearchForm.Execute(driver);
+			} else if (form.equals("Application")) {
+				FillePublicApplicationCoreSearchForm.Execute(driver);
 			}
 		}
 	}

@@ -62,8 +62,7 @@ public class FillBCApplicationForm {
 		ApplicationPage.placeOfBirthSuburbTownCity.sendKeys("Armidale");
 		ApplicationPage.nextButton.click();
 		Thread.sleep(3000);
-		CoreControls.matchBirthCertificateAndBR();
-		System.out.println("Birth Registration match confirmed");
+//		CoreControls.matchBirthCertificateAndBR();
 		Thread.sleep(3000);
 		ApplicationPage.submitApplication.click();
 		System.out.println("Application Submitted");

@@ -22,7 +22,7 @@ public class EregistryCertificatesPage extends BaseClass {
 	@FindBy(id = "productDetails-productDetails-reasonCertificateIsRequired")
 	public static WebElement reasonCertificateRequired;
 	
-	@FindBy(xpath = ".//*[@id=\"applicantDetails\"]//div/div/cge-text-input[1]/div/div[2]")
+	@FindBy(xpath = "//*[@id=\"applicantDetails\"]/div/div[2]/div/div/cge-text-input[1]/div/div")
 	public static WebElement applicantFamilyName;
 	
 	@FindBy(id = "subjectDetails-dateOfEvent-dateOfDeath")

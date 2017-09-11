@@ -39,5 +39,5 @@ Feature: Create a DRS & COD & Death Certificate in eRegistry.
   Scenario: Search for the Application in Core and validate if it is compliant
     When I open "Core" website
     And I sign in
-    And I navigate to "Search Application" in "Core"
+    And I navigate to "Search Item Id" in "Core"
     Then I search for "Application" form created in "eRegistry"

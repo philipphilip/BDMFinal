@@ -32,6 +32,9 @@ public class CoreControls extends BaseClass {
 	@FindBy(xpath = ".//a[text() = 'ID Search']")
 	public static WebElement idSearch;
 	
+	@FindBy(xpath = ".//a[text() = 'Application Quick Search']")
+	public static WebElement applicationQuickSearch;
+	
 	@FindBy(xpath = ".//a[text() = 'Birth Registration Statement Search']")
 	public static WebElement brsSearch;
 
