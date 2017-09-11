@@ -7,14 +7,11 @@ import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-import helpers.Helper;
 import pageobjects.ApplicationPage;
 import pageobjects.CoreControls;
-import pageobjects.CoreDRSPage;
 
 public class FillBCApplicationForm {
 
-	
 	public static void Execute(WebDriver driver) throws Throwable {
 
 		System.out.println("Beginning to enter data in the Birth Application Form");
@@ -23,7 +20,7 @@ public class FillBCApplicationForm {
 		ApplicationPage.dateReceivedAtRegistry.sendKeys("01/08/2017");
 		ApplicationPage.dateReceivedAtRegistry.sendKeys(Keys.TAB);
 		ApplicationPage.dateReceivedAtRegistry.sendKeys(Keys.TAB);
-		Thread.sleep(1000);	
+		Thread.sleep(1000);
 		ApplicationPage.productCode.sendKeys("BS1");
 		System.out.println("Product 'Birth Standard 1' selected");
 		Thread.sleep(1000);
@@ -37,8 +34,6 @@ public class FillBCApplicationForm {
 		ApplicationPage.nextButton.click();
 		ApplicationPage.applicantFamilyName.sendKeys("Automated" + FillNOBForm.randChildFamilyName);
 		ApplicationPage.applicantGivenName.sendKeys("Automated" + FillNOBForm.randparent1FirstName);
-//		ApplicationPage.applicantFamilyName.sendKeys("AutomatedjEYFWh");
-//		ApplicationPage.applicantGivenName.sendKeys("AutomatedoTyAeS");
 		ApplicationPage.applicantDOBDay.sendKeys("25");
 		ApplicationPage.applicantDOBMonth.sendKeys("12");
 		ApplicationPage.applicantDOBYear.sendKeys("1989");
@@ -48,7 +43,6 @@ public class FillBCApplicationForm {
 		ApplicationPage.applicantPhoneNumber.sendKeys("0456487956");
 		ApplicationPage.nextButton.click();
 		ApplicationPage.deliveryMethod.sendKeys("StandardPOST");
-//		ApplicationPage.deliveryAddressCopyFrom.sendKeys("AutomatedjEYFWh");
 		ApplicationPage.deliveryAddressCopyFrom.sendKeys("Automated" + FillNOBForm.randChildFamilyName);
 		ApplicationPage.nextButton.click();
 		ApplicationPage.matchType.sendKeys("Detailed Criteria");
@@ -57,12 +51,9 @@ public class FillBCApplicationForm {
 		ApplicationPage.dateOfBirthYear.sendKeys("2017");
 		ApplicationPage.birthDetailsFamilyName.sendKeys("Automated" + FillNOBForm.randChildFamilyName);
 		ApplicationPage.birthDetailsGivenName.sendKeys("Automated" + FillNOBForm.randChildFirstName);
-//		ApplicationPage.birthDetailsFamilyName.sendKeys("AutomatedjEYFWh");
-//		ApplicationPage.birthDetailsGivenName.sendKeys("AutomateddMJxUd ");
 		ApplicationPage.placeOfBirthSuburbTownCity.sendKeys("Armidale");
 		ApplicationPage.nextButton.click();
 		Thread.sleep(3000);
-//		CoreControls.matchBirthCertificateAndBR();
 		Thread.sleep(3000);
 		ApplicationPage.submitApplication.click();
 		System.out.println("Application Submitted");
@@ -85,6 +76,6 @@ public class FillBCApplicationForm {
 		System.out.println("Print form has initiated successfully");
 		Thread.sleep(3000);
 		String pageHeader = ApplicationPage.pageHeader.getText();
-		Assert.assertTrue("Printing the certificate failed" , pageHeader.contains("Application"));
+		Assert.assertTrue("Printing the certificate failed", pageHeader.contains("Application"));
 	}
 }

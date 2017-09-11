@@ -10,9 +10,6 @@ import pageobjects.CoreDRSPage;
 
 public class FillDRSForm {
 
-	static String randDeceasedFamilyName = RandomStringUtils.randomAlphabetic(6);
-	static String randDeceasedFirstName = RandomStringUtils.randomAlphabetic(6);
-	static String randparentOneGivenName = RandomStringUtils.randomAlphabetic(6);
 	static String randparentTwoFamilyNameAtBirth = RandomStringUtils.randomAlphabetic(6);
 	static String randparentTwoGivenName = RandomStringUtils.randomAlphabetic(6);
 	static String randaddressLine1 = RandomStringUtils.randomAlphabetic(5);
@@ -22,8 +19,8 @@ public class FillDRSForm {
 		WebDriverWait waitForTabsMenue = new WebDriverWait(driver, 10000);
 		CoreDRSPage.FuneralDirectorTelephone = waitForTabsMenue
 				.until(ExpectedConditions.elementToBeClickable(CoreDRSPage.FuneralDirectorTelephone));
-		CoreDRSPage.deceasedFamilyName.sendKeys("automate" + randDeceasedFamilyName);
-		CoreDRSPage.deceasedFirstName.sendKeys("automate" + randDeceasedFirstName);
+		CoreDRSPage.deceasedFamilyName.sendKeys("automate" + FillCODForm.randDeceasedFamilyName);
+		CoreDRSPage.deceasedFirstName.sendKeys("automate" + FillCODForm.randDeceasedFirstName);
 		CoreDRSPage.Sex.sendKeys("Male");
 		CoreDRSPage.DateOfDeathDay.sendKeys("30");
 		CoreDRSPage.DateOfDeathMoth.sendKeys("07");
@@ -42,11 +39,11 @@ public class FillDRSForm {
 		CoreDRSPage.aboriginalOrTorresStraitIslanderOrigin.sendKeys("Neither Aboriginal or Torres Strait Islander");
 		CoreDRSPage.relationshipStatusAtTimeOfDeath.sendKeys("Not in a Relationship");
 		CoreDRSPage.parentsOfDeceasedType.sendKeys("Father");
-		CoreDRSPage.parentOneFamilyName.sendKeys("automate" + randDeceasedFamilyName);
-		CoreDRSPage.parentOneFamilyNameAtBirth.sendKeys("automate" + randDeceasedFamilyName);
-		CoreDRSPage.parentOneFirstName.sendKeys("automate" + randparentOneGivenName);
+		CoreDRSPage.parentOneFamilyName.sendKeys("automate" + FillCODForm.randDeceasedFamilyName);
+		CoreDRSPage.parentOneFamilyNameAtBirth.sendKeys("automate" + FillCODForm.randDeceasedFamilyName);
+		CoreDRSPage.parentOneFirstName.sendKeys("automate" + FillCODForm.randparentOneGivenName);
 		CoreDRSPage.parentsTwoOfDeceasedType.sendKeys("Mother");
-		CoreDRSPage.parentTwoFamilyName.sendKeys("automate" + randDeceasedFamilyName);
+		CoreDRSPage.parentTwoFamilyName.sendKeys("automate" + FillCODForm.randDeceasedFamilyName);
 		CoreDRSPage.parentTwoFamilyNameAtBirth.sendKeys("automate" + randparentTwoFamilyNameAtBirth);
 		CoreDRSPage.parentTwoFirstName.sendKeys("automate" + randparentTwoGivenName);
 		CoreDRSPage.WasTheDeceasedUnder18.sendKeys("No");

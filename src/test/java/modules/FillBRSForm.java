@@ -99,7 +99,6 @@ public class FillBRSForm {
 		CoreBrsPage.informant2_contactAddress_postcode.sendKeys("3051");
 		CoreBrsPage.informant2_emailAddress.sendKeys("adfd@ss.com");
 		CoreControls.validateForm();
-		// CoreControls.saveForm();
 		CoreControls.overrideExceptionsOnform();
 	}
 }

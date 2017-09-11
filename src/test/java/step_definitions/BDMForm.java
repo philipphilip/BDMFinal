@@ -43,6 +43,7 @@ import modules.SearchAndMakeCodCompliant;
 import modules.SearchAndMakeDrsCompliant;
 import modules.SearchForMNAndMakeMR;
 import modules.SearchforBRCreated;
+import modules.SearchforCreatedDeathCertificate;
 import modules.SignInAction;
 import modules.SignoutAction;
 import pageobjects.AutomationHomePage;
@@ -308,10 +309,12 @@ public class BDMForm {
 			FillBRSForm.Execute(driver);
 		} else if (formName.equals("BR")) {
 			SearchforBRCreated.Execute(driver);
-		} else if (formName.equals("DRS")) {
-			FillDRSForm.Execute(driver);
 		} else if (formName.equals("COD")) {
 			FillCODForm.Execute(driver);
+		} else if (formName.equals("DRS")) {
+			FillDRSForm.Execute(driver);
+		} else if (formName.equals("DR")) {
+			SearchforCreatedDeathCertificate.Execute(driver);
 		} else if (formName.equals("MN")) {
 			FillMNForm.Execute(driver);
 		} else if (formName.equals("MR")) {

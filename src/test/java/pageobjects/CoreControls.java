@@ -14,39 +14,6 @@ public class CoreControls extends BaseClass {
 	@FindBy(xpath = "//*/a[text()='New']")
 	public static WebElement newTab;
 
-	@FindBy(xpath = "//*/a[text()='Search']")
-	public static WebElement searchTab;
-
-	@FindBy(xpath = ".//a[text() = 'Notice of Birth Search']")
-	public static WebElement nobSearch;
-
-	@FindBy(xpath = ".//a[text() = 'Birth Registration Search']")
-	public static WebElement birthRegistrationSearch;
-
-	@FindBy(xpath = ".//a[text() = 'Death Registration Statement Search']")
-	public static WebElement drsSearch;
-
-	@FindBy(xpath = ".//a[text() = 'Cause of Death Search']")
-	public static WebElement codSearch;
-
-	@FindBy(xpath = ".//a[text() = 'ID Search']")
-	public static WebElement idSearch;
-	
-	@FindBy(xpath = ".//a[text() = 'Application Quick Search']")
-	public static WebElement applicationQuickSearch;
-	
-	@FindBy(xpath = ".//a[text() = 'Birth Registration Statement Search']")
-	public static WebElement brsSearch;
-
-	@FindBy(xpath = "//*/a[text()='Marriage Notification Search']")
-	public static WebElement merriageNotificationSearch;
-
-	@FindBy(xpath = "//*/a[text() = 'Marriage Registration Search']")
-	public static WebElement merriageRegistrationSearch;
-
-	@FindBy(xpath = ".//button-panel/div/div/input[@value = 'Search']")
-	public static WebElement searchButton;
-
 	@FindBy(xpath = "//*/a[text()='Birth Registration Statement']")
 	public static WebElement newBRS;
 
@@ -61,6 +28,42 @@ public class CoreControls extends BaseClass {
 
 	@FindBy(xpath = "//*/a[text()='Marriage Notification']")
 	public static WebElement newMR;
+
+	@FindBy(xpath = "//*/a[text()='Search']")
+	public static WebElement searchTab;
+
+	@FindBy(xpath = ".//a[text() = 'ID Search']")
+	public static WebElement idSearch;
+
+	@FindBy(xpath = ".//a[text() = 'Death Registration Statement Search']")
+	public static WebElement drsSearch;
+
+	@FindBy(xpath = ".//a[text() = 'Notice of Birth Search']")
+	public static WebElement nobSearch;
+
+	@FindBy(xpath = ".//a[text() = 'Birth Registration Search']")
+	public static WebElement birthRegistrationSearch;
+
+	@FindBy(xpath = ".//a[text() = 'Cause of Death Search']")
+	public static WebElement codSearch;
+	
+	@FindBy(xpath = ".//a[text() = 'Application Quick Search']")
+	public static WebElement applicationQuickSearch;
+	
+	@FindBy(xpath = ".//*/a[text() = 'Death Registration Search']")
+	public static WebElement deathRegistrationSearch;
+
+	@FindBy(xpath = ".//a[text() = 'Birth Registration Statement Search']")
+	public static WebElement brsSearch;
+
+	@FindBy(xpath = "//*/a[text()='Marriage Notification Search']")
+	public static WebElement merriageNotificationSearch;
+
+	@FindBy(xpath = "//*/a[text() = 'Marriage Registration Search']")
+	public static WebElement merriageRegistrationSearch;
+
+	@FindBy(xpath = ".//button-panel/div/div/input[@value = 'Search']")
+	public static WebElement searchButton;
 
 	@FindBy(id = "actionMenu")
 	public static WebElement actionList;
@@ -158,6 +161,9 @@ public class CoreControls extends BaseClass {
 	@FindBy(xpath = ".//search-results/div/table/tbody/tr[2]/td[1]/div/a")
 	public static WebElement nobSearchResult;
 
+	@FindBy(xpath = ".//*/div[contains (text(),'Additional')]")
+	public static WebElement incaseNoDuplicates;
+
 	public static void saveForm() throws Exception {
 		actionList.sendKeys("Save");
 		Thread.sleep(2000);
@@ -192,6 +198,17 @@ public class CoreControls extends BaseClass {
 		Thread.sleep(2000);
 	}
 
+	public static void proceedDuplicates() {
+		try {
+			Boolean noDuplicates = incaseNoDuplicates.isDisplayed();
+			if (noDuplicates) {
+				System.out.println("There are no duplicates to this form.");
+			}
+		} catch (Exception e) {
+			proceedToReviewButton.click();
+		}
+	}
+
 	public static void overrideExceptionsOnform() throws Exception {
 		Thread.sleep(5000);
 		boolean formHasErrors = errorBaner.getText().contains("are validation errors");
@@ -204,15 +221,15 @@ public class CoreControls extends BaseClass {
 			overrideButton2.click();
 			Thread.sleep(2000);
 			checkForDuplicatesButton.click();
-			Thread.sleep(3000);
-			proceedToReviewButton.click();
+			Thread.sleep(2000);
+			proceedDuplicates();
 			Thread.sleep(2000);
 			submitButton.click();
 			System.out.println("There were validation errors that got overridden");
 		} else {
 			checkForDuplicatesButton.click();
 			Thread.sleep(2000);
-			proceedToReviewButton.click();
+			proceedDuplicates();
 			Thread.sleep(2000);
 			submitButton.click();
 			System.out.println("There are no validation errors");

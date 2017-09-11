@@ -10,14 +10,19 @@ import pageobjects.CoreControls;
 
 public class FillCODForm {
 
+	static String randDeceasedFamilyName = RandomStringUtils.randomAlphabetic(6);
+	static String randDeceasedFirstName = RandomStringUtils.randomAlphabetic(6);
+	static String randparentOneGivenName = RandomStringUtils.randomAlphabetic(6);
+	
+
 	public static void Execute(WebDriver driver) throws Exception {
 		PageFactory.initElements(driver, CoreCodPage.class);
 		WebDriverWait waitForTabsMenue = new WebDriverWait(driver, 10000);
 		CoreCodPage.causeOfDeathType = waitForTabsMenue
 				.until(ExpectedConditions.elementToBeClickable(CoreCodPage.causeOfDeathType));
 		CoreCodPage.causeOfDeathType.sendKeys("MCCD");
-		CoreCodPage.deceasedFamilyName.sendKeys("automate" + FillDRSForm.randDeceasedFamilyName);
-		CoreCodPage.deceasedfirstName.sendKeys("automate" + FillDRSForm.randDeceasedFirstName);
+		CoreCodPage.deceasedFamilyName.sendKeys("automate" + randDeceasedFamilyName);
+		CoreCodPage.deceasedfirstName.sendKeys("automate" + randDeceasedFirstName);
 		CoreCodPage.sex.sendKeys("Male");
 		CoreCodPage.aboriginalOrTorresStraitIslanderOrigin.sendKeys("Decline to Reply");
 		CoreCodPage.howDidYouConfirmTheNameOfTtheDeceased.sendKeys("Medical Records");
@@ -25,8 +30,8 @@ public class FillCODForm {
 		CoreCodPage.deceasedDOBDay.sendKeys("12");
 		CoreCodPage.deceasedDOBMonth.sendKeys("03");
 		CoreCodPage.deceasedDOBYear.sendKeys("1980");
-		CoreCodPage.mothersFamilyName.sendKeys("automate" + FillDRSForm.randDeceasedFamilyName);
-		CoreCodPage.mothersFirstName.sendKeys("automate" + FillDRSForm.randparentOneGivenName);
+		CoreCodPage.mothersFamilyName.sendKeys("automate" + randDeceasedFamilyName);
+		CoreCodPage.mothersFirstName.sendKeys("automate" + randparentOneGivenName);
 		CoreCodPage.mothersDOBDay.sendKeys("02");
 		CoreCodPage.mothersDOBMonth.sendKeys("02");
 		CoreCodPage.mothersDOBYear.sendKeys("1945");
@@ -69,16 +74,11 @@ public class FillCODForm {
 		CoreCodPage.medicalPractitionerEmail.sendKeys("bill@test.com");
 		CoreCodPage.medicalPractitionerAHPRANumber.sendKeys("123456");
 		CoreCodPage.DidYouAcquireOrAnticipateAnyBenefitByReasonOfThisDeath.sendKeys("No");
-		CoreControls.saveForm();
 		Thread.sleep(2000);
 		CoreControls.editForm();
 		CoreControls.validateForm();
 		Thread.sleep(2000);
 		CoreControls.overrideExceptionsOnform();
-		// CoreCodPage.clearCheckListInCODForm();
-		// CoreControls.saveForm();
-		// Thread.sleep(2000);
-		// CoreControls.matchNoticesToCreateRegistration();
 	}
 
 }
