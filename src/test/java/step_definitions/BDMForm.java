@@ -12,6 +12,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 import helpers.Helper;
+import modules.CoreAdminSignInAction;
 import modules.EpublicSignInAction;
 import modules.EregistrySignInAction;
 import modules.FillApplicationCoreSearchForm;
@@ -20,6 +21,7 @@ import modules.FillBRSCoreSearchForm;
 import modules.FillBRSForm;
 import modules.FillCODCoreSearchForm;
 import modules.FillCODForm;
+import modules.FillCreateInternalUserForm;
 import modules.FillDCApplicationForm;
 import modules.FillDRSCoreSearchForm;
 import modules.FillDRSForm;
@@ -97,6 +99,8 @@ public class BDMForm {
 			driver.get("http://10.22.1.15/core/login");
 		} else if (website.equals("Core")) {
 			driver.get("https://web-st.objectconsulting.com.au/core/login");
+		} else if (website.equals("Core Admin UI")) {
+			driver.get("http://web-st.objectconsulting.com.au/admin/login");
 		} else {
 			driver.get("https://web-st.objectconsulting.com.au/eregistry/");
 		}
@@ -150,8 +154,9 @@ public class BDMForm {
 			EpublicSignInAction.Execute(driver, datamap.get(0));
 		} else if (website.equals("eRegistry")) {
 			EregistrySignInAction.Execute(driver, datamap.get(0));
+		} else if (website.equals("Core Admin UI")) {
+			CoreAdminSignInAction.Execute(driver, datamap.get(0));
 		}
-
 	}
 
 	@When("^I navigate to \"(.*?)\" in \"(.*?)\"$")
@@ -187,7 +192,7 @@ public class BDMForm {
 				CoreControls.searchTab = waitForTabsMenue
 						.until(ExpectedConditions.elementToBeClickable(CoreControls.searchTab));
 				CoreControls.searchTab.click();
-				CoreControls.brsSearch.click();
+				CoreControls.birthsQuickSearch.click();
 			} else if (tab.equals("Search Application")) {
 				WebDriverWait waitForTabsMenue = new WebDriverWait(driver, 10000);
 				CoreControls.searchTab = waitForTabsMenue
@@ -207,6 +212,15 @@ public class BDMForm {
 				Helper.clickItem(EregistryControls.newCertificateLink);
 			}
 
+		} else if (site.equals("Core Admin UI")) {
+			if (tab.equals("Create internal user")) {
+//				WebDriverWait waitForTabsMenue = new WebDriverWait(driver, 10000);
+//				CoreControls.userTab = waitForTabsMenue
+//						.until(ExpectedConditions.elementToBeClickable(CoreControls.userTab));
+				Helper.clickItem(CoreControls.userTab);
+				Helper.clickItem(CoreControls.internalUsersLink);
+				Helper.clickItem(CoreControls.createNewCoreUserButton);
+			}
 		}
 	}
 
@@ -227,6 +241,12 @@ public class BDMForm {
 				FillEregistryCodForm.Execute(driver);
 			} else if (form.equals("Certificates")) {
 				FillEregistryCertificatesForm.Execute(driver);
+			}
+		}
+		
+		if (site.equals("Core Admin UI")) {
+			if (form.equals("Create internal user")) {
+				FillCreateInternalUserForm.Execute(driver);
 			}
 		}
 	}

@@ -3,6 +3,8 @@ package modules;
 import helpers.Helper;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
+
+import pageobjects.EpublicBrsPage;
 import pageobjects.EpublicBrsSecondParentParticipationDetailPage;
 import pageobjects.EpublicControls;
 
@@ -17,7 +19,7 @@ public class FillEpublicBrsSecondParentParticipationDetailForm {
 		
 //		Helper.inputItem(EpublicBrsSecondParentParticipationDetailPage.telephone,"99996666");
 		Thread.sleep(3000);
-		EpublicBrsSecondParentParticipationDetailPage.safetyConcernsFromParent2.click();
+		EpublicBrsPage.safetyConcernsFromParent2.click();
 		Helper.clickItem(EpublicControls.nextButton);
 
 	}

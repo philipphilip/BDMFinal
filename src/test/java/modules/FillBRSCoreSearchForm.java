@@ -13,14 +13,14 @@ public class FillBRSCoreSearchForm {
 		
 		PageFactory.initElements(driver, CoreSearchPage.class);
 
-		Helper.inputItem(CoreSearchPage.brsChildFamilyName, "Automated" + FilltheBRSInEpublic.brsFamilyName);
+		Helper.inputItem(CoreSearchPage.subjectFamilyName, "Automated" + FilltheBRSInEpublic.brsFamilyName);
 		Helper.clickItem(CoreSearchPage.searchButton);
 		Helper.clickItem(CoreSearchPage.firstSearchResult);
 		
 		String brsFamilyName;
 		Thread.sleep(3000);
-		brsFamilyName = CoreSearchPage.brsChildFamilyName.getText();
-		Assert.assertTrue("result message not found", brsFamilyName.contains("Automated" + FilltheBRSInEpublic.brsFamilyName));
+		brsFamilyName = CoreSearchPage.notificationStatus.getText();
+		Assert.assertTrue("Status of BRS found in Core is incorrect", brsFamilyName.contains("Pending"));
 		System.out.println("Notification Id " + CoreSearchPage.notificationId.getText() + " found in Core");
 		
 	}

@@ -1,3 +1,4 @@
+@stsmoketests
 Feature: Smoke tests on Development environment for deployment to System Test Environment
 
   Scenario: Request a BRS (Updated Scenario)
