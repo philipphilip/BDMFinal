@@ -124,17 +124,6 @@ public class BDMForm {
 		}
 	}
 
-	@When("^I open Core website$")
-	public void i_open_Core_website() throws Throwable {
-		// driver.get("http://10.22.3.205/core/login");
-		// driver.get("http://10.22.1.200/core/login");
-		driver.get("https://web-st.objectconsulting.com.au/core/login");
-		// driver.get("http://10.22.1.200/core/login");
-		// driver.get("http://52.64.152.134/core/login");
-		// driver.get("http://10.22.1.110/core/login");
-		driver.manage().window().maximize();
-	}
-
 	@When("^I sign in$")
 	public void i_sign_in() throws Throwable {
 		SignInAction.Execute(driver, datamap.get(0));
@@ -151,8 +140,9 @@ public class BDMForm {
 			EpublicSignInAction.Execute(driver, datamap.get(0));
 		} else if (website.equals("eRegistry")) {
 			EregistrySignInAction.Execute(driver, datamap.get(0));
+		} else if (website.equals("Core")) {
+			SignoutAction.Execute(driver);
 		}
-
 	}
 
 	@When("^I navigate to \"(.*?)\" in \"(.*?)\"$")
