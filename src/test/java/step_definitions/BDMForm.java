@@ -28,6 +28,7 @@ import modules.FillDRSForm;
 import modules.FillEregistryCertificatesForm;
 import modules.FillEregistryCodForm;
 import modules.FillEregistryDrsForm;
+import modules.FillMCApplicationForm;
 import modules.FillMNForm;
 import modules.FillNOBForm;
 import modules.FillePublicApplicationCoreSearchForm;
@@ -343,6 +344,8 @@ public class BDMForm {
 			FillDCApplicationForm.Execute(driver);
 		} else if (formName.equals("Birth Application")) {
 			FillBCApplicationForm.Execute(driver);
+		} else if (formName.equals("Marriage Certificate request")) {
+			FillMCApplicationForm.Execute(driver);
 		}
 	}
 
@@ -355,7 +358,7 @@ public class BDMForm {
 			CoreBrsPage.view_BRS_Form_Errors();
 		}
 	}
-	
+
 	@Then("^I search for \"([^\"]*)\" form created in \"([^\"]*)\"$")
 	public void i_search_for_form(String form, String site) throws Throwable {
 

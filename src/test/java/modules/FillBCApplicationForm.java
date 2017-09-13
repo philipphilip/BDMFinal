@@ -31,7 +31,7 @@ public class FillBCApplicationForm {
 		ApplicationPage.productCode.sendKeys("BS1");
 		ApplicationPage.productDetailsTemplate.sendKeys("BR Certificate");
 		System.out.println("Certificate Template 'BR Certificate' selected");
-		ApplicationPage.nextButton.click();
+		CoreControls.nextButton.click();
 		ApplicationPage.applicantFamilyName.sendKeys("Automated" + FillNOBForm.randChildFamilyName);
 		ApplicationPage.applicantGivenName.sendKeys("Automated" + FillNOBForm.randparent1FirstName);
 		ApplicationPage.applicantDOBDay.sendKeys("25");
@@ -41,10 +41,10 @@ public class FillBCApplicationForm {
 		ApplicationPage.applicantAddressSuburb.sendKeys("Melbourne");
 		ApplicationPage.applicantAddressPostcode.sendKeys("3000");
 		ApplicationPage.applicantPhoneNumber.sendKeys("0456487956");
-		ApplicationPage.nextButton.click();
+		CoreControls.nextButton.click();
 		ApplicationPage.deliveryMethod.sendKeys("StandardPOST");
 		ApplicationPage.deliveryAddressCopyFrom.sendKeys("Automated" + FillNOBForm.randChildFamilyName);
-		ApplicationPage.nextButton.click();
+		CoreControls.nextButton.click();
 		ApplicationPage.matchType.sendKeys("Detailed Criteria");
 		ApplicationPage.dateOfBirthDay.sendKeys("01");
 		ApplicationPage.dateOfBirthMonth.sendKeys("08");
@@ -52,8 +52,7 @@ public class FillBCApplicationForm {
 		ApplicationPage.birthDetailsFamilyName.sendKeys("Automated" + FillNOBForm.randChildFamilyName);
 		ApplicationPage.birthDetailsGivenName.sendKeys("Automated" + FillNOBForm.randChildFirstName);
 		ApplicationPage.placeOfBirthSuburbTownCity.sendKeys("Armidale");
-		ApplicationPage.nextButton.click();
-		Thread.sleep(3000);
+		CoreControls.nextButton.click();
 		Thread.sleep(3000);
 		ApplicationPage.submitApplication.click();
 		System.out.println("Application Submitted");

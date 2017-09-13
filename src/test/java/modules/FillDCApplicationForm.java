@@ -7,6 +7,7 @@ import org.openqa.selenium.support.PageFactory;
 import helpers.Helper;
 import org.junit.Assert;
 import pageobjects.ApplicationPage;
+import pageobjects.CoreControls;
 
 public class FillDCApplicationForm {
 
@@ -17,7 +18,7 @@ public class FillDCApplicationForm {
 		ApplicationPage.dateReceivedAtRegistry.sendKeys("01/08/2017");
 		ApplicationPage.dateReceivedAtRegistry.sendKeys(Keys.TAB);
 		ApplicationPage.dateReceivedAtRegistry.sendKeys(Keys.TAB);
-		Thread.sleep(1000);	
+		Thread.sleep(1000);
 		ApplicationPage.productCode.sendKeys("DS1");
 		Thread.sleep(1000);
 		ApplicationPage.reasonCertificateIsRequired.sendKeys("Administration");
@@ -26,7 +27,7 @@ public class FillDCApplicationForm {
 		ApplicationPage.relationshipToSubject.sendKeys("Child");
 		ApplicationPage.productCode.sendKeys("DS1");
 		ApplicationPage.productDetailsTemplate.sendKeys("DR Certificate");
-		ApplicationPage.nextButton.click();
+		CoreControls.nextButton.click();
 		ApplicationPage.applicantFamilyName.sendKeys("Smith");
 		ApplicationPage.applicantGivenName.sendKeys("asdfa");
 		ApplicationPage.applicantDOBDay.sendKeys("14");
@@ -36,10 +37,10 @@ public class FillDCApplicationForm {
 		ApplicationPage.applicantAddressSuburb.sendKeys("Melbourne");
 		ApplicationPage.applicantAddressPostcode.sendKeys("3000");
 		ApplicationPage.applicantPhoneNumber.sendKeys("0456487956");
-		ApplicationPage.nextButton.click();
+		CoreControls.nextButton.click();
 		ApplicationPage.deliveryMethod.sendKeys("StandardPOST");
 		ApplicationPage.deliveryAddressCopyFrom.sendKeys("Smith");
-		ApplicationPage.nextButton.click();
+		CoreControls.nextButton.click();
 		ApplicationPage.matchType.sendKeys("Detailed Criteria");
 		ApplicationPage.dateOfDeathTypeDay.sendKeys("12");
 		ApplicationPage.dateOfDeathTypeMonth.sendKeys("05");
@@ -48,13 +49,13 @@ public class FillDCApplicationForm {
 		ApplicationPage.deathDetailsFamilyNameAtBirth.sendKeys("adsfa");
 		ApplicationPage.deathDetailsGivenNames.sendKeys("asdfas");
 		ApplicationPage.placeOfDeathSuburbTownCity.sendKeys("Melbourne");
-		ApplicationPage.nextButton.click();
+		CoreControls.nextButton.click();
 		Thread.sleep(3000);
 		ApplicationPage.noMatchButton.click();
 		Thread.sleep(3000);
 		ApplicationPage.validateform();
 		Thread.sleep(3000);
-		ApplicationPage.nextButton.click();
+		CoreControls.nextButton.click();
 		Thread.sleep(3000);
 		ApplicationPage.submitApplication.click();
 		Thread.sleep(3000);

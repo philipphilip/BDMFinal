@@ -14,6 +14,14 @@ public class FillMNForm {
 
 	public static String groomsFamilyName = RandomStringUtils.randomAlphabetic(6);
 
+	public static String groomsGivenName = RandomStringUtils.randomAlphabetic(6);
+	public static String groomFatherFirstName = RandomStringUtils.randomAlphabetic(6);
+	public static String groomMotherFirstName = RandomStringUtils.randomAlphabetic(6);
+	public static String brideFamilyName = RandomStringUtils.randomAlphabetic(6);
+	public static String brideFirstName = RandomStringUtils.randomAlphabetic(6);
+	public static String brideFatherFirstName = RandomStringUtils.randomAlphabetic(6);
+	public static String brideMotherFirstName = RandomStringUtils.randomAlphabetic(6);
+
 	public static void Execute(WebDriver driver) throws Exception {
 		PageFactory.initElements(driver, MNPage.class);
 		PageFactory.initElements(driver, CoreControls.class);
@@ -28,7 +36,6 @@ public class FillMNForm {
 		MNPage.placeOfMarriagePostcode.sendKeys("3053");
 		MNPage.marriageRites.sendKeys("TBC");
 		MNPage.groomsNameFamilyName.sendKeys("automatic" + groomsFamilyName);
-		String groomsGivenName = RandomStringUtils.randomAlphabetic(6);
 		MNPage.groomsNameFirstGivenName.sendKeys("automatic" + groomsGivenName);
 		MNPage.groomsGender.sendKeys("Male");
 		MNPage.groomsOccupation.sendKeys("accountant");
@@ -41,15 +48,11 @@ public class FillMNForm {
 		MNPage.groomDOBMonth.sendKeys("05");
 		MNPage.groomDOBYear.sendKeys("1980");
 		MNPage.groomsFathersDetailsFamilyName.sendKeys("automatic" + groomsFamilyName);
-		String groomFatherFirstName = RandomStringUtils.randomAlphabetic(6);
 		MNPage.groomsFathersDetailsFirstGivenName.sendKeys("automatic" + groomFatherFirstName);
 		MNPage.groomsMothersDetailsFamilyName.sendKeys("automatic" + groomsFamilyName);
 		MNPage.groomsMothersDetailsFamilyNameAtBirth.sendKeys("sjsncjdsks");
-		String groomMotherFirstName = RandomStringUtils.randomAlphabetic(6);
 		MNPage.groomsMothersDetailsFirstGivenName.sendKeys("automatic" + groomMotherFirstName);
-		String brideFamilyName = RandomStringUtils.randomAlphabetic(6);
 		MNPage.bridesNameFamilyName.sendKeys("automatic" + brideFamilyName);
-		String brideFirstName = RandomStringUtils.randomAlphabetic(6);
 		MNPage.bridesNameFirstGivenName.sendKeys("automatic" + brideFirstName);
 		MNPage.bridesGender.sendKeys("Female");
 		MNPage.bridesOccupation.sendKeys("accouintant");
@@ -62,11 +65,9 @@ public class FillMNForm {
 		MNPage.bridesDOBMonth.sendKeys("05");
 		MNPage.bridesDOBYear.sendKeys("1983");
 		MNPage.bridesFathersDetailsFamilyName.sendKeys("automatic" + brideFamilyName);
-		String brideFatherFirstName = RandomStringUtils.randomAlphabetic(6);
 		MNPage.bridesFathersDetailsFirstGivenName.sendKeys("automatic" + brideFatherFirstName);
 		MNPage.bridesMothersDetailsFamilyName.sendKeys("automatic" + brideFamilyName);
 		MNPage.bridesMothersDetailsFamilyNameAtBirth.sendKeys("jlasdfakj");
-		String brideMotherFirstName = RandomStringUtils.randomAlphabetic(6);
 		MNPage.bridesMothersDetailsFirstGivenName.sendKeys("automatic" + brideMotherFirstName);
 		MNPage.groomsPeriodOfResidencyInAustraliaYears.sendKeys("15");
 		MNPage.groomsPeriodOfResidencyInAustraliaMonths.sendKeys("00");
