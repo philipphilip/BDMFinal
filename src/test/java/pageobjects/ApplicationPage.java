@@ -31,9 +31,6 @@ public class ApplicationPage extends BaseClass {
 	@FindBy(id = "productDetails-productDetails-submittedWithNotification")
 	public static WebElement submittedWithNotification;
 
-	@FindBy(xpath = ".//*/input[@value='Next']")
-	public static WebElement nextButton;
-
 	@FindBy(id = "applicantDetails-applicantDetails-familyName")
 	public static WebElement applicantFamilyName;
 
@@ -70,7 +67,7 @@ public class ApplicationPage extends BaseClass {
 	@FindBy(id = "orderDeliveryDetails-deliveryAddress-familyName")
 	public static WebElement deliveryAddressFamilyName;
 
-	@FindBy(id = "aorderDeliveryDetails-address-line1")
+	@FindBy(id = "orderDeliveryDetails-address-line1")
 	public static WebElement orderDeliveryAddressLine1;
 
 	@FindBy(id = "orderDeliveryDetails-address-suburb")
@@ -88,10 +85,50 @@ public class ApplicationPage extends BaseClass {
 	@FindBy(id = "subjectDetails-dateOfEvent-dateOfDeath-type-day")
 	public static WebElement dateOfDeathTypeDay;
 
+	@FindBy(id = "subjectDetails-dateOfEvent-dateOfMarriage-on-day")
+	public static WebElement dateOfMarriageTypeDay;
+
 	@FindBy(id = "subjectDetails-dateOfEvent-dateOfDeath-type-month")
 	public static WebElement dateOfDeathTypeMonth;
+
+	@FindBy(id = "subjectDetails-dateOfEvent-dateOfMarriage-on-month")
+	public static WebElement dateOfMarriageTypeMonth;
+
 	@FindBy(id = "subjectDetails-dateOfEvent-dateOfDeath-type-year")
 	public static WebElement dateOfDeathTypeYear;
+
+	@FindBy(id = "subjectDetails-dateOfEvent-dateOfMarriage-on-year")
+	public static WebElement dateOfMarriageTypeYear;
+
+	@FindBy(id = "subjectDetails-marriageGroomDetails-familyName")
+	public static WebElement groomFamilyName;
+
+	@FindBy(id = "subjectDetails-marriageGroomDetails-givenNames")
+	public static WebElement groomGivenName;
+
+	@FindBy(id = "subjectDetails-marriageGroomDetails-dateOfBirth-on-day")
+	public static WebElement groomDOBDay;
+
+	@FindBy(id = "subjectDetails-marriageGroomDetails-dateOfBirth-on-month")
+	public static WebElement groomDOBMonth;
+
+	@FindBy(id = "subjectDetails-marriageGroomDetails-dateOfBirth-on-year")
+	public static WebElement groomDOBYear;
+
+	@FindBy(id = "subjectDetails-marriageBrideDetails-familyName")
+	public static WebElement brideFamilyName;
+
+	@FindBy(id = "subjectDetails-marriageBrideDetails-givenNames")
+	public static WebElement brideGivenName;
+
+	@FindBy(id = "subjectDetails-marriageBrideDetails-dateOfBirth-on-day")
+	public static WebElement brideDOBDay;
+
+	@FindBy(id = "subjectDetails-marriageBrideDetails-dateOfBirth-on-month")
+	public static WebElement brideDOBMonth;
+
+	@FindBy(id = "subjectDetails-marriageBrideDetails-dateOfBirth-on-year")
+	public static WebElement brideDOBYear;
 
 	@FindBy(id = "subjectDetails-subjectDeathDetails-familyName")
 	public static WebElement deathDetailsFamilyName;
@@ -114,6 +151,9 @@ public class ApplicationPage extends BaseClass {
 	@FindBy(xpath = ".//*/div[@class='alert-full']/alert/div")
 	public static WebElement successMessage;
 
+	@FindBy(xpath = ".//div[contains(text(), 'You may now proceed.')]")
+	public static WebElement applicationMatchedMessage;
+
 	@FindBy(xpath = ".//*[@id='error-message']/div/div[text()='There are validation errors in your application.']")
 	public static WebElement errorBaner;
 
@@ -131,44 +171,43 @@ public class ApplicationPage extends BaseClass {
 
 	@FindBy(xpath = ".//*/override-popup/base-popup/div/div/div/div[3]/div/button[text()='Override']")
 	public static WebElement overrideButton2;
-	
+
 	@FindBy(id = "subjectDetails-dateOfEvent-dateOfBirth-on-day")
 	public static WebElement dateOfBirthDay;
-	
+
 	@FindBy(id = "subjectDetails-dateOfEvent-dateOfBirth-on-month")
 	public static WebElement dateOfBirthMonth;
-	
+
 	@FindBy(id = "subjectDetails-dateOfEvent-dateOfBirth-on-year")
 	public static WebElement dateOfBirthYear;
-	
+
 	@FindBy(id = "subjectDetails-subjectBirthDetails-familyName")
 	public static WebElement birthDetailsFamilyName;
-	
+
 	@FindBy(id = "subjectDetails-subjectBirthDetails-givenNames")
 	public static WebElement birthDetailsGivenName;
-	
+
 	@FindBy(id = "subjectDetails-subjectBirthDetails-placeOfBirthSuburbTownCity")
 	public static WebElement placeOfBirthSuburbTownCity;
-	
+
 	@FindBy(xpath = ".//input[@value='Create Transaction']")
 	public static WebElement createTransactionButton;
-	
+
 	@FindBy(id = "Paid - TODO REMOVE ME")
 	public static WebElement paidCheckbox;
-	
+
 	@FindBy(xpath = ".//input[@value='Save']")
 	public static WebElement saveTransactionButton;
-	
+
 	@FindBy(xpath = ".//input[@value='Generate Certificate']")
 	public static WebElement generateCertificateButton;
-	
+
 	@FindBy(xpath = ".//input[@value='Print']")
 	public static WebElement printCertificateButton;
-	
+
 	@FindBy(xpath = ".//action-panel//h3[contains(text(), 'Application')]")
 	public static WebElement pageHeader;
-	
-	
+
 	public static void validateform() throws Exception {
 		Thread.sleep(3000);
 		boolean formHasErrors = errorBaner.getText().equals("There are validation errors in your application.");

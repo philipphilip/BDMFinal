@@ -45,16 +45,22 @@ Feature: All Core site testings.
     And I sign in
     Then I fill in the "DR" form
 
-  Scenario: Navigate to Merriage page and fill the form
+  Scenario: Navigate to Marriage page and fill the form
     When I open Core website
     And I sign in
     And I navigate to "MN" new form
     Then I fill in the "MN" form
 
-  Scenario: Create a Merriage Registratio
+  Scenario: Create a Marriage Registratio
     When I open Core website
     And I login "Core" as user "admin2" password "Friday17"
     Then I fill in the "MR" form
+
+  Scenario: Request a Marriage Certificate
+    When I open Core website
+    And I login "Core" as user "admin" password "Friday17"
+    And I navigate to "Application" new form
+    Then I fill in the "Marriage Certificate request" form
 
   Scenario: Request a Death certificate
     When I open Core website

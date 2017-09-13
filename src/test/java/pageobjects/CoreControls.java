@@ -125,6 +125,12 @@ public class CoreControls extends BaseClass {
 	@FindBy(xpath = ".//input[@value = 'Match with selected']")
 	public static WebElement matchButtonApplication;
 
+	@FindBy(xpath = ".//*/input[@value='Next']")
+	public static WebElement nextButton;
+
+	@FindBy(xpath = ".//input[@value = 'Submit Application']")
+	public static WebElement submitApplicationButton;
+
 	@FindBy(xpath = "//*[@id='error-message']/div/div")
 	public static WebElement registrationCreatedMessage;
 
