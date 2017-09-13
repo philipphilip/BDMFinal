@@ -120,7 +120,7 @@ public class FillEregistryCertificatesForm {
 		Helper.clickItem(EregistryControls.payNowButton);
 		
 		String paymentSuccessfulMessage;
-		Thread.sleep(3000);
+		Thread.sleep(5000);
 		paymentSuccessfulMessage = EregistryCertificatesPage.paymentSuccessMessage.getText();
 		Assert.assertTrue("Error during payment of death certificate", paymentSuccessfulMessage.contains("Payment Successful"));
 		

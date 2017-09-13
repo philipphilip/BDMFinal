@@ -10,9 +10,15 @@ public class EpublicApplicationApplicantDetailPage extends BaseClass {
 		super(driver);
 	}
 
+	@FindBy(id = "coo-applicantDetails-familyName")
+	public static WebElement applicantFamilyName;
+	
 	@FindBy(id = "coo-applicantDetails-firstGivenName")
 	public static WebElement applicantGivenName;
 
+	@FindBy(id = "coo-applicantDetails-dateOfBirth")
+	public static WebElement applicantDateOfBirth;
+	
 	@FindBy(id = "coo-applicantDetails-residentialAddress-line1")
 	public static WebElement streetNo;
 

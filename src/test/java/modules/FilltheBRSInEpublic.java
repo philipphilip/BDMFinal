@@ -53,8 +53,7 @@ public class FilltheBRSInEpublic {
 		EpublicBrsParentDetailPage.birthday.sendKeys(Keys.TAB);
 		Helper.inputItem(EpublicBrsParentDetailPage.suburb, "ringwood");
 		Helper.inputItem(EpublicBrsParentDetailPage.state, "VIC");
-		Helper.selectDropDownList(EpublicBrsParentDetailPage.aboriginal,
-				"Neither Aboriginal or Torres Strait Islander");
+		Helper.selectDropDownList(EpublicBrsParentDetailPage.aboriginal, "No");
 		Helper.selectDropDownList(EpublicBrsParentDetailPage.occupation, "accountant");
 		Helper.clickItem(EpublicControls.nextButton);
 

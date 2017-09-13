@@ -6,7 +6,7 @@ Feature: ePublic brs
     And I navigate to "BRS" in "ePublic"
     Then I can fill and submit the "BRS" form in "ePublic"
 
-  Scenario: Search for the COD in Core
+  Scenario: Search for the BRS in Core
     When I open "Core" website
     And I sign in
     And I navigate to "Search BRS" in "Core"

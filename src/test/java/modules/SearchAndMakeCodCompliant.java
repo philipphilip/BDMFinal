@@ -36,8 +36,6 @@ public class SearchAndMakeCodCompliant {
 			Helper.clickItem(CoreControls.validateButton);
 			CoreControls.overrideExceptionsOnform();
 			Thread.sleep(3000);
-			Helper.clickItem(CoreControls.checkDuplicatesButton);
-			Helper.clickItem(CoreControls.submitButton);
 		}
 	}
 

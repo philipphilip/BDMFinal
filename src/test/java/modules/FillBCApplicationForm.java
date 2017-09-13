@@ -7,10 +7,8 @@ import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-import helpers.Helper;
 import pageobjects.ApplicationPage;
 import pageobjects.CoreControls;
-import pageobjects.CoreDRSPage;
 
 public class FillBCApplicationForm {
 
