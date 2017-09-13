@@ -1,6 +1,7 @@
 package modules;
 
 import helpers.Helper;
+
 import org.openqa.selenium.WebDriver;
 import pageobjects.EpublicLoginPage;
 
@@ -13,5 +14,11 @@ public class EpublicSignInAction {
 		Helper.inputItem(EpublicLoginPage.username,"a1");
 		Helper.inputItem(EpublicLoginPage.password,"password");
 		Helper.clickItem(EpublicLoginPage.signin_button);
+		
+//		Thread.sleep(3000);
+//		ExpectedCondition<Boolean> systemBroadcast = ExpectedConditions.invisibilityOf(EpublicControls.broadcastMessage);
+//		if (systemBroadcast != null) {
+//			Helper.clickItem(EpublicControls.broadcastOkButton);
+//		}
 	}
 }

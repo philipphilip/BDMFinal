@@ -6,6 +6,7 @@ import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
 import pageobjects.EpublicBrsChildDetailPage;
+import pageobjects.EpublicBrsPage;
 import pageobjects.EpublicBrsParentDetailPage;
 import pageobjects.EpublicBrsRelationshipDetailPage;
 import pageobjects.EpublicBrsSecondParentDetailPage;
@@ -19,22 +20,22 @@ public class FillEpublicBrsChildDetailForm {
 
 		PageFactory.initElements(driver, EpublicBrsChildDetailPage.class);
 
-		Helper.inputItem(EpublicBrsChildDetailPage.familyName, "smith");
-		Helper.inputItem(EpublicBrsChildDetailPage.firstName, "mary");
-		Helper.inputItem(EpublicBrsChildDetailPage.dateOfBirth, "05/07/2017");
-		EpublicBrsChildDetailPage.dateOfBirth.sendKeys(Keys.TAB);
-		Helper.inputItem(EpublicBrsChildDetailPage.sex, "Female");
+		Helper.inputItem(EpublicBrsPage.childFamilyName, "smith");
+		Helper.inputItem(EpublicBrsPage.childFirstName, "mary");
+		Helper.inputItem(EpublicBrsPage.dateOfBirth, "05/07/2017");
+		EpublicBrsPage.dateOfBirth.sendKeys(Keys.TAB);
+		Helper.inputItem(EpublicBrsPage.sex, "Female");
 		// EpublicBrsChildDetailPage.multipleBirthNO.click();
 		// EpublicBrsChildDetailPage.bornAliveYes.click();
 		// EpublicBrsChildDetailPage.hospitalYes.click();
 		System.out.println("before click hospital");
-		EpublicBrsChildDetailPage.hospital.click();
+		EpublicBrsPage.hospital.click();
 		System.out.println("after click hospital, before wait");
 		System.out.println("after wait, before click hospital list");
-		EpublicBrsChildDetailPage.hospitallist.click();
+		EpublicBrsPage.hospitallist.click();
 		System.out.println("after click hospital list");
-		EpublicBrsChildDetailPage.hospitalSuburb.click();
-		EpublicBrsChildDetailPage.hospitalSuburblist.click();
+		EpublicBrsPage.hospitalSuburb.click();
+		EpublicBrsPage.hospitalSuburblist.click();
 		Helper.clickItem(EpublicControls.nextButton);
 
 	}

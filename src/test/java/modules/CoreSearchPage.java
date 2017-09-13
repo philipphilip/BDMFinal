@@ -47,5 +47,7 @@ public class CoreSearchPage extends BaseClass {
 	
 	@FindBy(id = "appdetails-applicant-familyName")
 	public static WebElement applicantFamilyName;
-
+	
+	@FindBy(id = "subject-familyName")
+	public static WebElement subjectFamilyName;
 }

@@ -5,6 +5,7 @@ import helpers.Helper;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
 import pageobjects.EpublicApplicationApplicantDetailPage;
+import pageobjects.EpublicApplicationPage;
 import pageobjects.EregistryDrsPage;
 
 
@@ -14,12 +15,12 @@ public class FillEpublicApplicationApplicantDetailForm {
 
 		PageFactory.initElements(driver, EpublicApplicationApplicantDetailPage.class);
 		
-		Helper.inputItem(EpublicApplicationApplicantDetailPage.applicantGivenName,"Tom");
-		Helper.inputItem(EpublicApplicationApplicantDetailPage.streetNo,"22 station st");
-		Helper.inputItem(EpublicApplicationApplicantDetailPage.suburb,"ringwood");
-		Helper.inputItem(EpublicApplicationApplicantDetailPage.state,"VIC");
-		Helper.inputItem(EpublicApplicationApplicantDetailPage.postcode,"3333");
-		Helper.inputItem(EpublicApplicationApplicantDetailPage.telephoneNo,"99995555");
+		Helper.inputItem(EpublicApplicationPage.applicantGivenName,"Tom");
+		Helper.inputItem(EpublicApplicationPage.streetNo,"22 station st");
+		Helper.inputItem(EpublicApplicationPage.suburb,"ringwood");
+		Helper.inputItem(EpublicApplicationPage.state,"VIC");
+		Helper.inputItem(EpublicApplicationPage.postcode,"3333");
+		Helper.inputItem(EpublicApplicationPage.telephoneNo,"99995555");
 
 	}
 

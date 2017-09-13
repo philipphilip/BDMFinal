@@ -3,6 +3,8 @@ package modules;
 import helpers.Helper;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
+
+import pageobjects.EpublicBrsPage;
 import pageobjects.EpublicBrsSecondParentDetailPage;
 import pageobjects.EpublicControls;
 
@@ -13,8 +15,8 @@ public class FillEpublicBrsSecondParentDetailForm {
 
 		PageFactory.initElements(driver, EpublicBrsSecondParentDetailPage.class);
 		//Thread.sleep(3000);
-		Helper.inputItem(EpublicBrsSecondParentDetailPage.familyName,"Smith");
-		Helper.inputItem(EpublicBrsSecondParentDetailPage.givenName,"Tom");
+		Helper.inputItem(EpublicBrsPage.parent2FamilyName,"Smith");
+		Helper.inputItem(EpublicBrsPage.parent2GivenName,"Tom");
 		//Thread.sleep(1000);
 		Helper.clickItem(EpublicControls.nextButton);
 

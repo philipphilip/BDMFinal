@@ -5,6 +5,7 @@ import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
 import pageobjects.EpublicBrsInformant1DetailPage;
+import pageobjects.EpublicBrsPage;
 import pageobjects.EpublicControls;
 
 
@@ -14,21 +15,21 @@ public class FillEpublicBrsInformant1DetailForm {
 
 		PageFactory.initElements(driver, EpublicBrsInformant1DetailPage.class);
 		//Thread.sleep(3000);
-		Helper.inputItem(EpublicBrsInformant1DetailPage.relationship,"Parent");
+		Helper.inputItem(EpublicBrsPage.informantRelationship,"Parent");
 		//Thread.sleep(1000);
 
-		Helper.inputItem(EpublicBrsInformant1DetailPage.familyName,"Smith");
-		Helper.inputItem(EpublicBrsInformant1DetailPage.givenName,"Tom");
-		Helper.inputItem(EpublicBrsInformant1DetailPage.dateOfBirth,"02/02/1980");
-		EpublicBrsInformant1DetailPage.dateOfBirth.sendKeys(Keys.TAB);
+		Helper.inputItem(EpublicBrsPage.informantFamilyName,"Smith");
+		Helper.inputItem(EpublicBrsPage.informantGivenName,"Tom");
+		Helper.inputItem(EpublicBrsPage.informantDateOfBirth,"02/02/1980");
+		EpublicBrsPage.informantDateOfBirth.sendKeys(Keys.TAB);
 		Thread.sleep(1000);
-		Helper.inputItem(EpublicBrsInformant1DetailPage.street,"22 station rd");
-		Helper.inputItem(EpublicBrsInformant1DetailPage.suburb,"ringwood");
-		Helper.inputItem(EpublicBrsInformant1DetailPage.postcode,"3333");
+		Helper.inputItem(EpublicBrsPage.informantAddressLine1,"22 station rd");
+		Helper.inputItem(EpublicBrsPage.informantAddressSuburb,"ringwood");
+		Helper.inputItem(EpublicBrsPage.informantAddressPostcode,"3333");
 
-		Helper.clickItem(EpublicBrsInformant1DetailPage.SameAsResidentialAddress);
+		Helper.clickItem(EpublicBrsPage.SameAsResidentialAddress);
 
-		Helper.inputItem(EpublicBrsInformant1DetailPage.email,"my@email.com");
+		Helper.inputItem(EpublicBrsPage.informantContactEmail,"my@email.com");
 
 		//Thread.sleep(1000);
 		Helper.clickItem(EpublicControls.nextButton);

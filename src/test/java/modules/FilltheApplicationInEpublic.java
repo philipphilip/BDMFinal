@@ -5,19 +5,14 @@ import org.junit.Assert;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
-import helpers.DataHelper;
 import helpers.Helper;
-import pageobjects.EpublicApplicationApplicantDetailPage;
-import pageobjects.EpublicApplicationSubjectDetailPage;
-import pageobjects.EpublicBrsChildDetailPage;
-import pageobjects.EpublicBrsInformant1DetailPage;
-import pageobjects.EpublicBrsParentDetailPage;
-import pageobjects.EpublicBrsRelationshipDetailPage;
-import pageobjects.EpublicBrsSecondParentDetailPage;
-import pageobjects.EpublicBrsSecondParentParticipationDetailPage;
+import pageobjects.EpublicApplicationPage;
+import pageobjects.EpublicBrsPage;
 import pageobjects.EpublicControls;
-import step_definitions.BDMForm;
+
 
 public class FilltheApplicationInEpublic {
 
@@ -27,49 +22,57 @@ public class FilltheApplicationInEpublic {
 	static String parentGivenName = RandomStringUtils.randomAlphabetic(6);
 		
 	public static void Execute(WebDriver driver) throws Throwable {
-		PageFactory.initElements(driver, EpublicApplicationApplicantDetailPage.class);
-		PageFactory.initElements(driver, EpublicApplicationSubjectDetailPage.class);
-
-		Helper.inputItem(EpublicApplicationApplicantDetailPage.applicantFamilyName, "Automated" + familyName);
-		Helper.inputItem(EpublicApplicationApplicantDetailPage.applicantGivenName,"Automated" + applicantGivenName);
-		Helper.inputItem(EpublicApplicationApplicantDetailPage.applicantDateOfBirth, "01/01/1990", 0, false);
-		EpublicApplicationApplicantDetailPage.applicantDateOfBirth.sendKeys(Keys.TAB);
-		Helper.inputItem(EpublicApplicationApplicantDetailPage.streetNo,"22 station st");
-		Helper.inputItem(EpublicApplicationApplicantDetailPage.suburb,"ringwood");
-		Helper.inputItem(EpublicApplicationApplicantDetailPage.state,"VIC");
-		Helper.inputItem(EpublicApplicationApplicantDetailPage.postcode,"3333");
-		Helper.inputItem(EpublicApplicationApplicantDetailPage.telephoneNo,"99995555");
-		Helper.clickItem(EpublicApplicationApplicantDetailPage.nextButton);
+		PageFactory.initElements(driver, EpublicApplicationPage.class);
 		
-		Helper.inputItem(EpublicApplicationSubjectDetailPage.typeOfCertificate,"Birth");
-
-		Helper.inputItem(EpublicApplicationSubjectDetailPage.birthType,"On", 1, false);
-
-
-		Helper.inputItem(EpublicApplicationSubjectDetailPage.placezOfBirth,"ringwood");
-		Helper.inputItem(EpublicApplicationSubjectDetailPage.relationship,"Parent");
-		Helper.inputItem(EpublicApplicationSubjectDetailPage.reason,"Administration");
-		Helper.inputItem(EpublicApplicationSubjectDetailPage.childFamilyName, "Automated" + familyName);
-		Helper.inputItem(EpublicApplicationSubjectDetailPage.childGivenName,"Automated" + childGivenName);
-		Helper.inputItem(EpublicApplicationSubjectDetailPage.parentOneType,"Mother");
-		Helper.inputItem(EpublicApplicationSubjectDetailPage.parent1FamilyName, "Automated" + familyName);
-		Helper.inputItem(EpublicApplicationSubjectDetailPage.parentOneGivenName,"Automated" + applicantGivenName);
-		Helper.inputItem(EpublicApplicationSubjectDetailPage.parent1FamilyNametAtBirth,"Automated" + familyName);
-		Helper.inputItem(EpublicApplicationSubjectDetailPage.parentTwoType,"Father");
-		Helper.inputItem(EpublicApplicationSubjectDetailPage.parent2FamilyName, "Automated" + familyName);
-		Helper.inputItem(EpublicApplicationSubjectDetailPage.parentTwoGivenName,"Automated" + parentGivenName);
-		Helper.inputItem(EpublicApplicationSubjectDetailPage.parent2FamilyNameAtBirth, "Automated" + familyName);
-
+		WebDriverWait waitForApplicantFamilyName = new WebDriverWait(driver, 10000);
+		EpublicApplicationPage.applicantFamilyName = waitForApplicantFamilyName
+				.until(ExpectedConditions.elementToBeClickable(EpublicApplicationPage.applicantFamilyName));
+		
+		Helper.inputItem(EpublicApplicationPage.applicantFamilyName, "Automated" + familyName);
+		Helper.inputItem(EpublicApplicationPage.applicantGivenName,"Automated" + applicantGivenName);
+		Helper.inputItem(EpublicApplicationPage.applicantDateOfBirth, "01/01/1990", 0, false);
+		EpublicApplicationPage.applicantDateOfBirth.sendKeys(Keys.TAB);
+		Helper.inputItem(EpublicApplicationPage.streetNo,"22 station st");
+		Helper.inputItem(EpublicApplicationPage.suburb,"ringwood");
+		Helper.inputItem(EpublicApplicationPage.state,"VIC");
+		Helper.inputItem(EpublicApplicationPage.postcode,"3333");
+		Helper.inputItem(EpublicApplicationPage.telephoneNo,"99995555");
+		Helper.clickItem(EpublicApplicationPage.nextButton);
+		
+		WebDriverWait waitForTypeOfCertificate = new WebDriverWait(driver, 10000);
+		EpublicApplicationPage.typeOfCertificate = waitForTypeOfCertificate
+				.until(ExpectedConditions.elementToBeClickable(EpublicApplicationPage.typeOfCertificate));
+		
+		Helper.inputItem(EpublicApplicationPage.typeOfCertificate,"Birth");
+		
+		WebDriverWait waitForBirthType = new WebDriverWait(driver, 10000);
+		EpublicApplicationPage.birthType = waitForBirthType
+				.until(ExpectedConditions.elementToBeClickable(EpublicApplicationPage.birthType));
+		
+		Helper.inputItem(EpublicApplicationPage.birthType,"On", 1, false);
+		Helper.inputItem(EpublicApplicationPage.placezOfBirth,"ringwood");
+		Helper.inputItem(EpublicApplicationPage.relationship,"Parent");
+		Helper.inputItem(EpublicApplicationPage.reason,"Administration");
+		Helper.inputItem(EpublicApplicationPage.childFamilyName, "Automated" + familyName);
+		Helper.inputItem(EpublicApplicationPage.childGivenName,"Automated" + childGivenName);
+		Helper.inputItem(EpublicApplicationPage.parentOneType,"Mother");
+		Helper.inputItem(EpublicApplicationPage.parent1FamilyName, "Automated" + familyName);
+		Helper.inputItem(EpublicApplicationPage.parentOneGivenName,"Automated" + applicantGivenName);
+		Helper.inputItem(EpublicApplicationPage.parent1FamilyNametAtBirth,"Automated" + familyName);
+		Helper.inputItem(EpublicApplicationPage.parentTwoType,"Father");
+		Helper.inputItem(EpublicApplicationPage.parent2FamilyName, "Automated" + familyName);
+		Helper.inputItem(EpublicApplicationPage.parentTwoGivenName,"Automated" + parentGivenName);
+		Helper.inputItem(EpublicApplicationPage.parent2FamilyNameAtBirth, "Automated" + familyName);
 		// input DOB at last, otherwise value will be removed
-		Helper.inputItem(EpublicApplicationSubjectDetailPage.dayOfBirth,"20/07/2017", 0, false);
-		EpublicApplicationSubjectDetailPage.dayOfBirth.sendKeys(Keys.TAB);
-		Helper.clickItem(EpublicApplicationSubjectDetailPage.continueButton);
-		Helper.clickItem(EpublicApplicationSubjectDetailPage.proceedButton);
-		Helper.inputItem(EpublicApplicationSubjectDetailPage.certificateQuantity,"1");
-		Helper.clickItem(EpublicApplicationSubjectDetailPage.proceedButton);
-		Helper.clickItem(EpublicApplicationSubjectDetailPage.checkoutButton);
-		Helper.clickItem(EpublicApplicationSubjectDetailPage.acceptTermsCheckbox);
-		Helper.clickItem(EpublicApplicationSubjectDetailPage.payInPersonButton);
+		Helper.inputItem(EpublicApplicationPage.dayOfBirth,"20/07/2017", 0, false);
+		EpublicApplicationPage.dayOfBirth.sendKeys(Keys.TAB);
+		Helper.clickItem(EpublicApplicationPage.continueButton);
+		Helper.clickItem(EpublicApplicationPage.proceedButton);
+		Helper.inputItem(EpublicApplicationPage.certificateQuantity,"1");
+		Helper.clickItem(EpublicApplicationPage.proceedButton);
+		Helper.clickItem(EpublicApplicationPage.checkoutButton);
+		Helper.clickItem(EpublicApplicationPage.acceptTermsCheckbox);
+		Helper.clickItem(EpublicApplicationPage.payInPersonButton);
 		String confirmationNumber;
 		Thread.sleep(7000);
 		confirmationNumber = EpublicControls.bdmOrderNo.getText();

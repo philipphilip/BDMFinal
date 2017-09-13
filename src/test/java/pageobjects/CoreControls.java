@@ -55,6 +55,9 @@ public class CoreControls extends BaseClass {
 
 	@FindBy(xpath = ".//a[text() = 'Birth Registration Statement Search']")
 	public static WebElement brsSearch;
+	
+	@FindBy(xpath = ".//a[text() = 'Births Quick Search']")
+	public static WebElement birthsQuickSearch;
 
 	@FindBy(xpath = "//*/a[text()='Marriage Notification Search']")
 	public static WebElement merriageNotificationSearch;
@@ -169,6 +172,15 @@ public class CoreControls extends BaseClass {
 
 	@FindBy(xpath = ".//*/div[contains (text(),'Additional')]")
 	public static WebElement incaseNoDuplicates;
+	
+	@FindBy(xpath = ".//*/a[text() = 'User ']")
+	public static WebElement userTab;
+	
+	@FindBy(xpath = ".//*/a[text() = 'Internal users']")
+	public static WebElement internalUsersLink;
+	
+	@FindBy(xpath = ".//*/button[text() = 'Create New Core User']")
+	public static WebElement createNewCoreUserButton;
 
 	public static void saveForm() throws Exception {
 		actionList.sendKeys("Save");
