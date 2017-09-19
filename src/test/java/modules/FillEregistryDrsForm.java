@@ -34,7 +34,7 @@ public class FillEregistryDrsForm {
 		Helper.inputItem(EregistryDrsPage.residenceLine1,"22 station st");
 		Helper.inputItem(EregistryDrsPage.residenceSuburb,"ringwood");
 		Helper.inputItem(EregistryDrsPage.residencePostcode,"3333");
-		Helper.inputItem(EregistryDrsPage.occupation,"accountant");
+		Helper.inputItem(EregistryDrsPage.occupation,"Bank Officer");
 		Helper.inputItem(EregistryDrsPage.aboriginal,"Neither Aboriginal or Torres Strait Islander");
 		Helper.inputItem(EregistryDrsPage.relationship,"Married");
 		Helper.inputItem(EregistryDrsPage.relationshipSuburb,"ringwood");

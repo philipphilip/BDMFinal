@@ -19,7 +19,7 @@ public class FillSNCoreSearchForm {
 
 		String formerFamilyName;
 		Thread.sleep(3000);
-		formerFamilyName = CoreSearchPage.preSurrogacyChildFamilyName.getText();
+		formerFamilyName = CoreSearchPage.searchSurrogacyNotificationFamilyName.getText();
 		Assert.assertTrue("result message not found", formerFamilyName.contains("Automated" + FillEregistryANForm.familyName));
 
 		System.out.println("Notification Id " + CoreSearchPage.notificationId.getText() + " found in Core");

@@ -10,6 +10,6 @@ Feature: Submit an Adoption Notification in eRegistry and Search for it in Core
 
   Scenario: Search for the AN in Core
     When I open "Core" website
-    And I sign in "Core"
+    And I sign in
     And I navigate to "Search AN" in "Core"
     Then I search for "AN" form created in "eRegistry"

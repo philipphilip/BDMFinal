@@ -48,7 +48,7 @@ Feature: All eRegistry tests
 
   Scenario: Search for the AN in Core
     When I open "Core" website
-    And I sign in "Core"
+    And I sign in
     And I navigate to "Search AN" in "Core"
     Then I search for "AN" form created in "eRegistry"
 
@@ -61,6 +61,6 @@ Feature: All eRegistry tests
 
   Scenario: Search for the Surrogacy Notification in Core
     When I open "Core" website
-    And I sign in "Core"
+    And I sign in
     And I navigate to "Search SN" in "Core"
     Then I search for "SN" form created in "eRegistry"

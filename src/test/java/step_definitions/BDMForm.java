@@ -205,7 +205,7 @@ public class BDMForm {
 				CoreControls.searchTab = waitForTabsMenue
 						.until(ExpectedConditions.elementToBeClickable(CoreControls.searchTab));
 				CoreControls.searchTab.click();
-				CoreControls.adoptionQuickSearch.click();
+				CoreControls.adoptionNotificationSearch.click();
 			} else if (tab.equals("Search SN")) {
 				WebDriverWait waitForTabsMenue = new WebDriverWait(driver, 10000);
 				CoreControls.searchTab = waitForTabsMenue
