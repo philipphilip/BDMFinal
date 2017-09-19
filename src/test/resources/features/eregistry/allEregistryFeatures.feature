@@ -1,7 +1,4 @@
-Feature: Create a DRS & COD & Death Certificate in eRegistry.
-  		   Make COD compliant and match with DRS to create the DR in Core. 
-  		   Search for the Death Certificate in Core and Validate if it is Compliant.
-  		   Match the Certificate with DR and print the certificate.
+Feature: All eRegistry tests
 
   Scenario: Create a COD in eRegistry and submit to Core
     Given I open "eRegistry" website
@@ -41,3 +38,29 @@ Feature: Create a DRS & COD & Death Certificate in eRegistry.
     And I sign in
     And I navigate to "Search Item Id" in "Core"
     Then I search for "Application" form created in "eRegistry"
+
+  Scenario: Create an adoption notification in eRegistry and submit to Core
+    Given I open "eRegistry" website
+    When I sign in "eRegistry"
+    And I select stakeholder as "Find Adoption"
+    And I navigate to "AN" in "eRegistry"
+    Then I can fill and submit the "AN" form in "eRegistry"
+
+  Scenario: Search for the AN in Core
+    When I open "Core" website
+    And I sign in "Core"
+    And I navigate to "Search AN" in "Core"
+    Then I search for "AN" form created in "eRegistry"
+
+  Scenario: Create a surrogacy notification in eRegistry and submit to Core
+    Given I open "eRegistry" website
+    When I sign in "eRegistry"
+    And I select stakeholder as "The County Court"
+    And I navigate to "SN" in "eRegistry"
+    Then I can fill and submit the "SN" form in "eRegistry"
+
+  Scenario: Search for the Surrogacy Notification in Core
+    When I open "Core" website
+    And I sign in "Core"
+    And I navigate to "Search SN" in "Core"
+    Then I search for "SN" form created in "eRegistry"
