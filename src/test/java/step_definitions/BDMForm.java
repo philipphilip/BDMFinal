@@ -15,6 +15,7 @@ import helpers.Helper;
 import modules.CoreAdminSignInAction;
 import modules.EpublicSignInAction;
 import modules.EregistrySignInAction;
+import modules.FillANCoreSearchForm;
 import modules.FillApplicationCoreSearchForm;
 import modules.FillBCApplicationForm;
 import modules.FillBRSCoreSearchForm;
@@ -25,12 +26,16 @@ import modules.FillCreateInternalUserForm;
 import modules.FillDCApplicationForm;
 import modules.FillDRSCoreSearchForm;
 import modules.FillDRSForm;
+import modules.FillEregistryANForm;
 import modules.FillEregistryCertificatesForm;
 import modules.FillEregistryCodForm;
 import modules.FillEregistryDrsForm;
+import modules.FillEregistryNobForm;
+import modules.FillEregistrySNForm;
 import modules.FillMCApplicationForm;
 import modules.FillMNForm;
 import modules.FillNOBForm;
+import modules.FillSNCoreSearchForm;
 import modules.FillePublicApplicationCoreSearchForm;
 import modules.FilltheApplicationInEpublic;
 import modules.FilltheBRSInEpublic;
@@ -157,6 +162,8 @@ public class BDMForm {
 			EregistrySignInAction.Execute(driver, datamap.get(0));
 		} else if (website.equals("Core Admin UI")) {
 			CoreAdminSignInAction.Execute(driver, datamap.get(0));
+		} else if (website.equals("Core")) {
+			SignInAction.Execute(driver, datamap.get(0));
 		}
 	}
 
@@ -200,14 +207,35 @@ public class BDMForm {
 						.until(ExpectedConditions.elementToBeClickable(CoreControls.searchTab));
 				CoreControls.searchTab.click();
 				CoreControls.applicationQuickSearch.click();
+			} else if (tab.equals("Search AN")) {
+				WebDriverWait waitForTabsMenue = new WebDriverWait(driver, 10000);
+				CoreControls.searchTab = waitForTabsMenue
+						.until(ExpectedConditions.elementToBeClickable(CoreControls.searchTab));
+				CoreControls.searchTab.click();
+				CoreControls.adoptionQuickSearch.click();
+			} else if (tab.equals("Search SN")) {
+				WebDriverWait waitForTabsMenue = new WebDriverWait(driver, 10000);
+				CoreControls.searchTab = waitForTabsMenue
+						.until(ExpectedConditions.elementToBeClickable(CoreControls.searchTab));
+				CoreControls.searchTab.click();
+				CoreControls.surrogacyQuickSearch.click();
 			}
 		} else if (site.equals("eRegistry")) {
 			if (tab.equals("DRS")) {
 				Helper.clickItem(EregistryControls.deathsLink);
 				Helper.clickItem(EregistryControls.drsLink);
+			} else if (tab.equals("NOB")) {
+				Helper.clickItem(EregistryControls.birthLink);
+				Helper.clickItem(EregistryControls.nobLink);
 			} else if (tab.equals("COD")) {
 				Helper.clickItem(EregistryControls.codLink);
 				Helper.clickItem(EregistryControls.newCodLink);
+			} else if (tab.equals("AN")) {
+				Helper.clickItem(EregistryControls.adoptionLink);
+				Helper.clickItem(EregistryControls.newAdoptionNotificationLink);
+			} else if (tab.equals("SN")) {
+				Helper.clickItem(EregistryControls.surrogacyLink);
+				Helper.clickItem(EregistryControls.newSurrogacyNotificationLink);
 			} else if (tab.equals("Certificates")) {
 				Helper.clickItem(EregistryControls.certificatesLink);
 				Helper.clickItem(EregistryControls.newCertificateLink);
@@ -242,6 +270,12 @@ public class BDMForm {
 				FillEregistryCodForm.Execute(driver);
 			} else if (form.equals("Certificates")) {
 				FillEregistryCertificatesForm.Execute(driver);
+			} else if (form.equals("NOB")) {
+				FillEregistryNobForm.Execute(driver);
+			} else if (form.equals("AN")) {
+				FillEregistryANForm.Execute(driver);
+			} else if (form.equals("SN")) {
+				FillEregistrySNForm.Execute(driver);
 			}
 		}
 		
@@ -369,6 +403,10 @@ public class BDMForm {
 				FillCODCoreSearchForm.Execute(driver);
 			} else if (form.equals("Application")) {
 				FillApplicationCoreSearchForm.Execute(driver);
+			} else if (form.equals("AN")) {
+				FillANCoreSearchForm.Execute(driver);
+			} else if (form.equals("SN")) {
+				FillSNCoreSearchForm.Execute(driver);
 			}
 		}
 		if (site.equals("ePublic")) {

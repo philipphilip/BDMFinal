@@ -69,6 +69,8 @@ public class FillEregistryDrsForm {
 		Helper.inputItem(EregistryDrsPage.disposalDay,"08");
 		Helper.inputItem(EregistryDrsPage.disposalMonth,"07");
 		Helper.inputItem(EregistryDrsPage.disposalYear,"2017");
+		Thread.sleep(3000);
+		Helper.inputItem(EregistryDrsPage.methodOfDisposal, "Buried");
 		Helper.inputItem(EregistryDrsPage.within30Days,"Yes");
 		Helper.inputItem(EregistryDrsPage.cemeteryName,"Melbourne General Cemetery");
 		Helper.inputItem(EregistryDrsPage.cemeteryLine1,"122 station rd");
