@@ -21,6 +21,7 @@ import modules.FillBRSCoreSearchForm;
 import modules.FillBRSForm;
 import modules.FillCODCoreSearchForm;
 import modules.FillCODForm;
+import modules.FillCONForm;
 import modules.FillCreateInternalUserForm;
 import modules.FillDCApplicationForm;
 import modules.FillDRSCoreSearchForm;
@@ -31,6 +32,7 @@ import modules.FillEregistryDrsForm;
 import modules.FillMCApplicationForm;
 import modules.FillMNForm;
 import modules.FillNOBForm;
+import modules.FillNewProductForm;
 import modules.FillePublicApplicationCoreSearchForm;
 import modules.FilltheApplicationInEpublic;
 import modules.FilltheBRSInEpublic;
@@ -39,9 +41,11 @@ import modules.GoToApplicationInePublic;
 import modules.GoToBRSForm;
 import modules.GoToBRSInePublic;
 import modules.GoToCODForm;
+import modules.GoToCONFor;
 import modules.GoToDRSForm;
 import modules.GoToMNForm;
 import modules.GoToNOBForm;
+import modules.GotToNewProductForm;
 import modules.SearchAndMakeCodCompliant;
 import modules.SearchAndMakeDrsCompliant;
 import modules.SearchForMNAndMakeMR;
@@ -49,6 +53,10 @@ import modules.SearchforBRCreated;
 import modules.SearchforCreatedDeathCertificate;
 import modules.SignInAction;
 import modules.SignoutAction;
+import modules.ValidateTheCONForOverseasAdult;
+import modules.ValidateTheCONForOverseasChild;
+import modules.ValidateTheCONForVicAdult;
+import modules.ValidateTheCONForVicChild;
 import pageobjects.AutomationHomePage;
 import pageobjects.CoreBrsPage;
 import pageobjects.CoreControls;
@@ -146,7 +154,7 @@ public class BDMForm {
 			EregistrySignInAction.Execute(driver, datamap.get(0));
 
 		} else if (website.equals("Core")) {
-			SignoutAction.Execute(driver);
+			SignInAction.Execute(driver, datamap.get(0));
 
 		} else if (website.equals("Core Admin UI")) {
 			CoreAdminSignInAction.Execute(driver, datamap.get(0));
@@ -314,7 +322,25 @@ public class BDMForm {
 			GoToMNForm.Execute(driver);
 		} else if (arg1.equals("Application")) {
 			GoToApplicationForm.Execute(driver);
+		} else if (arg1.equals("New Product")) {
+			GotToNewProductForm.Execute(driver);
+		} else if (arg1.equals("Change of Name")) {
+			GoToCONFor.Execute(driver);
 		}
+	}
+
+	@Then("^I can validate the \"([^\"]*)\" form$")
+	public void i_can_validate_the_form(String arg1) throws Throwable {
+		if (arg1.equals("Vic Born Adult CON Blank")) {
+			ValidateTheCONForVicAdult.Execute(driver);
+		} else if (arg1.equals("Overseas Born Adolt CON Blan")) {
+			ValidateTheCONForOverseasAdult.Execute(driver);
+		} else if (arg1.equals("Overseas Born Child CON Blank")) {
+			ValidateTheCONForOverseasChild.Execute(driver);
+		} else if (arg1.equals("Vic Born Child CON Blank")) {
+			ValidateTheCONForVicChild.Execute(driver);
+		}
+
 	}
 
 	@Then("^I fill in the \"([^\"]*)\" form$")
@@ -341,6 +367,10 @@ public class BDMForm {
 			FillBCApplicationForm.Execute(driver);
 		} else if (formName.equals("Marriage Certificate request")) {
 			FillMCApplicationForm.Execute(driver);
+		} else if (formName.equals("New Product")) {
+			FillNewProductForm.Execute(driver);
+		} else if (formName.equals("Change of Name")) {
+			FillCONForm.Execute(driver);
 		}
 	}
 
