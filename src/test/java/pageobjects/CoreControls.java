@@ -132,9 +132,6 @@ public class CoreControls extends BaseClass {
 	@FindBy(xpath = ".//input[@value = 'Match with selected Notification']")
 	public static WebElement matchButtonApplicationCON;
 
-	// @FindBy(xpath = ".//input[@value = 'Match with selected Notification']")
-	// public static WebElement matchButton;
-
 	@FindBy(xpath = ".//input[@value = 'Match with selected']")
 	public static WebElement matchButtonApplication;
 
@@ -212,19 +209,6 @@ public class CoreControls extends BaseClass {
 	public static void validateForm() {
 		validateButton.click();
 	}
-
-	// public static void matchNoticesToCreateRegistration() throws Exception {
-	// actionList.sendKeys("Match");
-	// go.click();
-	// Thread.sleep(3000);
-	// firstRadioButtonMatch.click();
-	// matchButton.click();
-	// Thread.sleep(3000);
-	// String successmessage = registrationCreatedMessage.getText();
-	// Assert.assertTrue("Registration did not get created",
-	// successmessage.contains("Registration has been successfully
-	// registered."));
-	// }
 
 	public static void matchToFirstRadioButton() throws Exception {
 		Thread.sleep(2000);
