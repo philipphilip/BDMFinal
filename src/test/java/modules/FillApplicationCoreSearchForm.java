@@ -24,7 +24,7 @@ public class FillApplicationCoreSearchForm {
 		applicationStatus = CoreSearchPage.notificationStatus.getText();
 		Assert.assertTrue("Application is Non Compliant", applicationStatus.equals("Compliant"));
 
-		System.out.println("Notification Id " + CoreSearchPage.notificationId.getText() + " found in Core");
+		System.out.println("Death Application " + CoreSearchPage.notificationId.getText() + " found in Core");
 		
 	}
 

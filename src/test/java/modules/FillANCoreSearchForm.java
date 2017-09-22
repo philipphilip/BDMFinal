@@ -22,7 +22,7 @@ public class FillANCoreSearchForm {
 		formerFamilyName = CoreSearchPage.searchAdoptionNotifiationFamilyName.getText();
 		Assert.assertTrue("result message not found", formerFamilyName.contains("Automated" + FillEregistryANForm.familyName));
 
-		System.out.println("Notification Id " + CoreSearchPage.notificationId.getText() + " found in Core");
+		System.out.println("Adoption Notification Id " + CoreSearchPage.notificationId.getText() + " found in Core");
 		
 	}
 

@@ -46,4 +46,7 @@ public class CoreLoginPage extends BaseClass {
 
 	@FindBy(xpath = "//*/a[contains(text(),'Logout')]")
 	public static WebElement sign_out;
+	
+	@FindBy(id = "submit")
+	public static WebElement coreOldUiLoginButton;
 }

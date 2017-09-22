@@ -25,6 +25,9 @@ public class CoreControls extends BaseClass {
 
 	@FindBy(xpath = "//*/a[text()='Cause of Death']")
 	public static WebElement newCOD;
+	
+	@FindBy(xpath = "//*/a[text()='Relationship Notification']")
+	public static WebElement newRN;
 
 	@FindBy(xpath = "//*/a[text()='Marriage Notification']")
 	public static WebElement newMR;
@@ -190,6 +193,12 @@ public class CoreControls extends BaseClass {
 	
 	@FindBy(xpath = ".//*/button[text() = 'Create New Core User']")
 	public static WebElement createNewCoreUserButton;
+	
+	@FindBy(xpath = "//*/a[text()='General Admin']")
+	public static WebElement oldUiGeneralAdminTab;
+	
+	@FindBy(xpath = "//*/a[text()='System Parameters']")
+	public static WebElement oldUiSystemParametersTab;
 
 	public static void saveForm() throws Exception {
 		actionList.sendKeys("Save");
