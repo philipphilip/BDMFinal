@@ -207,7 +207,58 @@ public class ApplicationPage extends BaseClass {
 
 	@FindBy(xpath = ".//action-panel//h3[contains(text(), 'Application')]")
 	public static WebElement pageHeader;
-
+	
+	@FindBy(id = "relationshipSubjectDetails-relationshipType")
+	public static WebElement relationshipType;
+	
+	@FindBy(id = "relationshipSubjectDetails-dateOfEvent-dateOfRelnRego")
+	public static WebElement dateOfRelRegType;
+	
+	@FindBy(id = "relationshipSubjectDetails-dateOfEvent-dateOfRelnRego-on-day")
+	public static WebElement dateOfRelRegDay;
+	
+	@FindBy(id = "relationshipSubjectDetails-dateOfEvent-dateOfRelnRego-on-month")
+	public static WebElement dateOfRelRegMonth;
+	
+	@FindBy(id = "relationshipSubjectDetails-dateOfEvent-dateOfRelnRego-on-year")
+	public static WebElement dateOfRelRegYear;
+	
+	@FindBy(id = "relationshipSubjectDetails-subject1-familyName")
+	public static WebElement relSubject1FamilyName;
+	
+	@FindBy(id = "relationshipSubjectDetails-subject1-familyNameAtBirth")
+	public static WebElement relSubject1FamilyNameAtBirth;
+	
+	@FindBy(id = "relationshipSubjectDetails-subject1-givenNames")
+	public static WebElement relSubject1GivenName;
+	
+	@FindBy(id = "relationshipSubjectDetails-subject1-dateOfBirth-day")
+	public static WebElement relSubject1BirthDay;
+	
+	@FindBy(id = "relationshipSubjectDetails-subject1-dateOfBirth-month")
+	public static WebElement relSubject1BirthMonth;
+	
+	@FindBy(id = "relationshipSubjectDetails-subject1-dateOfBirth-year")
+	public static WebElement relSubject1BirthYear;
+	
+	@FindBy(id = "relationshipSubjectDetails-subject2-familyName")
+	public static WebElement relSubject2FamilyName;
+	
+	@FindBy(id = "relationshipSubjectDetails-subject2-familyNameAtBirth")
+	public static WebElement relSubject2FamilyNameAtBirth;
+	
+	@FindBy(id = "relationshipSubjectDetails-subject2-givenNames")
+	public static WebElement relSubject2GivenName;
+	
+	@FindBy(id = "relationshipSubjectDetails-subject2-dateOfBirth-day")
+	public static WebElement relSubject2BirthDay;
+	
+	@FindBy(id = "relationshipSubjectDetails-subject2-dateOfBirth-month")
+	public static WebElement relSubject2BirthMonth;
+	
+	@FindBy(id = "relationshipSubjectDetails-subject2-dateOfBirth-year")
+	public static WebElement relSubject2BirthYear;
+	
 	public static void validateform() throws Exception {
 		Thread.sleep(3000);
 		boolean formHasErrors = errorBaner.getText().equals("There are validation errors in your application.");

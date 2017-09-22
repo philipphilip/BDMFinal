@@ -2,7 +2,7 @@ Feature: Automation of submitting a Merriage form on the Core system and the cre
 
   Scenario: Navigate to Merriage page and fill the form
     Given I open "Core" website
-    And I sign in
+    And I sign in "Core"
     And I navigate to "MN" new form
     Then I fill in the "MN" form
 

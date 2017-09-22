@@ -21,7 +21,7 @@ public class FillBRSCoreSearchForm {
 		Thread.sleep(3000);
 		brsFamilyName = CoreSearchPage.notificationStatus.getText();
 		Assert.assertTrue("Status of BRS found in Core is incorrect", brsFamilyName.contains("Pending"));
-		System.out.println("Notification Id " + CoreSearchPage.notificationId.getText() + " found in Core");
+		System.out.println("BRS notification Id " + CoreSearchPage.notificationId.getText() + " found in Core");
 		
 	}
 

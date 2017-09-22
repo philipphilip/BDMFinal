@@ -9,6 +9,6 @@ Feature: ePublic purchase birth certificate
 
   Scenario: Search for the birth certificate in Core
     When I open "Core" website
-    And I sign in
+    And I sign in "Core"
     And I navigate to "Search Application" in "Core"
     Then I search for "Application" form created in "ePublic"

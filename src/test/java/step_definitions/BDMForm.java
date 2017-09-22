@@ -9,10 +9,12 @@ import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import cucumber.api.java.en.And;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 import helpers.Helper;
 import modules.CoreAdminSignInAction;
+import modules.CoreOldUISignInAction;
 import modules.EpublicSignInAction;
 import modules.EregistrySignInAction;
 import modules.FillANCoreSearchForm;
@@ -40,11 +42,16 @@ import modules.FillNOBForm;
 
 import modules.FillNewProductForm;
 
+import modules.FillRNForm;
+import modules.FillRRCoreSearchForm;
+import modules.FillRRSApplicationForm;
+import modules.FillRelationshipRegistrationParameterForm;
 import modules.FillSNCoreSearchForm;
 
 import modules.FillePublicApplicationCoreSearchForm;
 import modules.FilltheApplicationInEpublic;
 import modules.FilltheBRSInEpublic;
+import modules.FilltheBRSInEpublicDev;
 import modules.GoToApplicationForm;
 import modules.GoToApplicationInePublic;
 import modules.GoToBRSForm;
@@ -56,6 +63,8 @@ import modules.GoToDRSForm;
 import modules.GoToMNForm;
 import modules.GoToNOBForm;
 import modules.GotToNewProductForm;
+import modules.GoToRNForm;
+import modules.GoToSystemParameters;
 import modules.SearchAndMakeCodCompliant;
 import modules.SearchAndMakeDrsCompliant;
 import modules.SearchForMNAndMakeMR;
@@ -120,8 +129,10 @@ public class BDMForm {
 			driver.get("https://web-st.objectconsulting.com.au/core/login");
 		} else if (website.equals("Core Admin UI")) {
 			driver.get("http://web-st.objectconsulting.com.au/admin/login");
-		} else {
+		} else if (website.equals("eRegistry")) {
 			driver.get("https://web-st.objectconsulting.com.au/eregistry/");
+		} else if (website.equals("Core Old UI")) {
+			driver.get("https://core-st.objectconsulting.com.au/cbdm/login");
 		}
 		driver.manage().window().maximize();
 	}
@@ -146,10 +157,10 @@ public class BDMForm {
 		}
 	}
 
-	@When("^I sign in$")
-	public void i_sign_in() throws Throwable {
-		SignInAction.Execute(driver, datamap.get(0));
-	}
+	// @When("^I sign in$")
+	// public void i_sign_in() throws Throwable {
+	// SignInAction.Execute(driver, datamap.get(0));
+	// }
 
 	@Then("^I sign out$")
 	public void i_sign_out() throws Throwable {
@@ -162,14 +173,12 @@ public class BDMForm {
 			EpublicSignInAction.Execute(driver, datamap.get(0));
 		} else if (website.equals("eRegistry")) {
 			EregistrySignInAction.Execute(driver, datamap.get(0));
-
-		} else if (website.equals("Core")) {
-			SignInAction.Execute(driver, datamap.get(0));
-
 		} else if (website.equals("Core Admin UI")) {
 			CoreAdminSignInAction.Execute(driver, datamap.get(0));
 		} else if (website.equals("Core")) {
 			SignInAction.Execute(driver, datamap.get(0));
+		} else if (website.equals("Core Old UI")) {
+			CoreOldUISignInAction.Execute(driver, datamap.get(0));
 		}
 	}
 
@@ -225,6 +234,12 @@ public class BDMForm {
 						.until(ExpectedConditions.elementToBeClickable(CoreControls.searchTab));
 				CoreControls.searchTab.click();
 				CoreControls.surrogacyQuickSearch.click();
+			} else if (tab.equals("Search RR")) {
+				WebDriverWait waitForTabsMenue = new WebDriverWait(driver, 10000);
+				CoreControls.searchTab = waitForTabsMenue
+						.until(ExpectedConditions.elementToBeClickable(CoreControls.searchTab));
+				CoreControls.searchTab.click();
+				CoreControls.relationshipRegistrationSearch.click();
 			}
 		} else if (site.equals("eRegistry")) {
 			if (tab.equals("DRS")) {
@@ -289,6 +304,12 @@ public class BDMForm {
 		if (site.equals("Core Admin UI")) {
 			if (form.equals("Create internal user")) {
 				FillCreateInternalUserForm.Execute(driver);
+			}
+		}
+
+		if (site.equals("ePublic Dev")) {
+			if (form.equals("BRS")) {
+				FilltheBRSInEpublicDev.Execute(driver);
 			}
 		}
 	}
@@ -366,6 +387,10 @@ public class BDMForm {
 			GoToCONFor.Execute(driver);
 		} else if (arg1.equals("Change of Sex")) {
 			GoToCOSForm.Execute(driver);
+		} else if (arg1.equals("System Parameters")) {
+			GoToSystemParameters.Execute(driver);
+		} else if (arg1.equals("RN")) {
+			GoToRNForm.Execute(driver);
 		}
 	}
 
@@ -401,7 +426,7 @@ public class BDMForm {
 			FillMNForm.Execute(driver);
 		} else if (formName.equals("MR")) {
 			SearchForMNAndMakeMR.Execute(driver);
-		} else if (formName.equals("Application")) {
+		} else if (formName.equals("Death Application")) {
 			FillDCApplicationForm.Execute(driver);
 		} else if (formName.equals("Birth Application")) {
 			FillBCApplicationForm.Execute(driver);
@@ -413,6 +438,12 @@ public class BDMForm {
 			FillCONForm.Execute(driver);
 		} else if (formName.equals("Change of Sex")) {
 			FillCOSForm.Execute(driver);
+		} else if (formName.equals("Relationship Application")) {
+			FillRRSApplicationForm.Execute(driver);
+		} else if (formName.equals("Relationship Registration Parameter")) {
+			FillRelationshipRegistrationParameterForm.Execute(driver);
+		} else if (formName.equals("RN")) {
+			FillRNForm.Execute(driver);
 		}
 	}
 
@@ -447,6 +478,11 @@ public class BDMForm {
 				FillBRSCoreSearchForm.Execute(driver);
 			} else if (form.equals("Application")) {
 				FillePublicApplicationCoreSearchForm.Execute(driver);
+			}
+		}
+		if (site.equals("Core")) {
+			if (form.equals("RR")) {
+				FillRRCoreSearchForm.Execute(driver);
 			}
 		}
 	}

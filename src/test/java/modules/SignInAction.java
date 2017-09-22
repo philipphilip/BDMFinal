@@ -1,8 +1,6 @@
 package modules;
 
-import helpers.Log;
 import org.openqa.selenium.WebDriver;
-import org.testng.Reporter;
 import pageobjects.CoreLoginPage;
 
 import java.util.HashMap;

@@ -8,6 +8,6 @@ Feature: ePublic brs
 
   Scenario: Search for the BRS in Core
     When I open "Core" website
-    And I sign in
+    And I sign in "Core"
     And I navigate to "Search BRS" in "Core"
     Then I search for "BRS" form created in "ePublic"
