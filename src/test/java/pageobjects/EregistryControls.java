@@ -13,25 +13,25 @@ public class EregistryControls extends BaseClass {
 	@FindBy(xpath = "/html/body/app/stakeholder/div/div/form/div[1]/select")
 	public static WebElement stakeholderList;
 
-	@FindBy(xpath = "//*[@id=\"navbar\"]/ul/li[1]/a")
+	@FindBy(xpath = "//*/a[text()='Deaths']")
 	public static WebElement deathsLink;
 
-	@FindBy(xpath = "//*[@id=\"navbar\"]/ul/li[1]/ul/li[1]/a")
+	@FindBy(xpath = "//*/a[text()='New Death Registration Statement']")
 	public static WebElement drsLink;
 
-	@FindBy(xpath = "//*[@id=\"navbar\"]/ul/li[1]/a")
+	@FindBy(xpath = "//*/a[text()='Certificates']")
 	public static WebElement certificatesLink;
 	
-	@FindBy(xpath = "//*[@id=\"navbar\"]/ul/li[1]/ul/li[1]/a")
+	@FindBy(xpath = "//*/a[text()='New Certificate']")
 	public static WebElement newCertificateLink;
 
-	@FindBy(xpath = "//*[@id=\"navbar\"]/ul/li[1]/a")
+	@FindBy(xpath = "//*/a[text()='Cause of Death']")
 	public static WebElement codLink;
 
-	@FindBy(xpath = "//*[@id=\"navbar\"]/ul/li[1]/ul/li[1]/a")
+	@FindBy(xpath = "//*/a[text()='New Cause of Death']")
 	public static WebElement newCodLink;
 
-	@FindBy(xpath = "//*[@id=\"navbar\"]/ul/li[1]/ul/li[2]/a")
+	@FindBy(xpath = "//*/a[text()='Draft List']")
 	public static WebElement draftList;
 
 	@FindBy(xpath = "/html/body/app/ng-component/div[2]/main/div/drs/div/div[2]/form/alert/div")
@@ -39,9 +39,15 @@ public class EregistryControls extends BaseClass {
 
 	@FindBy(xpath = "/html/body/app/ng-component/div[2]/main/div/cod/div/div[2]/form/alert/div")
 	public static WebElement codMessage;
+	
+	@FindBy(xpath = "//error-list-display//alert/div")
+	public static WebElement surrogacySaveMessage;
 
 	@FindBy(id = "cod-draftList-deceasedFamilyName")
 	public static WebElement codSearchFamilyName;
+	
+	@FindBy(id = "noticeOfBirth-draftList-birthMothersFamilyName")
+	public static WebElement nobSearchFamilyName;
 
 	@FindBy(id = "drs-draftList-deceasedFamilyName")
 	public static WebElement drsSearchFamilyName;
@@ -79,6 +85,33 @@ public class EregistryControls extends BaseClass {
 	@FindBy(xpath = ".//input[@value = 'Pay Now']")
 	public static WebElement payNowButton;
 	
-	@FindBy(xpath = "//*[@id=\"navbar\"]/ul/li[1]/ul/li[3]/a")
+	@FindBy(xpath = "//*/a[text()='Submitted List']")
 	public static WebElement submitList;
+	
+	@FindBy(xpath = "//*/a[text()='Birth']")
+	public static WebElement birthLink;
+	
+	@FindBy(xpath = "//*/a[text()='New Notice of Birth']")
+	public static WebElement nobLink;
+	
+	@FindBy(xpath = ".//input[@value = 'Validate']")
+	public static WebElement validateButton;
+	
+	@FindBy(xpath = "//*/a[text()='Adoption']")
+	public static WebElement adoptionLink;
+	
+	@FindBy(xpath = "//*/a[text()='New Adoption Notification']")
+	public static WebElement newAdoptionNotificationLink;
+	
+	@FindBy(id = "an-draftList-childsFamilyName")
+	public static WebElement adoptionSearchFamilyName;
+	
+	@FindBy(xpath = "//*/a[text()='Surrogacy']")
+	public static WebElement surrogacyLink;
+	
+	@FindBy(xpath = "//*/a[text()='New Surrogacy Notification']")
+	public static WebElement newSurrogacyNotificationLink;
+	
+	@FindBy(id = "sn-draftList-childsFamilyName")
+	public static WebElement surrogacySearchFamilyName;
 }

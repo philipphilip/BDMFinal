@@ -1,11 +1,10 @@
-Feature: All CON related test scenarion in Core-Admin site.
+Feature: All CON related test scenarion in Core site.
 
   Scenario: Submut a Change of Name Notifications in core
     Given I open "Core" website
     And I sign in
     And I navigate to "Change of Name" new form
     Then I fill in the "Change of Name" form
-
   #Scenario: Validate the required fileds in CON form for a VIC Born Adult
     #Given I open "Core" website
     #And I sign in

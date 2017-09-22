@@ -50,4 +50,16 @@ public class CoreSearchPage extends BaseClass {
 	
 	@FindBy(id = "subject-familyName")
 	public static WebElement subjectFamilyName;
+	
+	@FindBy(id = "preAdoptionChildsDetails-name-familyName")
+	public static WebElement adoptedChildFormerFamilyName;
+	
+	@FindBy(xpath = "//*[@id=\"preAdoptionChildsDetails\"]//name-group/cge-text-input[1]/div/div")
+	public static WebElement searchAdoptionNotifiationFamilyName;
+	
+	@FindBy(id = "presurrogacyChildDetails-name-familyName")
+	public static WebElement preSurrogacyChildFamilyName;
+	
+	@FindBy(xpath = "//*[@id=\"presurrogacyChildDetails\"]//name-group/cge-text-input[1]/div/div")
+	public static WebElement searchSurrogacyNotificationFamilyName;
 }

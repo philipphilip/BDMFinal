@@ -34,7 +34,7 @@ public class FillEregistryDrsForm {
 		Helper.inputItem(EregistryDrsPage.residenceLine1,"22 station st");
 		Helper.inputItem(EregistryDrsPage.residenceSuburb,"ringwood");
 		Helper.inputItem(EregistryDrsPage.residencePostcode,"3333");
-		Helper.inputItem(EregistryDrsPage.occupation,"accountant");
+		Helper.inputItem(EregistryDrsPage.occupation,"Bank Officer");
 		Helper.inputItem(EregistryDrsPage.aboriginal,"Neither Aboriginal or Torres Strait Islander");
 		Helper.inputItem(EregistryDrsPage.relationship,"Married");
 		Helper.inputItem(EregistryDrsPage.relationshipSuburb,"ringwood");
@@ -69,6 +69,8 @@ public class FillEregistryDrsForm {
 		Helper.inputItem(EregistryDrsPage.disposalDay,"08");
 		Helper.inputItem(EregistryDrsPage.disposalMonth,"07");
 		Helper.inputItem(EregistryDrsPage.disposalYear,"2017");
+		Thread.sleep(3000);
+		Helper.inputItem(EregistryDrsPage.methodOfDisposal, "Buried");
 		Helper.inputItem(EregistryDrsPage.within30Days,"Yes");
 		Helper.inputItem(EregistryDrsPage.cemeteryName,"Melbourne General Cemetery");
 		Helper.inputItem(EregistryDrsPage.cemeteryLine1,"122 station rd");

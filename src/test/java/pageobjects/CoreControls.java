@@ -1,9 +1,10 @@
 package pageobjects;
 
-import org.junit.Assert;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class CoreControls extends BaseClass {
 
@@ -52,6 +53,15 @@ public class CoreControls extends BaseClass {
 
 	@FindBy(xpath = ".//a[text() = 'Application Quick Search']")
 	public static WebElement applicationQuickSearch;
+
+	@FindBy(xpath = ".//a[text() = 'Adoption Notification Search']")
+	public static WebElement adoptionNotificationSearch;
+
+	@FindBy(xpath = ".//a[text() = 'Adoption Quick Search']")
+	public static WebElement adoptionQuickSearch;
+
+	@FindBy(xpath = ".//a[text() = 'Surrogacy Quick Search']")
+	public static WebElement surrogacyQuickSearch;
 
 	@FindBy(xpath = ".//*/a[text() = 'Death Registration Search']")
 	public static WebElement deathRegistrationSearch;
@@ -122,8 +132,8 @@ public class CoreControls extends BaseClass {
 	@FindBy(xpath = ".//input[@value = 'Match with selected Notification']")
 	public static WebElement matchButtonApplicationCON;
 
-	@FindBy(xpath = ".//input[@value = 'Match with selected Notification']")
-	public static WebElement matchButton;
+	// @FindBy(xpath = ".//input[@value = 'Match with selected Notification']")
+	// public static WebElement matchButton;
 
 	@FindBy(xpath = ".//input[@value = 'Match with selected']")
 	public static WebElement matchButtonApplication;
@@ -203,17 +213,18 @@ public class CoreControls extends BaseClass {
 		validateButton.click();
 	}
 
-	public static void matchNoticesToCreateRegistration() throws Exception {
-		actionList.sendKeys("Match");
-		go.click();
-		Thread.sleep(3000);
-		firstRadioButtonMatch.click();
-		matchButton.click();
-		Thread.sleep(3000);
-		String successmessage = registrationCreatedMessage.getText();
-		Assert.assertTrue("Registration did not get created",
-				successmessage.contains("Registration has been successfully registered."));
-	}
+	// public static void matchNoticesToCreateRegistration() throws Exception {
+	// actionList.sendKeys("Match");
+	// go.click();
+	// Thread.sleep(3000);
+	// firstRadioButtonMatch.click();
+	// matchButton.click();
+	// Thread.sleep(3000);
+	// String successmessage = registrationCreatedMessage.getText();
+	// Assert.assertTrue("Registration did not get created",
+	// successmessage.contains("Registration has been successfully
+	// registered."));
+	// }
 
 	public static void matchToFirstRadioButton() throws Exception {
 		Thread.sleep(2000);
@@ -274,5 +285,11 @@ public class CoreControls extends BaseClass {
 		actionList.sendKeys("Print");
 		Thread.sleep(2000);
 		goPrintCertificate.click();
+	}
+
+	public static void clickNewTab() {
+		WebDriverWait waitForTabsMenue = new WebDriverWait(driver, 10000);
+		newTab = waitForTabsMenue.until(ExpectedConditions.elementToBeClickable(newTab));
+		newTab.click();
 	}
 }
