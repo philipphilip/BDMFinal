@@ -9,6 +9,7 @@ import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import cucumber.api.java.en.And;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 import helpers.Helper;
@@ -37,6 +38,7 @@ import modules.FillMCApplicationForm;
 import modules.FillMNForm;
 import modules.FillNOBForm;
 import modules.FillRNForm;
+import modules.FillRRCoreSearchForm;
 import modules.FillRRSApplicationForm;
 import modules.FillRelationshipRegistrationParameterForm;
 import modules.FillSNCoreSearchForm;
@@ -142,10 +144,10 @@ public class BDMForm {
 		}
 	}
 
-	@When("^I sign in$")
-	public void i_sign_in() throws Throwable {
-		SignInAction.Execute(driver, datamap.get(0));
-	}
+//	@When("^I sign in$")
+//	public void i_sign_in() throws Throwable {
+//		SignInAction.Execute(driver, datamap.get(0));
+//	}
 
 	@Then("^I sign out$")
 	public void i_sign_out() throws Throwable {
@@ -158,8 +160,6 @@ public class BDMForm {
 			EpublicSignInAction.Execute(driver, datamap.get(0));
 		} else if (website.equals("eRegistry")) {
 			EregistrySignInAction.Execute(driver, datamap.get(0));
-		} else if (website.equals("Core")) {
-			SignoutAction.Execute(driver);
 		} else if (website.equals("Core Admin UI")) {
 			CoreAdminSignInAction.Execute(driver, datamap.get(0));
 		} else if (website.equals("Core")) {
@@ -221,6 +221,12 @@ public class BDMForm {
 						.until(ExpectedConditions.elementToBeClickable(CoreControls.searchTab));
 				CoreControls.searchTab.click();
 				CoreControls.surrogacyQuickSearch.click();
+			} else if (tab.equals("Search RR")) {
+				WebDriverWait waitForTabsMenue = new WebDriverWait(driver, 10000);
+				CoreControls.searchTab = waitForTabsMenue
+						.until(ExpectedConditions.elementToBeClickable(CoreControls.searchTab));
+				CoreControls.searchTab.click();
+				CoreControls.relationshipRegistrationSearch.click();
 			}
 		} else if (site.equals("eRegistry")) {
 			if (tab.equals("DRS")) {
@@ -426,13 +432,18 @@ public class BDMForm {
 				FillANCoreSearchForm.Execute(driver);
 			} else if (form.equals("SN")) {
 				FillSNCoreSearchForm.Execute(driver);
-			}
+			} 
 		}
 		if (site.equals("ePublic")) {
 			if (form.equals("BRS")) {
 				FillBRSCoreSearchForm.Execute(driver);
 			} else if (form.equals("Application")) {
 				FillePublicApplicationCoreSearchForm.Execute(driver);
+			}
+		}
+		if (site.equals("Core")) {
+			if (form.equals("RR")) {
+				FillRRCoreSearchForm.Execute(driver);
 			}
 		}
 	}

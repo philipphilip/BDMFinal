@@ -12,11 +12,11 @@ Feature: Create a NOB in eRegistry
 
   Scenario: Create a BRS in Core
     When I open "Core" website
-    And I sign in
+    And I sign in "Core"
     And I navigate to "BRS" new form
     Then I fill in the "BRS" form
 
   Scenario: Check the automatic creation of Birth Certificate
     When I open "Core" website
-    And I sign in
+    And I sign in "Core"
     Then I fill in the "BR" form

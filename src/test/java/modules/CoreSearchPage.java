@@ -62,4 +62,7 @@ public class CoreSearchPage extends BaseClass {
 	
 	@FindBy(xpath = "//*[@id=\"presurrogacyChildDetails\"]//name-group/cge-text-input[1]/div/div")
 	public static WebElement searchSurrogacyNotificationFamilyName;
+	
+	@FindBy(id = "applicant1Details-applicantsName-familyName")
+	public static WebElement relationshipApplicant1FamilyName;
 }

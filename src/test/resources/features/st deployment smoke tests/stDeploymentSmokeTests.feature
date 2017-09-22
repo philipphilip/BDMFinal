@@ -3,24 +3,24 @@ Feature: Smoke tests on Development environment for deployment to System Test En
 
   Scenario: Navigate to BRS and fill the form
     When I open "Core Dev" website
-    And I sign in
+    And I sign in "Core"
     And I navigate to "BRS" new form
     Then I fill in the "BRS" form
 
   Scenario: Navigate to NOB and fill the form
     When I open "Core Dev" website
-    And I sign in
+    And I sign in "Core"
     And I navigate to "NOB" new form
     Then I fill in the "NOB" form
 
   Scenario: Check the automatic creation of Birth Certificate
     When I open "Core Dev" website
-    And I sign in
+    And I sign in "Core"
     Then I fill in the "BR" form
 
   Scenario: Navigate to DRS and fill the form
     When I open "Core Dev" website
-    And I sign in
+    And I sign in "Core"
     And I navigate to "DRS" new form
     Then I fill in the "DRS" form
 

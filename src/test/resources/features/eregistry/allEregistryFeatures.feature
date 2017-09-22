@@ -23,19 +23,19 @@ Feature: All eRegistry tests
 
   Scenario: Search for the DRS in Core and make it compliant
     When I open "Core" website
-    And I sign in
+    And I sign in "Core"
     And I navigate to "Search DRS" in "Core"
     Then I search for "DRS" form and make it compliant
 
   Scenario: Search for the COD in Core and make it compliant
     When I open "Core" website
-    And I sign in
+    And I sign in "Core"
     And I navigate to "Search COD" in "Core"
     Then I search for "COD" form and make it compliant
 
   Scenario: Search for the Application in Core and validate if it is compliant
     When I open "Core" website
-    And I sign in
+    And I sign in "Core"
     And I navigate to "Search Item Id" in "Core"
     Then I search for "Application" form created in "eRegistry"
 
@@ -48,7 +48,7 @@ Feature: All eRegistry tests
 
   Scenario: Search for the AN in Core
     When I open "Core" website
-    And I sign in
+    And I sign in "Core"
     And I navigate to "Search AN" in "Core"
     Then I search for "AN" form created in "eRegistry"
 
@@ -61,6 +61,6 @@ Feature: All eRegistry tests
 
   Scenario: Search for the Surrogacy Notification in Core
     When I open "Core" website
-    And I sign in
+    And I sign in "Core"
     And I navigate to "Search SN" in "Core"
     Then I search for "SN" form created in "eRegistry"

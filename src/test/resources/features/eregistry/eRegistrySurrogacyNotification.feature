@@ -10,6 +10,6 @@ Feature: Submit an Surrogacy Notification in eRegistry and Search for it in Core
 
   Scenario: Search for the Surrogacy Notification in Core
     When I open "Core" website
-    And I sign in
+    And I sign in "Core"
     And I navigate to "Search SN" in "Core"
     Then I search for "SN" form created in "eRegistry"

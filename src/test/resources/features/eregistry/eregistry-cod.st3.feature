@@ -10,6 +10,6 @@ Feature: eregistry cod
 
   Scenario: Search for the COD in Core
     When I open "Core" website
-    And I sign in
+    And I sign in "Core"
     And I navigate to "Search COD" in "Core"
     Then I search for "COD" form created in "eRegistry"
