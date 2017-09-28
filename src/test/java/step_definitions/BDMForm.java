@@ -9,7 +9,6 @@ import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-import cucumber.api.java.en.And;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 import helpers.Helper;
@@ -63,6 +62,8 @@ import modules.SearchforBRCreated;
 import modules.SearchforCreatedDeathCertificate;
 import modules.SignInAction;
 import modules.SignoutAction;
+import modules.ValidateTheCODFormInEregistry;
+import modules.ValidateTheDRSFormInEregistry;
 import pageobjects.AutomationHomePage;
 import pageobjects.CoreBrsPage;
 import pageobjects.CoreControls;
@@ -332,6 +333,9 @@ public class BDMForm {
 
 	@Then("^I select stakeholder as \"(.*?)\"$")
 	public void i_select_stakeholder(String stakeholder) throws Throwable {
+		WebDriverWait waitForStakeholderList = new WebDriverWait(driver, 10000);
+		EregistryControls.stakeholderList = waitForStakeholderList
+				.until(ExpectedConditions.elementToBeClickable(EregistryControls.stakeholderList));
 		Helper.selectDropDownList(EregistryControls.stakeholderList, stakeholder);
 		Helper.clickItem(EregistryControls.submitButton);
 	}
@@ -457,5 +461,26 @@ public class BDMForm {
 			SearchAndMakeCodCompliant.Execute(driver);
 		}
 	}
+	 
+		@Then("^I can validate the \"([^\"]*)\" form$")
+		public void i_can_validate_the_form(String arg1) throws Throwable {
+		      if (arg1.equals("COD in eRegistry")) {
+		    	  ValidateTheCODFormInEregistry.Execute(driver);
+		    } else if (arg1.equals("DRS in eRegistry")) {
+		    	ValidateTheDRSFormInEregistry.Execute(driver);
+		    }
+//		      else if (arg1.equals("Vic Born Adult CON Blank")) {
+//				ValidateTheCONForVicAdult.Execute(driver);
+//			} else if (arg1.equals("Overseas Born Adolt CON Blan")) {
+//				ValidateTheCONForOverseasAdult.Execute(driver);
+//			} else if (arg1.equals("Overseas Born Child CON Blank")) {
+//				ValidateTheCONForOverseasChild.Execute(driver);
+//			} else if (arg1.equals("Vic Born Child CON Blank")) {
+//				ValidateTheCONForVicChild.Execute(driver);
+//			}
+
+		} 
+	 
+
 
 }

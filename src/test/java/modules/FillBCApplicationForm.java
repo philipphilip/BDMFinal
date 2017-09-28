@@ -65,6 +65,10 @@ public class FillBCApplicationForm {
 		ApplicationPage.paidCheckbox = waitForCheckbox
 				.until(ExpectedConditions.elementToBeClickable(ApplicationPage.paidCheckbox));
 		ApplicationPage.paidCheckbox.sendKeys(Keys.SPACE);
+		//THIS PART OF CODE IS ADDED TO FAIL THE TEST AS PAYMENT GATEWAY IS NOT AVAILABLE
+		String checkBoxText = ApplicationPage.paidCheckbox.getText();
+		Assert.assertTrue("Payment gateway is inactive", checkBoxText.contains("REMOVE"));
+		//END OF CODE TO FAIL TEST AS PAYMENT GATEWAY IS NOT AVAILABLE
 		ApplicationPage.saveTransactionButton.click();
 		Thread.sleep(3000);
 		CoreControls.printForm();

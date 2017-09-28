@@ -81,12 +81,7 @@ public class FillEregistryANForm {
 		Helper.clickItem(EregistryControls.refreshButton);
 		Helper.clickItem(EregistryControls.searchResult1);
 		Helper.clickItem(EregistryControls.submitButton);		
-		Helper.clickItem(EregistryControls.submitButton);
-//		String codSavedMessage;
-//		Thread.sleep(3000);
-//		codSavedMessage = EregistryControls.codMessage.getText();
-//		Assert.assertTrue("result message not found", codSavedMessage.contains("This Cause of Death has been successfully saved"));		
-
+		Helper.clickItem(EregistryControls.submitButton);	
+//		Helper.uploadFile();
 	}
-
 }

@@ -44,7 +44,7 @@ public class FilltheBRSInEpublicDev {
 		
 		Helper.inputItem(EpublicBrsPage.parentType, "Mother");
 		Helper.inputItem(EpublicBrsPage.familyName, "Automated" + brsFamilyName);
-		Helper.inputItem(EpublicBrsPage.familyNameAtBirth, "Automated" + brsFamilyName);
+		EpublicBrsPage.parent1FamilyNameSameAsBirth.sendKeys(Keys.SPACE);
 		Helper.inputItem(EpublicBrsPage.givenName, "Automated" + motherFirstName);
 		Helper.inputItem(EpublicBrsPage.birthday, "05/07/1990");
 		EpublicBrsPage.birthday.sendKeys(Keys.TAB);

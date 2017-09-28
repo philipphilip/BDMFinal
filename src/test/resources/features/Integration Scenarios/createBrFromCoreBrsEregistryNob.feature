@@ -16,7 +16,7 @@ Feature: Create a NOB in eRegistry
     And I navigate to "BRS" new form
     Then I fill in the "BRS" form
 
-  Scenario: Check the automatic creation of Birth Certificate
+  Scenario: Check the automatic creation of Birth Registration
     When I open "Core" website
     And I sign in "Core"
     Then I fill in the "BR" form

@@ -13,6 +13,9 @@ public class EregistryDrsPage extends BaseClass {
 	@FindBy(id = "deceasedDetails-name-familyName")
 	public static WebElement familyName;
 	
+	@FindBy(id = "deceasedDetails-name-familyNameSameToFamilyNameAtBirth")
+	public static WebElement familyNameSameAsBirth;
+	
 	@FindBy(id = "deceasedDetails-name-familyNameAtBirth")
 	public static WebElement familyNameAtBirth;
 
@@ -84,9 +87,15 @@ public class EregistryDrsPage extends BaseClass {
 
 	@FindBy(id = "deceasedRelationshipDetails-spouseDetails-spouseName-familyName")
 	public static WebElement spouseFamilyName;
+	
+	@FindBy(id = "deceasedRelationshipDetails-spouseDetails-spouseName-familyNameSameToFamilyNameAtBirth")
+	public static WebElement spouseFamilyNameAsBirth;
 
 	@FindBy(id = "deceasedRelationshipDetails-spouseDetails-spouseName-firstGivenName")
 	public static WebElement spouseGivenName;
+	
+	@FindBy(id = "deceasedRelationshipDetails-spouseDetails-sex")
+	public static WebElement relationshipPartnersSex;
 
 	@FindBy(id = "deceasedPreviousRelationshipDetails-numberOfPreviousRelationships")
 	public static WebElement numberPreviousRelationships;
@@ -99,6 +108,9 @@ public class EregistryDrsPage extends BaseClass {
 
 	@FindBy(id = "parentsOfDeceased-parent1-familyName")
 	public static WebElement parent1FamilyName;
+	
+	@FindBy(id = "parentsOfDeceased-parent1-familyNameSameToFamilyNameAtBirth")
+	public static WebElement parent1FamilyNameSameAsBirth;
 	
 	@FindBy(id = "parentsOfDeceased-parent1-familyNameAtBirth")
 	public static WebElement parent1FamilyNameAtBirth;
@@ -114,6 +126,9 @@ public class EregistryDrsPage extends BaseClass {
 
 	@FindBy(id = "parentsOfDeceased-parent2-familyName")
 	public static WebElement parent2FamilyName;
+	
+	@FindBy(id = "parentsOfDeceased-parent2-familyNameSameToFamilyNameAtBirth")
+	public static WebElement parent2FamilyNameSameAsBirth;
 	
 	@FindBy(id = "parentsOfDeceased-parent2-familyNameAtBirth")
 	public static WebElement parent2FamilyNameAtBirth;
@@ -135,6 +150,9 @@ public class EregistryDrsPage extends BaseClass {
 
 	@FindBy(id = "informantDetails-name-familyName")
 	public static WebElement informantFamilyName;
+	
+	@FindBy(id = "informantDetails-name-familyNameSameToFamilyNameAtBirth")
+	public static WebElement informantFamilyNameSameAsBirth;
 
 	@FindBy(id = "informantDetails-name-firstGivenName")
 	public static WebElement informantGivenName;
@@ -183,8 +201,10 @@ public class EregistryDrsPage extends BaseClass {
 
 	@FindBy(id = "deathCertification-deathCertifiedBy")
 	public static WebElement deathCertifiedBy;
+	
+	@FindBy(id = "funeralDirectorDetails-name-familyNameSameToFamilyNameAtBirth")
+	public static WebElement funeralDirectorFamilyNameSameAsBirth;
 
 	@FindBy(id = "deathCertification-coroner-suburb")
 	public static WebElement coronerSuburb;
-
 }
