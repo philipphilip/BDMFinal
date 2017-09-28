@@ -1,7 +1,7 @@
 Feature: All eRegistry tests
 
   Scenario: Create a COD in eRegistry and submit to Core
-    Given I open "" website
+    Given I open "eRegistry" website
     When I sign in "eRegistry"
     And I select stakeholder as "Manningham Medical Practitioner"
     And I navigate to "COD" in "eRegistry"

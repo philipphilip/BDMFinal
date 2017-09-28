@@ -67,7 +67,6 @@ public class FillEregistryDrsForm {
 		EregistryDrsPage.numberSibling.sendKeys("0");
 		EregistryDrsPage.informantRelationship.sendKeys("Sibling");
 		EregistryDrsPage.informantFamilyName.sendKeys("Automated" + FillEregistryCodForm.deceasedFamilyName);
-		Helper.selectDropDownList(EregistryDrsPage.informantFamilyNameSameAsBirth, "Yes");
 		EregistryDrsPage.informantGivenName.sendKeys("David");
 		EregistryDrsPage.informantLine1.sendKeys("22 station rd");
 		EregistryDrsPage.informantSuburb.sendKeys("ringwood");
@@ -87,7 +86,6 @@ public class FillEregistryDrsForm {
 		EregistryDrsPage.cemeteryLine1.sendKeys("122 station rd");
 		EregistryDrsPage.cemeterySuburb.sendKeys("ringwood");
 		EregistryDrsPage.cemeteryPostcode.sendKeys("3333");
-		Helper.selectDropDownList(EregistryDrsPage.funeralDirectorFamilyNameSameAsBirth, "Yes");
 		EregistryDrsPage.deathCertifiedBy.sendKeys("Coroner");
 		EregistryDrsPage.coronerSuburb.sendKeys("ringwood");
 		Helper.clickItem(EregistryControls.saveButton);
