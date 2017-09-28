@@ -3,12 +3,10 @@ package step_definitions;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
-
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
-
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 import helpers.Helper;
@@ -23,6 +21,8 @@ import modules.FillBRSCoreSearchForm;
 import modules.FillBRSForm;
 import modules.FillCODCoreSearchForm;
 import modules.FillCODForm;
+import modules.FillCONForm;
+import modules.FillCOSForm;
 import modules.FillCreateInternalUserForm;
 import modules.FillDCApplicationForm;
 import modules.FillDRSCoreSearchForm;
@@ -36,6 +36,7 @@ import modules.FillEregistrySNForm;
 import modules.FillMCApplicationForm;
 import modules.FillMNForm;
 import modules.FillNOBForm;
+import modules.FillNewProductForm;
 import modules.FillRNForm;
 import modules.FillRRCoreSearchForm;
 import modules.FillRRSApplicationForm;
@@ -50,9 +51,12 @@ import modules.GoToApplicationInePublic;
 import modules.GoToBRSForm;
 import modules.GoToBRSInePublic;
 import modules.GoToCODForm;
+import modules.GoToCONFor;
+import modules.GoToCOSForm;
 import modules.GoToDRSForm;
 import modules.GoToMNForm;
 import modules.GoToNOBForm;
+import modules.GotToNewProductForm;
 import modules.GoToRNForm;
 import modules.GoToSystemParameters;
 import modules.SearchAndMakeCodCompliant;
@@ -64,6 +68,10 @@ import modules.SignInAction;
 import modules.SignoutAction;
 import modules.ValidateTheCODFormInEregistry;
 import modules.ValidateTheDRSFormInEregistry;
+import modules.ValidateTheCONForOverseasAdult;
+import modules.ValidateTheCONForOverseasChild;
+import modules.ValidateTheCONForVicAdult;
+import modules.ValidateTheCONForVicChild;
 import pageobjects.AutomationHomePage;
 import pageobjects.CoreBrsPage;
 import pageobjects.CoreControls;
@@ -145,10 +153,10 @@ public class BDMForm {
 		}
 	}
 
-//	@When("^I sign in$")
-//	public void i_sign_in() throws Throwable {
-//		SignInAction.Execute(driver, datamap.get(0));
-//	}
+	// @When("^I sign in$")
+	// public void i_sign_in() throws Throwable {
+	// SignInAction.Execute(driver, datamap.get(0));
+	// }
 
 	@Then("^I sign out$")
 	public void i_sign_out() throws Throwable {
@@ -294,13 +302,13 @@ public class BDMForm {
 				FillCreateInternalUserForm.Execute(driver);
 			}
 		}
-		
+
 		if (site.equals("ePublic Dev")) {
 			if (form.equals("BRS")) {
 				FilltheBRSInEpublicDev.Execute(driver);
 			}
 		}
-	} 
+	}
 
 	@Then("^I select \"(.*?)\" in \"(.*?)\" dropdown list on \"(.*?)\" page of \"(.*?)\" in \"(.*?)\"$")
 	public void i_select_dropdown(String value, String dropDoneListName, String page, String function, String site)
@@ -372,6 +380,12 @@ public class BDMForm {
 			GoToMNForm.Execute(driver);
 		} else if (arg1.equals("Application")) {
 			GoToApplicationForm.Execute(driver);
+		} else if (arg1.equals("New Product")) {
+			GotToNewProductForm.Execute(driver);
+		} else if (arg1.equals("Change of Name")) {
+			GoToCONFor.Execute(driver);
+		} else if (arg1.equals("Change of Sex")) {
+			GoToCOSForm.Execute(driver);
 		} else if (arg1.equals("System Parameters")) {
 			GoToSystemParameters.Execute(driver);
 		} else if (arg1.equals("RN")) {
@@ -379,6 +393,24 @@ public class BDMForm {
 		}
 	}
 
+	@Then("^I can validate the \"([^\"]*)\" form$")
+	public void i_can_validate_the_form(String arg1) throws Throwable {
+	      if (arg1.equals("COD in eRegistry")) {
+	    	  ValidateTheCODFormInEregistry.Execute(driver);
+	    } else if (arg1.equals("DRS in eRegistry")) {
+	    	ValidateTheDRSFormInEregistry.Execute(driver);
+	    } else if (arg1.equals("Vic Born Adult CON Blank")) {
+			ValidateTheCONForVicAdult.Execute(driver);
+		} else if (arg1.equals("Overseas Born Adolt CON Blan")) {
+			ValidateTheCONForOverseasAdult.Execute(driver);
+		} else if (arg1.equals("Overseas Born Child CON Blank")) {
+			ValidateTheCONForOverseasChild.Execute(driver);
+		} else if (arg1.equals("Vic Born Child CON Blank")) {
+			ValidateTheCONForVicChild.Execute(driver);
+		}
+
+	} 
+	
 	@Then("^I fill in the \"([^\"]*)\" form$")
 	public void i_fill_in_the_form(String formName) throws Throwable {
 		if (formName.equals("NOB")) {
@@ -403,6 +435,12 @@ public class BDMForm {
 			FillBCApplicationForm.Execute(driver);
 		} else if (formName.equals("Marriage Certificate request")) {
 			FillMCApplicationForm.Execute(driver);
+		} else if (formName.equals("New Product")) {
+			FillNewProductForm.Execute(driver);
+		} else if (formName.equals("Change of Name")) {
+			FillCONForm.Execute(driver);
+		} else if (formName.equals("Change of Sex")) {
+			FillCOSForm.Execute(driver);
 		} else if (formName.equals("Relationship Application")) {
 			FillRRSApplicationForm.Execute(driver);
 		} else if (formName.equals("Relationship Registration Parameter")) {
@@ -436,7 +474,7 @@ public class BDMForm {
 				FillANCoreSearchForm.Execute(driver);
 			} else if (form.equals("SN")) {
 				FillSNCoreSearchForm.Execute(driver);
-			} 
+			}
 		}
 		if (site.equals("ePublic")) {
 			if (form.equals("BRS")) {
@@ -462,24 +500,7 @@ public class BDMForm {
 		}
 	}
 	 
-		@Then("^I can validate the \"([^\"]*)\" form$")
-		public void i_can_validate_the_form(String arg1) throws Throwable {
-		      if (arg1.equals("COD in eRegistry")) {
-		    	  ValidateTheCODFormInEregistry.Execute(driver);
-		    } else if (arg1.equals("DRS in eRegistry")) {
-		    	ValidateTheDRSFormInEregistry.Execute(driver);
-		    }
-//		      else if (arg1.equals("Vic Born Adult CON Blank")) {
-//				ValidateTheCONForVicAdult.Execute(driver);
-//			} else if (arg1.equals("Overseas Born Adolt CON Blan")) {
-//				ValidateTheCONForOverseasAdult.Execute(driver);
-//			} else if (arg1.equals("Overseas Born Child CON Blank")) {
-//				ValidateTheCONForOverseasChild.Execute(driver);
-//			} else if (arg1.equals("Vic Born Child CON Blank")) {
-//				ValidateTheCONForVicChild.Execute(driver);
-//			}
 
-		} 
 	 
 
 

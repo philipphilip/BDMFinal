@@ -54,7 +54,7 @@ public class FillMCApplicationForm {
 		ApplicationPage.brideDOBMonth.sendKeys("05");
 		ApplicationPage.brideDOBYear.sendKeys("1983");
 		CoreControls.nextButton.click();
-
+		CoreControls.matchToFirstRadioButton();
 		Thread.sleep(2000);
 		String successfullMatch = ApplicationPage.applicationMatchedMessage.getText();
 		Assert.assertTrue(

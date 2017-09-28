@@ -4,12 +4,11 @@ import org.openqa.selenium.WebDriver;
 
 import pageobjects.CoreControls;
 
-public class GoToBRSForm {
+public class GoToCONFor {
 
 	public static void Execute(WebDriver driver) throws Exception {
 		CoreControls.clickNewTab();
-		CoreControls.newBRS.click();
-
+		CoreControls.ChangeOfNameNotification.click();
 	}
 
 }

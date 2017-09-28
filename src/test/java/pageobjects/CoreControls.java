@@ -1,9 +1,10 @@
 package pageobjects;
 
-import org.junit.Assert;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class CoreControls extends BaseClass {
 
@@ -25,12 +26,15 @@ public class CoreControls extends BaseClass {
 
 	@FindBy(xpath = "//*/a[text()='Cause of Death']")
 	public static WebElement newCOD;
-	
+
 	@FindBy(xpath = "//*/a[text()='Relationship Notification']")
 	public static WebElement newRN;
 
 	@FindBy(xpath = "//*/a[text()='Marriage Notification']")
 	public static WebElement newMR;
+
+	@FindBy(xpath = "//a[text() = 'Change of Name Notification']")
+	public static WebElement ChangeOfNameNotification;
 
 	@FindBy(xpath = "//*/a[text()='Search']")
 	public static WebElement searchTab;
@@ -49,28 +53,28 @@ public class CoreControls extends BaseClass {
 
 	@FindBy(xpath = ".//a[text() = 'Cause of Death Search']")
 	public static WebElement codSearch;
-	
+
 	@FindBy(xpath = ".//a[text() = 'Application Quick Search']")
 	public static WebElement applicationQuickSearch;
-	
+
 	@FindBy(xpath = ".//a[text() = 'Adoption Notification Search']")
 	public static WebElement adoptionNotificationSearch;
-	
+
 	@FindBy(xpath = ".//a[text() = 'Adoption Quick Search']")
 	public static WebElement adoptionQuickSearch;
-	
+
 	@FindBy(xpath = ".//a[text() = 'Surrogacy Quick Search']")
 	public static WebElement surrogacyQuickSearch;
-	
+
 	@FindBy(xpath = ".//a[text() = 'Relationship Registration Search']")
 	public static WebElement relationshipRegistrationSearch;
-	
+
 	@FindBy(xpath = ".//*/a[text() = 'Death Registration Search']")
 	public static WebElement deathRegistrationSearch;
 
 	@FindBy(xpath = ".//a[text() = 'Birth Registration Statement Search']")
 	public static WebElement brsSearch;
-	
+
 	@FindBy(xpath = ".//a[text() = 'Births Quick Search']")
 	public static WebElement birthsQuickSearch;
 
@@ -86,12 +90,6 @@ public class CoreControls extends BaseClass {
 	@FindBy(id = "actionMenu")
 	public static WebElement actionList;
 
-	@FindBy(xpath = "/html/body/app/ng-component/div[2]/main/div/brs-page/div/div[2]/form/button-panel/div/div/input[1]")
-	public static WebElement coreBrsValidateButton;
-
-	@FindBy(xpath = "/html/body/app/ng-component/div[2]/main/div/brs-page/div/div[2]/form/div/validation-panel/compliance-exceptions/accordion/accordion-group/div/div[2]/div/div[2]/table/tbody/tr[1]/th[1]/input")
-	public static WebElement coreBrsExceptionListCheckBox;
-
 	@FindBy(xpath = "/html/body/app/ng-component/div[2]/main/div/brs-page/override-popup/base-popup/div/div/div/div[2]/div/form/cge-dropdown-ref/div/div[2]/select")
 	public static WebElement coreBrsReasonCodeList;
 
@@ -103,12 +101,6 @@ public class CoreControls extends BaseClass {
 
 	@FindBy(xpath = ".//input[contains( @value, 'Proceed')]")
 	public static WebElement proceedToReviewButton;
-
-	@FindBy(xpath = "/html/body/app/ng-component/div[2]/main/div/brs-page/div/div[2]/form/button-panel/div/div/input[3]")
-	public static WebElement coreBrsProceedToDeathCheckButton;
-
-	@FindBy(xpath = "/html/body/app/ng-component/div[2]/main/div/nob-page/div/div[2]/form/div/search-results/div/table/tbody/tr[2]/td[1]/div/a")
-	public static WebElement coreNobFirstSearchResult;
 
 	@FindBy(id = "error-message")
 	public static WebElement coreResultMessage;
@@ -140,8 +132,11 @@ public class CoreControls extends BaseClass {
 	@FindBy(xpath = ".//application-wiz-match-results/div[2]//tr[2]/td[1]/input")
 	public static WebElement firstRadioButtonMatchApplication;
 
+	@FindBy(xpath = ".//matching-panel//tr[2]/td[1]/input")
+	public static WebElement firstRadioButtonMatchCON;
+
 	@FindBy(xpath = ".//input[@value = 'Match with selected Notification']")
-	public static WebElement matchButton;
+	public static WebElement matchButtonApplicationCON;
 
 	@FindBy(xpath = ".//input[@value = 'Match with selected']")
 	public static WebElement matchButtonApplication;
@@ -179,6 +174,9 @@ public class CoreControls extends BaseClass {
 	@FindBy(xpath = ".//input[@value = 'Check For Duplicates']")
 	public static WebElement checkDuplicatesButton;
 
+	@FindBy(xpath = ".//button[text() = 'Submit']")
+	public static WebElement submitProduct;
+
 	@FindBy(xpath = ".//input[@value = 'Submit']")
 	public static WebElement submitButton;
 
@@ -187,19 +185,25 @@ public class CoreControls extends BaseClass {
 
 	@FindBy(xpath = ".//*/div[contains (text(),'Additional')]")
 	public static WebElement incaseNoDuplicates;
-	
+
 	@FindBy(xpath = ".//*/a[text() = 'User ']")
 	public static WebElement userTab;
-	
+
 	@FindBy(xpath = ".//*/a[text() = 'Internal users']")
 	public static WebElement internalUsersLink;
-	
+
+	@FindBy(xpath = ".//*/li[2]/a[text() = 'Product ']")
+	public static WebElement productsTab;
+
+	@FindBy(xpath = ".//*/li[2]/a[text() = 'New Product']")
+	public static WebElement newProduct;
+
 	@FindBy(xpath = ".//*/button[text() = 'Create New Core User']")
 	public static WebElement createNewCoreUserButton;
-	
+
 	@FindBy(xpath = "//*/a[text()='General Admin']")
 	public static WebElement oldUiGeneralAdminTab;
-	
+
 	@FindBy(xpath = "//*/a[text()='System Parameters']")
 	public static WebElement oldUiSystemParametersTab;
 
@@ -218,23 +222,15 @@ public class CoreControls extends BaseClass {
 		validateButton.click();
 	}
 
-	public static void matchNoticesToCreateRegistration() throws Exception {
-		actionList.sendKeys("Match");
-		go.click();
-		Thread.sleep(3000);
-		firstRadioButtonMatch.click();
-		matchButton.click();
-		Thread.sleep(3000);
-		String successmessage = registrationCreatedMessage.getText();
-		Assert.assertTrue("Registration did not get created",
-				successmessage.contains("Registration has been successfully registered."));
-	}
-
-	public static void matchBirthCertificateAndBR() throws Exception {
+	public static void matchToFirstRadioButton() throws Exception {
 		Thread.sleep(2000);
-		firstRadioButtonMatchApplication.click();
-		matchButtonApplication.click();
-		Thread.sleep(2000);
+		try {
+			firstRadioButtonMatchApplication.click();
+			matchButtonApplication.click();
+		} catch (Exception e) {
+			firstRadioButtonMatchCON.click();
+			matchButtonApplicationCON.click();
+		}
 	}
 
 	public static void proceedDuplicates() {
@@ -263,14 +259,20 @@ public class CoreControls extends BaseClass {
 			Thread.sleep(2000);
 			proceedDuplicates();
 			Thread.sleep(2000);
-			submitButton.click();
+			try {
+				submitButton.click();
+			} catch (Exception e) {
+			}
 			System.out.println("There were validation errors that got overridden");
 		} else {
 			checkForDuplicatesButton.click();
 			Thread.sleep(2000);
 			proceedDuplicates();
 			Thread.sleep(2000);
-			submitButton.click();
+			try {
+				submitButton.click();
+			} catch (Exception e) {
+			}
 			System.out.println("There are no validation errors");
 		}
 	}
@@ -279,5 +281,11 @@ public class CoreControls extends BaseClass {
 		actionList.sendKeys("Print");
 		Thread.sleep(2000);
 		goPrintCertificate.click();
+	}
+
+	public static void clickNewTab() {
+		WebDriverWait waitForTabsMenue = new WebDriverWait(driver, 10000);
+		newTab = waitForTabsMenue.until(ExpectedConditions.elementToBeClickable(newTab));
+		newTab.click();
 	}
 }

@@ -68,6 +68,24 @@ Feature: All Core site testings.
     And I navigate to "Application" new form
     Then I fill in the "Application" form
 
+  Scenario: Sign in as a Admin and create a Product
+    Given I open "Core Admin UI" website
+    When I sign in "Core Admin UI"
+    And I navigate to "New Product" new form
+    Then I fill in the "New Product" form
+
+  Scenario: Submut a Change of Name Notifications in core
+    Given I open "Core" website
+    And I sign in
+    And I navigate to "Change of Name" new form
+    Then I fill in the "Change of Name" form
+
+  Scenario: Submut a Change of Sex Notifications in core
+    Given I open "Core" website
+    And I sign in "Core"
+    And I navigate to "Change of Sex" new form
+    Then I fill in the "Change of Sex" form
+
   Scenario: Request a Death certificate
     Given I open "Core Old UI" website
     When I sign in "Core Old UI"
