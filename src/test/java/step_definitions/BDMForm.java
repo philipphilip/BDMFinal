@@ -25,6 +25,7 @@ import modules.FillCONForm;
 import modules.FillCOSForm;
 import modules.FillCreateInternalUserForm;
 import modules.FillDCApplicationForm;
+import modules.FillDRCoreSearchForm;
 import modules.FillDRSCoreSearchForm;
 import modules.FillDRSForm;
 import modules.FillEregistryANForm;
@@ -236,6 +237,12 @@ public class BDMForm {
 						.until(ExpectedConditions.elementToBeClickable(CoreControls.searchTab));
 				CoreControls.searchTab.click();
 				CoreControls.relationshipRegistrationSearch.click();
+			} else if (tab.equals("Search DR")) {
+				WebDriverWait waitForTabsMenue = new WebDriverWait(driver, 10000);
+				CoreControls.searchTab = waitForTabsMenue
+						.until(ExpectedConditions.elementToBeClickable(CoreControls.searchTab));
+				CoreControls.searchTab.click();
+				CoreControls.deathRegistrationSearch.click();
 			}
 		} else if (site.equals("eRegistry")) {
 			if (tab.equals("DRS")) {
@@ -474,6 +481,8 @@ public class BDMForm {
 				FillANCoreSearchForm.Execute(driver);
 			} else if (form.equals("SN")) {
 				FillSNCoreSearchForm.Execute(driver);
+			} else if (form.equals("DR")) {
+				FillDRCoreSearchForm.Execute(driver);
 			}
 		}
 		if (site.equals("ePublic")) {

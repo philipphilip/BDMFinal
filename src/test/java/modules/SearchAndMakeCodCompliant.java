@@ -23,7 +23,7 @@ public class SearchAndMakeCodCompliant {
 		codFamilyName = CoreSearchPage.deceasedFamilyNameCheck.getText();
 		Assert.assertTrue("result message not found", codFamilyName.contains("Automated" + FillEregistryCodForm.deceasedFamilyName));
 
-		System.out.println("Notification Id " + CoreSearchPage.notificationId.getText() + " found in Core");
+		System.out.println("COD Notification Id " + CoreSearchPage.notificationId.getText() + " found in Core");
 		
 		String codStatus;
 		Thread.sleep(3000);

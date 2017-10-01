@@ -22,7 +22,7 @@ public class SearchAndMakeDrsCompliant {
 		Thread.sleep(3000);
 		drsFamilyName = CoreSearchPage.deceasedFamilyNameCheck.getText();
 		Assert.assertTrue("result message not found", drsFamilyName.contains("Automated" + FillEregistryCodForm.deceasedFamilyName));
-		System.out.println("Notification Id " + CoreSearchPage.notificationId.getText() + " found in Core");
+		System.out.println("DRS Notification Id " + CoreSearchPage.notificationId.getText() + " found in Core");
 		
 		String drsStatus;
 		Thread.sleep(3000);
