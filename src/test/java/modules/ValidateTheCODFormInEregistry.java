@@ -25,7 +25,7 @@ public class ValidateTheCODFormInEregistry {
 		EregistryControls.backToFormButton = waitForBackToFormButton
 				.until(ExpectedConditions.elementToBeClickable(EregistryControls.backToFormButton));
 		
-		EregistryControls.validateItem(EregistryControls.validationErrorRow1,"Given Name is required.","Deceased Details - Given Names");
+		EregistryControls.validateItem(EregistryControls.validationErrorRow1,"Given Name is required.","Deceased Details - Given Name");
 		EregistryControls.validateItem(EregistryControls.validationErrorRow2,"Was post mortem held? is required.","Supporting Information - Was post mortem held?");
 		EregistryControls.validateItem(EregistryControls.validationErrorRow3,"Is the current family name the same as the family name at birth? is required.",
 				"Deceased Details - Is the current family name the same as the family name at birth?");
@@ -49,8 +49,7 @@ public class ValidateTheCODFormInEregistry {
 				"Eligibility to State Cause of Death - Is this death a reportable or reviewable death in accordance with sections 10 or 13 of the Coroners act 2008?");
 		EregistryControls.validateItem(EregistryControls.validationErrorRow15,"Where did Death occur? is required.","Place of Death - Where did Death occur?");
 		EregistryControls.validateItem(EregistryControls.validationErrorRow16,"Date of birth is required.","Deceased Details - Date of birth");
-		EregistryControls.validateItem(EregistryControls.validationErrorRow17,"Given Name is required.","Deceased Details - Given Names");
-//		EregistryControls.assertAll();
+		EregistryControls.validateItem(EregistryControls.validationErrorRow17,"Given Name is required.","Deceased Details - Given Name");
 		
 		Helper.clickItem(EregistryControls.backToFormButton);
 	}

@@ -7,14 +7,13 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 
+import javax.swing.JOptionPane;
+
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.asserts.SoftAssert;
-
-import step_definitions.Hooks;
 
 public class EregistryControls extends BaseClass {
 
@@ -221,6 +220,27 @@ public class EregistryControls extends BaseClass {
 	@FindBy(xpath = ".//input[@value = 'Back to Form']")
 	public static WebElement backToFormButton;
 	
+	@FindBy(name = "File name:")
+	public static WebElement uploadPathAttachments;
+	
+	@FindBy(id = "actionMenu")
+	public static WebElement actionList;
+	
+	@FindBy(xpath = ".//button[text()='Go']")
+	public static WebElement goButton;
+	
+	@FindBy(id = "add-document-document-type")
+	public static WebElement addDocumentType;
+	
+	@FindBy(id = "add-document-document-name")
+	public static WebElement addDocumentName;
+	
+	@FindBy(id = "std-file-uploader")
+	public static WebElement chooseFileButton;
+	
+	@FindBy(xpath = "//document-detail-component//alert/div")
+	public static WebElement documentUploadSuccessMessage;
+	
 	private static SoftAssert softAssert = new SoftAssert();
 	
 	public static void validateItem(WebElement item, String message, String sectionField) throws Throwable {
@@ -237,12 +257,13 @@ public class EregistryControls extends BaseClass {
 	}
 	
 	public static void uploadAttachmentToLocal() throws Throwable {
-		InputStream inputStream = EregistryControls.class.getClassLoader().getResourceAsStream("Attachment1.pdf");
+		InputStream inputStream = EregistryControls.class.getClassLoader().getResourceAsStream("testData/Attachment1.pdf");
 	       System.out.println(inputStream);
 	       
 	       OutputStream outputStream;
 	       try {
-	             outputStream = new FileOutputStream(new File("C:/Tests/Attachment.pdf"));
+	    	   String userHome = System.getProperty("user.home");
+	             outputStream = new FileOutputStream(new File( userHome+"/Attachment.pdf"));
 	                          
 	             
 	             int read = 0;
@@ -253,11 +274,33 @@ public class EregistryControls extends BaseClass {
 	             }
 
 	       } catch (FileNotFoundException e) {
-	             // TODO Auto-generated catch block
 	             e.printStackTrace();
 	       } catch (IOException e) {
-	             // TODO Auto-generated catch block
+	            e.printStackTrace();
+	       }
+
+	}
+	public static void main(String[] args) throws Throwable {
+		InputStream inputStream = EregistryControls.class.getClassLoader().getResourceAsStream("testData/Attachment1.pdf");
+	       System.out.println(inputStream);
+	       
+	       OutputStream outputStream;
+	       try {
+	    	   String userHome = System.getProperty("user.home");
+	             outputStream = new FileOutputStream(new File( userHome+"/Attachment.pdf"));
+	                          
+	             
+	             int read = 0;
+	             byte[] bytes = new byte[1024];
+	             
+	             while ((read = inputStream.read(bytes)) != -1) {
+	                    outputStream.write(bytes, 0, read);
+	             }
+
+	       } catch (FileNotFoundException e) {
 	             e.printStackTrace();
+	       } catch (IOException e) {
+	            e.printStackTrace();
 	       }
 
 	}

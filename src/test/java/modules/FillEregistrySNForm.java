@@ -55,7 +55,34 @@ public class FillEregistrySNForm {
 		
 		Helper.clickItem(EregistryControls.validateButton);
 		Helper.clickItem(EregistryControls.saveButton);
+		Helper.clickItem(EregistryControls.backToFormButton);
+		
+		EregistryControls.uploadAttachmentToLocal();
+		
+		EregistryControls.actionList.sendKeys("Add Document");
+		Helper.clickItem(EregistryControls.goButton);
+		
+		driver.switchTo().alert().accept();
+		
+		WebDriverWait waitForDocumentUpload = new WebDriverWait(driver, 10000);
+		EregistryControls.addDocumentType = waitForDocumentUpload
+				.until(ExpectedConditions.elementToBeClickable(EregistryControls.addDocumentType));
+		
+		EregistryControls.addDocumentType.sendKeys("Statutory Declaration");
+		EregistryControls.addDocumentName.sendKeys("Statutory Declaration");
 
+		Thread.sleep(1000);
+		String userHome = System.getProperty("user.home");
+		EregistryControls.chooseFileButton.sendKeys(userHome+"\\Attachment.pdf");
+		Thread.sleep(2000);
+
+		
+		Helper.clickItem(EregistryControls.saveButton);
+		
+		Thread.sleep(2000);
+		String uploadSuccess = EregistryControls.documentUploadSuccessMessage.getText();
+		Assert.assertTrue("Document upload failed", uploadSuccess.contains("The document was attached successfully."));
+		
 		Helper.clickItem(EregistryControls.surrogacyLink);
 		Helper.clickItem(EregistryControls.draftList);
 		
