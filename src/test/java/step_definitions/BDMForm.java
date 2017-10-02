@@ -1,17 +1,18 @@
 package step_definitions;
 
+import java.io.File;
+import java.lang.reflect.Executable;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
-
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
-
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
+import freemarker.template.Configuration;
 import helpers.Helper;
 import modules.CoreAdminSignInAction;
 import modules.CoreOldUISignInAction;
@@ -26,6 +27,7 @@ import modules.FillCODCoreSearchForm;
 import modules.FillCODForm;
 import modules.FillCONForm;
 import modules.FillCOSForm;
+import modules.FillCOSRegForm;
 import modules.FillCreateInternalUserForm;
 import modules.FillDCApplicationForm;
 import modules.FillDRSCoreSearchForm;
@@ -39,15 +41,12 @@ import modules.FillEregistrySNForm;
 import modules.FillMCApplicationForm;
 import modules.FillMNForm;
 import modules.FillNOBForm;
-
 import modules.FillNewProductForm;
-
 import modules.FillRNForm;
 import modules.FillRRCoreSearchForm;
 import modules.FillRRSApplicationForm;
 import modules.FillRelationshipRegistrationParameterForm;
 import modules.FillSNCoreSearchForm;
-
 import modules.FillePublicApplicationCoreSearchForm;
 import modules.FilltheApplicationInEpublic;
 import modules.FilltheBRSInEpublic;
@@ -157,11 +156,6 @@ public class BDMForm {
 		}
 	}
 
-	// @When("^I sign in$")
-	// public void i_sign_in() throws Throwable {
-	// SignInAction.Execute(driver, datamap.get(0));
-	// }
-
 	@Then("^I sign out$")
 	public void i_sign_out() throws Throwable {
 		SignoutAction.Execute(driver);
@@ -170,15 +164,15 @@ public class BDMForm {
 	@When("^I sign in \"(.*?)\"")
 	public void i_sign_in_site(String website) throws Throwable {
 		if (website.equals("ePublic")) {
-			EpublicSignInAction.Execute(driver, datamap.get(0));
+			EpublicSignInAction.Execute(driver);
 		} else if (website.equals("eRegistry")) {
-			EregistrySignInAction.Execute(driver, datamap.get(0));
+			EregistrySignInAction.Execute(driver);
 		} else if (website.equals("Core Admin UI")) {
-			CoreAdminSignInAction.Execute(driver, datamap.get(0));
+			CoreAdminSignInAction.Execute(driver);
 		} else if (website.equals("Core")) {
-			SignInAction.Execute(driver, datamap.get(0));
+			SignInAction.Execute(driver);
 		} else if (website.equals("Core Old UI")) {
-			CoreOldUISignInAction.Execute(driver, datamap.get(0));
+			CoreOldUISignInAction.Execute(driver);
 		}
 	}
 
@@ -314,55 +308,10 @@ public class BDMForm {
 		}
 	}
 
-	@Then("^I select \"(.*?)\" in \"(.*?)\" dropdown list on \"(.*?)\" page of \"(.*?)\" in \"(.*?)\"$")
-	public void i_select_dropdown(String value, String dropDoneListName, String page, String function, String site)
-			throws Throwable {
-		if (site.equals("Core")) {
-
-			if (dropDoneListName.equals("Reason Code")) {
-				Helper.selectDropDownList(CoreControls.coreBrsReasonCodeList, value);
-			} else if (dropDoneListName.equals("Action List")) {
-				Helper.selectDropDownList(CoreControls.actionList, value);
-			}
-
-		}
-	}
-
-	@Then("^I input \"(.*?)\" in field with id \"(.*?)\" in \"(.*?)\"$")
-	public void i_input_by_id(String value, String id, String site) throws Throwable {
-		Helper.inputById(id, value);
-	}
-
-	@Then("^I input \"(.*?)\" in \"(.*?)\" input on \"(.*?)\" page of \"(.*?)\" in \"(.*?)\"$")
-	public void i_input(String value, String inputName, String page, String function, String site) throws Throwable {
-		if (site.equals("Core")) {
-
-			if (inputName.equals("Comments")) {
-				Helper.inputItem(CoreControls.coreBrsReasonComments, value);
-			}
-		}
-	}
-
 	@Then("^I select stakeholder as \"(.*?)\"$")
 	public void i_select_stakeholder(String stakeholder) throws Throwable {
 		Helper.selectDropDownList(EregistryControls.stakeholderList, stakeholder);
 		Helper.clickItem(EregistryControls.submitButton);
-	}
-
-	@When("^I click \"(.*?)\" item by id \"(.*?)\" in \"(.*?)\"$")
-	public void i_click_link_by_text$(String item, String id, String site) throws Throwable {
-		Helper.clickById(id);
-	}
-
-	@When("^I click \"(.*?)\" link in \"(.*?)\"$")
-	public void i_click_link_by_text$(String linkText, String site) throws Throwable {
-		Helper.clickLinkByText(linkText);
-	}
-
-	@When("^I click \"(.*?)\" button in \"(.*?)\"$")
-	public void i_click_button_by_text$(String buttonText, String site) throws Throwable {
-		System.out.println("================the value of buttonText is: " + buttonText);
-		Helper.clickButtonByText(buttonText);
 	}
 
 	@When("^I navigate to \"(.*?)\" new form$")
@@ -405,7 +354,6 @@ public class BDMForm {
 		} else if (arg1.equals("Vic Born Child CON Blank")) {
 			ValidateTheCONForVicChild.Execute(driver);
 		}
-
 	}
 
 	@Then("^I fill in the \"([^\"]*)\" form$")
@@ -444,18 +392,20 @@ public class BDMForm {
 			FillRelationshipRegistrationParameterForm.Execute(driver);
 		} else if (formName.equals("RN")) {
 			FillRNForm.Execute(driver);
+		} else if (formName.equals("COS Reg Service")) {
+			FillCOSRegForm.Execute(driver);
 		}
 	}
 
-	@When("^I view errors on the form \"(.*?)\" form$")
-	public void i_submit_blank_form(String arg1) throws Throwable {
-
-		if (arg1.equals("NOB")) {
-			CoreNobPage.View_NOB_Form_Errors();
-		} else if (arg1.equals("BRS")) {
-			CoreBrsPage.view_BRS_Form_Errors();
-		}
-	}
+	// @When("^I view errors on the form \"(.*?)\" form$")
+	// public void i_submit_blank_form(String arg1) throws Throwable {
+	//
+	// if (arg1.equals("NOB")) {
+	// CoreNobPage.View_NOB_Form_Errors();
+	// } else if (arg1.equals("BRS")) {
+	// CoreBrsPage.view_BRS_Form_Errors();
+	// }
+	// }
 
 	@Then("^I search for \"([^\"]*)\" form created in \"([^\"]*)\"$")
 	public void i_search_for_form(String form, String site) throws Throwable {
@@ -496,5 +446,4 @@ public class BDMForm {
 			SearchAndMakeCodCompliant.Execute(driver);
 		}
 	}
-
 }

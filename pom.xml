@@ -1,20 +1,17 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
-
 	<groupId>CBDM</groupId>
 	<artifactId>automation</artifactId>
 	<version>1.0.0</version>
 	<packaging>jar</packaging>
 	<name>automation-testing</name>
-
 	<properties>
 		<!-- Dependency Versions -->
 		<selenium.version>3.4.0</selenium.version>
 		<htmlunit-driver.version>2.26</htmlunit-driver.version>
 		<phantomjsdriver.version>1.4.2</phantomjsdriver.version>
 	</properties>
-
 	<dependencies>
 		<dependency>
 			<groupId>info.cukes</groupId>
@@ -99,7 +96,6 @@
 			<version>3.0.6</version>
 		</dependency>
 	</dependencies>
-
 	<build>
 		<plugins>
 			<plugin>

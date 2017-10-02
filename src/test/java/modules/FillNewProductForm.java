@@ -15,13 +15,14 @@ public class FillNewProductForm {
 
 	public static String prodCode = RandomStringUtils.randomAlphabetic(4);
 	public static String prodDescription = RandomStringUtils.randomAlphabetic(4);
-	public static String prodAC = RandomStringUtils.random(5);
+	public static String prodAC = RandomStringUtils.randomNumeric(5);
 
 	public static void Execute(WebDriver driver) throws Exception {
 		PageFactory.initElements(driver, CoreProductsPage.class);
 
 		CoreProductsPage.productCode.sendKeys("auto" + prodCode);
 		CoreProductsPage.productDescription.sendKeys("auto" + prodDescription);
+		Thread.sleep(1000);
 		CoreProductsPage.productGroup.sendKeys("Certificate");
 		CoreProductsPage.productType.sendKeys("Birth");
 		CoreProductsPage.underlyingRegistration.sendKeys("Birth");

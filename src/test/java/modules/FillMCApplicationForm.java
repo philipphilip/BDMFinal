@@ -54,12 +54,9 @@ public class FillMCApplicationForm {
 		ApplicationPage.brideDOBMonth.sendKeys("05");
 		ApplicationPage.brideDOBYear.sendKeys("1983");
 		CoreControls.nextButton.click();
-		CoreControls.matchToFirstRadioButton();
-		Thread.sleep(2000);
-		String successfullMatch = ApplicationPage.applicationMatchedMessage.getText();
-		Assert.assertTrue(
-				"Expected the message in error banner to be: There are no validation errors in your application. You may now proceed.",
-				successfullMatch.equals("There are no validation errors in your application. You may now proceed."));
+		Thread.sleep(3000);
+		ApplicationPage.noMatchButton.click();
+		Thread.sleep(4000);
 		CoreControls.submitApplicationButton.click();
 
 	}

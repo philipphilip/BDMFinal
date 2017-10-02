@@ -8,7 +8,7 @@ import java.util.HashMap;
 
 public class EregistrySignInAction {
 
-	public static void Execute(WebDriver driver, HashMap<String, String> map) throws Throwable {
+	public static void Execute(WebDriver driver) throws Throwable {
 
 		Helper.inputItem(EregistryLoginPage.username, "eadmin");
 		Helper.inputItem(EregistryLoginPage.password, "Friday17");
