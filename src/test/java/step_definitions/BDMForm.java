@@ -37,6 +37,7 @@ import modules.FillEregistrySNForm;
 import modules.FillMCApplicationForm;
 import modules.FillMNForm;
 import modules.FillNOBForm;
+import modules.FillNOBFormForTasks;
 import modules.FillNewProductForm;
 import modules.FillRNForm;
 import modules.FillRRCoreSearchForm;
@@ -454,6 +455,8 @@ public class BDMForm {
 			FillRelationshipRegistrationParameterForm.Execute(driver);
 		} else if (formName.equals("RN")) {
 			FillRNForm.Execute(driver);
+		} else if (formName.equals("NOB for Tasks")) {
+			FillNOBFormForTasks.Execute(driver);
 		}
 	}
 

@@ -179,6 +179,9 @@ public class CoreControls extends BaseClass {
 
 	@FindBy(xpath = ".//input[@value = 'Submit']")
 	public static WebElement submitButton;
+	
+	@FindBy(xpath = ".//input[@value = 'Back To Form']")
+	public static WebElement backToFormButton;
 
 	@FindBy(xpath = ".//search-results/div/table/tbody/tr[2]/td[1]/div/a")
 	public static WebElement nobSearchResult;
@@ -206,6 +209,21 @@ public class CoreControls extends BaseClass {
 
 	@FindBy(xpath = "//*/a[text()='System Parameters']")
 	public static WebElement oldUiSystemParametersTab;
+	
+	@FindBy(xpath = "//side-panel//a[text()='Tasks']")
+	public static WebElement tasksTab;
+	
+	@FindBy(xpath = "//task-list-panel//tr[2]//a")
+	public static WebElement task1Id;
+	
+	@FindBy(xpath = "//task-list-panel//tr[3]//a")
+	public static WebElement task2Id;
+	
+	@FindBy(xpath = "//task-list-panel//tr[2]/td[4]")
+	public static WebElement task1Status;
+	
+	@FindBy(xpath = "//task-list-panel//tr[3]/td[4]")
+	public static WebElement task2Status;
 
 	public static void saveForm() throws Exception {
 		actionList.sendKeys("Save");

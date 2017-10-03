@@ -21,6 +21,9 @@ public class CoreNobPage extends BaseClass {
 
 	@FindBy(id = "birthMothersDetails-name-familyName")
 	public static WebElement mothersFamilyName;
+	
+	@FindBy(id = "birthMothersDetails-name-familyNameSameToFamilyNameAtBirth")
+	public static WebElement mothersFamilyNameSameAsBirth;
 
 	@FindBy(xpath = ".//*/a[contains(text(),'of Birth')]")
 	public static WebElement Family_name_at_birth;
@@ -81,6 +84,9 @@ public class CoreNobPage extends BaseClass {
 
 	@FindBy(id = "birthDetails-childsDetails-bornAlive")
 	public static WebElement chiled_born_alive;
+	
+	@FindBy(id = "birthDetails-childsDetails-gestationPeriod")
+	public static WebElement gestationPeriod;
 
 	@FindBy(id = "birthDetails-childsDetails-weight")
 	public static WebElement weight;
@@ -141,7 +147,7 @@ public class CoreNobPage extends BaseClass {
 
 	@FindBy(xpath = ".//*/input[1]")
 	public static WebElement back_to_form;
-
+	
 	public static void View_NOB_Form_Errors() {
 		view_errors_button.click();
 	}
