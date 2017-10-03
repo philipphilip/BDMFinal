@@ -16,6 +16,9 @@ public class EregistryCodPage extends BaseClass {
 	@FindBy(id = "deceasedDetails-name-deceasedName-familyName")
 	public static WebElement familyName;
 	
+	@FindBy(id = "deceasedDetails-name-deceasedName-familyNameSameToFamilyNameAtBirth")
+	public static WebElement familyNameSameAsBirth;
+	
 	@FindBy(id = "deceasedDetails-name-deceasedName-familyNameAtBirth")
 	public static WebElement familyNameAtBirth;
 
@@ -45,6 +48,9 @@ public class EregistryCodPage extends BaseClass {
 
 	@FindBy(id = "deceasedDetails-mothersDetails-mothersName-familyName")
 	public static WebElement motherFamilyName;
+	
+	@FindBy(id = "deceasedDetails-mothersDetails-mothersName-familyNameSameToFamilyNameAtBirth")
+	public static WebElement motherFamilyNameSameAsBirth;
 
 	@FindBy(id = "deceasedDetails-mothersDetails-mothersName-firstGivenName")
 	public static WebElement motherGivenName;

@@ -1,7 +1,5 @@
 package step_definitions;
 
-import java.io.File;
-import java.lang.reflect.Executable;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -9,10 +7,8 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
-import cucumber.api.java.en.And;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
-import freemarker.template.Configuration;
 import helpers.Helper;
 import modules.CoreAdminSignInAction;
 import modules.CoreOldUISignInAction;
@@ -30,6 +26,7 @@ import modules.FillCOSForm;
 import modules.FillCOSRegForm;
 import modules.FillCreateInternalUserForm;
 import modules.FillDCApplicationForm;
+import modules.FillDRCoreSearchForm;
 import modules.FillDRSCoreSearchForm;
 import modules.FillDRSForm;
 import modules.FillEregistryANForm;
@@ -71,6 +68,8 @@ import modules.SearchforBRCreated;
 import modules.SearchforCreatedDeathCertificate;
 import modules.SignInAction;
 import modules.SignoutAction;
+import modules.ValidateTheCODFormInEregistry;
+import modules.ValidateTheDRSFormInEregistry;
 import modules.ValidateTheCONForOverseasAdult;
 import modules.ValidateTheCONForOverseasChild;
 import modules.ValidateTheCONForVicAdult;
@@ -234,6 +233,12 @@ public class BDMForm {
 						.until(ExpectedConditions.elementToBeClickable(CoreControls.searchTab));
 				CoreControls.searchTab.click();
 				CoreControls.relationshipRegistrationSearch.click();
+			} else if (tab.equals("Search DR")) {
+				WebDriverWait waitForTabsMenue = new WebDriverWait(driver, 10000);
+				CoreControls.searchTab = waitForTabsMenue
+						.until(ExpectedConditions.elementToBeClickable(CoreControls.searchTab));
+				CoreControls.searchTab.click();
+				CoreControls.deathRegistrationSearch.click();
 			}
 		} else if (site.equals("eRegistry")) {
 			if (tab.equals("DRS")) {
@@ -310,6 +315,9 @@ public class BDMForm {
 
 	@Then("^I select stakeholder as \"(.*?)\"$")
 	public void i_select_stakeholder(String stakeholder) throws Throwable {
+		WebDriverWait waitForStakeholderList = new WebDriverWait(driver, 10000);
+		EregistryControls.stakeholderList = waitForStakeholderList
+				.until(ExpectedConditions.elementToBeClickable(EregistryControls.stakeholderList));
 		Helper.selectDropDownList(EregistryControls.stakeholderList, stakeholder);
 		Helper.clickItem(EregistryControls.submitButton);
 	}
@@ -345,7 +353,11 @@ public class BDMForm {
 
 	@Then("^I can validate the \"([^\"]*)\" form$")
 	public void i_can_validate_the_form(String arg1) throws Throwable {
-		if (arg1.equals("Vic Born Adult CON Blank")) {
+		if (arg1.equals("COD in eRegistry")) {
+			ValidateTheCODFormInEregistry.Execute(driver);
+		} else if (arg1.equals("DRS in eRegistry")) {
+			ValidateTheDRSFormInEregistry.Execute(driver);
+		} else if (arg1.equals("Vic Born Adult CON Blank")) {
 			ValidateTheCONForVicAdult.Execute(driver);
 		} else if (arg1.equals("Overseas Born Adolt CON Blan")) {
 			ValidateTheCONForOverseasAdult.Execute(driver);
@@ -421,6 +433,8 @@ public class BDMForm {
 				FillANCoreSearchForm.Execute(driver);
 			} else if (form.equals("SN")) {
 				FillSNCoreSearchForm.Execute(driver);
+			} else if (form.equals("DR")) {
+				FillDRCoreSearchForm.Execute(driver);
 			}
 		}
 		if (site.equals("ePublic")) {

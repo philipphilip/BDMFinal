@@ -57,6 +57,8 @@ public class FillMCApplicationForm {
 		Thread.sleep(3000);
 		ApplicationPage.noMatchButton.click();
 		Thread.sleep(4000);
+		CoreControls.nextButton.click();
+		Thread.sleep(2000);
 		CoreControls.submitApplicationButton.click();
 
 	}

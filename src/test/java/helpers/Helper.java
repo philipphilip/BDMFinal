@@ -1,16 +1,20 @@
 package helpers;
 
+import static org.openqa.selenium.By.xpath;
+
+import java.io.File;
+import java.net.URL;
+import java.util.List;
+
+import org.apache.commons.io.FileUtils;
 import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
-import pageobjects.EregistryControls;
-import step_definitions.Hooks;
-import java.util.List;
 
-import static org.openqa.selenium.By.xpath;
+import step_definitions.Hooks;
 
 public class Helper {
 
@@ -91,7 +95,7 @@ public class Helper {
 		System.out.println("Can not find item to select:" + value);
 		if (valueList.size() > 1) {
 			if (valueList.get(0).getText().startsWith("Please")) {
-				System.out.println("Select second one as first one is Please...");
+				System.out.println("Select the next available dropdown list value");
 				dropdownList.selectByIndex(1);
 			} else {
 				System.out.println("Select first one");
@@ -99,7 +103,7 @@ public class Helper {
 			}
 
 		} else if (valueList.size() == 1) {
-			System.out.println("Select first one as it is the only one");
+			System.out.println("Select first value in the dropdown list");
 			dropdownList.selectByIndex(0);
 		}
 	}
@@ -161,5 +165,9 @@ public class Helper {
 		clickItem(buttonItem);
 
 	}
-
+//	public static void uploadFile() throws Exception {
+//		URL inputUrl = Helper.class.getResource("/src/test/resources/Attachment1.pdf");
+//		File destinationUrl = new File("C:/Attachment.pdf");
+//		FileUtils.copyURLToFile(inputUrl, destinationUrl);
+//	}
 }

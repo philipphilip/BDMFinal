@@ -3,7 +3,7 @@ Feature: Set the system parameter for Relationship Registration as negative one 
   		 Create a Relationship Notification and link to the application created earlier
   		 Wait for one minute and search if the Relationship Registration has been created by the system
 
-  Scenario: Request a Death certificate
+  Scenario: Set system parameter as negative one for the Relationship Registration in Core Old UI
     Given I open "Core Old UI" website
     When I sign in "Core Old UI"
     And I navigate to "System Parameters" new form

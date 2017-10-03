@@ -21,10 +21,10 @@ public class FillCOSForm {
 		CoreCOSPage.subjectDOBYear.sendKeys("1979");
 		CoreCOSPage.subjectSex.sendKeys("Male");
 		CoreCOSPage.subjectDetailsSuburb.sendKeys("Melbourne");
-		CoreCOSPage.parent1DOBDay.sendKeys("25");
-		CoreCOSPage.parent1DOBMonth.sendKeys("12");
-		CoreCOSPage.parent1DOBYear.sendKeys("1909");
-		CoreCOSPage.parent1Suburb.sendKeys("Coburg");
+		// CoreCOSPage.parent1DOBDay.sendKeys("25");
+		// CoreCOSPage.parent1DOBMonth.sendKeys("12");
+		// CoreCOSPage.parent1DOBYear.sendKeys("1909");
+		// CoreCOSPage.parent1Suburb.sendKeys("Coburg");
 		CoreCOSPage.subjectAddressLine1.sendKeys("432 asdfka st");
 		CoreCOSPage.subjectAddressSuburb.sendKeys("Melbourne");
 		CoreCOSPage.subjectAddressPostcode.sendKeys("3000");

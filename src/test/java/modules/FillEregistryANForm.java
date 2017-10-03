@@ -3,6 +3,7 @@ package modules;
 import helpers.Helper;
 
 import org.apache.commons.lang3.RandomStringUtils;
+import org.junit.Assert;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -10,7 +11,6 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import pageobjects.EregistryANPage;
 import pageobjects.EregistryControls;
-import pageobjects.EregistryNobPage;
 
 
 public class FillEregistryANForm {
@@ -25,7 +25,7 @@ public class FillEregistryANForm {
 	public static void Execute(WebDriver driver) throws Throwable {
 
 		PageFactory.initElements(driver, EregistryANPage.class);
-		
+				
 		WebDriverWait waitForOrderNumber = new WebDriverWait(driver, 10000);
 		EregistryANPage.adoptionOrderNumber = waitForOrderNumber
 				.until(ExpectedConditions.elementToBeClickable(EregistryANPage.adoptionOrderNumber));
@@ -70,6 +70,31 @@ public class FillEregistryANForm {
 		
 		Helper.clickItem(EregistryControls.validateButton);
 		Helper.clickItem(EregistryControls.saveButton);
+		Helper.clickItem(EregistryControls.backToFormButton);
+		
+		EregistryControls.uploadAttachmentToLocal();
+		
+		EregistryControls.actionList.sendKeys("Add Document");
+		Helper.clickItem(EregistryControls.goButton);
+		
+		WebDriverWait waitForDocumentUpload = new WebDriverWait(driver, 10000);
+		EregistryControls.addDocumentType = waitForDocumentUpload
+				.until(ExpectedConditions.elementToBeClickable(EregistryControls.addDocumentType));
+		
+		EregistryControls.addDocumentType.sendKeys("Statutory Declaration");
+		EregistryControls.addDocumentName.sendKeys("Adoption");
+
+		Thread.sleep(1000);
+		String userHome = System.getProperty("user.home");
+		EregistryControls.chooseFileButton.sendKeys(userHome+"\\Attachment.pdf");
+		Thread.sleep(2000);
+
+		
+		Helper.clickItem(EregistryControls.saveButton);
+		
+		Thread.sleep(2000);
+		String uploadSuccess = EregistryControls.documentUploadSuccessMessage.getText();
+		Assert.assertTrue("Document upload failed", uploadSuccess.contains("The document was attached successfully."));
 		
 		Helper.clickItem(EregistryControls.adoptionLink);
 		Helper.clickItem(EregistryControls.draftList);
@@ -81,12 +106,7 @@ public class FillEregistryANForm {
 		Helper.clickItem(EregistryControls.refreshButton);
 		Helper.clickItem(EregistryControls.searchResult1);
 		Helper.clickItem(EregistryControls.submitButton);		
-		Helper.clickItem(EregistryControls.submitButton);
-//		String codSavedMessage;
-//		Thread.sleep(3000);
-//		codSavedMessage = EregistryControls.codMessage.getText();
-//		Assert.assertTrue("result message not found", codSavedMessage.contains("This Cause of Death has been successfully saved"));		
+		Helper.clickItem(EregistryControls.submitButton);	
 
 	}
-
 }

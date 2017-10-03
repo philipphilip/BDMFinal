@@ -5,6 +5,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
 
 import helpers.Helper;
+import pageobjects.EpublicControls;
 import pageobjects.EregistryCertificatesPage;
 import pageobjects.EregistryControls;
 
@@ -118,6 +119,8 @@ public class FillEregistryCertificatesForm {
 		Helper.selectDropDownList(EregistryCertificatesPage.paymentMethod, "Card");
 		
 		Helper.clickItem(EregistryControls.payNowButton);
+		
+		EpublicControls.payNowProcess();
 		
 		String paymentSuccessfulMessage;
 		Thread.sleep(5000);

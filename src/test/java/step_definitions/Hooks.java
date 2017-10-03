@@ -1,5 +1,6 @@
 package step_definitions;
 
+import java.io.File;
 import java.net.MalformedURLException;
 import java.net.URL;
 
@@ -13,9 +14,14 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
 
+import com.aventstack.extentreports.ExtentReports;
+import com.aventstack.extentreports.ExtentTest;
+
 import cucumber.api.Scenario;
 import cucumber.api.java.After;
 import cucumber.api.java.Before;
+
+import org.junit.BeforeClass;
 import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
 
@@ -24,6 +30,32 @@ import java.net.MalformedURLException;
 public class Hooks {
 	public static WebDriver driver;
 	private String nodrul = "http://10.8.8.62:4444/wd/hub";
+	public static ExtentReports extent;
+	public static ExtentTest logger;
+
+//	@BeforeClass
+//	public static void startReporting() {
+//		boolean reportingStarted = false;
+//		if (!reportingStarted) {
+//			// Start the reporting name, pathway,...
+//			extent = new ExtentReports();
+//			
+//			// extent.addSystemInfo("Environment","Environment Name")
+//			extent.addSystemInfo("Host Name", "SoftwareTestingMaterial")
+//					.addSystemInfo("Environment", "Automation Testing").addSystemInfo("User Name", "Rajkumar SM");
+//			
+//			// loading the external xml file (i.e., extent-config.xml) which was
+//			// placed under the base directory
+//			// You could find the xml file below. Create xml file in your
+//			// project and copy past the code mentioned below
+//			extent.loadConfig(new File(System.getProperty("user.dir") + "\\extent-config.xml"));
+//			
+//			// Once report started by first scenario set reportingStarted to
+//			// true
+//						reportingStarted = true;
+//		}
+//
+//	}
 
 	@Before
 	/**
@@ -66,6 +98,11 @@ public class Hooks {
 	public void embedScreenshot(Scenario scenario) {
 
 		if (scenario.isFailed()) {
+			
+//			logger.log(LogStatus.FAIL, "Test Case Failed is "+result.getName());
+//			logger.log(LogStatus.FAIL, "Test Case Failed is "+result.getThrowable());
+			
+			
 			try {
 				scenario.write("Current Page URL is " + driver.getCurrentUrl());
 				// byte[] screenshot = getScreenshotAs(OutputType.BYTES);
@@ -75,9 +112,15 @@ public class Hooks {
 				System.err.println(somePlatformsDontSupportScreenshots.getMessage());
 			}
 
-		}
+//		} else if (scenario.getStatus().equals("pass")){
+//			logger.log(LogStatus.SKIP, "Test Case Skipped is "+result.getName());
+//		} else if 
 		// driver.quit();
 
 	}
+	
+	
+	
 
+}
 }

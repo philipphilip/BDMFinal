@@ -106,7 +106,7 @@ public class EregistryCertificatesPage extends BaseClass {
 	@FindBy(xpath = ".//h2[contains(text(),'Payment Successful')]")
 	public static WebElement paymentSuccessMessage;
 	
-	@FindBy(xpath = ".//*[@id=\"certificatesList\"]//cge-text-input[1]//div[2]")
+	@FindBy(xpath = ".//*[@id=\"certificatesList\"]//cge-text-input[1]/div/div")
 	public static WebElement paymentReferenceNumber;
 	
 	@FindBy(xpath = ".//certificate-wiz-page/div/div[2]/alert/div")

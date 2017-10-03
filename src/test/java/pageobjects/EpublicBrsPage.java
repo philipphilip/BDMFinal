@@ -128,5 +128,8 @@ public class EpublicBrsPage extends BaseClass {
 	public static WebElement parent2FamilyName;
 	
 	@FindBy(id = "brs-parent2Details-name-firstGivenName")
-	public static WebElement parent2GivenName;	
+	public static WebElement parent2GivenName;
+	
+	@FindBy(id = "brs-parent1Details-group1-familyName-same-as-at-birth0")
+	public static WebElement parent1FamilyNameSameAsBirth;
 }
