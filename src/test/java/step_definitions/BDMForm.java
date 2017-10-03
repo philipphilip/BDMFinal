@@ -23,6 +23,7 @@ import modules.FillCODCoreSearchForm;
 import modules.FillCODForm;
 import modules.FillCONForm;
 import modules.FillCOSForm;
+import modules.FillCOSRegForm;
 import modules.FillCreateInternalUserForm;
 import modules.FillDCApplicationForm;
 import modules.FillDRCoreSearchForm;
@@ -155,11 +156,6 @@ public class BDMForm {
 		}
 	}
 
-	// @When("^I sign in$")
-	// public void i_sign_in() throws Throwable {
-	// SignInAction.Execute(driver, datamap.get(0));
-	// }
-
 	@Then("^I sign out$")
 	public void i_sign_out() throws Throwable {
 		SignoutAction.Execute(driver);
@@ -168,15 +164,15 @@ public class BDMForm {
 	@When("^I sign in \"(.*?)\"")
 	public void i_sign_in_site(String website) throws Throwable {
 		if (website.equals("ePublic")) {
-			EpublicSignInAction.Execute(driver, datamap.get(0));
+			EpublicSignInAction.Execute(driver);
 		} else if (website.equals("eRegistry")) {
-			EregistrySignInAction.Execute(driver, datamap.get(0));
+			EregistrySignInAction.Execute(driver);
 		} else if (website.equals("Core Admin UI")) {
-			CoreAdminSignInAction.Execute(driver, datamap.get(0));
+			CoreAdminSignInAction.Execute(driver);
 		} else if (website.equals("Core")) {
-			SignInAction.Execute(driver, datamap.get(0));
+			SignInAction.Execute(driver);
 		} else if (website.equals("Core Old UI")) {
-			CoreOldUISignInAction.Execute(driver, datamap.get(0));
+			CoreOldUISignInAction.Execute(driver);
 		}
 	}
 
@@ -318,35 +314,6 @@ public class BDMForm {
 		}
 	}
 
-	@Then("^I select \"(.*?)\" in \"(.*?)\" dropdown list on \"(.*?)\" page of \"(.*?)\" in \"(.*?)\"$")
-	public void i_select_dropdown(String value, String dropDoneListName, String page, String function, String site)
-			throws Throwable {
-		if (site.equals("Core")) {
-
-			if (dropDoneListName.equals("Reason Code")) {
-				Helper.selectDropDownList(CoreControls.coreBrsReasonCodeList, value);
-			} else if (dropDoneListName.equals("Action List")) {
-				Helper.selectDropDownList(CoreControls.actionList, value);
-			}
-
-		}
-	}
-
-	@Then("^I input \"(.*?)\" in field with id \"(.*?)\" in \"(.*?)\"$")
-	public void i_input_by_id(String value, String id, String site) throws Throwable {
-		Helper.inputById(id, value);
-	}
-
-	@Then("^I input \"(.*?)\" in \"(.*?)\" input on \"(.*?)\" page of \"(.*?)\" in \"(.*?)\"$")
-	public void i_input(String value, String inputName, String page, String function, String site) throws Throwable {
-		if (site.equals("Core")) {
-
-			if (inputName.equals("Comments")) {
-				Helper.inputItem(CoreControls.coreBrsReasonComments, value);
-			}
-		}
-	}
-
 	@Then("^I select stakeholder as \"(.*?)\"$")
 	public void i_select_stakeholder(String stakeholder) throws Throwable {
 		WebDriverWait waitForStakeholderList = new WebDriverWait(driver, 10000);
@@ -354,22 +321,6 @@ public class BDMForm {
 				.until(ExpectedConditions.elementToBeClickable(EregistryControls.stakeholderList));
 		Helper.selectDropDownList(EregistryControls.stakeholderList, stakeholder);
 		Helper.clickItem(EregistryControls.submitButton);
-	}
-
-	@When("^I click \"(.*?)\" item by id \"(.*?)\" in \"(.*?)\"$")
-	public void i_click_link_by_text$(String item, String id, String site) throws Throwable {
-		Helper.clickById(id);
-	}
-
-	@When("^I click \"(.*?)\" link in \"(.*?)\"$")
-	public void i_click_link_by_text$(String linkText, String site) throws Throwable {
-		Helper.clickLinkByText(linkText);
-	}
-
-	@When("^I click \"(.*?)\" button in \"(.*?)\"$")
-	public void i_click_button_by_text$(String buttonText, String site) throws Throwable {
-		System.out.println("================the value of buttonText is: " + buttonText);
-		Helper.clickButtonByText(buttonText);
 	}
 
 	@When("^I navigate to \"(.*?)\" new form$")
@@ -403,11 +354,11 @@ public class BDMForm {
 
 	@Then("^I can validate the \"([^\"]*)\" form$")
 	public void i_can_validate_the_form(String arg1) throws Throwable {
-	      if (arg1.equals("COD in eRegistry")) {
-	    	  ValidateTheCODFormInEregistry.Execute(driver);
-	    } else if (arg1.equals("DRS in eRegistry")) {
-	    	ValidateTheDRSFormInEregistry.Execute(driver);
-	    } else if (arg1.equals("Vic Born Adult CON Blank")) {
+		if (arg1.equals("COD in eRegistry")) {
+			ValidateTheCODFormInEregistry.Execute(driver);
+		} else if (arg1.equals("DRS in eRegistry")) {
+			ValidateTheDRSFormInEregistry.Execute(driver);
+		} else if (arg1.equals("Vic Born Adult CON Blank")) {
 			ValidateTheCONForVicAdult.Execute(driver);
 		} else if (arg1.equals("Overseas Born Adolt CON Blan")) {
 			ValidateTheCONForOverseasAdult.Execute(driver);
@@ -416,9 +367,8 @@ public class BDMForm {
 		} else if (arg1.equals("Vic Born Child CON Blank")) {
 			ValidateTheCONForVicChild.Execute(driver);
 		}
+	}
 
-	} 
-	
 	@Then("^I fill in the \"([^\"]*)\" form$")
 	public void i_fill_in_the_form(String formName) throws Throwable {
 		if (formName.equals("NOB")) {
@@ -457,18 +407,20 @@ public class BDMForm {
 			FillRNForm.Execute(driver);
 		} else if (formName.equals("NOB for Tasks")) {
 			FillNOBFormForTasks.Execute(driver);
+		} else if (formName.equals("COS Reg Service")) {
+			FillCOSRegForm.Execute(driver);
 		}
 	}
 
-	@When("^I view errors on the form \"(.*?)\" form$")
-	public void i_submit_blank_form(String arg1) throws Throwable {
-
-		if (arg1.equals("NOB")) {
-			CoreNobPage.View_NOB_Form_Errors();
-		} else if (arg1.equals("BRS")) {
-			CoreBrsPage.view_BRS_Form_Errors();
-		}
-	}
+	// @When("^I view errors on the form \"(.*?)\" form$")
+	// public void i_submit_blank_form(String arg1) throws Throwable {
+	//
+	// if (arg1.equals("NOB")) {
+	// CoreNobPage.View_NOB_Form_Errors();
+	// } else if (arg1.equals("BRS")) {
+	// CoreBrsPage.view_BRS_Form_Errors();
+	// }
+	// }
 
 	@Then("^I search for \"([^\"]*)\" form created in \"([^\"]*)\"$")
 	public void i_search_for_form(String form, String site) throws Throwable {
@@ -511,9 +463,4 @@ public class BDMForm {
 			SearchAndMakeCodCompliant.Execute(driver);
 		}
 	}
-	 
-
-	 
-
-
 }

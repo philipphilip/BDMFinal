@@ -13,17 +13,18 @@ public class FillCOSForm {
 
 	public static void Execute(WebDriver driver) throws Exception {
 
+		Thread.sleep(2000);
 		CoreCOSPage.additionaDetails.click();
-		CoreCOSPage.firstGivenName.sendKeys("Auto" + randomSubjectName);
-		CoreCOSPage.subjectDOBDay.sendKeys("12");
-		CoreCOSPage.subjectDOBMonth.sendKeys("06");
-		CoreCOSPage.subjectDOBYear.sendKeys("1968");
+		CoreCOSPage.firstGivenName.sendKeys("Automated" + FillNOBForm.randChildFamilyName);
+		CoreCOSPage.subjectDOBDay.sendKeys("01");
+		CoreCOSPage.subjectDOBMonth.sendKeys("08");
+		CoreCOSPage.subjectDOBYear.sendKeys("1979");
 		CoreCOSPage.subjectSex.sendKeys("Male");
 		CoreCOSPage.subjectDetailsSuburb.sendKeys("Melbourne");
-		CoreCOSPage.parent1DOBDay.sendKeys("10");
-		CoreCOSPage.parent1DOBMonth.sendKeys("04");
-		CoreCOSPage.parent1DOBYear.sendKeys("1910");
-		CoreCOSPage.parent1Suburb.sendKeys("Melbourne");
+		// CoreCOSPage.parent1DOBDay.sendKeys("25");
+		// CoreCOSPage.parent1DOBMonth.sendKeys("12");
+		// CoreCOSPage.parent1DOBYear.sendKeys("1909");
+		// CoreCOSPage.parent1Suburb.sendKeys("Coburg");
 		CoreCOSPage.subjectAddressLine1.sendKeys("432 asdfka st");
 		CoreCOSPage.subjectAddressSuburb.sendKeys("Melbourne");
 		CoreCOSPage.subjectAddressPostcode.sendKeys("3000");

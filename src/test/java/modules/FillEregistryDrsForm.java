@@ -12,20 +12,20 @@ import pageobjects.EpublicBrsPage;
 import pageobjects.EregistryControls;
 import pageobjects.EregistryDrsPage;
 
-
 public class FillEregistryDrsForm {
-	
+
 	public static void Execute(WebDriver driver) throws Throwable {
 
 		PageFactory.initElements(driver, EregistryDrsPage.class);
-		
+
 		WebDriverWait waitForDeceasedFamilyName = new WebDriverWait(driver, 10000);
 		EregistryDrsPage.familyName = waitForDeceasedFamilyName
 				.until(ExpectedConditions.elementToBeClickable(EregistryDrsPage.familyName));
 
 		EregistryDrsPage.familyName.sendKeys("Automated" + FillEregistryCodForm.deceasedFamilyName);
 		Helper.selectDropDownList(EregistryDrsPage.familyNameSameAsBirth, "Yes");
-//		EregistryDrsPage.familyNameAtBirth,"Automated" + FillEregistryCodForm.deceasedFamilyName);
+		// EregistryDrsPage.familyNameAtBirth,"Automated" +
+		// FillEregistryCodForm.deceasedFamilyName);
 		EregistryDrsPage.givenName.sendKeys("Automated" + FillEregistryCodForm.deceasedGivenName);
 		EregistryDrsPage.sex.sendKeys("Female");
 		EregistryDrsPage.dateOfDeathType.sendKeys("On");
@@ -95,7 +95,8 @@ public class FillEregistryDrsForm {
 		String drsSavedMessage;
 		Thread.sleep(3000);
 		drsSavedMessage = EregistryControls.drsMessage.getText();
-		Assert.assertTrue("result message not found", drsSavedMessage.contains("This Death Registration Statement has been successfully saved"));
+		Assert.assertTrue("result message not found",
+				drsSavedMessage.contains("This Death Registration Statement has been successfully saved"));
 		Helper.clickItem(EregistryControls.deathsLink);
 		Helper.clickItem(EregistryControls.draftList);
 		EregistryControls.drsSearchFamilyName.sendKeys("Automated" + FillEregistryCodForm.deceasedFamilyName);
@@ -103,11 +104,6 @@ public class FillEregistryDrsForm {
 		Helper.clickItem(EregistryControls.searchResult1);
 		Helper.clickItem(EregistryControls.submitButton);
 		Helper.clickItem(EregistryControls.submitButton);
-//		String drsSubmissionMessage;
-//		Thread.sleep(3000);
-//		drsSubmissionMessage = EregistryControls.submitResultMessage.getText();
-//		Assert.assertTrue("result message not found", drsSubmissionMessage.contains("Successfully submitted notifications"));
-		
 		EregistryControls.assertAll();
 	}
 

@@ -13,9 +13,8 @@ import pageobjects.CoreControls;
 import pageobjects.EregistryCodPage;
 import pageobjects.EregistryControls;
 
-
 public class FillEregistryCodForm {
-	
+
 	static String deceasedFamilyName = RandomStringUtils.randomAlphabetic(5);
 	static String deceasedGivenName = RandomStringUtils.randomAlphabetic(5);
 	static String motherGivenName = RandomStringUtils.randomAlphabetic(5);
@@ -23,19 +22,18 @@ public class FillEregistryCodForm {
 	public static void Execute(WebDriver driver) throws Throwable {
 
 		PageFactory.initElements(driver, EregistryCodPage.class);
-		
 		WebDriverWait waitForCodType = new WebDriverWait(driver, 10000);
 		EregistryCodPage.codType = waitForCodType
 				.until(ExpectedConditions.elementToBeClickable(EregistryCodPage.codType));
-		
+
 		EregistryCodPage.codType.sendKeys("MCCD");
 		EregistryCodPage.familyName.sendKeys("Automated" + deceasedFamilyName);
 		EregistryCodPage.familyNameSameAsBirth.sendKeys("Yes");
-//		EregistryCodPage.familyNameAtBirth,"Automated" + deceasedFamilyName);
+		// EregistryCodPage.familyNameAtBirth,"Automated" + deceasedFamilyName);
 		EregistryCodPage.givenName.sendKeys("Automated" + deceasedGivenName);
 		EregistryCodPage.sex.sendKeys("Female");
-		Helper.selectDropDownList( EregistryCodPage.aboriginal,"Neither Aboriginal or Torres Strait Islander");
-		Helper.selectDropDownList( EregistryCodPage.confirmName,"Medical Records");
+		Helper.selectDropDownList(EregistryCodPage.aboriginal, "Neither Aboriginal or Torres Strait Islander");
+		Helper.selectDropDownList(EregistryCodPage.confirmName, "Medical Records");
 		EregistryCodPage.dateOfBirthType.sendKeys("On");
 		EregistryCodPage.dateOfBirthDay.sendKeys("07");
 		EregistryCodPage.dateOfBirthMonth.sendKeys("07");
@@ -51,8 +49,8 @@ public class FillEregistryCodForm {
 		EregistryCodPage.deathDateMonth.sendKeys("07");
 		EregistryCodPage.deathDateYear.sendKeys("2017");
 		EregistryCodPage.deathOccur.sendKeys("Hospital");
-		Helper.selectDropDownList( EregistryCodPage.hospitalName,"Abel Tasman Village");
-		Helper.selectDropDownList( EregistryCodPage.hospitalTown,"Wollongong");
+		Helper.selectDropDownList(EregistryCodPage.hospitalName, "Abel Tasman Village");
+		Helper.selectDropDownList(EregistryCodPage.hospitalTown, "Wollongong");
 		EregistryCodPage.reviewable.sendKeys("No");
 		EregistryCodPage.examineDody.sendKeys("yes");
 		EregistryCodPage.examineDay.sendKeys("07");
@@ -79,31 +77,26 @@ public class FillEregistryCodForm {
 		EregistryCodPage.under18.sendKeys("No");
 		EregistryCodPage.telephoneNo.clear();
 		EregistryCodPage.telephoneNo.sendKeys("99998888");
-		//EregistryCodPage.AHPRA,"MED0000938719");
+		// EregistryCodPage.AHPRA,"MED0000938719");
 		EregistryCodPage.declaration.sendKeys("Yes");
 		Helper.clickItem(EregistryControls.saveButton);
-		
+
 		WebDriverWait waitForMessageBanner = new WebDriverWait(driver, 10000);
 		EregistryControls.codMessage = waitForMessageBanner
 				.until(ExpectedConditions.elementToBeClickable(EregistryControls.codMessage));
-		
+
 		String codSavedMessage;
 		Thread.sleep(3000);
 		codSavedMessage = EregistryControls.codMessage.getText();
-		Assert.assertTrue("result message not found", codSavedMessage.contains("This Cause of Death has been successfully saved"));		
+		Assert.assertTrue("result message not found",
+				codSavedMessage.contains("This Cause of Death has been successfully saved"));
 		Helper.clickItem(EregistryControls.codLink);
-		Helper.clickItem(EregistryControls.draftList);		
-		EregistryControls.codSearchFamilyName.sendKeys( "Automated" + deceasedFamilyName);		
+		Helper.clickItem(EregistryControls.draftList);
+		EregistryControls.codSearchFamilyName.sendKeys("Automated" + deceasedFamilyName);
 		Helper.clickItem(EregistryControls.refreshButton);
 		Helper.clickItem(EregistryControls.searchResult1);
-		Helper.clickItem(EregistryControls.submitButton);		
 		Helper.clickItem(EregistryControls.submitButton);
-//		String codSubmissionMessage;
-//		Thread.sleep(5000);
-//		codSubmissionMessage = EregistryControls.submitResultMessage.getText();
-//		Assert.assertTrue("result message not found", codSubmissionMessage.contains("Successfully submitted notifications"));
-		
+		Helper.clickItem(EregistryControls.submitButton);
 		EregistryControls.assertAll();
 	}
-
 }

@@ -5,12 +5,13 @@ Feature: All CON related test scenarion in Core site.
     And I sign in "Core"
     And I navigate to "Change of Name" new form
     Then I fill in the "Change of Name" form
+
   #Scenario: Validate the required fileds in CON form for a VIC Born Adult
     #Given I open "Core" website
     #And I sign in
     #And I navigate to "Change of Name" new form
     #Then I can validate the "Vic Born Adult CON Blank" form
-#
+    
   #Scenario: Validate the required fileds in CON form for a Overseas Born Adult
     #Given I open "Core" website
     #And I sign in

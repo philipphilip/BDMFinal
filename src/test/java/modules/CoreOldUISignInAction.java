@@ -10,7 +10,7 @@ import java.util.HashMap;
 
 public class CoreOldUISignInAction {
 
-	public static void Execute(WebDriver driver, HashMap<String, String> map) throws Throwable {
+	public static void Execute(WebDriver driver) throws Throwable {
 
 		Helper.inputItem(CoreLoginPage.coreAdminUsername, "admin");
 		Helper.inputItem(CoreLoginPage.coreAdminUpassword, "Friday17");

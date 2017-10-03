@@ -17,7 +17,7 @@ Feature: All Core site testings.
     And I navigate to "BRS" new form
     Then I fill in the "BRS" form
 
-  Scenario: Check the automatic creation of Birth Certificate
+  Scenario: Check the automatic creation of Birth Registration
     Given I open "Core" website
     And I sign in "Core"
     Then I fill in the "BR" form
@@ -45,6 +45,12 @@ Feature: All Core site testings.
     And I sign in "Core"
     Then I fill in the "DR" form
 
+  Scenario: Request a Death certificate
+    Given I open "Core" website
+    And I sign in "Core"
+    And I navigate to "Application" new form
+    Then I fill in the "Death Application" form
+
   Scenario: Navigate to Marriage page and fill the form
     Given I open "Core" website
     And I sign in "Core"
@@ -62,12 +68,6 @@ Feature: All Core site testings.
     And I navigate to "Application" new form
     Then I fill in the "Marriage Certificate request" form
 
-  Scenario: Request a Death certificate
-    Given I open "Core" website
-    And I sign in "Core"
-    And I navigate to "Application" new form
-    Then I fill in the "Application" form
-
   Scenario: Sign in as a Admin and create a Product
     Given I open "Core Admin UI" website
     When I sign in "Core Admin UI"
@@ -76,7 +76,7 @@ Feature: All Core site testings.
 
   Scenario: Submut a Change of Name Notifications in core
     Given I open "Core" website
-    And I sign in
+    And I sign in "Core"
     And I navigate to "Change of Name" new form
     Then I fill in the "Change of Name" form
 
@@ -85,27 +85,27 @@ Feature: All Core site testings.
     And I sign in "Core"
     And I navigate to "Change of Sex" new form
     Then I fill in the "Change of Sex" form
-
-  Scenario: Request a Death certificate
-    Given I open "Core Old UI" website
-    When I sign in "Core Old UI"
-    And I navigate to "System Parameters" new form
-    Then I fill in the "Relationship Registration Parameter" form
-
-  Scenario: Create a Relationship Notification in Core
-    Given I open "Core" website
-    When I sign in "Core"
-    And I navigate to "RN" new form
-    Then I fill in the "RN" form
-
-  Scenario: Create a Relationship Registration Service Application
-    Given I open "Core" website
-    When I sign in "Core"
-    And I navigate to "Application" new form
-    Then I fill in the "Relationship Application" form
-
-  Scenario: Search for the Surrogacy Notification in Core
-    Given I open "Core" website
-    When I sign in "Core"
-    And I navigate to "Search SN" in "Core"
-    Then I search for "RR" form created in "Core"
+#=========================================================================
+  #Scenario: Request a Death certificate
+    #Given I open "Core Old UI" website
+    #When I sign in "Core Old UI"
+    #And I navigate to "System Parameters" new form
+    #Then I fill in the "Relationship Registration Parameter" form
+#
+  #Scenario: Create a Relationship Notification in Core
+    #Given I open "Core" website
+    #When I sign in "Core"
+    #And I navigate to "RN" new form
+    #Then I fill in the "RN" form
+#
+  #Scenario: Create a Relationship Registration Service Application
+    #Given I open "Core" website
+    #When I sign in "Core"
+    #And I navigate to "Application" new form
+    #Then I fill in the "Relationship Application" form
+#
+  #Scenario: Search for the Surrogacy Notification in Core
+    #Given I open "Core" website
+    #When I sign in "Core"
+    #And I navigate to "Search SN" in "Core"
+    #Then I search for "RR" form created in "Core"
