@@ -25,33 +25,47 @@ public class ValidateTheDRSFormInEregistry {
 		EregistryControls.backToFormButton = waitForBackToFormButton
 				.until(ExpectedConditions.elementToBeClickable(EregistryControls.backToFormButton));
 		
-		EregistryControls.validateItem(EregistryControls.validationErrorRow1,"Sex is required.","Deceased Details - Sex");
-		EregistryControls.validateItem(EregistryControls.validationErrorRow2,"Age at death is required.","Deceased Details - Age at death");
-		EregistryControls.validateItem(EregistryControls.validationErrorRow3,"Suburb/Town/City is required.","Deceased Details - Suburb/Town/City");
-		EregistryControls.validateItem(EregistryControls.validationErrorRow4,"Date of Death Type is required.","Deceased Details - Date of Death Type");
-		EregistryControls.validateItem(EregistryControls.validationErrorRow5,"Units is required.","Deceased Details - Units");
-		EregistryControls.validateItem(EregistryControls.validationErrorRow6,"Given Names is required.","Deceased Details - Given Names");
-		EregistryControls.validateItem(EregistryControls.validationErrorRow7,"Occupation during working life is required.","Deceased Details - Occupation during working life");
-		EregistryControls.validateItem(EregistryControls.validationErrorRow8,"Aboriginal or Torres Strait Islander Origin? is required.",
-				"Deceased Details - Aboriginal or Torres Strait Islander Origin?");
-		EregistryControls.validateItem(EregistryControls.validationErrorRow9,"Number of Children is required.","Children of the Deceased - Number of Children");
-		EregistryControls.validateItem(EregistryControls.validationErrorRow10,"Occupation is required.","Parents of the Deceased - Occupation");
-		EregistryControls.validateItem(EregistryControls.validationErrorRow11,"Given Names is required.","Parents of the Deceased - Given Names");
-		EregistryControls.validateItem(EregistryControls.validationErrorRow12,"Relationship Status at time of Death is required.",
-				"Deceased's Relationship Details - Relationship Status at time of Death");
-		EregistryControls.validateItem(EregistryControls.validationErrorRow13,"Where did Death occur? is required.","Deceased Details - Where did Death occur?");
-		EregistryControls.validateItem(EregistryControls.validationErrorRow14,"Relationship To Subject is required.","Informant Details - Relationship To Subject");
-		EregistryControls.validateItem(EregistryControls.validationErrorRow15,"Number of previous Marriages/Relationships is required.",
-				"Deceased's Previous Relationship Details - Number of previous Marriages/Relationships");
-		EregistryControls.validateItem(EregistryControls.validationErrorRow16,"Death Certified by is required.","Death Certification - Death Certified by");
-		EregistryControls.validateItem(EregistryControls.validationErrorRow17,"Given Names is required.","Parents of the Deceased - Given Names");
-		EregistryControls.validateItem(EregistryControls.validationErrorRow18,"Date of Birth Type is required.","Deceased Details - Date of Birth Type");
-		EregistryControls.validateItem(EregistryControls.validationErrorRow19,"Given Names is required.","Informant Details - Given Names");
-		EregistryControls.validateItem(EregistryControls.validationErrorRow20,"Method of Disposal? is required.","Disposal Details - Method of Disposal?");
-		EregistryControls.validateItem(EregistryControls.validationErrorRow21,"Occupation is required.","Parents of the Deceased - Occupation");
-		EregistryControls.validateItem(EregistryControls.validationErrorRow22,"Was the deceased under 18 years of age? is required.",
-				"Siblings of the Deceased - Was the deceased under 18 years of age?");
-		
+		EregistryControls.validateItem(EregistryControls.validationErrorRow1,"Parent 2 Given Name is required.","Parents of the Deceased - Given Names");
+		EregistryControls.validateItem(EregistryControls.validationErrorRow2,"Informant Residential Address Suburb/Town/City is required.","Informant Details - Residential Address Suburb/Town/City");
+		EregistryControls.validateItem(EregistryControls.validationErrorRow3,"Postal Address Line 1 is required.","Informant Details - Postal Address Line 1");
+		EregistryControls.validateItem(EregistryControls.validationErrorRow4,"Informant email address or telephone is required.","Informant Details - Informant email address or telephone");
+		EregistryControls.validateItem(EregistryControls.validationErrorRow5,"Postal Address Postcode is required.","Informant Details - Postal Address Postcode");
+		EregistryControls.validateItem(EregistryControls.validationErrorRow6,"Informant Residential Address Line 1 is required.","Informant Details - Residential Address Line 1");
+		EregistryControls.validateItem(EregistryControls.validationErrorRow7,"Suburb/Town/City is required.","Deceased Details - Suburb/Town/City");
+		EregistryControls.validateItem(EregistryControls.validationErrorRow8,"Date of Disposal or when the deceased remains are sent overseas is required.","Disposal Details - Date of Disposal or when the deceased remains are sent overseas");
+		EregistryControls.validateItem(EregistryControls.validationErrorRow9,"Were Deceased remains disposed off within 30 days of death? cannot be blank","Disposal Details - Were Deceased remains disposed off within 30 days of death?");
+		EregistryControls.validateItem(EregistryControls.validationErrorRow10,"Address Line 1 is required.","Deceased Details - Address Line 1");
+		EregistryControls.validateItem(EregistryControls.validationErrorRow11,"Postal Address Suburb/Town/City is required.","Informant Details - Postal Address Suburb/Town/City");
+		EregistryControls.validateItem(EregistryControls.validationErrorRow12,"Informant Residential Address Postcode is required.","Informant Details - Residential Address Postcode");
+		EregistryControls.validateItem(EregistryControls.validationErrorRow13,"Postcode is required.","Deceased Details - Postcode");
+		EregistryControls.validateItem(EregistryControls.validationErrorRow14,"Age at death is required.","Deceased Details - Age at death");
+		EregistryControls.validateItem(EregistryControls.validationErrorRow15,"Given Names is required.","Deceased Details - Given Names");
+		EregistryControls.validateItem(EregistryControls.validationErrorRow16,"Occupation during working life is required.","Deceased Details - Occupation during working life");
+		EregistryControls.validateItem(EregistryControls.validationErrorRow17,"Number of Children is required.","Children of the Deceased - Number of Children");
+		EregistryControls.validateItem(EregistryControls.validationErrorRow18,"Occupation is required.","Parents of the Deceased - Occupation");
+		EregistryControls.validateItem(EregistryControls.validationErrorRow19,"Relationship Status at time of Death is required.","Deceased's Relationship Details - Relationship Status at time of Death");
+		EregistryControls.validateItem(EregistryControls.validationErrorRow20,"Is the current family name the same as the family name at birth? is required.","Parent 1 of Deceased - Is the current family name the same as the family name at birth?");
+		EregistryControls.validateItem(EregistryControls.validationErrorRow21,"Parent Type is required.","Parents of the Deceased - Parent Type");
+		EregistryControls.validateItem(EregistryControls.validationErrorRow22,"Relationship To Subject is required.","Informant Details - Relationship To Subject");
+		EregistryControls.validateItem(EregistryControls.validationErrorRow23,"Death Certified by is required.","Death Certification - Death Certified by");
+		EregistryControls.validateItem(EregistryControls.validationErrorRow24,"Date of Birth Type is required.","Deceased Details - Date of Birth Type");
+		EregistryControls.validateItem(EregistryControls.validationErrorRow25,"Sex is required.","Deceased Details - Sex");
+		EregistryControls.validateItem(EregistryControls.validationErrorRow26,"Suburb/Town/City is required.","Deceased Details - Suburb/Town/City");
+		EregistryControls.validateItem(EregistryControls.validationErrorRow27,"Is the current family name the same as the family name at birth? is required.","Deceased Details - Is the current family name the same as the family name at birth?");
+		EregistryControls.validateItem(EregistryControls.validationErrorRow28,"Date of Death Type is required.","Deceased Details - Date of Death Type");
+		EregistryControls.validateItem(EregistryControls.validationErrorRow29,"Units is required.","Deceased Details - Units");
+		EregistryControls.validateItem(EregistryControls.validationErrorRow30,"Parent Type is required.","Parents of the Deceased - Parent Type");
+		EregistryControls.validateItem(EregistryControls.validationErrorRow31,"Aboriginal or Torres Strait Islander Origin? is required.","Deceased Details - Aboriginal or Torres Strait Islander Origin?");
+		EregistryControls.validateItem(EregistryControls.validationErrorRow32,"Given Names is required.","Parents of the Deceased - Given Names");
+		EregistryControls.validateItem(EregistryControls.validationErrorRow33,"Where did Death occur? is required.","Deceased Details - Where did Death occur?");
+		EregistryControls.validateItem(EregistryControls.validationErrorRow34,"Number of previous Marriages/Relationships is required.","Deceased's Previous Relationship Details - Number of previous Marriages/Relationships");
+		EregistryControls.validateItem(EregistryControls.validationErrorRow35,"Is the current family name the same as the family name at birth? is required.","Parent 2 of Deceased - Is the current family name the same as the family name at birth?");
+		EregistryControls.validateItem(EregistryControls.validationErrorRow36,"Given Names is required.","Parents of the Deceased - Given Names");
+		EregistryControls.validateItem(EregistryControls.validationErrorRow37,"Given Names is required.","Informant Details - Given Names");
+		EregistryControls.validateItem(EregistryControls.validationErrorRow38,"Method of Disposal? is required.","Disposal Details - Method of Disposal?");
+		EregistryControls.validateItem(EregistryControls.validationErrorRow39,"Occupation is required.","Parents of the Deceased - Occupation");
+		EregistryControls.validateItem(EregistryControls.validationErrorRow40,"Was the deceased under 18 years of age? is required.","Siblings of the Deceased - Was the deceased under 18 years of age?");
+
 		Helper.clickItem(EregistryControls.backToFormButton);
 	}
 }

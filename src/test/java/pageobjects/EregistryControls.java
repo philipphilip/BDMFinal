@@ -217,6 +217,39 @@ public class EregistryControls extends BaseClass {
 	@FindBy(xpath = "//*[@id=\"errorsInDetail\"]/tr[30]/td[3]")
 	public static WebElement validationErrorRow30;
 	
+	@FindBy(xpath = "//*[@id=\"errorsInDetail\"]/tr[31]/td[3]")
+	public static WebElement validationErrorRow31;
+	
+	@FindBy(xpath = "//*[@id=\"errorsInDetail\"]/tr[32]/td[3]")
+	public static WebElement validationErrorRow32;
+	
+	@FindBy(xpath = "//*[@id=\"errorsInDetail\"]/tr[33]/td[3]")
+	public static WebElement validationErrorRow33;
+	
+	@FindBy(xpath = "//*[@id=\"errorsInDetail\"]/tr[34]/td[3]")
+	public static WebElement validationErrorRow34;
+	
+	@FindBy(xpath = "//*[@id=\"errorsInDetail\"]/tr[35]/td[3]")
+	public static WebElement validationErrorRow35;
+	
+	@FindBy(xpath = "//*[@id=\"errorsInDetail\"]/tr[36]/td[3]")
+	public static WebElement validationErrorRow36;
+	
+	@FindBy(xpath = "//*[@id=\"errorsInDetail\"]/tr[37]/td[3]")
+	public static WebElement validationErrorRow37;
+	
+	@FindBy(xpath = "//*[@id=\"errorsInDetail\"]/tr[38]/td[3]")
+	public static WebElement validationErrorRow38;
+	
+	@FindBy(xpath = "//*[@id=\"errorsInDetail\"]/tr[39]/td[3]")
+	public static WebElement validationErrorRow39;
+	
+	@FindBy(xpath = "//*[@id=\"errorsInDetail\"]/tr[40]/td[3]")
+	public static WebElement validationErrorRow40;
+	
+	@FindBy(xpath = "//*[@id=\"errorsInDetail\"]/tr[41]/td[3]")
+	public static WebElement validationErrorRow41;
+	
 	@FindBy(xpath = ".//input[@value = 'Back to Form']")
 	public static WebElement backToFormButton;
 	
