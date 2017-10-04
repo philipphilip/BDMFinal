@@ -3,6 +3,9 @@ package step_definitions;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -18,6 +21,7 @@ import modules.FillANCoreSearchForm;
 import modules.FillApplicationCoreSearchForm;
 import modules.FillBCApplicationForm;
 import modules.FillBRSCoreSearchForm;
+import modules.FillBRSForSMSAndEmailCorrespondenceForm;
 import modules.FillBRSForm;
 import modules.FillCODCoreSearchForm;
 import modules.FillCODForm;
@@ -44,6 +48,7 @@ import modules.FillRNForm;
 import modules.FillRRCoreSearchForm;
 import modules.FillRRSApplicationForm;
 import modules.FillRelationshipRegistrationParameterForm;
+import modules.FillSMSEmailCorrespondenceForm;
 import modules.FillSNCoreSearchForm;
 import modules.FillePublicApplicationCoreSearchForm;
 import modules.FilltheApplicationInEpublic;
@@ -271,6 +276,10 @@ public class BDMForm {
 				Helper.clickItem(CoreControls.userTab);
 				Helper.clickItem(CoreControls.internalUsersLink);
 				Helper.clickItem(CoreControls.createNewCoreUserButton);
+			} else if (tab.equals("Create Correspondence Template")) {
+				Helper.clickItem(CoreControls.templateManagement);
+				Helper.clickItem(CoreControls.correpondenceTemplatesLink);
+				CoreControls.createNewTemplateButton.sendKeys(Keys.SPACE);
 			}
 		}
 	}
@@ -304,6 +313,8 @@ public class BDMForm {
 		if (site.equals("Core Admin UI")) {
 			if (form.equals("Create internal user")) {
 				FillCreateInternalUserForm.Execute(driver);
+			} else if (form.equals("Create SMS & EMail correspondence templates")) {
+				FillSMSEmailCorrespondenceForm.Execute(driver);
 			}
 		}
 
@@ -409,6 +420,8 @@ public class BDMForm {
 			FillNOBFormForTasks.Execute(driver);
 		} else if (formName.equals("COS Reg Service")) {
 			FillCOSRegForm.Execute(driver);
+		} else if (formName.equals("BRS for SMS & Email correspondence")) {
+			FillBRSForSMSAndEmailCorrespondenceForm.Execute(driver);
 		}
 	}
 

@@ -224,7 +224,52 @@ public class CoreControls extends BaseClass {
 	
 	@FindBy(xpath = "//task-list-panel//tr[3]/td[4]")
 	public static WebElement task2Status;
-
+	
+	@FindBy(xpath = ".//*/a[text() = 'Template Management ']")
+	public static WebElement templateManagementTab;
+	
+	@FindBy(xpath = ".//*/a[text() = 'Correspondence Templates']")
+	public static WebElement correpondenceTemplatesLink;
+	
+	@FindBy(xpath = ".//*/button[text() = 'Create New Template']")
+	public static WebElement createNewTemplateButton;
+	
+	@FindBy(xpath = "//button[text()='Select Recipients']")
+	public static WebElement selectRecipientsButton;
+	
+	@FindBy(xpath = "//recipients-popup//li[1]/input")
+	public static WebElement recipientFirstCheckBox;
+	
+	@FindBy(xpath = "//button[text()='Ok']")
+	public static WebElement okButton;
+	
+	@FindBy(id = "Subject")
+	public static WebElement correspondenceSubject;
+	
+	@FindBy(id = "Template")
+	public static WebElement template;
+	
+	@FindBy(xpath = "//button[text()='Load Template']")
+	public static WebElement loadTemplateButton;
+	
+	@FindBy(id = "Send SMS")
+	public static WebElement sendSMSCheckbox;
+	
+	@FindBy(xpath = "//input[@value='Approve & Send']")
+	public static WebElement approveAndSendButton;
+	
+	@FindBy(xpath = "//side-panel//a[text()='Correspondences']")
+	public static WebElement correspondencesTab;
+	
+	@FindBy(xpath = "//correspondences-panel//tbody[2]//span[1]")
+	public static WebElement expandCorrespondenceSent;
+	
+	@FindBy(xpath = "//correspondences-inner-panel//tr[2]/td[6]/div/div")
+	public static WebElement emailStatus;
+	
+	@FindBy(xpath = "//correspondences-inner-panel//tr[3]/td[6]/div/div")
+	public static WebElement smsStatus;
+	
 	public static void saveForm() throws Exception {
 		actionList.sendKeys("Save");
 		Thread.sleep(2000);

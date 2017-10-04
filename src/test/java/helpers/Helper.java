@@ -67,14 +67,20 @@ public class Helper {
 			wait.until(ExpectedConditions.elementToBeClickable(item));
 			item.click();
 		} catch (Throwable e) {
-			System.out.println("Click item failed, waiting for 5 seconds to click again.");
-			Thread.sleep(5000);
+			System.out.println("Unable to click element, waiting 2 seconds to click again.");
+			Thread.sleep(2000);
 			try {
 				item.click();
 			} catch (Throwable e1) {
-				System.out.println("Click item failed, waiting for 10 seconds to click again.");
-				Thread.sleep(10000);
-				item.click();
+				System.out.println("Still, unable to click!, waiting 5 more seconds.");
+				Thread.sleep(5000);
+				try {
+					item.click();
+				} catch (Throwable e2) {
+					System.out.println("Click element failed again!, this is the last wait of 10 seconds.");
+					Thread.sleep(5000);
+					item.click();
+				}
 			}
 		}
 	}

@@ -85,27 +85,48 @@ Feature: All Core site testings.
     And I sign in "Core"
     And I navigate to "Change of Sex" new form
     Then I fill in the "Change of Sex" form
-#=========================================================================
+
+  #=========================================================================
   #Scenario: Request a Death certificate
-    #Given I open "Core Old UI" website
-    #When I sign in "Core Old UI"
-    #And I navigate to "System Parameters" new form
-    #Then I fill in the "Relationship Registration Parameter" form
-#
+  #Given I open "Core Old UI" website
+  #When I sign in "Core Old UI"
+  #And I navigate to "System Parameters" new form
+  #Then I fill in the "Relationship Registration Parameter" form
+  #
   #Scenario: Create a Relationship Notification in Core
-    #Given I open "Core" website
-    #When I sign in "Core"
-    #And I navigate to "RN" new form
-    #Then I fill in the "RN" form
-#
+  #Given I open "Core" website
+  #When I sign in "Core"
+  #And I navigate to "RN" new form
+  #Then I fill in the "RN" form
+  #
   #Scenario: Create a Relationship Registration Service Application
-    #Given I open "Core" website
-    #When I sign in "Core"
-    #And I navigate to "Application" new form
-    #Then I fill in the "Relationship Application" form
-#
+  #Given I open "Core" website
+  #When I sign in "Core"
+  #And I navigate to "Application" new form
+  #Then I fill in the "Relationship Application" form
+  #
   #Scenario: Search for the Surrogacy Notification in Core
-    #Given I open "Core" website
-    #When I sign in "Core"
-    #And I navigate to "Search SN" in "Core"
-    #Then I search for "RR" form created in "Core"
+  #Given I open "Core" website
+  #When I sign in "Core"
+  #And I navigate to "Search SN" in "Core"
+  #Then I search for "RR" form created in "Core"
+  #============================================================================
+  # Test creation and completion of tasks using BRS
+  Scenario: Test task creation and closure
+    Given I open "Core" website
+    And I sign in "Core"
+    And I navigate to "NOB" new form
+    Then I fill in the "NOB for Tasks" form
+
+  # Test SMS&EMail correspondence: Create SMS and Email correspondence templates, create BRS and send correspondence using the newly created templates
+  Scenario: Create SMS & Email correspondence templates
+    Given I open "Core Admin UI" website
+    When I sign in "Core Admin UI"
+    And I navigate to "Create Correspondence Template" in "Core Admin UI"
+    Then I can fill and submit the "Create SMS & EMail correspondence templates" form in "Core Admin UI"
+
+  Scenario: Navigate to BRS and fill the form
+    Given I open "Core" website
+    And I sign in "Core"
+    And I navigate to "BRS" new form
+    Then I fill in the "BRS for SMS & Email correspondence" form
