@@ -15,6 +15,7 @@ public class FillCOSForm {
 
 		Thread.sleep(2000);
 		CoreCOSPage.additionaDetails.click();
+		// CoreCOSPage.notificationType.sendKeys("");
 		CoreCOSPage.firstGivenName.sendKeys("Automated" + FillNOBForm.randChildFamilyName);
 		CoreCOSPage.subjectDOBDay.sendKeys("01");
 		CoreCOSPage.subjectDOBMonth.sendKeys("08");

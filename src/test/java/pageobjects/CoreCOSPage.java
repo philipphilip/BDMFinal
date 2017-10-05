@@ -12,7 +12,10 @@ public class CoreCOSPage extends BaseClass {
 
 	@FindBy(xpath = ".//a[text() = 'Change of Sex Notification']")
 	public static WebElement ChangeOfSexNotification;
-					 
+
+	@FindBy(id = "additionalNotificationDetails-cosnType")
+	public static WebElement notificationType;
+
 	@FindBy(xpath = ".//a[text() = 'Additional Notification Details (User Entered)']")
 	public static WebElement additionaDetails;
 
@@ -117,9 +120,8 @@ public class CoreCOSPage extends BaseClass {
 
 	@FindBy(id = "declaration-declarationFromApplicant")
 	public static WebElement declarationFromApplicant;
-	
+
 	@FindBy(xpath = "//*[@id='error-message']/div//div")
 	public static WebElement alertMessage;
-	
 
 }
