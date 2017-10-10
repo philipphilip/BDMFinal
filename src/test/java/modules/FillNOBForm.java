@@ -20,7 +20,7 @@ public class FillNOBForm {
 	static String randTextInformant2_fmlyN = RandomStringUtils.randomAlphabetic(6);
 	static String randTextInformant2_frstGvnN = RandomStringUtils.randomAlphabetic(6);
 
-	public static void Execute(WebDriver driver) throws Exception {
+	public static void Execute(WebDriver driver) throws Throwable {
 
 		PageFactory.initElements(driver, CoreNobPage.class);
 		WebDriverWait waitForTabsMenue = new WebDriverWait(driver, 10000);

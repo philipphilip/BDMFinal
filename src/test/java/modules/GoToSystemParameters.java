@@ -4,8 +4,6 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-import helpers.Helper;
-import pageobjects.ApplicationPage;
 import pageobjects.CoreControls;
 
 public class GoToSystemParameters {
@@ -14,7 +12,7 @@ public class GoToSystemParameters {
 
 		WebDriverWait waitForTabsMenue = new WebDriverWait(driver, 10000);
 		CoreControls.oldUiGeneralAdminTab = waitForTabsMenue.until(ExpectedConditions.elementToBeClickable(CoreControls.oldUiGeneralAdminTab));
-		Helper.clickItem(CoreControls.oldUiGeneralAdminTab);
-		Helper.clickItem(CoreControls.oldUiSystemParametersTab);
+		CoreControls.oldUiGeneralAdminTab.click();
+		CoreControls.oldUiSystemParametersTab.click();
 	}
 }

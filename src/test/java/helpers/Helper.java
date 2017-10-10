@@ -2,14 +2,13 @@ package helpers;
 
 import static org.openqa.selenium.By.xpath;
 
-import java.io.File;
-import java.net.URL;
 import java.util.List;
 
-import org.apache.commons.io.FileUtils;
 import org.junit.Assert;
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -60,25 +59,32 @@ public class Helper {
 	}
 
 	public static void clickItem(WebElement item) throws Throwable {
-
 		try {
 			WebDriverWait wait = new WebDriverWait(Hooks.driver, 120);
 			wait.until(ExpectedConditions.visibilityOf(item));
 			wait.until(ExpectedConditions.elementToBeClickable(item));
+			((JavascriptExecutor) Hooks.driver).executeScript("arguments[0].scrollIntoView(true);", item);
+		    Thread.sleep(500);
 			item.click();
 		} catch (Throwable e) {
 			System.out.println("Unable to click element, waiting 2 seconds to click again.");
 			Thread.sleep(2000);
 			try {
+				((JavascriptExecutor) Hooks.driver).executeScript("arguments[0].scrollIntoView(true);", item);
+			    Thread.sleep(500);
 				item.click();
 			} catch (Throwable e1) {
 				System.out.println("Still, unable to click!, waiting 5 more seconds.");
 				Thread.sleep(5000);
 				try {
+					((JavascriptExecutor) Hooks.driver).executeScript("arguments[0].scrollIntoView(true);", item);
+				    Thread.sleep(500);
 					item.click();
 				} catch (Throwable e2) {
 					System.out.println("Click element failed again!, this is the last wait of 10 seconds.");
-					Thread.sleep(5000);
+					Thread.sleep(10000);
+					((JavascriptExecutor) Hooks.driver).executeScript("arguments[0].scrollIntoView(true);", item);
+				    Thread.sleep(500);
 					item.click();
 				}
 			}

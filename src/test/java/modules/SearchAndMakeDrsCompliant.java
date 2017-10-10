@@ -6,6 +6,7 @@ import org.openqa.selenium.support.PageFactory;
 
 import helpers.Helper;
 import pageobjects.CoreControls;
+import pageobjects.CoreSearchPage;
 
 
 public class SearchAndMakeDrsCompliant {

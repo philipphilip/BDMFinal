@@ -1,16 +1,16 @@
 package modules;
 
-import org.junit.Assert;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
 
+import helpers.Helper;
 import pageobjects.ApplicationPage;
 import pageobjects.CoreControls;
 
 public class FillMCApplicationForm {
 
-	public static void Execute(WebDriver driver) throws Exception {
+	public static void Execute(WebDriver driver) throws Throwable {
 
 		PageFactory.initElements(driver, ApplicationPage.class);
 		Thread.sleep(1000);
@@ -26,7 +26,7 @@ public class FillMCApplicationForm {
 		ApplicationPage.relationshipToSubject.sendKeys("Self");
 		ApplicationPage.productCode.sendKeys("MS1");
 		ApplicationPage.productDetailsTemplate.sendKeys("MR Certificate");
-		CoreControls.nextButton.click();
+		Helper.clickItem(CoreControls.nextButton);
 		ApplicationPage.applicantFamilyName.sendKeys("automatic" + FillMNForm.groomsFamilyName);
 		ApplicationPage.applicantGivenName.sendKeys("automatic" + FillMNForm.groomsGivenName);
 		ApplicationPage.applicantDOBDay.sendKeys("12");
@@ -36,13 +36,13 @@ public class FillMCApplicationForm {
 		ApplicationPage.applicantAddressSuburb.sendKeys("North Melbourne");
 		ApplicationPage.applicantAddressPostcode.sendKeys("3051");
 		ApplicationPage.applicantPhoneNumber.sendKeys("0456487956");
-		CoreControls.nextButton.click();
+		Helper.clickItem(CoreControls.nextButton);
 		ApplicationPage.deliveryAddressFamilyName.sendKeys("automatic" + FillMNForm.groomsFamilyName);
 		ApplicationPage.orderDeliveryAddressLine1.sendKeys("18 Canning St");
 		ApplicationPage.orderDeliveryAddressSuburb.sendKeys("North Melbourne");
 		ApplicationPage.orderDeliveryAddressPostcode.sendKeys("3051");
 		ApplicationPage.orderDeliveryContactPhoneNumber.sendKeys("0456487956");
-		CoreControls.nextButton.click();
+		Helper.clickItem(CoreControls.nextButton);
 		ApplicationPage.groomFamilyName.sendKeys("automatic" + FillMNForm.groomsFamilyName);
 		ApplicationPage.groomGivenName.sendKeys("automatic" + FillMNForm.groomsGivenName);
 		ApplicationPage.groomDOBDay.sendKeys("12");
@@ -53,13 +53,13 @@ public class FillMCApplicationForm {
 		ApplicationPage.brideDOBDay.sendKeys("25");
 		ApplicationPage.brideDOBMonth.sendKeys("05");
 		ApplicationPage.brideDOBYear.sendKeys("1983");
-		CoreControls.nextButton.click();
+		Helper.clickItem(CoreControls.nextButton);
 		Thread.sleep(3000);
-		ApplicationPage.noMatchButton.click();
+		Helper.clickItem(ApplicationPage.noMatchButton);
 		Thread.sleep(4000);
-		CoreControls.nextButton.click();
+		Helper.clickItem(CoreControls.nextButton);
 		Thread.sleep(2000);
-		CoreControls.submitApplicationButton.click();
+		Helper.clickItem(CoreControls.submitApplicationButton);
 
 	}
 

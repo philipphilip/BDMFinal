@@ -72,12 +72,12 @@ public class FillRRSApplicationForm {
 		Thread.sleep(3000);
 		String successMessage = ApplicationPage.successMessage.getText();
 		Assert.assertTrue("Application for Relationship Registration Failed", successMessage.contains("successfully saved"));
-		ApplicationPage.createTransactionButton.click();
+		Helper.clickItem(ApplicationPage.createTransactionButton);
 		System.out.println("Create Transaction initiated");
 		WebDriverWait waitForCheckbox = new WebDriverWait(driver, 10000);
 		ApplicationPage.paidCheckbox = waitForCheckbox
 				.until(ExpectedConditions.elementToBeClickable(ApplicationPage.paidCheckbox));
 		ApplicationPage.paidCheckbox.sendKeys(Keys.SPACE);
-		ApplicationPage.saveTransactionButton.click();
+		Helper.clickItem(ApplicationPage.saveTransactionButton);
 	}
 }

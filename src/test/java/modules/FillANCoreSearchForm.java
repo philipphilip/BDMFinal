@@ -5,6 +5,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
 
 import helpers.Helper;
+import pageobjects.CoreSearchPage;
 
 
 public class FillANCoreSearchForm {

@@ -9,7 +9,7 @@ public class GoToApplicationInePublic {
 
 	public static void Execute(WebDriver driver) throws Throwable {
 
-		Helper.clickItem(EpublicControls.orderCertificates_tab);
+		EpublicControls.orderCertificates_tab.click();
 		Thread.sleep(3000);
 		EpublicControls.birthLinkCertificates.click();
 		Thread.sleep(3000);

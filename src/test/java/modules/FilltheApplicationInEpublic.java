@@ -10,7 +10,6 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import helpers.Helper;
 import pageobjects.EpublicApplicationPage;
-import pageobjects.EpublicBrsPage;
 import pageobjects.EpublicControls;
 
 
@@ -72,10 +71,20 @@ public class FilltheApplicationInEpublic {
 		Helper.clickItem(EpublicApplicationPage.proceedButton);
 		Helper.clickItem(EpublicApplicationPage.checkoutButton);
 		Helper.clickItem(EpublicApplicationPage.acceptTermsCheckbox);
-		Helper.clickItem(EpublicApplicationPage.payInPersonButton);
+//		Helper.clickItem(EpublicApplicationPage.payInPersonButton);
+		Helper.clickItem(EpublicControls.payNowButton);
+		
+//		Wait for the Westpac bank payments page to load
+		EpublicControls.payNowProcess();
+		
+		Thread.sleep(5000);
+		Helper.clickItem(EpublicControls.submitInPersonButton);
+		
 		String confirmationNumber;
-		Thread.sleep(7000);
-		confirmationNumber = EpublicControls.bdmOrderNo.getText();
-		Assert.assertTrue("The BRS confirmation number is not displayed", confirmationNumber.contains("Your BDM Order no."));
+		Thread.sleep(5000);
+		confirmationNumber = EpublicControls.brsCompletionBanner.getText();
+		Assert.assertTrue("Application submission with POI is not successful", confirmationNumber.contains("Completion"));
+		Thread.sleep(5000);
+		System.out.println("The Birth Application number created along with POI/DPOI is: " + EpublicControls.brsOrderNumber.getText());
 	}
 }

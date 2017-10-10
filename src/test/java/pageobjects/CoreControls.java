@@ -6,6 +6,8 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import helpers.Helper;
+
 public class CoreControls extends BaseClass {
 
 	public CoreControls(WebDriver driver) {
@@ -270,22 +272,22 @@ public class CoreControls extends BaseClass {
 	@FindBy(xpath = "//correspondences-inner-panel//tr[3]/td[6]/div/div")
 	public static WebElement smsStatus;
 	
-	public static void saveForm() throws Exception {
+	public static void saveForm() throws Throwable {
 		actionList.sendKeys("Save");
 		Thread.sleep(2000);
 		go.click();
 	}
 
-	public static void editForm() {
+	public static void editForm() throws Throwable {
 		actionList.sendKeys("Edit");
 		go.click();
 	}
 
-	public static void validateForm() {
+	public static void validateForm() throws Throwable {
 		validateButton.click();
 	}
 
-	public static void matchToFirstRadioButton() throws Exception {
+	public static void matchToFirstRadioButton() throws Throwable {
 		Thread.sleep(2000);
 		try {
 			firstRadioButtonMatchApplication.click();
@@ -296,7 +298,7 @@ public class CoreControls extends BaseClass {
 		}
 	}
 
-	public static void proceedDuplicates() {
+	public static void proceedDuplicates() throws Throwable {
 		try {
 			Boolean noDuplicates = incaseNoDuplicates.isDisplayed();
 			if (noDuplicates) {
@@ -307,7 +309,7 @@ public class CoreControls extends BaseClass {
 		}
 	}
 
-	public static void overrideExceptionsOnform() throws Exception {
+	public static void overrideExceptionsOnform() throws Throwable {
 		Thread.sleep(5000);
 		boolean formHasErrors = errorBaner.getText().contains("are validation errors");
 		if (formHasErrors) {
@@ -323,7 +325,7 @@ public class CoreControls extends BaseClass {
 			proceedDuplicates();
 			Thread.sleep(2000);
 			try {
-				submitButton.click();
+				Helper.clickItem(submitButton);
 			} catch (Exception e) {
 			}
 			System.out.println("There were validation errors that got overridden");
@@ -333,20 +335,20 @@ public class CoreControls extends BaseClass {
 			proceedDuplicates();
 			Thread.sleep(2000);
 			try {
-				submitButton.click();
+				Helper.clickItem(submitButton);
 			} catch (Exception e) {
 			}
 			System.out.println("There are no validation errors");
 		}
 	}
 
-	public static void printForm() throws Exception {
+	public static void printForm() throws Throwable {
 		actionList.sendKeys("Print");
 		Thread.sleep(2000);
 		goPrintCertificate.click();
 	}
 
-	public static void clickNewTab() {
+	public static void clickNewTab() throws Throwable {
 		WebDriverWait waitForTabsMenue = new WebDriverWait(driver, 10000);
 		newTab = waitForTabsMenue.until(ExpectedConditions.elementToBeClickable(newTab));
 		newTab.click();

@@ -4,14 +4,12 @@ import helpers.Helper;
 import org.openqa.selenium.WebDriver;
 import pageobjects.EregistryLoginPage;
 
-import java.util.HashMap;
-
 public class EregistrySignInAction {
 
 	public static void Execute(WebDriver driver) throws Throwable {
 
 		Helper.inputItem(EregistryLoginPage.username, "eadmin");
 		Helper.inputItem(EregistryLoginPage.password, "Friday17");
-		Helper.clickItem(EregistryLoginPage.signin_button);
+		EregistryLoginPage.signin_button.click();
 	}
 }

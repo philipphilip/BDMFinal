@@ -75,7 +75,7 @@ public class FillEregistryANForm {
 		EregistryControls.uploadAttachmentToLocal();
 		
 		EregistryControls.actionList.sendKeys("Add Document");
-		Helper.clickItem(EregistryControls.goButton);
+		EregistryControls.goButton.click();
 		
 		WebDriverWait waitForDocumentUpload = new WebDriverWait(driver, 10000);
 		EregistryControls.addDocumentType = waitForDocumentUpload
@@ -96,14 +96,14 @@ public class FillEregistryANForm {
 		String uploadSuccess = EregistryControls.documentUploadSuccessMessage.getText();
 		Assert.assertTrue("Document upload failed", uploadSuccess.contains("The document was attached successfully."));
 		
-		Helper.clickItem(EregistryControls.adoptionLink);
-		Helper.clickItem(EregistryControls.draftList);
+		EregistryControls.adoptionLink.click();
+		EregistryControls.draftList.click();
 		
 		WebDriverWait waitForSearchName = new WebDriverWait(driver, 10000);
 		EregistryControls.adoptionSearchFamilyName = waitForSearchName
 				.until(ExpectedConditions.elementToBeClickable(EregistryControls.adoptionSearchFamilyName));
 		Helper.inputItem(EregistryControls.adoptionSearchFamilyName, "Automated" + familyName);		
-		Helper.clickItem(EregistryControls.refreshButton);
+		EregistryControls.refreshButton.click();
 		Helper.clickItem(EregistryControls.searchResult1);
 		Helper.clickItem(EregistryControls.submitButton);		
 		Helper.clickItem(EregistryControls.submitButton);	

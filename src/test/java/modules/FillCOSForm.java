@@ -4,6 +4,7 @@ import org.apache.commons.lang3.RandomStringUtils;
 import org.junit.Assert;
 import org.openqa.selenium.WebDriver;
 
+import helpers.Helper;
 import pageobjects.CoreCOSPage;
 import pageobjects.CoreControls;
 
@@ -11,10 +12,10 @@ public class FillCOSForm {
 
 	public static String randomSubjectName = RandomStringUtils.randomAlphabetic(6);
 
-	public static void Execute(WebDriver driver) throws Exception {
+	public static void Execute(WebDriver driver) throws Throwable {
 
 		Thread.sleep(2000);
-		CoreCOSPage.additionaDetails.click();
+		Helper.clickItem(CoreCOSPage.additionaDetails);
 		CoreCOSPage.firstGivenName.sendKeys("Automated" + FillNOBForm.randChildFamilyName);
 		CoreCOSPage.subjectDOBDay.sendKeys("01");
 		CoreCOSPage.subjectDOBMonth.sendKeys("08");

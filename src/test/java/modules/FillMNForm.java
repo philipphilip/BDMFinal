@@ -6,7 +6,6 @@ import org.apache.commons.lang3.RandomStringUtils;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
 
-import cucumber.deps.com.thoughtworks.xstream.mapper.Mapper.Null;
 import pageobjects.CoreControls;
 import pageobjects.MNPage;
 
@@ -22,7 +21,7 @@ public class FillMNForm {
 	public static String brideFatherFirstName = RandomStringUtils.randomAlphabetic(6);
 	public static String brideMotherFirstName = RandomStringUtils.randomAlphabetic(6);
 
-	public static void Execute(WebDriver driver) throws Exception {
+	public static void Execute(WebDriver driver) throws Throwable {
 		PageFactory.initElements(driver, MNPage.class);
 		PageFactory.initElements(driver, CoreControls.class);
 		Thread.sleep(3000);

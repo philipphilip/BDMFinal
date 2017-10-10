@@ -5,6 +5,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
 
 import helpers.Helper;
+import pageobjects.CoreSearchPage;
 
 
 public class FillBRSCoreSearchForm {
@@ -14,8 +15,8 @@ public class FillBRSCoreSearchForm {
 		PageFactory.initElements(driver, CoreSearchPage.class);
 
 		Helper.inputItem(CoreSearchPage.subjectFamilyName, "Automated" + FilltheBRSInEpublic.brsFamilyName);
-		Helper.clickItem(CoreSearchPage.searchButton);
-		Helper.clickItem(CoreSearchPage.firstSearchResult);
+		CoreSearchPage.searchButton.click();
+		CoreSearchPage.firstSearchResult.click();
 		
 		String brsFamilyName;
 		Thread.sleep(3000);

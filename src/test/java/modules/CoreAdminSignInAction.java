@@ -4,9 +4,6 @@ import helpers.Helper;
 import org.openqa.selenium.WebDriver;
 
 import pageobjects.CoreLoginPage;
-import pageobjects.EregistryLoginPage;
-
-import java.util.HashMap;
 
 public class CoreAdminSignInAction {
 
@@ -14,6 +11,6 @@ public class CoreAdminSignInAction {
 
 		Helper.inputItem(CoreLoginPage.coreAdminUsername, "admin");
 		Helper.inputItem(CoreLoginPage.coreAdminUpassword, "Friday17");
-		Helper.clickItem(CoreLoginPage.coreAdminUsignin_button);
+		CoreLoginPage.coreAdminUsignin_button.click();
 	}
 }

@@ -5,23 +5,23 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import helpers.Helper;
 import pageobjects.CoreControls;
-import pageobjects.CoreNobPage;
 import pageobjects.CoreSearchBirthsPage;
 
 public class SearchforBRCreated {
 
-	public static void Execute(WebDriver driver) throws Exception {
+	public static void Execute(WebDriver driver) throws Throwable {
 		String nameInSearch;
 
 		WebDriverWait waitForTabsMenue = new WebDriverWait(driver, 10000);
 		CoreControls.searchTab = waitForTabsMenue
 				.until(ExpectedConditions.elementToBeClickable(CoreControls.searchTab));
-		CoreControls.searchTab.click();
+		Helper.clickItem(CoreControls.searchTab);
 		Thread.sleep(2000);
-		CoreControls.birthRegistrationSearch.click();
+		Helper.clickItem(CoreControls.birthRegistrationSearch);
 		CoreSearchBirthsPage.childFamilyName.sendKeys("Automated" + FillNOBForm.randChildFamilyName);
-		CoreControls.searchButton.click();
+		Helper.clickItem(CoreControls.searchButton);
 		Thread.sleep(2000);
 		boolean thereAreSearchResults = CoreSearchBirthsPage.childFamilyNameInSeachResults.isDisplayed();
 		Assert.assertTrue("There are no Search results matching the Birth Registration", thereAreSearchResults);

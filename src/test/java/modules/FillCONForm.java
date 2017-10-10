@@ -5,6 +5,7 @@ import org.junit.Assert;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
 
+import helpers.Helper;
 import pageobjects.CoreCONPage;
 import pageobjects.CoreControls;
 
@@ -14,10 +15,10 @@ public class FillCONForm {
 	public static String randFamilyName = RandomStringUtils.randomAlphabetic(6);
 	public static String randNewFirstName = RandomStringUtils.randomAlphabetic(6);
 
-	public static void Execute(WebDriver driver) throws Exception {
+	public static void Execute(WebDriver driver) throws Throwable {
 		PageFactory.initElements(driver, CoreCONPage.class);
 
-		CoreCONPage.additionalNotificationDetails.click();
+		Helper.clickItem(CoreCONPage.additionalNotificationDetails);
 		CoreCONPage.connType.sendKeys("Overseas Born - Adult");
 		CoreCONPage.firstGivenName.sendKeys("auto" + randFirstName);
 		CoreCONPage.dateOfBirthDay.sendKeys("14");
@@ -52,7 +53,7 @@ public class FillCONForm {
 		CoreControls.overrideExceptionsOnform();
 		CoreControls.matchToFirstRadioButton();
 		Thread.sleep(2000);
-		CoreControls.submitButton.click();
+		Helper.clickItem(CoreControls.submitButton);
 		Thread.sleep(1000);
 		String changeOfNameSuccessful = CoreCONPage.ChangeNotificationsuccessful.getText();
 		Assert.assertTrue("The notification is not successful", changeOfNameSuccessful.contains("successful"));

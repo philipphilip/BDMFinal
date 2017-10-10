@@ -4,6 +4,7 @@ import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
 
+import helpers.Helper;
 import pageobjects.ApplicationPage;
 import pageobjects.CoreControls;
 
@@ -21,7 +22,7 @@ public class FillCOSRegForm {
 		ApplicationPage.reasonCertificateIsRequired.sendKeys("Administration");
 		ApplicationPage.relationshipToSubject.sendKeys("Self");
 		ApplicationPage.submittedWithNotification.sendKeys("No");
-		CoreControls.nextButton.click();
+		Helper.clickItem(CoreControls.nextButton);
 		ApplicationPage.applicantFamilyName.sendKeys("Automated" + FillNOBForm.randChildFamilyName);
 		ApplicationPage.applicantGivenName.sendKeys("Automated" + FillNOBForm.randChildFirstName);
 		ApplicationPage.applicantDOBDay.sendKeys("01");
@@ -31,7 +32,7 @@ public class FillCOSRegForm {
 		ApplicationPage.applicantAddressSuburb.sendKeys("Melbourne");
 		ApplicationPage.applicantAddressPostcode.sendKeys("3000");
 		ApplicationPage.applicantPhoneNumber.sendKeys("0498732478");
-		CoreControls.nextButton.click();
+		Helper.clickItem(CoreControls.nextButton);
 		ApplicationPage.subjectFamilyName.sendKeys("Automated" + FillNOBForm.randChildFamilyName);
 		ApplicationPage.subjectFamilyNameAtBirth.sendKeys("Automated" + FillNOBForm.randChildFamilyName);
 		ApplicationPage.subjectGivenName.sendKeys("Automated" + FillNOBForm.randChildFirstName);
@@ -48,7 +49,7 @@ public class FillCOSRegForm {
 		ApplicationPage.parent2GivenName.sendKeys("Automated" + FillNOBForm.randparent2FirstName);
 		ApplicationPage.parent2OtherGivenName.sendKeys("Automated" + FillNOBForm.randparent2FirstName);
 		ApplicationPage.parent2FamilyNameAtBirth.sendKeys("Automated" + FillNOBForm.randChildFamilyName);
-		CoreControls.nextButton.click();
+		Helper.clickItem(CoreControls.nextButton);
 		
 		
 		

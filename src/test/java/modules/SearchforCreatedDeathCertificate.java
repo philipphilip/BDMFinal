@@ -6,24 +6,24 @@ import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-import pageobjects.CoreBrsPage;
+import helpers.Helper;
 import pageobjects.CoreControls;
 import pageobjects.CoreSearchDeathPage;
 
 public class SearchforCreatedDeathCertificate {
 
-	public static void Execute(WebDriver driver) throws Exception {
+	public static void Execute(WebDriver driver) throws Throwable {
 		PageFactory.initElements(driver, CoreSearchDeathPage.class);
 
 		String theDeceasedNameIs;
 		WebDriverWait waitForTabsMenue = new WebDriverWait(driver, 10000);
 		CoreControls.searchTab = waitForTabsMenue
 				.until(ExpectedConditions.elementToBeClickable(CoreControls.searchTab));
-		CoreControls.searchTab.click();
+		Helper.clickItem(CoreControls.searchTab);
 		Thread.sleep(2000);
-		CoreControls.deathRegistrationSearch.click();
+		Helper.clickItem(CoreControls.deathRegistrationSearch);
 		CoreSearchDeathPage.deceasedFasmiulyName.sendKeys("automate" + FillCODForm.randDeceasedFamilyName);
-		CoreControls.searchButton.click();
+		Helper.clickItem(CoreControls.searchButton);
 		Thread.sleep(2000);
 		Boolean nameInSearchResults = CoreSearchDeathPage.deceasedFasmiulyNameInSearchResults.isDisplayed();
 		Assert.assertTrue("There are no Search results matching the Death Registration", nameInSearchResults);

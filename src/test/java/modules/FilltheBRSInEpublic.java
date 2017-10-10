@@ -9,7 +9,6 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import helpers.Helper;
-import pageobjects.CoreControls;
 import pageobjects.EpublicBrsPage;
 import pageobjects.EpublicControls;
 
@@ -33,8 +32,8 @@ public class FilltheBRSInEpublic {
 		Helper.inputItem(EpublicBrsPage.dateOfBirth, "05/07/2017");
 		EpublicBrsPage.dateOfBirth.sendKeys(Keys.TAB);
 		Helper.inputItem(EpublicBrsPage.sex, "Female");
-		EpublicBrsPage.hospital.click();
-		EpublicBrsPage.hospitallist.click();
+		Helper.clickItem(EpublicBrsPage.hospital);
+		Helper.clickItem(EpublicBrsPage.hospitallist);
 		Helper.inputItem(EpublicBrsPage.hospitalSuburb, "UPPER FERNTREE GULLY");
 		Helper.clickItem(EpublicControls.nextButton);
 		
@@ -75,7 +74,7 @@ public class FilltheBRSInEpublic {
 		Helper.clickItem(EpublicControls.nextButton);
 
 		Thread.sleep(3000);
-		EpublicBrsPage.safetyConcernsFromParent2.click();
+		Helper.clickItem(EpublicBrsPage.safetyConcernsFromParent2);
 		Helper.clickItem(EpublicControls.nextButton);
 		
 		WebDriverWait waitForInformantRelationship = new WebDriverWait(driver, 10000);

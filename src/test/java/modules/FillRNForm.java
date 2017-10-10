@@ -101,10 +101,10 @@ public class FillRNForm {
 		CoreControls.validateForm();
 		CoreControls.overrideExceptionsOnform();
 //		CoreControls.actionList.sendKeys("Match to Application");
-//		CoreControls.go.click();
+//		Helper.clickItem(CoreControls.go);
 //		Thread.sleep(3000);
-//		CoreControls.firstRadioButtonMatch.click();
-//		CoreControls.matchButton.click();
+//		Helper.clickItem(CoreControls.firstRadioButtonMatch);
+//		Helper.clickItem(CoreControls.matchButton);
 //		Thread.sleep(3000);
 	}
 }

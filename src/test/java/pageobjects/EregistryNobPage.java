@@ -18,7 +18,7 @@ public class EregistryNobPage extends BaseClass {
 	@FindBy(id = "birthMothersDetails-name-familyNameAtBirth")
 	public static WebElement birthMotherFamilyNameAtBirth;
 	
-	@FindBy(id = "birthMothersDetails-name-givenNames")
+	@FindBy(id = "birthMothersDetails-name-firstGivenName")
 	public static WebElement birthMotherGivenNames;
 	
 	@FindBy(id = "birthMothersDetails-details-dateOfBirth-day")

@@ -1,6 +1,5 @@
 package modules;
 
-import org.apache.commons.lang3.RandomStringUtils;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -10,11 +9,9 @@ import pageobjects.CoreBrsPage;
 
 import pageobjects.CoreControls;
 
-//l.'.'
-
 public class FillBRSForm {
 
-	public static void Execute(WebDriver driver) throws Exception {
+	public static void Execute(WebDriver driver) throws Throwable {
 
 		PageFactory.initElements(driver, CoreBrsPage.class);
 		PageFactory.initElements(driver, CoreControls.class);
