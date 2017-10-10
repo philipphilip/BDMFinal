@@ -42,7 +42,7 @@ public class FillSMSEmailCorrespondenceForm {
 		CoreAdminCorrespondenceTemplatePage.calenderWidget = waitForCalendar
 				.until(ExpectedConditions.elementToBeClickable(CoreAdminCorrespondenceTemplatePage.calenderWidget));
 		
-		CoreAdminCorrespondenceTemplatePage.selectDate();
+		CoreAdminCorrespondenceTemplatePage.selectCurrentDate();
 		Thread.sleep(2000);
 		
 		Helper.clickItem(CoreAdminCorrespondenceTemplatePage.sendForApprovalButton);
@@ -102,7 +102,7 @@ public class FillSMSEmailCorrespondenceForm {
 		CoreAdminCorrespondenceTemplatePage.calenderWidget = waitForCalendarEmail
 				.until(ExpectedConditions.elementToBeClickable(CoreAdminCorrespondenceTemplatePage.calenderWidget));
 		
-		CoreAdminCorrespondenceTemplatePage.selectDate();
+		CoreAdminCorrespondenceTemplatePage.selectCurrentDate();
 		Thread.sleep(2000);
 		
 		Helper.clickItem(CoreAdminCorrespondenceTemplatePage.sendForApprovalButton);

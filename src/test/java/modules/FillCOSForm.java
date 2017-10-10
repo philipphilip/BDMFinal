@@ -4,7 +4,6 @@ import org.apache.commons.lang3.RandomStringUtils;
 import org.junit.Assert;
 import org.openqa.selenium.WebDriver;
 
-import helpers.Helper;
 import pageobjects.CoreCOSPage;
 import pageobjects.CoreControls;
 
@@ -15,7 +14,9 @@ public class FillCOSForm {
 	public static void Execute(WebDriver driver) throws Throwable {
 
 		Thread.sleep(2000);
-		Helper.clickItem(CoreCOSPage.additionaDetails);
+
+		CoreCOSPage.additionaDetails.click();
+		// CoreCOSPage.notificationType.sendKeys("");
 		CoreCOSPage.firstGivenName.sendKeys("Automated" + FillNOBForm.randChildFamilyName);
 		CoreCOSPage.subjectDOBDay.sendKeys("01");
 		CoreCOSPage.subjectDOBMonth.sendKeys("08");

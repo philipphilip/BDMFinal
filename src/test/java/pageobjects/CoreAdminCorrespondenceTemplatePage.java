@@ -103,7 +103,7 @@ public class CoreAdminCorrespondenceTemplatePage extends BaseClass {
 		super(driver);
 	}
 
-	public static void selectDate() throws Exception {
+	public static void selectCurrentDate() throws Exception {
 	DateFormat dateFormat = new SimpleDateFormat("dd");
 	Date date = new Date();
 	
