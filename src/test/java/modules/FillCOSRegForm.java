@@ -22,37 +22,48 @@ public class FillCOSRegForm {
 		ApplicationPage.relationshipToSubject.sendKeys("Self");
 		ApplicationPage.submittedWithNotification.sendKeys("No");
 		CoreControls.nextButton.click();
-		ApplicationPage.applicantFamilyName.sendKeys("Automated" + FillNOBForm.randChildFamilyName);
-		ApplicationPage.applicantGivenName.sendKeys("Automated" + FillNOBForm.randChildFirstName);
-		ApplicationPage.applicantDOBDay.sendKeys("01");
+		ApplicationPage.applicantFamilyName.sendKeys("Auto" + FillAdoptionForm.childsNewNameFamilyName);
+		ApplicationPage.applicantGivenName.sendKeys("Auto" + FillAdoptionForm.childsNewNameFirstGivenName);
+		ApplicationPage.applicantDOBDay.sendKeys("12");
 		ApplicationPage.applicantDOBMonth.sendKeys("08");
-		ApplicationPage.applicantDOBYear.sendKeys("1979");
+		ApplicationPage.applicantDOBYear.sendKeys("1980");
 		ApplicationPage.applicantAddressLine1.sendKeys("231 asf st");
 		ApplicationPage.applicantAddressSuburb.sendKeys("Melbourne");
 		ApplicationPage.applicantAddressPostcode.sendKeys("3000");
 		ApplicationPage.applicantPhoneNumber.sendKeys("0498732478");
 		CoreControls.nextButton.click();
-		ApplicationPage.subjectFamilyName.sendKeys("Automated" + FillNOBForm.randChildFamilyName);
-		ApplicationPage.subjectFamilyNameAtBirth.sendKeys("Automated" + FillNOBForm.randChildFamilyName);
-		ApplicationPage.subjectGivenName.sendKeys("Automated" + FillNOBForm.randChildFirstName);
-		ApplicationPage.subjectOtherGivenName.sendKeys("Automated" + FillNOBForm.randChildFirstName);
-		ApplicationPage.subjectPlaceOfBirth.sendKeys("Coburg");
-		ApplicationPage.subjectDOBDay.sendKeys("01");
+		ApplicationPage.subjectFamilyName.sendKeys("Auto" + FillAdoptionForm.childsNewNameFamilyName);
+		ApplicationPage.subjectFamilyNameAtBirth.sendKeys("Auto" + FillAdoptionForm.preAdoptionChildsNameFamilyName);
+		ApplicationPage.subjectGivenName.sendKeys("Auto" + FillAdoptionForm.childsNewNameFirstGivenName);
+		ApplicationPage.subjectOtherGivenName.sendKeys("Auto" + FillAdoptionForm.childsNewNameFirstGivenName);
+		ApplicationPage.subjectPlaceOfBirth.sendKeys("asdf");
+		ApplicationPage.subjectPlaceOfBirthState.sendKeys("NOT STATED");
+		ApplicationPage.placeOfBirthCountry.sendKeys("Iraq");
+		ApplicationPage.subjectDOBDay.sendKeys("12");
 		ApplicationPage.subjectDOBMonth.sendKeys("08");
-		ApplicationPage.subjectDOBYear.sendKeys("1978");
-		ApplicationPage.parent1FamilyName.sendKeys("Automated" + FillNOBForm.randChildFamilyName);
-		ApplicationPage.parent1GivenName.sendKeys("Automated" + FillNOBForm.randparent1FirstName);
-		ApplicationPage.parent1OtherGivenName.sendKeys("Automated" + FillNOBForm.randparent1FirstName);
-		ApplicationPage.parent1FamilyNameAtBirth.sendKeys("Automated" + FillNOBForm.randMotherFamilyNameAtBirth);
-		ApplicationPage.parent2FamilyName.sendKeys("Automated" + FillNOBForm.randChildFamilyName);
-		ApplicationPage.parent2GivenName.sendKeys("Automated" + FillNOBForm.randparent2FirstName);
-		ApplicationPage.parent2OtherGivenName.sendKeys("Automated" + FillNOBForm.randparent2FirstName);
-		ApplicationPage.parent2FamilyNameAtBirth.sendKeys("Automated" + FillNOBForm.randChildFamilyName);
+		ApplicationPage.subjectDOBYear.sendKeys("1980");
+		ApplicationPage.parent1FamilyName.sendKeys("Auto" + FillAdoptionForm.adoptionParent1FamilyName);
+		ApplicationPage.parent1GivenName.sendKeys("Auto" + FillAdoptionForm.adoptionParent1FirstGivenName);
+		ApplicationPage.parent1OtherGivenName.sendKeys("Auto" + FillAdoptionForm.adoptionParent1FirstGivenName);
+		ApplicationPage.parent1FamilyNameAtBirth.sendKeys("Auto" + FillAdoptionForm.adoptionParent1FamilyName);
+		// ApplicationPage.parent2FamilyName.sendKeys("Automated" +
+		// FillNOBForm.randChildFamilyName);
+		ApplicationPage.parent2FamilyName.sendKeys("Automated");
+		// ApplicationPage.parent2GivenName.sendKeys("Automated" +
+		// FillNOBForm.randparent2FirstName);
+		ApplicationPage.parent2GivenName.sendKeys("Automated");
+		// ApplicationPage.parent2OtherGivenName.sendKeys("Automated" +
+		// FillNOBForm.randparent2FirstName);
+		ApplicationPage.parent2OtherGivenName.sendKeys("Automated");
+		// ApplicationPage.parent2FamilyNameAtBirth.sendKeys("Automated" +
+		// FillNOBForm.randChildFamilyName);
+		ApplicationPage.parent2FamilyNameAtBirth.sendKeys("Automated");
 		CoreControls.nextButton.click();
-		
-		
-		
-
+		Thread.sleep(1000);
+		ApplicationPage.tabletitle.click();
+		CoreControls.noMatchButton.click();
+		Thread.sleep(1000);
+		CoreControls.submitApplicationButton.click();
 	}
 
 }

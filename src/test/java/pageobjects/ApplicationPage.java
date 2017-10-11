@@ -274,6 +274,12 @@ public class ApplicationPage extends BaseClass {
 	@FindBy(id = "cosSubjectDetails-subjectDetails-subjectPlaceOfBirthTown")
 	public static WebElement subjectPlaceOfBirth;
 
+	@FindBy(id = "cosSubjectDetails-subjectDetails-subjectPlaceOfBirthState")
+	public static WebElement subjectPlaceOfBirthState;
+
+	@FindBy(id = "cosSubjectDetails-subjectDetails-placeOfBirthCountry")
+	public static WebElement placeOfBirthCountry;
+
 	@FindBy(id = "cosSubjectDetails-subjectDetails-dateOfBirth-day")
 	public static WebElement subjectDOBDay;
 
@@ -306,6 +312,9 @@ public class ApplicationPage extends BaseClass {
 
 	@FindBy(id = "cosSubjectDetails-parent2Details-familyNameAtBirth")
 	public static WebElement parent2FamilyNameAtBirth;
+
+	@FindBy(xpath = ".//table/tbody/tr/th[1]")
+	public static WebElement tabletitle;
 
 	public static void validateform() throws Exception {
 		Thread.sleep(3000);

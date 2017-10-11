@@ -33,29 +33,27 @@ public class Hooks {
 	public static ExtentReports extent;
 	public static ExtentTest logger;
 
-//	@BeforeClass
-//	public static void startReporting() {
-//		boolean reportingStarted = false;
-//		if (!reportingStarted) {
-//			// Start the reporting name, pathway,...
-//			extent = new ExtentReports();
-//			
-//			// extent.addSystemInfo("Environment","Environment Name")
-//			extent.addSystemInfo("Host Name", "SoftwareTestingMaterial")
-//					.addSystemInfo("Environment", "Automation Testing").addSystemInfo("User Name", "Rajkumar SM");
-//			
-//			// loading the external xml file (i.e., extent-config.xml) which was
-//			// placed under the base directory
-//			// You could find the xml file below. Create xml file in your
-//			// project and copy past the code mentioned below
-//			extent.loadConfig(new File(System.getProperty("user.dir") + "\\extent-config.xml"));
-//			
-//			// Once report started by first scenario set reportingStarted to
-//			// true
-//						reportingStarted = true;
-//		}
-//
-//	}
+	// @BeforeClass
+	// public static void startReporting() {
+	// boolean reportingStarted = false;
+	// if (!reportingStarted) {
+	// // Start the reporting name, pathway,...
+	// extent = new ExtentReports();
+	// // extent.addSystemInfo("Environment","Environment Name")
+	// extent.addSystemInfo("Host Name", "SoftwareTestingMaterial")
+	// .addSystemInfo("Environment", "Automation
+	// Testing").addSystemInfo("UserName", "Rajkumar SM");
+	// loading the external xml file (i.e., extent-config.xml) which was
+	// placed under the base directory
+	// You could find the xml file below. Create xml file in your
+	// project and copy past the code mentioned below
+	// extent.loadConfig(new File(System.getProperty("user.dir") +
+	// "\\extent-config.xml"));
+	// Once report started by first scenario set reportingStarted to
+	// true
+	// reportingStarted = true;
+	// }
+	// }
 
 	@Before
 	/**
@@ -96,31 +94,28 @@ public class Hooks {
 	 * Embed a screenshot in test report if test is marked as failed
 	 */
 	public void embedScreenshot(Scenario scenario) {
-
-		if (scenario.isFailed()) {
-			
-//			logger.log(LogStatus.FAIL, "Test Case Failed is "+result.getName());
-//			logger.log(LogStatus.FAIL, "Test Case Failed is "+result.getThrowable());
-			
-			
-			try {
-				scenario.write("Current Page URL is " + driver.getCurrentUrl());
-				// byte[] screenshot = getScreenshotAs(OutputType.BYTES);
-				byte[] screenshot = ((TakesScreenshot) driver).getScreenshotAs(OutputType.BYTES);
-				scenario.embed(screenshot, "image/png");
-			} catch (WebDriverException somePlatformsDontSupportScreenshots) {
-				System.err.println(somePlatformsDontSupportScreenshots.getMessage());
-			}
-
-//		} else if (scenario.getStatus().equals("pass")){
-//			logger.log(LogStatus.SKIP, "Test Case Skipped is "+result.getName());
-//		} else if 
+		//
+		// if (scenario.isFailed()) {
+		//
+		// logger.log(LogStatus.FAIL, "Test Case Failed is"+result.getName());
+		// logger.log(LogStatus.FAIL, "Test Case Failed
+		// is"+result.getThrowable());
+		//
+		// try {
+		// scenario.write("Current Page URL is " + driver.getCurrentUrl());
+		// // byte[] screenshot = getScreenshotAs(OutputType.BYTES);
+		// byte[] screenshot = ((TakesScreenshot)
+		// driver).getScreenshotAs(OutputType.BYTES);
+		// scenario.embed(screenshot, "image/png");
+		// } catch (WebDriverException somePlatformsDontSupportScreenshots) {
+		// System.err.println(somePlatformsDontSupportScreenshots.getMessage());
+		// }
+		//
+		// } else if (scenario.getStatus().equals("pass")){
+		// logger.log(LogStatus.SKIP, "Test Case Skipped is"+result.getName());
+		// } else if(){}
 		// driver.quit();
 
 	}
-	
-	
-	
 
-}
 }

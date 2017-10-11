@@ -18,6 +18,7 @@ import modules.CoreOldUISignInAction;
 import modules.EpublicSignInAction;
 import modules.EregistrySignInAction;
 import modules.FillANCoreSearchForm;
+import modules.FillAdoptionForm;
 import modules.FillApplicationCoreSearchForm;
 import modules.FillBCApplicationForm;
 import modules.FillBRSCoreSearchForm;
@@ -54,6 +55,7 @@ import modules.FillePublicApplicationCoreSearchForm;
 import modules.FilltheApplicationInEpublic;
 import modules.FilltheBRSInEpublic;
 import modules.FilltheBRSInEpublicDev;
+import modules.GoToAdoptionForm;
 import modules.GoToApplicationForm;
 import modules.GoToApplicationInePublic;
 import modules.GoToBRSForm;
@@ -354,12 +356,14 @@ public class BDMForm {
 			GotToNewProductForm.Execute(driver);
 		} else if (arg1.equals("Change of Name")) {
 			GoToCONFor.Execute(driver);
-		} else if (arg1.equals("Change of Sex")) {
+		} else if (arg1.equals("Change of Sex Notification")) {
 			GoToCOSForm.Execute(driver);
 		} else if (arg1.equals("System Parameters")) {
 			GoToSystemParameters.Execute(driver);
 		} else if (arg1.equals("RN")) {
 			GoToRNForm.Execute(driver);
+		} else if (arg1.equals("Adoption Notification")) {
+			GoToAdoptionForm.Execute(driver);
 		}
 	}
 
@@ -422,6 +426,8 @@ public class BDMForm {
 			FillCOSRegForm.Execute(driver);
 		} else if (formName.equals("BRS for SMS & Email correspondence")) {
 			FillBRSForSMSAndEmailCorrespondenceForm.Execute(driver);
+		} else if (formName.equals("Adoption Notification")){
+			FillAdoptionForm.Execute(driver);
 		}
 	}
 

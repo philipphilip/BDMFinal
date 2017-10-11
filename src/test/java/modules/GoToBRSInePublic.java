@@ -13,6 +13,8 @@ public class GoToBRSInePublic {
 		Thread.sleep(3000);
 		EpublicControls.birthLink.click();
 		Thread.sleep(3000);
-		Helper.clickItem(EpublicControls.i_agree);
+//		Helper.clickItem(EpublicControls.i_agree);
+		Thread.sleep(7000);
+		EpublicControls.i_agree.click();
 	}
 }

@@ -19,7 +19,7 @@ public class FillNewProductForm {
 
 	public static void Execute(WebDriver driver) throws Exception {
 		PageFactory.initElements(driver, CoreProductsPage.class);
-
+		Thread.sleep(7000);
 		CoreProductsPage.productCode.sendKeys("auto" + prodCode);
 		CoreProductsPage.productDescription.sendKeys("auto" + prodDescription);
 		Thread.sleep(1000);
@@ -28,6 +28,7 @@ public class FillNewProductForm {
 		CoreProductsPage.underlyingRegistration.sendKeys("Birth");
 		CoreProductsPage.costCentre.sendKeys("218");
 		CoreProductsPage.aC.sendKeys("auto" + prodAC);
+		Thread.sleep(3000);
 		CoreProductsPage.noTraceTemplate.sendKeys("BirthNoTrace");
 		CoreProductsPage.gstRate.sendKeys("10");
 		CoreControls.submitProduct.click();
