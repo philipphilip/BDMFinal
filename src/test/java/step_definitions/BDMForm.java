@@ -4,12 +4,11 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
-import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 import helpers.Helper;
@@ -66,9 +65,9 @@ import modules.GoToCOSForm;
 import modules.GoToDRSForm;
 import modules.GoToMNForm;
 import modules.GoToNOBForm;
-import modules.GotToNewProductForm;
 import modules.GoToRNForm;
 import modules.GoToSystemParameters;
+import modules.GotToNewProductForm;
 import modules.SearchAndMakeCodCompliant;
 import modules.SearchAndMakeDrsCompliant;
 import modules.SearchForMNAndMakeMR;
@@ -77,11 +76,11 @@ import modules.SearchforCreatedDeathCertificate;
 import modules.SignInAction;
 import modules.SignoutAction;
 import modules.ValidateTheCODFormInEregistry;
-import modules.ValidateTheDRSFormInEregistry;
 import modules.ValidateTheCONForOverseasAdult;
 import modules.ValidateTheCONForOverseasChild;
 import modules.ValidateTheCONForVicAdult;
 import modules.ValidateTheCONForVicChild;
+import modules.ValidateTheDRSFormInEregistry;
 import pageobjects.AutomationHomePage;
 import pageobjects.CoreBrsPage;
 import pageobjects.CoreControls;
@@ -251,37 +250,39 @@ public class BDMForm {
 		} else if (site.equals("eRegistry")) {
 			if (tab.equals("DRS")) {
 				Helper.clickItem(EregistryControls.deathsLink);
-				Helper.clickItem(EregistryControls.drsLink);
+				EregistryControls.drsLink.click();
 			} else if (tab.equals("NOB")) {
 				Helper.clickItem(EregistryControls.birthLink);
-				Helper.clickItem(EregistryControls.nobLink);
+				EregistryControls.nobLink.click();
 			} else if (tab.equals("COD")) {
 				Helper.clickItem(EregistryControls.codLink);
-				Helper.clickItem(EregistryControls.newCodLink);
+				EregistryControls.newCodLink.click();
 			} else if (tab.equals("AN")) {
 				Helper.clickItem(EregistryControls.adoptionLink);
-				Helper.clickItem(EregistryControls.newAdoptionNotificationLink);
+				EregistryControls.newAdoptionNotificationLink.click();
 			} else if (tab.equals("SN")) {
 				Helper.clickItem(EregistryControls.surrogacyLink);
-				Helper.clickItem(EregistryControls.newSurrogacyNotificationLink);
+				EregistryControls.newSurrogacyNotificationLink.click();
 			} else if (tab.equals("Certificates")) {
 				Helper.clickItem(EregistryControls.certificatesLink);
-				Helper.clickItem(EregistryControls.newCertificateLink);
+				EregistryControls.newCertificateLink.click();
 			}
 
 		} else if (site.equals("Core Admin UI")) {
 			if (tab.equals("Create internal user")) {
-				// WebDriverWait waitForTabsMenue = new WebDriverWait(driver,
-				// 10000);
-				// CoreControls.userTab = waitForTabsMenue
-				// .until(ExpectedConditions.elementToBeClickable(CoreControls.userTab));
-				Helper.clickItem(CoreControls.userTab);
-				Helper.clickItem(CoreControls.internalUsersLink);
+				 WebDriverWait waitForTabsMenue = new WebDriverWait(driver, 1000);
+				 CoreControls.userTab = waitForTabsMenue
+						 .until(ExpectedConditions.elementToBeClickable(CoreControls.userTab));
+				CoreControls.userTab.click();
+				CoreControls.internalUsersLink.click();
 				Helper.clickItem(CoreControls.createNewCoreUserButton);
 			} else if (tab.equals("Create Correspondence Template")) {
-				Helper.clickItem(CoreControls.templateManagement);
-				Helper.clickItem(CoreControls.correpondenceTemplatesLink);
-				CoreControls.createNewTemplateButton.sendKeys(Keys.SPACE);
+				WebDriverWait waitForTab = new WebDriverWait (driver, 1000);
+				CoreControls.templateManagement = waitForTab
+						.until(ExpectedConditions.elementToBeClickable(CoreControls.templateManagement));
+				CoreControls.templateManagement.click();
+				CoreControls.correpondenceTemplatesLink.click();
+				Helper.clickItem(CoreControls.createNewTemplateButton);
 			}
 		}
 	}

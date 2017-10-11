@@ -15,7 +15,7 @@ public class FillCODForm {
 	static String randparentOneGivenName = RandomStringUtils.randomAlphabetic(6);
 	
 
-	public static void Execute(WebDriver driver) throws Exception {
+	public static void Execute(WebDriver driver) throws Throwable {
 		PageFactory.initElements(driver, CoreCodPage.class);
 		WebDriverWait waitForTabsMenue = new WebDriverWait(driver, 10000);
 		CoreCodPage.causeOfDeathType = waitForTabsMenue

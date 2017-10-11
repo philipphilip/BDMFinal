@@ -47,14 +47,14 @@ public class FillEregistryNobForm {
 		Helper.clickItem(EregistryControls.validateButton);
 		Helper.clickItem(EregistryControls.saveButton);
 		
-		Helper.clickItem(EregistryControls.birthLink);
-		Helper.clickItem(EregistryControls.draftList);
+		EregistryControls.birthLink.click();
+		EregistryControls.draftList.click();
 		
 		WebDriverWait waitForSearchName = new WebDriverWait(driver, 10000);
 		EregistryControls.nobSearchFamilyName = waitForSearchName
 				.until(ExpectedConditions.elementToBeClickable(EregistryControls.nobSearchFamilyName));
 		Helper.inputItem(EregistryControls.nobSearchFamilyName, "Automated" + FillNOBForm.randChildFamilyName);		
-		Helper.clickItem(EregistryControls.refreshButton);
+		EregistryControls.refreshButton.click();
 		Helper.clickItem(EregistryControls.searchResult1);
 		Helper.clickItem(EregistryControls.submitButton);		
 		Helper.clickItem(EregistryControls.submitButton);

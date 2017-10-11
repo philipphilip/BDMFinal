@@ -9,7 +9,6 @@ import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-import pageobjects.CoreControls;
 import pageobjects.EregistryCodPage;
 import pageobjects.EregistryControls;
 
@@ -90,10 +89,10 @@ public class FillEregistryCodForm {
 		codSavedMessage = EregistryControls.codMessage.getText();
 		Assert.assertTrue("result message not found",
 				codSavedMessage.contains("This Cause of Death has been successfully saved"));
-		Helper.clickItem(EregistryControls.codLink);
-		Helper.clickItem(EregistryControls.draftList);
+		EregistryControls.codLink.click();
+		EregistryControls.draftList.click();
 		EregistryControls.codSearchFamilyName.sendKeys("Automated" + deceasedFamilyName);
-		Helper.clickItem(EregistryControls.refreshButton);
+		EregistryControls.refreshButton.click();
 		Helper.clickItem(EregistryControls.searchResult1);
 		Helper.clickItem(EregistryControls.submitButton);
 		Helper.clickItem(EregistryControls.submitButton);

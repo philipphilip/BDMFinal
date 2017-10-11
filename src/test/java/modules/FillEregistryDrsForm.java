@@ -8,7 +8,6 @@ import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-import pageobjects.EpublicBrsPage;
 import pageobjects.EregistryControls;
 import pageobjects.EregistryDrsPage;
 
@@ -97,10 +96,11 @@ public class FillEregistryDrsForm {
 		drsSavedMessage = EregistryControls.drsMessage.getText();
 		Assert.assertTrue("result message not found",
 				drsSavedMessage.contains("This Death Registration Statement has been successfully saved"));
-		Helper.clickItem(EregistryControls.deathsLink);
-		Helper.clickItem(EregistryControls.draftList);
+		EregistryControls.deathsLink.click();
+		EregistryControls.draftList.click();
 		EregistryControls.drsSearchFamilyName.sendKeys("Automated" + FillEregistryCodForm.deceasedFamilyName);
-		Helper.clickItem(EregistryControls.refreshButton);
+
+		EregistryControls.refreshButton.click();
 		Helper.clickItem(EregistryControls.searchResult1);
 		Helper.clickItem(EregistryControls.submitButton);
 		Helper.clickItem(EregistryControls.submitButton);

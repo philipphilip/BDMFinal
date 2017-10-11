@@ -5,13 +5,14 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
 
 import helpers.Helper;
+
 import org.junit.Assert;
 import pageobjects.ApplicationPage;
 import pageobjects.CoreControls;
 
 public class FillDCApplicationForm {
 
-	public static void Execute(WebDriver driver) throws Exception {
+	public static void Execute(WebDriver driver) throws Throwable {
 
 		PageFactory.initElements(driver, ApplicationPage.class);
 		Thread.sleep(1000);
@@ -27,7 +28,7 @@ public class FillDCApplicationForm {
 		ApplicationPage.relationshipToSubject.sendKeys("Child");
 		ApplicationPage.productCode.sendKeys("DS1");
 		ApplicationPage.productDetailsTemplate.sendKeys("DR Certificate");
-		CoreControls.nextButton.click();
+		Helper.clickItem(CoreControls.nextButton);
 		ApplicationPage.applicantFamilyName.sendKeys("Smith");
 		ApplicationPage.applicantGivenName.sendKeys("asdfa");
 		ApplicationPage.applicantDOBDay.sendKeys("14");
@@ -37,10 +38,10 @@ public class FillDCApplicationForm {
 		ApplicationPage.applicantAddressSuburb.sendKeys("Melbourne");
 		ApplicationPage.applicantAddressPostcode.sendKeys("3000");
 		ApplicationPage.applicantPhoneNumber.sendKeys("0456487956");
-		CoreControls.nextButton.click();
+		Helper.clickItem(CoreControls.nextButton);
 		ApplicationPage.deliveryMethod.sendKeys("StandardPOST");
 		ApplicationPage.deliveryAddressCopyFrom.sendKeys("Smith");
-		CoreControls.nextButton.click();
+		Helper.clickItem(CoreControls.nextButton);
 		ApplicationPage.matchType.sendKeys("Detailed Criteria");
 		ApplicationPage.dateOfDeathTypeDay.sendKeys("12");
 		ApplicationPage.dateOfDeathTypeMonth.sendKeys("05");
@@ -49,17 +50,17 @@ public class FillDCApplicationForm {
 		ApplicationPage.deathDetailsFamilyNameAtBirth.sendKeys("adsfa");
 		ApplicationPage.deathDetailsGivenNames.sendKeys("asdfas");
 		ApplicationPage.placeOfDeathSuburbTownCity.sendKeys("Melbourne");
-		CoreControls.nextButton.click();
+		Helper.clickItem(CoreControls.nextButton);
 		Thread.sleep(3000);
-		ApplicationPage.noMatchButton.click();
+		Helper.clickItem(ApplicationPage.noMatchButton);
 		Thread.sleep(3000);
 		ApplicationPage.validateform();
 		Thread.sleep(3000);
 		// CoreControls.nextButton.click();
 		Thread.sleep(3000);
-		CoreControls.nextButton.click();
+		Helper.clickItem(CoreControls.nextButton);
 		Thread.sleep(2000);
-		ApplicationPage.submitApplication.click();
+		Helper.clickItem(ApplicationPage.submitApplication);
 		Thread.sleep(3000);
 		String successMessage = ApplicationPage.successMessage.getText();
 		Assert.assertTrue("Application for death certificate Failed", successMessage.contains("successfully saved"));

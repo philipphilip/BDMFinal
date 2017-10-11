@@ -3,6 +3,8 @@ package modules;
 import org.junit.Assert;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 import helpers.Helper;
 import pageobjects.EpublicControls;
@@ -77,14 +79,13 @@ public class FillEregistryCertificatesForm {
 		certificateSaveMessage = EregistryCertificatesPage.saveSuccessfulMessage.getText();
 		Assert.assertTrue("Error when saving the death certificate", certificateSaveMessage.contains("This Application has been successfully saved."));
 		
-		Helper.clickItem(EregistryControls.certificatesLink);
-		Helper.clickItem(EregistryControls.draftList);
+		EregistryControls.certificatesLink.click();
+		EregistryControls.draftList.click();
 		
 		//Draft Certificate List
 		Helper.inputItem(EregistryCertificatesPage.subject1NameDrafts, "Automated" + FillEregistryCodForm.deceasedFamilyName);
-		
-		Helper.clickItem(EregistryControls.refreshButton);
-		
+		Thread.sleep(3000);
+		EregistryControls.refreshButton.click();
 		Helper.clickItem(EregistryControls.searchResult1);
 		
 		Helper.clickItem(EregistryControls.submitButton);
@@ -96,18 +97,18 @@ public class FillEregistryCertificatesForm {
 		certificateSubmitMessage = EregistryControls.certificatesSubmitMessage.getText();
 		Assert.assertTrue("Error during submission of death certificate", certificateSubmitMessage.contains("Successfully submitted applications"));
 		
-		Helper.clickItem(EregistryControls.certificatesLink);
-		Helper.clickItem(EregistryControls.submitList);
+		EregistryControls.certificatesLink.click();
+		EregistryControls.submitList.click();
 		
 		//Submitted Certificate List
 		Helper.inputItem(EregistryCertificatesPage.subject1NameSubmits, "Automated" + FillEregistryCodForm.deceasedFamilyName);
-		
-		Helper.clickItem(EregistryControls.refreshButton);
+		Thread.sleep(3000);
+		EregistryControls.refreshButton.click();
 		
 		//String certificateNotificationNumber = EregistryCertificatesPage.certificateNotificationNumber.getText();
 		certificateNotificationNumber = EregistryCertificatesPage.certificateNotificationNumber.getText();
 		Thread.sleep(3000);
-		
+
 		Helper.clickItem(EregistryControls.searchResult1);
 		
 		Helper.clickItem(EregistryControls.makePaymentButton);

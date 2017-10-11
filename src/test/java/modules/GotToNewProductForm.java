@@ -6,7 +6,7 @@ import pageobjects.CoreControls;
 
 public class GotToNewProductForm {
 
-	public static void Execute(WebDriver driver) throws Exception {
+	public static void Execute(WebDriver driver) throws Throwable {
 		CoreControls.productsTab.click();
 		CoreControls.newProduct.click();
 	}

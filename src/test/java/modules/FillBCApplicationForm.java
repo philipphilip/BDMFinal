@@ -7,6 +7,7 @@ import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import helpers.Helper;
 import pageobjects.ApplicationPage;
 import pageobjects.CoreControls;
 
@@ -41,10 +42,10 @@ public class FillBCApplicationForm {
 		ApplicationPage.applicantAddressSuburb.sendKeys("Melbourne");
 		ApplicationPage.applicantAddressPostcode.sendKeys("3000");
 		ApplicationPage.applicantPhoneNumber.sendKeys("0456487956");
-		CoreControls.nextButton.click();
+		Helper.clickItem(CoreControls.nextButton);
 		ApplicationPage.deliveryMethod.sendKeys("StandardPOST");
 		ApplicationPage.deliveryAddressCopyFrom.sendKeys("Automated" + FillNOBForm.randChildFamilyName);
-		CoreControls.nextButton.click();
+		Helper.clickItem(CoreControls.nextButton);
 		ApplicationPage.matchType.sendKeys("Detailed Criteria");
 		ApplicationPage.dateOfBirthDay.sendKeys("01");
 		ApplicationPage.dateOfBirthMonth.sendKeys("08");
@@ -52,14 +53,14 @@ public class FillBCApplicationForm {
 		ApplicationPage.birthDetailsFamilyName.sendKeys("Automated" + FillNOBForm.randChildFamilyName);
 		ApplicationPage.birthDetailsGivenName.sendKeys("Automated" + FillNOBForm.randChildFirstName);
 		ApplicationPage.placeOfBirthSuburbTownCity.sendKeys("Armidale");
-		CoreControls.nextButton.click();
+		Helper.clickItem(CoreControls.nextButton);
 		Thread.sleep(3000);
-		ApplicationPage.submitApplication.click();
+		Helper.clickItem(ApplicationPage.submitApplication);
 		System.out.println("Application Submitted");
 		Thread.sleep(3000);
 		String successMessage = ApplicationPage.successMessage.getText();
 		Assert.assertTrue("Application for birth certificate Failed", successMessage.contains("successfully saved"));
-		ApplicationPage.createTransactionButton.click();
+		Helper.clickItem(ApplicationPage.createTransactionButton);
 		System.out.println("Create Transaction initiated");
 		WebDriverWait waitForCheckbox = new WebDriverWait(driver, 10000);
 		ApplicationPage.paidCheckbox = waitForCheckbox
@@ -69,13 +70,13 @@ public class FillBCApplicationForm {
 		String checkBoxText = ApplicationPage.paidCheckbox.getText();
 		Assert.assertTrue("Payment gateway is inactive", checkBoxText.contains("REMOVE"));
 		//END OF CODE TO FAIL TEST AS PAYMENT GATEWAY IS NOT AVAILABLE
-		ApplicationPage.saveTransactionButton.click();
+		Helper.clickItem(ApplicationPage.saveTransactionButton);
 		Thread.sleep(3000);
 		CoreControls.printForm();
 		Thread.sleep(3000);
-		ApplicationPage.generateCertificateButton.click();
+		Helper.clickItem(ApplicationPage.generateCertificateButton);
 		Thread.sleep(3000);
-		ApplicationPage.printCertificateButton.click();
+		Helper.clickItem(ApplicationPage.printCertificateButton);
 		System.out.println("Print form has initiated successfully");
 		Thread.sleep(3000);
 		String pageHeader = ApplicationPage.pageHeader.getText();

@@ -1,9 +1,7 @@
 package modules;
 
 import org.apache.commons.lang3.RandomStringUtils;
-import org.junit.Assert;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.support.PageFactory;
 
 import pageobjects.CoreCOSPage;
 import pageobjects.CoreControls;
@@ -12,10 +10,11 @@ public class FillCOSForm {
 
 	public static String randomSubjectName = RandomStringUtils.randomAlphabetic(6);
 
-	public static void Execute(WebDriver driver) throws Exception {
+	public static void Execute(WebDriver driver) throws Throwable {
 
 		// PageFactory.initElements(driver, FillAdoptionForm.class);
 		Thread.sleep(2000);
+
 		CoreCOSPage.searchBy.sendKeys("Subject's Birth Details");
 		CoreCOSPage.appSearchFamilyName.sendKeys("Auto" + FillAdoptionForm.childsNewNameFamilyName);
 		CoreCOSPage.appSearchFirstGivenName.sendKeys("Auto" + FillAdoptionForm.childsNewNameFirstGivenName);

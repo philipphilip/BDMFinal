@@ -3,15 +3,16 @@ package modules;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
 
+import helpers.Helper;
 import pageobjects.CoreCONPage;
 import pageobjects.CoreControls;
 
 public class ValidateTheCONForOverseasChild {
 
-	public static void Execute(WebDriver driver) {
+	public static void Execute(WebDriver driver) throws Throwable {
 
 		PageFactory.initElements(driver, CoreCONPage.class);
-		CoreCONPage.additionalNotificationDetails.click();
+		Helper.clickItem(CoreCONPage.additionalNotificationDetails);
 		CoreCONPage.connType.sendKeys("Overseas Born - Child");
 		CoreControls.validateForm();
 

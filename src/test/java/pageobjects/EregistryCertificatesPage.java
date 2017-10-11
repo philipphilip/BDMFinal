@@ -76,7 +76,7 @@ public class EregistryCertificatesPage extends BaseClass {
 	@FindBy(id = "deathSubjectDetails-parent2Details-familyName")
 	public static WebElement parent2FamilyName;
 	
-	@FindBy(id = "deathSubjectDetails-parent2Details-givenNames")
+	@FindBy(id = "deathSubjectDetails-parent2Details-firstGivenName")
 	public static WebElement parent2GivenName;
 	
 	@FindBy(id = "deathSubjectDetails-parent2Details-familyNameAtBirth")

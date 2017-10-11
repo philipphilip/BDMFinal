@@ -4,6 +4,8 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
+import helpers.Helper;
+
 public class ApplicationPage extends BaseClass {
 
 	public ApplicationPage(WebDriver driver) {
@@ -313,19 +315,16 @@ public class ApplicationPage extends BaseClass {
 	@FindBy(id = "cosSubjectDetails-parent2Details-familyNameAtBirth")
 	public static WebElement parent2FamilyNameAtBirth;
 
-	@FindBy(xpath = ".//table/tbody/tr/th[1]")
-	public static WebElement tabletitle;
-
-	public static void validateform() throws Exception {
+	public static void validateform() throws Throwable {
 		Thread.sleep(3000);
 		boolean formHasErrors = errorBaner.getText().equals("There are validation errors in your application.");
 		if (formHasErrors) {
-			validateCheckBox.click();
-			overrideButton.click();
+			Helper.clickItem(validateCheckBox);
+			Helper.clickItem(overrideButton);
 			Thread.sleep(3000);
 			acceptionReason.sendKeys("Court Order");
 			reasonComment.sendKeys("any reason");
-			overrideButton2.click();
+			Helper.clickItem(overrideButton2);
 			System.out.println("There were validation errors that got overridden");
 		} else {
 			System.out.println("There are no validation errors");

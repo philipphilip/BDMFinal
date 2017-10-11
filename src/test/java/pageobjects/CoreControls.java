@@ -6,6 +6,8 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import helpers.Helper;
+
 public class CoreControls extends BaseClass {
 
 	public CoreControls(WebDriver driver) {
@@ -132,11 +134,12 @@ public class CoreControls extends BaseClass {
 	@FindBy(xpath = ".//matching-panel/div[1]//tr[2]/td[1]/input")
 	public static WebElement firstRadioButtonMatch;
 
-//	@FindBy(xpath = ".//application-wiz-match-results/div[2]//tr[2]/td[1]/input")
-//	public static WebElement firstRadioButtonMatchApplication;
-//
-//	@FindBy(xpath = ".//matching-panel//tr[2]/td[1]/input")
-//	public static WebElement firstRadioButtonMatchCON;
+	// @FindBy(xpath =
+	// ".//application-wiz-match-results/div[2]//tr[2]/td[1]/input")
+	// public static WebElement firstRadioButtonMatchApplication;
+	//
+	// @FindBy(xpath = ".//matching-panel//tr[2]/td[1]/input")
+	// public static WebElement firstRadioButtonMatchCON;
 
 	// @FindBy(xpath = ".//input[@value = 'Match with selected Notification']")
 	// public static WebElement matchButtonApplicationCON;
@@ -282,16 +285,16 @@ public class CoreControls extends BaseClass {
 		go.click();
 	}
 
-	public static void editForm() {
+	public static void editForm() throws Throwable {
 		actionList.sendKeys("Edit");
 		go.click();
 	}
 
-	public static void validateForm() {
+	public static void validateForm() throws Throwable {
 		validateButton.click();
 	}
 
-	public static void matchToFirstRadioButton() throws Exception {
+	public static void matchToFirstRadioButton() throws Throwable {
 		Thread.sleep(2000);
 		firstRadioButtonMatch.click();
 		matchButtonApplication.click();
@@ -299,7 +302,7 @@ public class CoreControls extends BaseClass {
 		// matchButtonApplicationCON.click();
 	}
 
-	public static void proceedDuplicates() {
+	public static void proceedDuplicates() throws Throwable {
 		try {
 			Boolean noDuplicates = incaseNoDuplicates.isDisplayed();
 			if (noDuplicates) {
@@ -310,7 +313,7 @@ public class CoreControls extends BaseClass {
 		}
 	}
 
-	public static void overrideExceptionsOnform() throws Exception {
+	public static void overrideExceptionsOnform() throws Throwable {
 		Thread.sleep(5000);
 		boolean formHasErrors = errorBaner.getText().contains("are validation errors");
 		if (formHasErrors) {
@@ -326,7 +329,7 @@ public class CoreControls extends BaseClass {
 			proceedDuplicates();
 			Thread.sleep(2000);
 			try {
-				submitButton.click();
+				Helper.clickItem(submitButton);
 			} catch (Exception e) {
 			}
 			System.out.println("There were validation errors that got overridden");
@@ -336,20 +339,20 @@ public class CoreControls extends BaseClass {
 			proceedDuplicates();
 			Thread.sleep(2000);
 			try {
-				submitButton.click();
+				Helper.clickItem(submitButton);
 			} catch (Exception e) {
 			}
 			System.out.println("There are no validation errors");
 		}
 	}
 
-	public static void printForm() throws Exception {
+	public static void printForm() throws Throwable {
 		actionList.sendKeys("Print");
 		Thread.sleep(2000);
 		goPrintCertificate.click();
 	}
 
-	public static void clickNewTab() {
+	public static void clickNewTab() throws Throwable {
 		WebDriverWait waitForTabsMenue = new WebDriverWait(driver, 10000);
 		newTab = waitForTabsMenue.until(ExpectedConditions.elementToBeClickable(newTab));
 		newTab.click();

@@ -14,7 +14,7 @@ public class FillDRSForm {
 	static String randparentTwoGivenName = RandomStringUtils.randomAlphabetic(6);
 	static String randaddressLine1 = RandomStringUtils.randomAlphabetic(5);
 
-	public static void Execute(WebDriver driver) throws Exception {
+	public static void Execute(WebDriver driver) throws Throwable {
 		PageFactory.initElements(driver, CoreDRSPage.class);
 		WebDriverWait waitForTabsMenue = new WebDriverWait(driver, 10000);
 		CoreDRSPage.FuneralDirectorTelephone = waitForTabsMenue

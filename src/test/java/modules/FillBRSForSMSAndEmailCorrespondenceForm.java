@@ -12,7 +12,6 @@ import pageobjects.CoreBrsPage;
 
 import pageobjects.CoreControls;
 
-//l.'.'
 
 public class FillBRSForSMSAndEmailCorrespondenceForm {
 

@@ -109,6 +109,13 @@ Feature: All Core site testings.
     And I sign in "Core"
     And I navigate to "BRS" new form
     Then I fill in the "BRS for SMS & Email correspondence" form
+
+  # Test creation of an internal user: Create an internal user in Core Admin UI
+  Scenario: Create an Internal User in Core Admin UI
+    Given I open "Core Admin UI" website
+    When I sign in "Core Admin UI"
+    And I navigate to "Create internal user" in "Core Admin UI"
+    Then I can fill and submit the "Create internal user" form in "Core Admin UI"
   #=========================================================================
   #Scenario: Request a Death certificate
   #Given I open "Core Old UI" website
