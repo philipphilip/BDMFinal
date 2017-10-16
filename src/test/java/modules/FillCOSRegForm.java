@@ -46,21 +46,13 @@ public class FillCOSRegForm {
 		ApplicationPage.parent1GivenName.sendKeys("Auto" + FillAdoptionForm.adoptionParent1FirstGivenName);
 		ApplicationPage.parent1OtherGivenName.sendKeys("Auto" + FillAdoptionForm.adoptionParent1FirstGivenName);
 		ApplicationPage.parent1FamilyNameAtBirth.sendKeys("Auto" + FillAdoptionForm.adoptionParent1FamilyName);
-		// ApplicationPage.parent2FamilyName.sendKeys("Automated" +
-		// FillNOBForm.randChildFamilyName);
 		ApplicationPage.parent2FamilyName.sendKeys("Automated");
-		// ApplicationPage.parent2GivenName.sendKeys("Automated" +
-		// FillNOBForm.randparent2FirstName);
 		ApplicationPage.parent2GivenName.sendKeys("Automated");
-		// ApplicationPage.parent2OtherGivenName.sendKeys("Automated" +
-		// FillNOBForm.randparent2FirstName);
 		ApplicationPage.parent2OtherGivenName.sendKeys("Automated");
-		// ApplicationPage.parent2FamilyNameAtBirth.sendKeys("Automated" +
-		// FillNOBForm.randChildFamilyName);
 		ApplicationPage.parent2FamilyNameAtBirth.sendKeys("Automated");
 		CoreControls.nextButton.click();
 		Thread.sleep(1000);
-		ApplicationPage.tabletitle.click();
+		//ApplicationPage.tabletitle.click();
 		CoreControls.noMatchButton.click();
 		Thread.sleep(1000);
 		CoreControls.submitApplicationButton.click();

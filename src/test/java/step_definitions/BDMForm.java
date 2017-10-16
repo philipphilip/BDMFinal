@@ -133,7 +133,7 @@ public class BDMForm {
 		} else if (website.equals("Core")) {
 			driver.get("https://web-st.objectconsulting.com.au/core/login");
 		} else if (website.equals("Core Admin UI")) {
-			driver.get("http://web-st.objectconsulting.com.au/admin/login");
+			driver.get("https://web-st.objectconsulting.com.au/admin/login");
 		} else if (website.equals("eRegistry")) {
 			driver.get("https://web-st.objectconsulting.com.au/eregistry/");
 		} else if (website.equals("Core Old UI")) {

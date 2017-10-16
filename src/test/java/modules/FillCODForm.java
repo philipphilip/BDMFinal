@@ -13,7 +13,6 @@ public class FillCODForm {
 	static String randDeceasedFamilyName = RandomStringUtils.randomAlphabetic(6);
 	static String randDeceasedFirstName = RandomStringUtils.randomAlphabetic(6);
 	static String randparentOneGivenName = RandomStringUtils.randomAlphabetic(6);
-	
 
 	public static void Execute(WebDriver driver) throws Throwable {
 		PageFactory.initElements(driver, CoreCodPage.class);
@@ -22,6 +21,7 @@ public class FillCODForm {
 				.until(ExpectedConditions.elementToBeClickable(CoreCodPage.causeOfDeathType));
 		CoreCodPage.causeOfDeathType.sendKeys("MCCD");
 		CoreCodPage.deceasedFamilyName.sendKeys("automate" + randDeceasedFamilyName);
+		CoreCodPage.familyNameSameToFamilyNameAtBirth.sendKeys("Yes");
 		CoreCodPage.deceasedfirstName.sendKeys("automate" + randDeceasedFirstName);
 		CoreCodPage.sex.sendKeys("Male");
 		CoreCodPage.aboriginalOrTorresStraitIslanderOrigin.sendKeys("Decline to Reply");
@@ -75,7 +75,7 @@ public class FillCODForm {
 		CoreCodPage.medicalPractitionerAHPRANumber.sendKeys("123456");
 		CoreCodPage.DidYouAcquireOrAnticipateAnyBenefitByReasonOfThisDeath.sendKeys("No");
 		Thread.sleep(2000);
-		CoreControls.editForm();
+//		CoreControls.editForm();
 		CoreControls.validateForm();
 		Thread.sleep(2000);
 		CoreControls.overrideExceptionsOnform();

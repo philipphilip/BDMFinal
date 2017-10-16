@@ -1,10 +1,12 @@
 package modules;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import gherkin.lexer.Id;
 import pageobjects.CoreBrsPage;
 
 import pageobjects.CoreControls;
@@ -20,6 +22,7 @@ public class FillBRSForm {
 				.until(ExpectedConditions.elementToBeClickable(CoreBrsPage.informant2_emailAddress));
 		CoreBrsPage.whyIsntTheParentOfChildCompletingTheForm.sendKeys("Parent whereabouts unknown");
 		CoreBrsPage.childs_familyName.sendKeys("Automated" + FillNOBForm.randChildFamilyName);
+
 		CoreBrsPage.childs_firstGivenName.sendKeys("Automated" + FillNOBForm.randChildFirstName);
 		CoreBrsPage.childs_DOB_day.sendKeys("01");
 		CoreBrsPage.childs_DOB_month.sendKeys("08");
@@ -50,20 +53,30 @@ public class FillBRSForm {
 		CoreBrsPage.parent2ParticipationDetails_familyName.sendKeys("Smith");
 		CoreBrsPage.parent2ParticipationDetails_firstGivenName.sendKeys("Automated" + FillNOBForm.randparent2FirstName);
 		CoreBrsPage.parent2ParticipationDetails_emailAddress.sendKeys("billing@test.com");
+		CoreBrsPage.isThereADisputeOfParentage.sendKeys("Yes");
 		CoreBrsPage.isThereADisputeOfChildsName.sendKeys("No");
 		CoreBrsPage.parent2_recordAs.sendKeys("Father");
+
 		CoreBrsPage.parent2_familyName.sendKeys("Automated" + FillNOBForm.randChildFamilyName);
+		System.out.println("finished filling the family name for parent2");
 		CoreBrsPage.parent2_firstGivenName.sendKeys("Automated" + FillNOBForm.randparent2FirstName);
+		System.out.println("finished filling the first name for parent2");
+		CoreBrsPage.isParent2FamilyNameSameToFamilyNameAtBirth.sendKeys("Yes");
 		CoreBrsPage.parent2dateOfBirth_day.sendKeys("02");
+		System.out.println("finished filling the DOB day for parent2");
 		CoreBrsPage.parent2dateOfBirth_month.sendKeys("04");
+		System.out.println("finished filling the DOB month for parent2");
 		CoreBrsPage.parent2dateOfBirth_year.sendKeys("1980");
+		System.out.println("finished filling the DOB year for parent2");
 		CoreBrsPage.parent2_occupation.sendKeys("accountant");
 		CoreBrsPage.parent2_aboriginal.sendKeys("Decline to Reply");
 		CoreBrsPage.parent2_suburbTownCity.sendKeys("Fawkner");
 		CoreBrsPage.parent2_usualPlaceOfResidence_line1.sendKeys("16 Preston st");
+		System.out.println("");
 		CoreBrsPage.parent2_usualPlaceOfResidence_suburb.sendKeys("Fawkner");
 		CoreBrsPage.parent2_usualPlaceOfResidence_postcode.sendKeys("3060");
 		CoreBrsPage.parent2_emailAddress.sendKeys("billing@test.com");
+		CoreBrsPage.parentageDispute_familyName.sendKeys("Automated" + FillNOBForm.randChildFamilyName);
 		CoreBrsPage.relationshipStatus.sendKeys("Married");
 		CoreBrsPage.dateOfRelationshipRegistrationDay.sendKeys("10");
 		CoreBrsPage.dateOfRelationshipRegistrationMonth.sendKeys("10");
@@ -77,12 +90,13 @@ public class FillBRSForm {
 		CoreBrsPage.informant1_DOB_year.sendKeys("1970");
 		CoreBrsPage.informant1_residentialAddress_line1.sendKeys("21 Canning st");
 		CoreBrsPage.informant1_residentialAddress_suburb.sendKeys("North Melbounre");
-		CoreBrsPage.informant1_residentialAddress_postcode.sendKeys("3051");
+		CoreBrsPage.informant1_residentialAddress_postcode.sendKeys("3052");
 		CoreBrsPage.informant1_contactAddress_line1.sendKeys("21 Canning st");
 		CoreBrsPage.informant1_contactAddress_suburb.sendKeys("North Melbounre");
-		CoreBrsPage.informant1_contactAddress_postcode.sendKeys("3051");
+		CoreBrsPage.informant1_contactAddress_postcode.sendKeys("3053");
 		CoreBrsPage.informant1_emailAddress.sendKeys("john.smith@info.com");
-		CoreBrsPage.informant2_relationshipToSubject.sendKeys("Parent 2");
+		CoreBrsPage.informant2_relationshipToSubject.sendKeys("Other");
+		CoreBrsPage.informant2RelationshipToSubject.sendKeys("xyz");
 		CoreBrsPage.informant2_familyName.sendKeys("auto" + FillNOBForm.randTextInformant2_fmlyN);
 		CoreBrsPage.informant2_firstGivenName.sendKeys("auto" + FillNOBForm.randTextInformant2_frstGvnN);
 		CoreBrsPage.informant2_DOB_day.sendKeys("13");
@@ -90,10 +104,10 @@ public class FillBRSForm {
 		CoreBrsPage.informant2_DOB_year.sendKeys("1971");
 		CoreBrsPage.informant2_residentialAddress_line1.sendKeys("22 Canning st");
 		CoreBrsPage.informant2_residentialAddress_suburb.sendKeys("North Melbounre");
-		CoreBrsPage.informant2_residentialAddress_postcode.sendKeys("3051");
+		CoreBrsPage.informant2_residentialAddress_postcode.sendKeys("3054");
 		CoreBrsPage.informant2_contactAddress_line1.sendKeys("22 Canning st");
 		CoreBrsPage.informant2_contactAddress_suburb.sendKeys("North Melbounre");
-		CoreBrsPage.informant2_contactAddress_postcode.sendKeys("3051");
+		CoreBrsPage.informant2_contactAddress_postcode.sendKeys("3055");
 		CoreBrsPage.informant2_emailAddress.sendKeys("adfd@ss.com");
 		CoreControls.validateForm();
 		CoreControls.overrideExceptionsOnform();

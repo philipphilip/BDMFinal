@@ -56,7 +56,6 @@ public class FillDCApplicationForm {
 		Thread.sleep(3000);
 		ApplicationPage.validateform();
 		Thread.sleep(3000);
-		// CoreControls.nextButton.click();
 		Thread.sleep(3000);
 		Helper.clickItem(CoreControls.nextButton);
 		Thread.sleep(2000);

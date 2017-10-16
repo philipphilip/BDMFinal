@@ -27,6 +27,7 @@ public class FillNOBForm {
 		CoreNobPage.notifier_email = waitForTabsMenue
 				.until(ExpectedConditions.elementToBeClickable(CoreNobPage.notifier_email));
 		CoreNobPage.mothersFamilyName.sendKeys("Automated" + randChildFamilyName);
+		CoreNobPage.mothersFamilyNameSameAsBirth.sendKeys("Yes");
 		CoreNobPage.mothersGivenName_Core.sendKeys("Automated" + randparent1FirstName);
 		CoreNobPage.mothersDOBDay.sendKeys("25");
 		CoreNobPage.mothersDOBMonth.sendKeys("12");

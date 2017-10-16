@@ -215,6 +215,9 @@ public class CoreBrsPage extends BaseClass {
 	public static WebElement isThereADisputeOfChildsName;
 
 	@FindBy(id = "childNameDisputeDeclaration-childsProposedName-familyName")
+	public static WebElement childsProposedNameFamilyName;
+
+	@FindBy(id = "childNameDisputeDeclaration-childsProposedName-familyName")
 	public static WebElement childsProposedName_familyName;
 
 	@FindBy(id = "childNameDisputeDeclaration-childsProposedName-firstGivenName")
@@ -231,6 +234,9 @@ public class CoreBrsPage extends BaseClass {
 
 	@FindBy(id = "parent2Details-name-firstGivenName")
 	public static WebElement parent2_firstGivenName;
+
+	@FindBy(id = "parent2Details-name-familyNameSameToFamilyNameAtBirth")
+	public static WebElement isParent2FamilyNameSameToFamilyNameAtBirth;
 
 	@FindBy(id = "parent2Details-name-otherGivenNames")
 	public static WebElement parent2_otherGivenNames;
@@ -304,15 +310,6 @@ public class CoreBrsPage extends BaseClass {
 	@FindBy(id = "relationshipDetails-dateOfRelationshipRegistration-year")
 	public static WebElement dateOfRelationshipRegistrationYear;
 
-	// @FindBy(id = "relationshipDetails-dateOfRelationshipRegistration-day")
-	// public static WebElement dateRelationshipRegistredDay;
-	//
-	// @FindBy(id = "relationshipDetails-dateOfRelationshipRegistration-month")
-	// public static WebElement dateRelationshipRegistredMonth;
-	//
-	// @FindBy(id = "relationshipDetails-dateOfRelationshipRegistration-year")
-	// public static WebElement dateRelationshipRegistredYear;
-
 	@FindBy(id = "relationshipDetails-isTheRelationshipStatusDisputedByParent2")
 	public static WebElement isTheRelationshipStatusDisputedByParent2;
 
@@ -375,6 +372,9 @@ public class CoreBrsPage extends BaseClass {
 
 	@FindBy(id = "informant2Details-relationshipToSubject")
 	public static WebElement informant2_relationshipToSubject;
+
+	@FindBy(id = "informant2Details-relationshipToSubject-descriptioninformant2Details-relationshipToSubject")
+	public static WebElement informant2RelationshipToSubject;
 
 	@FindBy(id = "informant2Details-name-familyName")
 	public static WebElement informant2_familyName;
