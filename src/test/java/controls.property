@@ -1,0 +1,2 @@
+loginButton=id:login
+rio.ePublicBrs.hospitalsuburblist=xpath://*[@id=\"brs-childDetails-childDetails-hospitalTownSuburbCity\"]/option[2]

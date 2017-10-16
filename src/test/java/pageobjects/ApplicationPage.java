@@ -276,6 +276,12 @@ public class ApplicationPage extends BaseClass {
 	@FindBy(id = "cosSubjectDetails-subjectDetails-subjectPlaceOfBirthTown")
 	public static WebElement subjectPlaceOfBirth;
 
+	@FindBy(id = "cosSubjectDetails-subjectDetails-subjectPlaceOfBirthState")
+	public static WebElement subjectPlaceOfBirthState;
+
+	@FindBy(id = "cosSubjectDetails-subjectDetails-placeOfBirthCountry")
+	public static WebElement placeOfBirthCountry;
+
 	@FindBy(id = "cosSubjectDetails-subjectDetails-dateOfBirth-day")
 	public static WebElement subjectDOBDay;
 

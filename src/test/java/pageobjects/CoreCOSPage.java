@@ -15,7 +15,41 @@ public class CoreCOSPage extends BaseClass {
 
 	@FindBy(id = "additionalNotificationDetails-cosnType")
 	public static WebElement notificationType;
+	
+	@FindBy(id = "appSearch-searchBy")
+	public static WebElement searchBy;
+	
+	
+	@FindBy(id = "appSearch-familyName")
+	public static WebElement appSearchFamilyName;
+	
+	@FindBy(id = "appSearch-firstGivenName")
+	public static WebElement appSearchFirstGivenName;
 
+	
+	@FindBy(id = "appSearch-otherGivenNames")
+	public static WebElement appSearcOtherGivenNames;
+	
+	
+	@FindBy(id = "appSearch-dateOfBirth-day")
+	public static WebElement appSearchDOBDay;
+
+	@FindBy(id = "appSearch-dateOfBirth-month")
+	public static WebElement appSearchDOBMonth;
+	
+	@FindBy(id = "appSearch-dateOfBirth-year")
+	public static WebElement appSearchDOBYear;
+	
+	@FindBy(xpath = ".//input[@value = 'Search']")
+	public static WebElement cosSearchButton;
+	
+	
+	
+	
+	
+	
+	
+	
 	@FindBy(xpath = ".//a[text() = 'Additional Notification Details (User Entered)']")
 	public static WebElement additionaDetails;
 

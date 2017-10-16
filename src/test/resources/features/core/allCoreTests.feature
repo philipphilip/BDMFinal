@@ -1,9 +1,10 @@
 Feature: All Core site testings.
 
   Scenario: Sign in and sign out
-  Given I open "Core" website
-  And I sign in "Core"
-  Then I sign out
+    Given I open "Core" website
+    And I sign in "Core"
+    Then I sign out
+
   Scenario: Navigate to NOB and fill the form
     Given I open "Core" website
     And I sign in "Core"
@@ -78,13 +79,18 @@ Feature: All Core site testings.
     And I sign in "Core"
     And I navigate to "Change of Name" new form
     Then I fill in the "Change of Name" form
-#
+
+  Scenario: Navigate to Adoption form and fill the form
+    Given I open "Core" website
+    And I sign in "Core"
+    And I navigate to "Adoption Notification" new form
+    Then I fill in the "Adoption Notification" form
+
   Scenario: Submut a Change of Sex Notifications in core
     Given I open "Core" website
     And I sign in "Core"
-    And I navigate to "Change of Sex" new form
+    And I navigate to "Change of Sex Notification" new form
     Then I fill in the "Change of Sex" form
-
 
   Scenario: Test task creation and closure (Test creation and completion of tasks using BRS)
     Given I open "Core" website
@@ -92,7 +98,6 @@ Feature: All Core site testings.
     And I navigate to "NOB" new form
     Then I fill in the "NOB for Tasks" form
 
-   
   Scenario: Create SMS & Email correspondence templates (Test SMS&EMail correspondence: Create SMS and Email correspondence templates, create BRS and send correspondence using the newly created templates)
     Given I open "Core Admin UI" website
     When I sign in "Core Admin UI"

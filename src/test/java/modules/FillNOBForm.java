@@ -51,7 +51,5 @@ public class FillNOBForm {
 		CoreNobPage.notifier_email.sendKeys("john.smith@info.com");
 		CoreControls.validateForm();
 		CoreControls.overrideExceptionsOnform();
-
 	}
-
 }
