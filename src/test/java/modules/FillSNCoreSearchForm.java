@@ -14,7 +14,7 @@ public class FillSNCoreSearchForm {
 		
 		PageFactory.initElements(driver, CoreSearchPage.class);
 		
-		Helper.inputItem(CoreSearchPage.preSurrogacyChildFamilyName, "Automated" + FillEregistryANForm.familyName);
+		CoreSearchPage.preSurrogacyChildFamilyName.sendKeys("Automated" + FillEregistryANForm.familyName);
 		Helper.clickItem(CoreSearchPage.searchButton);
 		Helper.clickItem(CoreSearchPage.firstSearchResult);
 

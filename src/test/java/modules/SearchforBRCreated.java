@@ -2,8 +2,6 @@ package modules;
 
 import org.junit.Assert;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 
 import helpers.Helper;
 import pageobjects.CoreControls;
@@ -14,9 +12,7 @@ public class SearchforBRCreated {
 	public static void Execute(WebDriver driver) throws Throwable {
 		String nameInSearch;
 
-		WebDriverWait waitForTabsMenue = new WebDriverWait(driver, 10000);
-		CoreControls.searchTab = waitForTabsMenue
-				.until(ExpectedConditions.elementToBeClickable(CoreControls.searchTab));
+		Helper.waitFor(CoreControls.searchTab);
 		Helper.clickItem(CoreControls.searchTab);
 		Thread.sleep(2000);
 		Helper.clickItem(CoreControls.birthRegistrationSearch);

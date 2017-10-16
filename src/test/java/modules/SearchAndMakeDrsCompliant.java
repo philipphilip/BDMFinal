@@ -15,7 +15,7 @@ public class SearchAndMakeDrsCompliant {
 		
 		PageFactory.initElements(driver, CoreSearchPage.class);
 
-		Helper.inputItem(CoreSearchPage.deceasedFamilyName, "Automated" + FillEregistryCodForm.deceasedFamilyName);
+		CoreSearchPage.deceasedFamilyName.sendKeys("Automated" + FillEregistryCodForm.deceasedFamilyName);
 		Helper.clickItem(CoreSearchPage.searchButton);
 		Helper.clickItem(CoreSearchPage.firstSearchResult);
 		
@@ -31,7 +31,7 @@ public class SearchAndMakeDrsCompliant {
 		
 		Thread.sleep(3000);
 		if (drsStatus.contains("Non Compliant")) {
-			Helper.inputItem(CoreControls.actionList, "Edit");
+			CoreControls.actionList.sendKeys("Edit");
 			Helper.clickItem(CoreControls.go);
 			Helper.clickItem(CoreControls.validateButton);
 			CoreControls.overrideExceptionsOnform();

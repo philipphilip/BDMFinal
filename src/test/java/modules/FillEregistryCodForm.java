@@ -1,14 +1,11 @@
 package modules;
 
-import helpers.Helper;
-
 import org.apache.commons.lang3.RandomStringUtils;
 import org.junit.Assert;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 
+import helpers.Helper;
 import pageobjects.EregistryCodPage;
 import pageobjects.EregistryControls;
 
@@ -21,11 +18,10 @@ public class FillEregistryCodForm {
 	public static void Execute(WebDriver driver) throws Throwable {
 
 		PageFactory.initElements(driver, EregistryCodPage.class);
-		WebDriverWait waitForCodType = new WebDriverWait(driver, 10000);
-		EregistryCodPage.codType = waitForCodType
-				.until(ExpectedConditions.elementToBeClickable(EregistryCodPage.codType));
+		Helper.waitFor(EregistryCodPage.codType);
 
 		EregistryCodPage.codType.sendKeys("MCCD");
+		EregistryCodPage.familyName.clear();
 		EregistryCodPage.familyName.sendKeys("Automated" + deceasedFamilyName);
 		EregistryCodPage.familyNameSameAsBirth.sendKeys("Yes");
 		// EregistryCodPage.familyNameAtBirth,"Automated" + deceasedFamilyName);
@@ -37,6 +33,7 @@ public class FillEregistryCodForm {
 		EregistryCodPage.dateOfBirthDay.sendKeys("07");
 		EregistryCodPage.dateOfBirthMonth.sendKeys("07");
 		EregistryCodPage.dateOfBirthYear.sendKeys("1937");
+		EregistryCodPage.motherFamilyName.clear();
 		EregistryCodPage.motherFamilyName.sendKeys("Automated" + deceasedFamilyName);
 		EregistryCodPage.motherFamilyNameSameAsBirth.sendKeys("Yes");
 		EregistryCodPage.motherGivenName.sendKeys("Automated" + motherGivenName);
@@ -48,8 +45,8 @@ public class FillEregistryCodForm {
 		EregistryCodPage.deathDateMonth.sendKeys("07");
 		EregistryCodPage.deathDateYear.sendKeys("2017");
 		EregistryCodPage.deathOccur.sendKeys("Hospital");
-		Helper.selectDropDownList(EregistryCodPage.hospitalName, "Abel Tasman Village");
-		Helper.selectDropDownList(EregistryCodPage.hospitalTown, "Wollongong");
+		Helper.selectDropDownList(EregistryCodPage.hospitalName, "Acute Centre Beechworth");
+		Helper.selectDropDownList(EregistryCodPage.hospitalTown, "BEECHWORTH");
 		EregistryCodPage.reviewable.sendKeys("No");
 		EregistryCodPage.examineDody.sendKeys("yes");
 		EregistryCodPage.examineDay.sendKeys("07");
@@ -76,14 +73,10 @@ public class FillEregistryCodForm {
 		EregistryCodPage.under18.sendKeys("No");
 		EregistryCodPage.telephoneNo.clear();
 		EregistryCodPage.telephoneNo.sendKeys("99998888");
-		// EregistryCodPage.AHPRA,"MED0000938719");
 		EregistryCodPage.declaration.sendKeys("Yes");
 		Helper.clickItem(EregistryControls.saveButton);
 
-		WebDriverWait waitForMessageBanner = new WebDriverWait(driver, 10000);
-		EregistryControls.codMessage = waitForMessageBanner
-				.until(ExpectedConditions.elementToBeClickable(EregistryControls.codMessage));
-
+		Helper.waitFor(EregistryControls.codMessage);
 		String codSavedMessage;
 		Thread.sleep(3000);
 		codSavedMessage = EregistryControls.codMessage.getText();
@@ -92,6 +85,8 @@ public class FillEregistryCodForm {
 		EregistryControls.codLink.click();
 		EregistryControls.draftList.click();
 		EregistryControls.codSearchFamilyName.sendKeys("Automated" + deceasedFamilyName);
+		
+		Helper.waitFor(EregistryControls.refreshButton);
 		EregistryControls.refreshButton.click();
 		Helper.clickItem(EregistryControls.searchResult1);
 		Helper.clickItem(EregistryControls.submitButton);

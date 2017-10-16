@@ -15,7 +15,7 @@ public class SearchAndMakeCodCompliant {
 		
 		PageFactory.initElements(driver, CoreSearchPage.class);
 
-		Helper.inputItem(CoreSearchPage.deceasedFamilyNameCod, "Automated"  + FillEregistryCodForm.deceasedFamilyName);
+		CoreSearchPage.deceasedFamilyNameCod.sendKeys("Automated"  + FillEregistryCodForm.deceasedFamilyName);
 		Helper.clickItem(CoreSearchPage.searchButton);
 		Helper.clickItem(CoreSearchPage.firstSearchResult);
 		
@@ -32,7 +32,7 @@ public class SearchAndMakeCodCompliant {
 		
 		Thread.sleep(3000);
 		if (codStatus.contains("Non Compliant")) {
-			Helper.inputItem(CoreControls.actionList, "Edit");
+			CoreControls.actionList.sendKeys("Edit");
 			Helper.clickItem(CoreControls.go);
 			Helper.clickItem(CoreControls.validateButton);
 			CoreControls.overrideExceptionsOnform();

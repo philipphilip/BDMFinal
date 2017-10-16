@@ -1,12 +1,11 @@
 package modules;
 
-import helpers.Helper;
-
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
+
+import helpers.Helper;
 import pageobjects.EregistryControls;
+import pageobjects.EregistryDrsPage;
 
 
 public class ValidateTheDRSFormInEregistry {
@@ -14,17 +13,20 @@ public class ValidateTheDRSFormInEregistry {
 	public static void Execute(WebDriver driver) throws Throwable {
 
 		PageFactory.initElements(driver, EregistryControls.class);
+		PageFactory.initElements(driver, EregistryDrsPage.class);
 			
-		WebDriverWait waitForValidateButton = new WebDriverWait(driver, 10000);
-		EregistryControls.validateButton = waitForValidateButton
-				.until(ExpectedConditions.elementToBeClickable(EregistryControls.validateButton));
-
+		Helper.waitFor(EregistryControls.validateButton);
+		EregistryDrsPage.familyName.sendKeys("test");
+		EregistryDrsPage.familyNameAtBirth.sendKeys("test");
+		EregistryDrsPage.spouseFamilyName.sendKeys("test");
+		EregistryDrsPage.parent1FamilyName.sendKeys("test");
+		EregistryDrsPage.parent1FamilyNameAtBirth.sendKeys("test");
+		EregistryDrsPage.parent2FamilyName.sendKeys("test");
+		EregistryDrsPage.parent2FamilyNameAtBirth.sendKeys("test");
+		EregistryDrsPage.informantFamilyName.sendKeys("test");
 		Helper.clickItem(EregistryControls.validateButton);
 		
-		WebDriverWait waitForBackToFormButton = new WebDriverWait(driver, 10000);
-		EregistryControls.backToFormButton = waitForBackToFormButton
-				.until(ExpectedConditions.elementToBeClickable(EregistryControls.backToFormButton));
-		
+		Helper.waitFor(EregistryControls.backToFormButton);
 		EregistryControls.validateItem(EregistryControls.validationErrorRow1,"Parent 2 Given Name is required.","Parents of the Deceased - Given Names");
 		EregistryControls.validateItem(EregistryControls.validationErrorRow2,"Informant Residential Address Suburb/Town/City is required."
 				,"Informant Details - Residential Address Suburb/Town/City");

@@ -1,6 +1,6 @@
 Feature: ePublic brs
 
-  Scenario: Request a BRS (Updated Scenario)
+  Scenario: Request a BRS
     Given I open "ePublic" website
     When I sign in "ePublic"
     And I navigate to "BRS" in "ePublic"

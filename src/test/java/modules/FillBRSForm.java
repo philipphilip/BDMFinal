@@ -1,14 +1,10 @@
 package modules;
 
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 
-import gherkin.lexer.Id;
+import helpers.Helper;
 import pageobjects.CoreBrsPage;
-
 import pageobjects.CoreControls;
 
 public class FillBRSForm {
@@ -17,9 +13,7 @@ public class FillBRSForm {
 
 		PageFactory.initElements(driver, CoreBrsPage.class);
 		PageFactory.initElements(driver, CoreControls.class);
-		WebDriverWait waitForTabsMenue = new WebDriverWait(driver, 10000);
-		CoreBrsPage.informant2_emailAddress = waitForTabsMenue
-				.until(ExpectedConditions.elementToBeClickable(CoreBrsPage.informant2_emailAddress));
+		Helper.waitFor(CoreBrsPage.informant2_emailAddress);
 		CoreBrsPage.whyIsntTheParentOfChildCompletingTheForm.sendKeys("Parent whereabouts unknown");
 		CoreBrsPage.childs_familyName.sendKeys("Automated" + FillNOBForm.randChildFamilyName);
 

@@ -6,8 +6,6 @@ import java.util.List;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
@@ -193,57 +191,39 @@ public class BDMForm {
 			}
 		} else if (site.equals("Core")) {
 			if (tab.equals("Search DRS")) {
-				WebDriverWait waitForTabsMenue = new WebDriverWait(driver, 10000);
-				CoreControls.searchTab = waitForTabsMenue
-						.until(ExpectedConditions.elementToBeClickable(CoreControls.searchTab));
+				Helper.waitFor(CoreControls.searchTab);
 				CoreControls.searchTab.click();
 				CoreControls.drsSearch.click();
 			} else if (tab.equals("Search COD")) {
-				WebDriverWait waitForTabsMenue = new WebDriverWait(driver, 10000);
-				CoreControls.searchTab = waitForTabsMenue
-						.until(ExpectedConditions.elementToBeClickable(CoreControls.searchTab));
+				Helper.waitFor(CoreControls.searchTab);
 				CoreControls.searchTab.click();
 				CoreControls.codSearch.click();
 			} else if (tab.equals("Search Item Id")) {
-				WebDriverWait waitForTabsMenue = new WebDriverWait(driver, 10000);
-				CoreControls.searchTab = waitForTabsMenue
-						.until(ExpectedConditions.elementToBeClickable(CoreControls.searchTab));
+				Helper.waitFor(CoreControls.searchTab);
 				CoreControls.searchTab.click();
 				CoreControls.idSearch.click();
 			} else if (tab.equals("Search BRS")) {
-				WebDriverWait waitForTabsMenue = new WebDriverWait(driver, 10000);
-				CoreControls.searchTab = waitForTabsMenue
-						.until(ExpectedConditions.elementToBeClickable(CoreControls.searchTab));
+				Helper.waitFor(CoreControls.searchTab);
 				CoreControls.searchTab.click();
 				CoreControls.birthsQuickSearch.click();
 			} else if (tab.equals("Search Application")) {
-				WebDriverWait waitForTabsMenue = new WebDriverWait(driver, 10000);
-				CoreControls.searchTab = waitForTabsMenue
-						.until(ExpectedConditions.elementToBeClickable(CoreControls.searchTab));
+				Helper.waitFor(CoreControls.searchTab);
 				CoreControls.searchTab.click();
 				CoreControls.applicationQuickSearch.click();
 			} else if (tab.equals("Search AN")) {
-				WebDriverWait waitForTabsMenue = new WebDriverWait(driver, 10000);
-				CoreControls.searchTab = waitForTabsMenue
-						.until(ExpectedConditions.elementToBeClickable(CoreControls.searchTab));
+				Helper.waitFor(CoreControls.searchTab);
 				CoreControls.searchTab.click();
 				CoreControls.adoptionNotificationSearch.click();
 			} else if (tab.equals("Search SN")) {
-				WebDriverWait waitForTabsMenue = new WebDriverWait(driver, 10000);
-				CoreControls.searchTab = waitForTabsMenue
-						.until(ExpectedConditions.elementToBeClickable(CoreControls.searchTab));
+				Helper.waitFor(CoreControls.searchTab);
 				CoreControls.searchTab.click();
 				CoreControls.surrogacyQuickSearch.click();
 			} else if (tab.equals("Search RR")) {
-				WebDriverWait waitForTabsMenue = new WebDriverWait(driver, 10000);
-				CoreControls.searchTab = waitForTabsMenue
-						.until(ExpectedConditions.elementToBeClickable(CoreControls.searchTab));
+				Helper.waitFor(CoreControls.searchTab);
 				CoreControls.searchTab.click();
 				CoreControls.relationshipRegistrationSearch.click();
 			} else if (tab.equals("Search DR")) {
-				WebDriverWait waitForTabsMenue = new WebDriverWait(driver, 10000);
-				CoreControls.searchTab = waitForTabsMenue
-						.until(ExpectedConditions.elementToBeClickable(CoreControls.searchTab));
+				Helper.waitFor(CoreControls.searchTab);
 				CoreControls.searchTab.click();
 				CoreControls.deathRegistrationSearch.click();
 			}
@@ -270,16 +250,12 @@ public class BDMForm {
 
 		} else if (site.equals("Core Admin UI")) {
 			if (tab.equals("Create internal user")) {
-				 WebDriverWait waitForTabsMenue = new WebDriverWait(driver, 1000);
-				 CoreControls.userTab = waitForTabsMenue
-						 .until(ExpectedConditions.elementToBeClickable(CoreControls.userTab));
+				Helper.waitFor(CoreControls.userTab);
 				CoreControls.userTab.click();
 				CoreControls.internalUsersLink.click();
 				Helper.clickItem(CoreControls.createNewCoreUserButton);
 			} else if (tab.equals("Create Correspondence Template")) {
-				WebDriverWait waitForTab = new WebDriverWait (driver, 1000);
-				CoreControls.templateManagement = waitForTab
-						.until(ExpectedConditions.elementToBeClickable(CoreControls.templateManagement));
+				Helper.waitFor(CoreControls.templateManagement);
 				CoreControls.templateManagement.click();
 				CoreControls.correpondenceTemplatesLink.click();
 				Helper.clickItem(CoreControls.createNewTemplateButton);
@@ -330,9 +306,7 @@ public class BDMForm {
 
 	@Then("^I select stakeholder as \"(.*?)\"$")
 	public void i_select_stakeholder(String stakeholder) throws Throwable {
-		WebDriverWait waitForStakeholderList = new WebDriverWait(driver, 10000);
-		EregistryControls.stakeholderList = waitForStakeholderList
-				.until(ExpectedConditions.elementToBeClickable(EregistryControls.stakeholderList));
+		Helper.waitFor(EregistryControls.stakeholderList);
 		Helper.selectDropDownList(EregistryControls.stakeholderList, stakeholder);
 		Helper.clickItem(EregistryControls.submitButton);
 	}

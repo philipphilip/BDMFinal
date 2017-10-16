@@ -1,14 +1,9 @@
 package helpers;
 
-import static org.openqa.selenium.By.xpath;
-
 import java.util.List;
 
-import org.junit.Assert;
-import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -46,47 +41,20 @@ public class Helper {
 		inputItem(item, value, 0, true);
 	}
 
-	public static void inputById(String id, String value) throws Throwable {
-		Thread.sleep(5000);
-		WebElement item = Hooks.driver.findElement(By.id(id));
-		inputItem(item, value, 0, true);
-	}
-
-	public static void clickById(String id) throws Throwable {
-		Thread.sleep(5000);
-		WebElement item = Hooks.driver.findElement(By.id(id));
-		clickItem(item);
-	}
-
 	public static void clickItem(WebElement item) throws Throwable {
-		try {
-			WebDriverWait wait = new WebDriverWait(Hooks.driver, 120);
-			wait.until(ExpectedConditions.visibilityOf(item));
-			wait.until(ExpectedConditions.elementToBeClickable(item));
-			((JavascriptExecutor) Hooks.driver).executeScript("arguments[0].scrollIntoView(true);", item);
-		    Thread.sleep(500);
-			item.click();
-		} catch (Throwable e) {
-			System.out.println("Unable to click element, waiting 2 seconds to click again.");
-			Thread.sleep(2000);
+		int i = 0;
+		while(i<=30) {
+			i++;
 			try {
+				WebDriverWait wait = new WebDriverWait(Hooks.driver, 30);
+				wait.until(ExpectedConditions.visibilityOf(item));
+				wait.until(ExpectedConditions.elementToBeClickable(item));
 				((JavascriptExecutor) Hooks.driver).executeScript("arguments[0].scrollIntoView(true);", item);
 			    Thread.sleep(500);
 				item.click();
-			} catch (Throwable e1) {
-				System.out.println("Still, unable to click!, waiting 5 more seconds.");
-				Thread.sleep(5000);
-				try {
-					((JavascriptExecutor) Hooks.driver).executeScript("arguments[0].scrollIntoView(true);", item);
-				    Thread.sleep(500);
-					item.click();
-				} catch (Throwable e2) {
-					System.out.println("Click element failed again!, this is the last wait of 10 seconds.");
-					Thread.sleep(10000);
-					((JavascriptExecutor) Hooks.driver).executeScript("arguments[0].scrollIntoView(true);", item);
-				    Thread.sleep(500);
-					item.click();
-				}
+				break;
+			} catch (Exception e) {
+				Thread.sleep(100);
 			}
 		}
 	}
@@ -120,66 +88,10 @@ public class Helper {
 		}
 	}
 
-	public static void checkText(WebElement textItem, String text) throws Throwable {
-		String result = "";
-		try {
-			WebDriverWait wait = new WebDriverWait(Hooks.driver, 120);
-			wait.until(ExpectedConditions.visibilityOf(textItem));
-			wait.until(ExpectedConditions.textToBePresentInElement(textItem, text));
-			result = textItem.getText();
-		} catch (Throwable e) {
-			System.out.println("Get text from item failed, wait for 10 seconds to get again.");
-			Thread.sleep(10000);
-			try {
-				result = textItem.getText();
-			} catch (Throwable e1) {
-				System.out.println("Get text from item failed, wait for 120 seconds to get again.");
-				Thread.sleep(120000);
-				result = textItem.getText();
-			}
-		}
-
-		Assert.assertTrue("result message not found", result.contains(text));
+	public static void waitFor(WebElement field) throws Throwable {
+		WebDriverWait waitForField = new WebDriverWait(Hooks.driver, 10);
+		field = waitForField
+				.until(ExpectedConditions.elementToBeClickable(field));
 	}
-
-	public static void clickLinkByText(String linkText) throws Throwable {
-		Thread.sleep(2000);
-		WebElement linkItem = null;
-		try {
-			linkItem = Hooks.driver.findElement(new By.ByLinkText(linkText));
-
-		} catch (Throwable e) {
-			System.out.println("Find link by text failed, wait for 3 seconds to try again.");
-			Thread.sleep(3000);
-			linkItem = Hooks.driver.findElement(new By.ByLinkText(linkText));
-		}
-		clickItem(linkItem);
-
-	}
-
-	public static void clickButtonByText(String buttonText) throws Throwable {
-
-		WebElement buttonItem = null;
-		try {
-			Thread.sleep(2000);
-			buttonItem = Hooks.driver.findElement(xpath("//button[contains(., '" + buttonText + "')]"));
-		} catch (Throwable e) {
-			System.out.println("Find button by text failed, wait for 10 seconds to try again.");
-			Thread.sleep(5000);
-			try {
-				buttonItem = Hooks.driver.findElement(xpath("//button[@value='" + buttonText + "']"));
-			} catch (Throwable e1) {
-				System.out.println("Find button by text failed, wait for 120 seconds to get again.");
-				Thread.sleep(5000);
-				buttonItem = Hooks.driver.findElement(xpath("//button[contains(., '" + buttonText + "')]"));
-			}
-		}
-		clickItem(buttonItem);
-
-	}
-//	public static void uploadFile() throws Exception {
-//		URL inputUrl = Helper.class.getResource("/src/test/resources/Attachment1.pdf");
-//		File destinationUrl = new File("C:/Attachment.pdf");
-//		FileUtils.copyURLToFile(inputUrl, destinationUrl);
-//	}
 }
+

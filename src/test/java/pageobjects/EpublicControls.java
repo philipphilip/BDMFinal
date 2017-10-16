@@ -3,8 +3,6 @@ package pageobjects;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 
 import helpers.Helper;
 
@@ -152,15 +150,13 @@ public class EpublicControls extends BaseClass {
 	}
 	
 	public static void payNowProcess() throws Throwable {
-		Thread.sleep(5000);
-		WebDriverWait waitForPaymentPage = new WebDriverWait(driver, 10000);
-		EpublicControls.cardHolderName = waitForPaymentPage
-				.until(ExpectedConditions.elementToBeClickable(EpublicControls.cardHolderName));
-		Helper.inputItem(EpublicControls.cardHolderName, "paymentprocess");
-		Helper.inputItem(EpublicControls.creditCardNumber, "4564710000000004");
-		Helper.inputItem(EpublicControls.expiryDateMonth, "02");
-		Helper.inputItem(EpublicControls.expiryDateYear, "19");
-		Helper.inputItem(EpublicControls.cardVerificationNumber, "847");
+		Thread.sleep(2000);
+		Helper.waitFor(EpublicControls.cardHolderName);
+		EpublicControls.cardHolderName.sendKeys("paymentprocess");
+		EpublicControls.creditCardNumber.sendKeys("4564710000000004");
+		EpublicControls.expiryDateMonth.sendKeys("02");
+		EpublicControls.expiryDateYear.sendKeys("19");
+		EpublicControls.cardVerificationNumber.sendKeys("847");
 		Helper.clickItem(EpublicControls.paymentNextButton);
 		duplicatePayProcess();
 	}

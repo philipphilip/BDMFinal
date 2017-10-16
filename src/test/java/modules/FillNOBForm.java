@@ -3,8 +3,8 @@ package modules;
 import org.apache.commons.lang3.RandomStringUtils;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
+
+import helpers.Helper;
 import pageobjects.CoreControls;
 import pageobjects.CoreNobPage;
 
@@ -23,9 +23,8 @@ public class FillNOBForm {
 	public static void Execute(WebDriver driver) throws Throwable {
 
 		PageFactory.initElements(driver, CoreNobPage.class);
-		WebDriverWait waitForTabsMenue = new WebDriverWait(driver, 10000);
-		CoreNobPage.notifier_email = waitForTabsMenue
-				.until(ExpectedConditions.elementToBeClickable(CoreNobPage.notifier_email));
+
+		Helper.waitFor(CoreNobPage.notifier_email);
 		CoreNobPage.mothersFamilyName.sendKeys("Automated" + randChildFamilyName);
 		CoreNobPage.mothersFamilyNameSameAsBirth.sendKeys("Yes");
 		CoreNobPage.mothersGivenName_Core.sendKeys("Automated" + randparent1FirstName);

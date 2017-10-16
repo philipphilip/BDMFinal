@@ -13,7 +13,7 @@ public class FillRelationshipRegistrationParameterForm {
 
 		PageFactory.initElements(driver, CoreOldUiSystemParametersPage.class);
 		
-		Helper.inputItem(CoreOldUiSystemParametersPage.relationshipRegistrationCoolingOffPeriod, "-1");
+		CoreOldUiSystemParametersPage.relationshipRegistrationCoolingOffPeriod.sendKeys("-1");
 		Helper.clickItem(CoreOldUiSystemParametersPage.submitButton);
 		
 		Thread.sleep(2000);

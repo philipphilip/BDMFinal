@@ -3,8 +3,6 @@ package modules;
 import org.junit.Assert;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 
 import helpers.Helper;
 import pageobjects.EpublicControls;
@@ -20,76 +18,58 @@ public class FillEregistryCertificatesForm {
 
 		PageFactory.initElements(driver, EregistryCertificatesPage.class);
 		
-		//Product Details
 		Helper.selectDropDownList(EregistryCertificatesPage.lifeEvent, "Death");
 		Thread.sleep(3000);
 		Helper.selectDropDownList(EregistryCertificatesPage.keyword, "Death Standard 1");
-		Helper.inputItem(EregistryCertificatesPage.quantity, "1");
+		EregistryCertificatesPage.quantity.sendKeys("1");
 		Helper.selectDropDownList(EregistryCertificatesPage.reasonCertificateRequired, "Administration");
-
 		Helper.clickItem(EregistryControls.nextButton);
-		//Subject Details-Date of Event
 		Helper.selectDropDownList(EregistryCertificatesPage.dateOfDeathType, "On");
-		Helper.inputItem(EregistryCertificatesPage.dateOfDeathDay, "07");
-		Helper.inputItem(EregistryCertificatesPage.dateOfDeathMonth, "07");
-		Helper.inputItem(EregistryCertificatesPage.dateOfDeathYear, "2017");
-		//Subject Details-Place of Death
-		Helper.inputItem(EregistryCertificatesPage.placeOfDeathSuburb, "Wollongong");
-		//Subject Details-Deceased Details
-		Helper.inputItem(EregistryCertificatesPage.deceasedFamilyName, "Automated" + FillEregistryCodForm.deceasedFamilyName);
-		Helper.inputItem(EregistryCertificatesPage.deceasedGivenName, "Automated" + FillEregistryCodForm.deceasedGivenName);
-		Helper.inputItem(EregistryCertificatesPage.deceasedFamilyNameAtBirth, "Automated" + FillEregistryCodForm.deceasedFamilyName);
-		Helper.inputItem(EregistryCertificatesPage.dateOfBirthDay, "07");
-		Helper.inputItem(EregistryCertificatesPage.dateOfBirthMonth, "07");
-		Helper.inputItem(EregistryCertificatesPage.dateOfBirthYear, "1937");
-		//Subject Details - Parent One
+		EregistryCertificatesPage.dateOfDeathDay.sendKeys("07");
+		EregistryCertificatesPage.dateOfDeathMonth.sendKeys("07");
+		EregistryCertificatesPage.dateOfDeathYear.sendKeys("2017");
+		EregistryCertificatesPage.placeOfDeathSuburb.sendKeys("Wollongong");
+		EregistryCertificatesPage.deceasedFamilyName.sendKeys("Automated" + FillEregistryCodForm.deceasedFamilyName);
+		EregistryCertificatesPage.deceasedGivenName.sendKeys("Automated" + FillEregistryCodForm.deceasedGivenName);
+		EregistryCertificatesPage.deceasedFamilyNameAtBirth.sendKeys("Automated" + FillEregistryCodForm.deceasedFamilyName);
+		EregistryCertificatesPage.dateOfBirthDay.sendKeys("07");
+		EregistryCertificatesPage.dateOfBirthMonth.sendKeys("07");
+		EregistryCertificatesPage.dateOfBirthYear.sendKeys("1937");
 		Helper.selectDropDownList(EregistryCertificatesPage.parent1Type, "Mother");
-		Helper.inputItem(EregistryCertificatesPage.parent1FamilyName, "Automated" + FillEregistryCodForm.deceasedFamilyName);
-		Helper.inputItem(EregistryCertificatesPage.parent1GivenName, "Automated" + FillEregistryCodForm.motherGivenName);
-		Helper.inputItem(EregistryCertificatesPage.parent1FamilyNameAtBirth, "Automated" + FillEregistryCodForm.deceasedFamilyName);
-		//SubjectDetails - Parent two
+		EregistryCertificatesPage.parent1FamilyName.sendKeys("Automated" + FillEregistryCodForm.deceasedFamilyName);
+		EregistryCertificatesPage.parent1GivenName.sendKeys("Automated" + FillEregistryCodForm.motherGivenName);
+		EregistryCertificatesPage.parent1FamilyNameAtBirth.sendKeys("Automated" + FillEregistryCodForm.deceasedFamilyName);
 		Helper.selectDropDownList(EregistryCertificatesPage.parent2Type, "Father");
-		Helper.inputItem(EregistryCertificatesPage.parent2FamilyName, "Automated" + FillEregistryCodForm.deceasedFamilyName);
-		Helper.inputItem(EregistryCertificatesPage.parent2GivenName, "Automated" + FillEregistryCodForm.motherGivenName);
-		Helper.inputItem(EregistryCertificatesPage.parent2FamilyNameAtBirth, "Automated" + FillEregistryCodForm.deceasedFamilyName);
-		//Get family name of the applicant
-		String applicantFamilyName;
-		Thread.sleep(3000);
-		applicantFamilyName = EregistryCertificatesPage.applicantFamilyName.getText();
-		Thread.sleep(3000);
-		
-		Helper.clickItem(EregistryControls.nextButton);
-		
-		//Order Details-Delivery to Passport Office
-		Helper.selectDropDownList(EregistryCertificatesPage.sendToPassportOffice, "No");
-		//Order Details-Order Delivery Address
-		Helper.selectDropDownList(EregistryCertificatesPage.deliveryOption, "RegisteredPOST");
-		//Order Details-Delivery Address
-		Helper.selectDropDownList(EregistryCertificatesPage.copyFrom, applicantFamilyName);
-		Helper.inputItem(EregistryCertificatesPage.contactPhoneNumber, "12345678");
-		
-		Helper.clickItem(EregistryControls.nextButton);
+		EregistryCertificatesPage.parent2FamilyName.sendKeys("Automated" + FillEregistryCodForm.deceasedFamilyName);
+		EregistryCertificatesPage.parent2GivenName.sendKeys("Automated" + FillEregistryCodForm.motherGivenName);
+		EregistryCertificatesPage.parent2FamilyNameAtBirth.sendKeys("Automated" + FillEregistryCodForm.deceasedFamilyName);
 
-		Helper.clickItem(EregistryControls.nextButton);
+		String applicantFamilyName;
+		Thread.sleep(1000);
+		applicantFamilyName = EregistryCertificatesPage.applicantFamilyName.getText();
+		Thread.sleep(2000);
 		
+		Helper.clickItem(EregistryControls.nextButton);
+		Helper.selectDropDownList(EregistryCertificatesPage.sendToPassportOffice, "No");
+		Helper.selectDropDownList(EregistryCertificatesPage.deliveryOption, "RegisteredPOST");
+		Helper.selectDropDownList(EregistryCertificatesPage.copyFrom, applicantFamilyName);
+		EregistryCertificatesPage.contactPhoneNumber.sendKeys("12345678");
+		Helper.clickItem(EregistryControls.nextButton);
+		Helper.clickItem(EregistryControls.nextButton);
 		Helper.clickItem(EregistryControls.saveButton);
 		
 		String certificateSaveMessage;
-		Thread.sleep(3000);
+		Thread.sleep(2000);
 		certificateSaveMessage = EregistryCertificatesPage.saveSuccessfulMessage.getText();
 		Assert.assertTrue("Error when saving the death certificate", certificateSaveMessage.contains("This Application has been successfully saved."));
 		
 		EregistryControls.certificatesLink.click();
 		EregistryControls.draftList.click();
-		
-		//Draft Certificate List
-		Helper.inputItem(EregistryCertificatesPage.subject1NameDrafts, "Automated" + FillEregistryCodForm.deceasedFamilyName);
+		EregistryCertificatesPage.subject1NameDrafts.sendKeys("Automated" + FillEregistryCodForm.deceasedFamilyName);
 		Thread.sleep(3000);
 		EregistryControls.refreshButton.click();
 		Helper.clickItem(EregistryControls.searchResult1);
-		
 		Helper.clickItem(EregistryControls.submitButton);
-		
 		Helper.clickItem(EregistryControls.submitButton);
 		
 		String certificateSubmitMessage;
@@ -99,38 +79,24 @@ public class FillEregistryCertificatesForm {
 		
 		EregistryControls.certificatesLink.click();
 		EregistryControls.submitList.click();
-		
-		//Submitted Certificate List
-		Helper.inputItem(EregistryCertificatesPage.subject1NameSubmits, "Automated" + FillEregistryCodForm.deceasedFamilyName);
+		EregistryCertificatesPage.subject1NameSubmits.sendKeys("Automated" + FillEregistryCodForm.deceasedFamilyName);
 		Thread.sleep(3000);
 		EregistryControls.refreshButton.click();
-		
-		//String certificateNotificationNumber = EregistryCertificatesPage.certificateNotificationNumber.getText();
 		certificateNotificationNumber = EregistryCertificatesPage.certificateNotificationNumber.getText();
 		Thread.sleep(3000);
-
 		Helper.clickItem(EregistryControls.searchResult1);
-		
 		Helper.clickItem(EregistryControls.makePaymentButton);
-		
 		Helper.clickItem(EregistryControls.makePaymentConfirmationButton);
-		
 		Helper.clickItem(EregistryControls.startPaymentButton);
-		
 		Helper.selectDropDownList(EregistryCertificatesPage.paymentMethod, "Card");
-		
 		Helper.clickItem(EregistryControls.payNowButton);
-		
 		EpublicControls.payNowProcess();
-		
 		String paymentSuccessfulMessage;
 		Thread.sleep(5000);
 		paymentSuccessfulMessage = EregistryCertificatesPage.paymentSuccessMessage.getText();
 		Assert.assertTrue("Error during payment of death certificate", paymentSuccessfulMessage.contains("Payment Successful"));
-		
 		System.out.println("Payment for death certificate successful with payment reference number : " + EregistryCertificatesPage.paymentReferenceNumber.getText());
 		System.out.println("The notification id for the death certificate is " + certificateNotificationNumber);
-		
 	}
 
 }

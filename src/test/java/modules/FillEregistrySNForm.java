@@ -4,8 +4,6 @@ import org.apache.commons.lang3.RandomStringUtils;
 import org.junit.Assert;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 
 import helpers.Helper;
 import pageobjects.EregistryControls;
@@ -20,38 +18,35 @@ public class FillEregistrySNForm {
 
 		PageFactory.initElements(driver, EregistrySNPage.class);
 		
-		WebDriverWait waitForOrderNumber = new WebDriverWait(driver, 10000);
-		EregistrySNPage.surrogacyOrderNumber = waitForOrderNumber
-				.until(ExpectedConditions.elementToBeClickable(EregistrySNPage.surrogacyOrderNumber));
-		
-		Helper.inputItem(EregistrySNPage.surrogacyOrderNumber, FillEregistryANForm.orderNumber);
-		Helper.inputItem(EregistrySNPage.dateOrderMadeDay, "01");
-		Helper.inputItem(EregistrySNPage.dateOrderMadeMonth, "09");
-		Helper.inputItem(EregistrySNPage.dateOrderMadeYear, "2017");
-		Helper.inputItem(EregistrySNPage.currentFamilyName, "Automated" + FillEregistryANForm.familyName);
-		Helper.inputItem(EregistrySNPage.currentFirstName, "Automated" + FillEregistryANForm.newFirstName);
-		Helper.inputItem(EregistrySNPage.birthCertificate, birthCertificate);
-		Helper.inputItem(EregistrySNPage.childDateOfBirthDay, "01");
-		Helper.inputItem(EregistrySNPage.childDateOfBirthMonth, "08");
-		Helper.inputItem(EregistrySNPage.childDateOfBirthYear, "2017");
+		Helper.waitFor(EregistrySNPage.surrogacyOrderNumber);
+		EregistrySNPage.surrogacyOrderNumber.sendKeys(FillEregistryANForm.orderNumber);
+		EregistrySNPage.dateOrderMadeDay.sendKeys("01");
+		EregistrySNPage.dateOrderMadeMonth.sendKeys("09");
+		EregistrySNPage.dateOrderMadeYear.sendKeys("2017");
+		EregistrySNPage.currentFamilyName.sendKeys("Automated" + FillEregistryANForm.familyName);
+		EregistrySNPage.currentFirstName.sendKeys("Automated" + FillEregistryANForm.newFirstName);
+		EregistrySNPage.birthCertificate.sendKeys(birthCertificate);
+		EregistrySNPage.childDateOfBirthDay.sendKeys("01");
+		EregistrySNPage.childDateOfBirthMonth.sendKeys("08");
+		EregistrySNPage.childDateOfBirthYear.sendKeys("2017");
 		Helper.selectDropDownList(EregistrySNPage.sexAtBirth, "Male");
-		Helper.inputItem(EregistrySNPage.birthSuburb, "Ballarat");
+		EregistrySNPage.birthSuburb.sendKeys("Ballarat");
 		Helper.selectDropDownList(EregistrySNPage.preSurrogacyParent1RecordAs, "Mother");
-		Helper.inputItem(EregistrySNPage.preSurrogacyParent1FamilyName, "Automated" + FillEregistryANForm.familyName);
-		Helper.inputItem(EregistrySNPage.preSurrogacyParent1FirstName, "Automated" + FillEregistryANForm.parent1FirstName);
+		EregistrySNPage.preSurrogacyParent1FamilyName.sendKeys("Automated" + FillEregistryANForm.familyName);
+		EregistrySNPage.preSurrogacyParent1FirstName.sendKeys("Automated" + FillEregistryANForm.parent1FirstName);
 		Helper.selectDropDownList(EregistrySNPage.preSurrogacyParent2RecordAs, "Father");
-		Helper.inputItem(EregistrySNPage.preSurrogacyParent2FamilyName, "Automated" + FillEregistryANForm.familyName);
-		Helper.inputItem(EregistrySNPage.preSurrogacyParent2FirstName, "Automated" + FillEregistryANForm.parent2FirstName);
+		EregistrySNPage.preSurrogacyParent2FamilyName.sendKeys("Automated" + FillEregistryANForm.familyName);
+		EregistrySNPage.preSurrogacyParent2FirstName.sendKeys("Automated" + FillEregistryANForm.parent2FirstName);
 		Helper.selectDropDownList(EregistrySNPage.commissioningParent1RecordAs, "Mother");
-		Helper.inputItem(EregistrySNPage.commissioningParent1FamilyName, "Comparent" + FillEregistryANForm.familyName);
-		Helper.inputItem(EregistrySNPage.commissioningParent1FirstName, "Comparentone" + FillEregistryANForm.parent1FirstName);
-		Helper.inputItem(EregistrySNPage.commissioningParent1Email, "info@test.com");
-		Helper.inputItem(EregistrySNPage.commissioningParent1Phone, "0454545450");
+		EregistrySNPage.commissioningParent1FamilyName.sendKeys("Comparent" + FillEregistryANForm.familyName);
+		EregistrySNPage.commissioningParent1FirstName.sendKeys("Comparentone" + FillEregistryANForm.parent1FirstName);
+		EregistrySNPage.commissioningParent1Email.sendKeys("info@test.com");
+		EregistrySNPage.commissioningParent1Phone.sendKeys("0454545450");
 		Helper.selectDropDownList(EregistrySNPage.commissioningParent2RecordAs, "Father");
-		Helper.inputItem(EregistrySNPage.commissioningParent2FamilyName, "Comparent" + FillEregistryANForm.familyName);
-		Helper.inputItem(EregistrySNPage.commissioningParent2FirstName, "Comparenttwo" + FillEregistryANForm.parent2FirstName);
-		Helper.inputItem(EregistrySNPage.commissioningParent2Email, "info1@test.com");
-		Helper.inputItem(EregistrySNPage.commissioningParent2Phone, "0454545451");
+		EregistrySNPage.commissioningParent2FamilyName.sendKeys("Comparent" + FillEregistryANForm.familyName);
+		EregistrySNPage.commissioningParent2FirstName.sendKeys("Comparenttwo" + FillEregistryANForm.parent2FirstName);
+		EregistrySNPage.commissioningParent2Email.sendKeys("info1@test.com");
+		EregistrySNPage.commissioningParent2Phone.sendKeys("0454545451");
 		
 		Helper.clickItem(EregistryControls.validateButton);
 		Helper.clickItem(EregistryControls.saveButton);
@@ -64,10 +59,7 @@ public class FillEregistrySNForm {
 		
 		driver.switchTo().alert().accept();
 		
-		WebDriverWait waitForDocumentUpload = new WebDriverWait(driver, 10000);
-		EregistryControls.addDocumentType = waitForDocumentUpload
-				.until(ExpectedConditions.elementToBeClickable(EregistryControls.addDocumentType));
-		
+		Helper.waitFor(EregistryControls.addDocumentType);
 		EregistryControls.addDocumentType.sendKeys("Statutory Declaration");
 		EregistryControls.addDocumentName.sendKeys("Statutory Declaration");
 
@@ -86,10 +78,8 @@ public class FillEregistrySNForm {
 		EregistryControls.surrogacyLink.click();
 		EregistryControls.draftList.click();
 		
-		WebDriverWait waitForSearchName = new WebDriverWait(driver, 10000);
-		EregistryControls.surrogacySearchFamilyName = waitForSearchName
-				.until(ExpectedConditions.elementToBeClickable(EregistryControls.surrogacySearchFamilyName));
-		Helper.inputItem(EregistryControls.surrogacySearchFamilyName, "Automated" + FillEregistryANForm.familyName);		
+		Helper.waitFor(EregistryControls.surrogacySearchFamilyName);
+		EregistryControls.surrogacySearchFamilyName.sendKeys("Automated" + FillEregistryANForm.familyName);		
 		EregistryControls.refreshButton.click();
 		Helper.clickItem(EregistryControls.searchResult1);
 		Helper.clickItem(EregistryControls.submitButton);		

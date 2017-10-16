@@ -4,8 +4,6 @@ import org.junit.Assert;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 
 import helpers.Helper;
 import pageobjects.ApplicationPage;
@@ -62,9 +60,7 @@ public class FillBCApplicationForm {
 		Assert.assertTrue("Application for birth certificate Failed", successMessage.contains("successfully saved"));
 		Helper.clickItem(ApplicationPage.createTransactionButton);
 		System.out.println("Create Transaction initiated");
-		WebDriverWait waitForCheckbox = new WebDriverWait(driver, 10000);
-		ApplicationPage.paidCheckbox = waitForCheckbox
-				.until(ExpectedConditions.elementToBeClickable(ApplicationPage.paidCheckbox));
+		Helper.waitFor(ApplicationPage.paidCheckbox);
 		ApplicationPage.paidCheckbox.sendKeys(Keys.SPACE);
 		//THIS PART OF CODE IS ADDED TO FAIL THE TEST AS PAYMENT GATEWAY IS NOT AVAILABLE
 		String checkBoxText = ApplicationPage.paidCheckbox.getText();

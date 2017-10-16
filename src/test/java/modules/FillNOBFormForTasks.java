@@ -3,8 +3,6 @@ package modules;
 import org.junit.Assert;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 
 import helpers.Helper;
 import pageobjects.CoreControls;
@@ -15,16 +13,17 @@ public class FillNOBFormForTasks {
 	public static void Execute(WebDriver driver) throws Throwable {
 
 		PageFactory.initElements(driver, CoreNobPage.class);
-		WebDriverWait waitForTabsMenue = new WebDriverWait(driver, 10000);
-		CoreNobPage.notifier_email = waitForTabsMenue
-				.until(ExpectedConditions.elementToBeClickable(CoreNobPage.notifier_email));
-		
+
+		Helper.waitFor(CoreNobPage.notifier_email);
 		CoreNobPage.mothersDOBDay.sendKeys("25");
 		CoreNobPage.mothersDOBMonth.sendKeys("12");
 		CoreNobPage.mothersDOBYear.sendKeys("2016");
 		CoreNobPage.chiledDOBDay.sendKeys("01");
 		CoreNobPage.chiledDOBMoth.sendKeys("08");
 		CoreNobPage.chiledDOBYear.sendKeys("2020");
+		CoreNobPage.mothersFamilyName.sendKeys("test");
+		CoreNobPage.mothersFamilyNameAtBirth.sendKeys("test");
+		CoreNobPage.notifier_family_name.sendKeys("test");
 		CoreControls.actionList.sendKeys("Save");
 		Helper.clickItem(CoreControls.go);
 		Thread.sleep(1000);
@@ -43,11 +42,8 @@ public class FillNOBFormForTasks {
 		Thread.sleep(1000);
 		CoreControls.actionList.sendKeys("Edit");
 		Helper.clickItem(CoreControls.go);
-		Thread.sleep(1000);
-		WebDriverWait waitForField = new WebDriverWait(driver, 10000);
-		CoreNobPage.mothersFamilyName = waitForField
-				.until(ExpectedConditions.elementToBeClickable(CoreNobPage.mothersFamilyName));
-		
+		Helper.waitFor(CoreNobPage.mothersFamilyName);
+		CoreNobPage.mothersFamilyName.clear();
 		CoreNobPage.mothersFamilyName.sendKeys("Automated" + FillNOBForm.randChildFamilyName);
 		CoreNobPage.mothersFamilyNameSameAsBirth.sendKeys("Yes");
 		CoreNobPage.mothersGivenName_Core.sendKeys("Automated" + FillNOBForm.randparent1FirstName);
@@ -77,16 +73,13 @@ public class FillNOBFormForTasks {
 		CoreNobPage.birthOrderOf.sendKeys("2");
 		CoreNobPage.hospital_name.sendKeys("Ballina District Hospital");
 		CoreNobPage.Hospital_town_suburb.sendKeys("Armidale");
+		CoreNobPage.notifier_family_name.clear();
 		CoreNobPage.notifier_family_name.sendKeys("auto" + FillNOBForm.randTextInformant2_fmlyN);
 		CoreNobPage.notifier_given_name.sendKeys("auto" + FillNOBForm.randparent2FirstName);
 		CoreNobPage.notifier_email.sendKeys("john.smith@info.com");
 		CoreControls.validateForm();
 		CoreControls.overrideExceptionsOnform();
-
-		WebDriverWait waitForTaskTab = new WebDriverWait(driver, 10000);
-		CoreControls.tasksTab = waitForTaskTab
-				.until(ExpectedConditions.elementToBeClickable(CoreControls.tasksTab));
-		
+		Helper.waitFor(CoreControls.tasksTab);
 		Helper.clickItem(CoreControls.tasksTab);
 		Thread.sleep(2000);
 		String task1Idafter = CoreControls.task1Id.getText();

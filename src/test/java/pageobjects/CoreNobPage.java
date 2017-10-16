@@ -24,6 +24,9 @@ public class CoreNobPage extends BaseClass {
 	
 	@FindBy(id = "birthMothersDetails-name-familyNameSameToFamilyNameAtBirth")
 	public static WebElement mothersFamilyNameSameAsBirth;
+	
+	@FindBy(id = "birthMothersDetails-name-familyNameAtBirth")
+	public static WebElement mothersFamilyNameAtBirth;
 
 	@FindBy(xpath = ".//*/a[contains(text(),'of Birth')]")
 	public static WebElement Family_name_at_birth;
