@@ -3,8 +3,8 @@ package modules;
 import org.apache.commons.lang3.RandomStringUtils;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
+
+import helpers.Helper;
 import pageobjects.CoreCodPage;
 import pageobjects.CoreControls;
 
@@ -17,9 +17,7 @@ public class FillCODForm {
 
 	public static void Execute(WebDriver driver) throws Throwable {
 		PageFactory.initElements(driver, CoreCodPage.class);
-		WebDriverWait waitForTabsMenue = new WebDriverWait(driver, 10000);
-		CoreCodPage.causeOfDeathType = waitForTabsMenue
-				.until(ExpectedConditions.elementToBeClickable(CoreCodPage.causeOfDeathType));
+		Helper.waitFor(CoreCodPage.causeOfDeathType);
 		CoreCodPage.causeOfDeathType.sendKeys("MCCD");
 		CoreCodPage.deceasedFamilyName.sendKeys("automate" + randDeceasedFamilyName);
 		CoreCodPage.deceasedfirstName.sendKeys("automate" + randDeceasedFirstName);

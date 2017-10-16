@@ -1,25 +1,20 @@
 package step_definitions;
 
-import cucumber.api.PendingException;
-import cucumber.api.java.en.Given;
-import cucumber.api.java.en.Then;
-import cucumber.api.java.en.When;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
 
 import org.junit.Assert;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 
-import com.gargoylesoftware.htmlunit.javascript.host.media.RemotePlayback;
-
+import cucumber.api.java.en.Given;
+import cucumber.api.java.en.Then;
+import cucumber.api.java.en.When;
+import helpers.Helper;
 import pageobjects.CoreControls;
 import pageobjects.CoreLoginPage;
 import pageobjects.TemplatesPages;
-
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
 
 public class Templates {
 	public WebDriver driver;
@@ -42,10 +37,8 @@ public class Templates {
 	public void i_am_on_CORE_Admin_site() throws Throwable {
 		driver.get(baseURL);
 		PageFactory.initElements(driver, CoreLoginPage.class);
-		WebDriverWait waitForLoginPage = new WebDriverWait(driver, 10000);
 
-		CoreLoginPage.coreAdminUsignin_button = waitForLoginPage
-				.until(ExpectedConditions.elementToBeClickable(CoreLoginPage.coreAdminUsignin_button));
+		Helper.waitFor(CoreLoginPage.coreAdminUsignin_button);
 		CoreLoginPage.coreAdminUsername.sendKeys("admin");
 		CoreLoginPage.coreAdminUpassword.sendKeys("Friday17");
 		CoreLoginPage.coreAdminUsignin_button.click();
@@ -153,9 +146,7 @@ public class Templates {
 	public void i_can_save_it_as_a_template_placeholder(String arg1) throws Throwable {
 		System.out.println("---In the Saving step and the value of arg1 is: " + arg1);
 		TemplatesPages.saveDraftButton.click();
-		WebDriverWait waitForMessage = new WebDriverWait(driver, 10000);
-		CoreLoginPage.coreAdminUsignin_button = waitForMessage
-				.until(ExpectedConditions.elementToBeClickable(TemplatesPages.successfullySaved));
+		Helper.waitFor(TemplatesPages.successfullySaved);
 		String bannerMessage = TemplatesPages.successfullySaved.getText();
 		Assert.assertTrue("The " + arg1 + " is saved", bannerMessage.contains("successfully"));
 		System.out.println("This is after checking message successfuly saved!");

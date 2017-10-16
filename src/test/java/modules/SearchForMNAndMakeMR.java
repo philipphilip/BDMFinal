@@ -3,8 +3,6 @@ package modules;
 import org.junit.Assert;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 
 import helpers.Helper;
 import pageobjects.CoreControls;
@@ -14,9 +12,8 @@ public class SearchForMNAndMakeMR {
 
 	public static void Execute(WebDriver driver) throws Throwable {
 		PageFactory.initElements(driver, MNPage.class);
-		WebDriverWait waitForTabsMenue = new WebDriverWait(driver, 10000);
-		CoreControls.searchTab = waitForTabsMenue
-				.until(ExpectedConditions.elementToBeClickable(CoreControls.searchTab));
+
+		Helper.waitFor(CoreControls.searchTab);
 		Helper.clickItem(CoreControls.searchTab);
 		Helper.clickItem(CoreControls.merriageRegistrationSearch);
 		Thread.sleep(1000);

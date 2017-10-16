@@ -1,16 +1,15 @@
 package modules;
 
-import helpers.Helper;
-
 import org.openqa.selenium.WebDriver;
+
 import pageobjects.EpublicLoginPage;
 
 public class EpublicSignInAction {
 
 	public static void Execute(WebDriver driver) throws Throwable {
 
-		Helper.inputItem(EpublicLoginPage.username, "a1");
-		Helper.inputItem(EpublicLoginPage.password, "password");
+		EpublicLoginPage.username.sendKeys("a1");
+		EpublicLoginPage.password.sendKeys("password");
 		EpublicLoginPage.signin_button.click();
 
 		// Thread.sleep(3000);

@@ -19,10 +19,10 @@ public class FillCreateInternalUserForm {
 
 		PageFactory.initElements(driver, CoreAdminCreateInternalUserPage.class);
 
-		Helper.inputItem(CoreAdminCreateInternalUserPage.loginUserName, "Auto" + userName);
-		Helper.inputItem(CoreAdminCreateInternalUserPage.userFamilyName, "Auto" + familyName);
-		Helper.inputItem(CoreAdminCreateInternalUserPage.userGivenName, "Auto" + givenName);
-		Helper.inputItem(CoreAdminCreateInternalUserPage.userEmailAddress, "Auto" + givenName + "Auto" + familyName + "@test.com");
+		CoreAdminCreateInternalUserPage.loginUserName.sendKeys("Auto" + userName);
+		CoreAdminCreateInternalUserPage.userFamilyName.sendKeys("Auto" + familyName);
+		CoreAdminCreateInternalUserPage.userGivenName.sendKeys("Auto" + givenName);
+		CoreAdminCreateInternalUserPage.userEmailAddress.sendKeys("Auto" + givenName + "Auto" + familyName + "@test.com");
 		Helper.selectDropDownList(CoreAdminCreateInternalUserPage.location, "Abbotsford");
 		Helper.clickItem(CoreAdminCreateInternalUserPage.submitButton);
 		
@@ -44,14 +44,12 @@ public class FillCreateInternalUserForm {
 		Helper.clickItem(CoreControls.userTab);
 		Helper.clickItem(CoreControls.internalUsersLink);
 		
-		Helper.inputItem(CoreAdminCreateInternalUserPage.searchFamilyName, "Auto" + familyName);
+		CoreAdminCreateInternalUserPage.searchFamilyName.sendKeys("Auto" + familyName);
 		Helper.clickItem(CoreAdminCreateInternalUserPage.searchButton);
 		
-		Thread.sleep(5000);
+		Thread.sleep(2000);
 		String searchUserName;
 		searchUserName = CoreAdminCreateInternalUserPage.searchResultsUserName.getText();
-		System.out.println(searchUserName);
-		Thread.sleep(3000);
 		Assert.assertTrue("The internal user was not created", searchUserName.equals("Auto" + userName));
 		
 	}

@@ -24,10 +24,10 @@ public class EregistryANPage extends BaseClass {
 	@FindBy(id = "adoptionDetails-aoInRespectToAboriginalChild")
 	public static WebElement adoptionInRespectToAboriginalChild;
 	
-	@FindBy(id = "preAdoptionChildsDetails-formerFamilyName")
+	@FindBy(id = "preAdoptionChildsDetails-formerName-familyName")
 	public static WebElement formerFamilyName;
 	
-	@FindBy(id = "preAdoptionChildsDetails-formerfamilyFirstName")
+	@FindBy(id = "preAdoptionChildsDetails-formerName-firstGivenName")
 	public static WebElement formerFirstName;
 	
 	@FindBy(id = "preAdoptionChildsDetails-birthDetails-dateOfBirth-day")
@@ -48,7 +48,7 @@ public class EregistryANPage extends BaseClass {
 	@FindBy(id = "childsDetails-newName-familyName")
 	public static WebElement newFamilyName;
 	
-	@FindBy(id = "childsDetails-newName-familyNameAtBirth")
+	@FindBy(id = "childsDetails-newName-firstGivenName")
 	public static WebElement newFirstName;
 	
 	@FindBy(id = "adoptionParent1Details-recordAs")
@@ -57,7 +57,10 @@ public class EregistryANPage extends BaseClass {
 	@FindBy(id = "adoptionParent1Details-name-familyName")
 	public static WebElement parent1FamilyName;
 	
-	@FindBy(id = "adoptionParent1Details-name-formerGivenNames")
+	@FindBy(id = "adoptionParent1Details-name-familyNameAtBirth")
+	public static WebElement parent1FamilyNameAtBirth;
+	
+	@FindBy(id = "adoptionParent1Details-name-firstGivenName")
 	public static WebElement parent1FirstName;
 	
 	@FindBy(id = "adoptionParent1Details-details-dateOfBirth-day")
@@ -81,7 +84,10 @@ public class EregistryANPage extends BaseClass {
 	@FindBy(id = "adoptionParent2Details-name-familyName")
 	public static WebElement parent2FamilyName;
 	
-	@FindBy(id = "adoptionParent2Details-name-formerGivenNames")
+	@FindBy(id = "adoptionParent2Details-name-familyNameAtBirth")
+	public static WebElement parent2FamilyNameAtBirth;
+	
+	@FindBy(id = "adoptionParent2Details-name-firstGivenName")
 	public static WebElement parent2FirstName;
 	
 	@FindBy(id = "adoptionParent2Details-details-dateOfBirth-day")

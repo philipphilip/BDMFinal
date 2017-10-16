@@ -3,8 +3,6 @@ package modules;
 import org.junit.Assert;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 
 import helpers.Helper;
 import pageobjects.CoreControls;
@@ -16,9 +14,7 @@ public class SearchforCreatedDeathCertificate {
 		PageFactory.initElements(driver, CoreSearchDeathPage.class);
 
 		String theDeceasedNameIs;
-		WebDriverWait waitForTabsMenue = new WebDriverWait(driver, 10000);
-		CoreControls.searchTab = waitForTabsMenue
-				.until(ExpectedConditions.elementToBeClickable(CoreControls.searchTab));
+		Helper.waitFor(CoreControls.searchTab);
 		Helper.clickItem(CoreControls.searchTab);
 		Thread.sleep(2000);
 		Helper.clickItem(CoreControls.deathRegistrationSearch);

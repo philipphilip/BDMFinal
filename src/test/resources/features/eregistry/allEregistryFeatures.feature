@@ -1,7 +1,6 @@
 Feature: All eRegistry tests
 
-# Create DRS, COD and Death Application in eRegistry and submit to Core. Search for them in Core and make them compliant if not already.
-
+  # Create DRS, COD and Death Application in eRegistry and submit to Core. Search for them in Core and make them compliant if not already.
   Scenario: Create a COD in eRegistry and submit to Core
     Given I open "eRegistry" website
     When I sign in "eRegistry"
@@ -41,8 +40,7 @@ Feature: All eRegistry tests
     And I navigate to "Search Item Id" in "Core"
     Then I search for "Application" form created in "eRegistry"
 
-# Create Adoption Notification in eRegistry and submit to Core and search for it in Core
-
+  # Create Adoption Notification in eRegistry and submit to Core and search for it in Core
   Scenario: Create an adoption notification in eRegistry and submit to Core
     Given I open "eRegistry" website
     When I sign in "eRegistry"
@@ -56,8 +54,7 @@ Feature: All eRegistry tests
     And I navigate to "Search AN" in "Core"
     Then I search for "AN" form created in "eRegistry"
 
-# Create Surrgoacy Notification in eRegistry and submit to Core and search for it in Core
-
+  # Create Surrgoacy Notification in eRegistry and submit to Core and search for it in Core
   Scenario: Create a surrogacy notification in eRegistry and submit to Core
     Given I open "eRegistry" website
     When I sign in "eRegistry"

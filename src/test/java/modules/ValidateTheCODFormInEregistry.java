@@ -1,11 +1,10 @@
 package modules;
 
-import helpers.Helper;
-
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
+
+import helpers.Helper;
+import pageobjects.EregistryCodPage;
 import pageobjects.EregistryControls;
 
 
@@ -14,17 +13,15 @@ public class ValidateTheCODFormInEregistry {
 	public static void Execute(WebDriver driver) throws Throwable {
 
 		PageFactory.initElements(driver, EregistryControls.class);
+		PageFactory.initElements(driver, EregistryCodPage.class);
 			
-		WebDriverWait waitForValidateButton = new WebDriverWait(driver, 10000);
-		EregistryControls.validateButton = waitForValidateButton
-				.until(ExpectedConditions.elementToBeClickable(EregistryControls.validateButton));
-
+		Helper.waitFor(EregistryControls.validateButton);
+		EregistryCodPage.familyName.sendKeys("test");
+		EregistryCodPage.familyNameAtBirth.sendKeys("test");
+		EregistryCodPage.motherFamilyName.sendKeys("test");
 		Helper.clickItem(EregistryControls.validateButton);
 		
-		WebDriverWait waitForBackToFormButton = new WebDriverWait(driver, 10000);
-		EregistryControls.backToFormButton = waitForBackToFormButton
-				.until(ExpectedConditions.elementToBeClickable(EregistryControls.backToFormButton));
-		
+		Helper.waitFor(EregistryControls.backToFormButton);
 		EregistryControls.validateItem(EregistryControls.validationErrorRow1,"Given Name is required.","Deceased Details - Given Name");
 		EregistryControls.validateItem(EregistryControls.validationErrorRow2,"Was post mortem held? is required.","Supporting Information - Was post mortem held?");
 		EregistryControls.validateItem(EregistryControls.validationErrorRow3,"Is the current family name the same as the family name at birth? is required.",

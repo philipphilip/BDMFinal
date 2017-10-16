@@ -14,7 +14,7 @@ public class FillePublicApplicationCoreSearchForm {
 		
 		PageFactory.initElements(driver, CoreSearchPage.class);
 
-		Helper.inputItem(CoreSearchPage.applicantFamilyName, "Automated" + FilltheApplicationInEpublic.familyName);
+		CoreSearchPage.applicantFamilyName.sendKeys("Automated" + FilltheApplicationInEpublic.familyName);
 		Helper.clickItem(CoreSearchPage.searchButton);
 		Helper.clickItem(CoreSearchPage.firstSearchResult);
 		

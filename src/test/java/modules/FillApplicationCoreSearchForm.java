@@ -13,11 +13,11 @@ public class FillApplicationCoreSearchForm {
 
 		PageFactory.initElements(driver, CoreSearchPage.class);
 
-		Helper.inputItem(CoreSearchPage.itemNumber,
+		CoreSearchPage.itemNumber.sendKeys(
 				FillEregistryCertificatesForm.certificateNotificationNumber.substring(0, 4));
 		System.out
 				.println("Item Id is: " + FillEregistryCertificatesForm.certificateNotificationNumber.substring(0, 4));
-		Helper.inputItem(CoreSearchPage.itemYear, "2017");
+		CoreSearchPage.itemYear.sendKeys("2017");
 		Helper.clickItem(CoreSearchPage.searchButton);
 		Helper.clickItem(CoreSearchPage.firstIdSearchResult);
 

@@ -14,7 +14,7 @@ public class FillCODCoreSearchForm {
 		
 		PageFactory.initElements(driver, CoreSearchPage.class);
 
-		Helper.inputItem(CoreSearchPage.deceasedFamilyNameCod, "Automated"  + FillEregistryCodForm.deceasedFamilyName);
+		CoreSearchPage.deceasedFamilyNameCod.sendKeys("Automated"  + FillEregistryCodForm.deceasedFamilyName);
 		Helper.clickItem(CoreSearchPage.searchButton);
 		Helper.clickItem(CoreSearchPage.firstSearchResult);
 		

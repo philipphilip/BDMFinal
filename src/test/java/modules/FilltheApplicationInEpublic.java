@@ -5,8 +5,6 @@ import org.junit.Assert;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 
 import helpers.Helper;
 import pageobjects.EpublicApplicationPage;
@@ -23,68 +21,60 @@ public class FilltheApplicationInEpublic {
 	public static void Execute(WebDriver driver) throws Throwable {
 		PageFactory.initElements(driver, EpublicApplicationPage.class);
 		
-		WebDriverWait waitForApplicantFamilyName = new WebDriverWait(driver, 10000);
-		EpublicApplicationPage.applicantFamilyName = waitForApplicantFamilyName
-				.until(ExpectedConditions.elementToBeClickable(EpublicApplicationPage.applicantFamilyName));
-		
-		Helper.inputItem(EpublicApplicationPage.applicantFamilyName, "Automated" + familyName);
-		Helper.inputItem(EpublicApplicationPage.applicantGivenName,"Automated" + applicantGivenName);
-		Helper.inputItem(EpublicApplicationPage.applicantDateOfBirth, "01/01/1990", 0, false);
+		Helper.waitFor(EpublicApplicationPage.applicantFamilyName);
+		EpublicApplicationPage.applicantFamilyName.sendKeys("Automated" + familyName);
+		EpublicApplicationPage.applicantGivenName.sendKeys("Automated" + applicantGivenName);
+		EpublicApplicationPage.applicantDateOfBirth.sendKeys("01/01/1990");
 		EpublicApplicationPage.applicantDateOfBirth.sendKeys(Keys.TAB);
-		Helper.inputItem(EpublicApplicationPage.streetNo,"22 station st");
-		Helper.inputItem(EpublicApplicationPage.suburb,"ringwood");
-		Helper.inputItem(EpublicApplicationPage.state,"VIC");
-		Helper.inputItem(EpublicApplicationPage.postcode,"3333");
-		Helper.inputItem(EpublicApplicationPage.telephoneNo,"99995555");
+		EpublicApplicationPage.streetNo.sendKeys("22 station st");
+		EpublicApplicationPage.suburb.sendKeys("ringwood");
+		EpublicApplicationPage.state.sendKeys("VIC");
+		EpublicApplicationPage.postcode.sendKeys("3333");
+		EpublicApplicationPage.telephoneNo.sendKeys("99995555");
+				
+		try {
+			EpublicApplicationPage.emailIdUser.clear();
+			EpublicApplicationPage.emailIdUser.sendKeys("test@test.com");
+		} catch (Exception e) {
+			EpublicApplicationPage.emailIdGuestUser.clear();
+			EpublicApplicationPage.emailIdGuestUser.sendKeys("test@test.com");
+		}
+		
 		Helper.clickItem(EpublicApplicationPage.nextButton);
-		
-		WebDriverWait waitForTypeOfCertificate = new WebDriverWait(driver, 10000);
-		EpublicApplicationPage.typeOfCertificate = waitForTypeOfCertificate
-				.until(ExpectedConditions.elementToBeClickable(EpublicApplicationPage.typeOfCertificate));
-		
-		Helper.inputItem(EpublicApplicationPage.typeOfCertificate,"Birth");
-		
-		WebDriverWait waitForBirthType = new WebDriverWait(driver, 10000);
-		EpublicApplicationPage.birthType = waitForBirthType
-				.until(ExpectedConditions.elementToBeClickable(EpublicApplicationPage.birthType));
-		
-		Helper.inputItem(EpublicApplicationPage.birthType,"On", 1, false);
-		Helper.inputItem(EpublicApplicationPage.placezOfBirth,"ringwood");
-		Helper.inputItem(EpublicApplicationPage.relationship,"Parent");
-		Helper.inputItem(EpublicApplicationPage.reason,"Administration");
-		Helper.inputItem(EpublicApplicationPage.childFamilyName, "Automated" + familyName);
-		Helper.inputItem(EpublicApplicationPage.childGivenName,"Automated" + childGivenName);
-		Helper.inputItem(EpublicApplicationPage.parentOneType,"Mother");
-		Helper.inputItem(EpublicApplicationPage.parent1FamilyName, "Automated" + familyName);
-		Helper.inputItem(EpublicApplicationPage.parentOneGivenName,"Automated" + applicantGivenName);
-		Helper.inputItem(EpublicApplicationPage.parent1FamilyNametAtBirth,"Automated" + familyName);
-		Helper.inputItem(EpublicApplicationPage.parentTwoType,"Father");
-		Helper.inputItem(EpublicApplicationPage.parent2FamilyName, "Automated" + familyName);
-		Helper.inputItem(EpublicApplicationPage.parentTwoGivenName,"Automated" + parentGivenName);
-		Helper.inputItem(EpublicApplicationPage.parent2FamilyNameAtBirth, "Automated" + familyName);
+		Helper.waitFor(EpublicApplicationPage.typeOfCertificate);
+		EpublicApplicationPage.typeOfCertificate.sendKeys("Birth");
+		Helper.waitFor(EpublicApplicationPage.birthType);
+		EpublicApplicationPage.birthType.sendKeys("On");
+		EpublicApplicationPage.placezOfBirth.sendKeys("ringwood");
+		EpublicApplicationPage.relationship.sendKeys("Parent");
+		EpublicApplicationPage.reason.sendKeys("Administration");
+		EpublicApplicationPage.childFamilyName.sendKeys("Automated" + familyName);
+		EpublicApplicationPage.childGivenName.sendKeys("Automated" + childGivenName);
+		EpublicApplicationPage.parentOneType.sendKeys("Mother");
+		EpublicApplicationPage.parent1FamilyName.sendKeys("Automated" + familyName);
+		EpublicApplicationPage.parentOneGivenName.sendKeys("Automated" + applicantGivenName);
+		EpublicApplicationPage.parent1FamilyNametAtBirth.sendKeys("Automated" + familyName);
+		EpublicApplicationPage.parentTwoType.sendKeys("Father");
+		EpublicApplicationPage.parent2FamilyName.sendKeys("Automated" + familyName);
+		EpublicApplicationPage.parentTwoGivenName.sendKeys("Automated" + parentGivenName);
+		EpublicApplicationPage.parent2FamilyNameAtBirth.sendKeys("Automated" + familyName);
 		// input DOB at last, otherwise value will be removed
-		Helper.inputItem(EpublicApplicationPage.dayOfBirth,"20/07/2017", 0, false);
+		EpublicApplicationPage.dayOfBirth.sendKeys("20/07/2017");
 		EpublicApplicationPage.dayOfBirth.sendKeys(Keys.TAB);
 		Helper.clickItem(EpublicApplicationPage.continueButton);
 		Helper.clickItem(EpublicApplicationPage.proceedButton);
-		Helper.inputItem(EpublicApplicationPage.certificateQuantity,"1");
+		EpublicApplicationPage.certificateQuantity.sendKeys("1");
 		Helper.clickItem(EpublicApplicationPage.proceedButton);
 		Helper.clickItem(EpublicApplicationPage.checkoutButton);
 		Helper.clickItem(EpublicApplicationPage.acceptTermsCheckbox);
-//		Helper.clickItem(EpublicApplicationPage.payInPersonButton);
 		Helper.clickItem(EpublicControls.payNowButton);
-		
-//		Wait for the Westpac bank payments page to load
 		EpublicControls.payNowProcess();
-		
-		Thread.sleep(5000);
+		Thread.sleep(1000);
 		Helper.clickItem(EpublicControls.submitInPersonButton);
-		
 		String confirmationNumber;
-		Thread.sleep(5000);
+		Thread.sleep(2000);
 		confirmationNumber = EpublicControls.brsCompletionBanner.getText();
 		Assert.assertTrue("Application submission with POI is not successful", confirmationNumber.contains("Completion"));
-		Thread.sleep(5000);
 		System.out.println("The Birth Application number created along with POI/DPOI is: " + EpublicControls.brsOrderNumber.getText());
 	}
 }

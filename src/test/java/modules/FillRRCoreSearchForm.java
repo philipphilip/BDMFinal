@@ -14,7 +14,7 @@ public class FillRRCoreSearchForm {
 		
 		PageFactory.initElements(driver, CoreSearchPage.class);
 		
-		Helper.inputItem(CoreSearchPage.relationshipApplicant1FamilyName, "Auto" + FillRNForm.applicant1FamilyName);
+		CoreSearchPage.relationshipApplicant1FamilyName.sendKeys("Auto" + FillRNForm.applicant1FamilyName);
 		Helper.clickItem(CoreSearchPage.searchButton);
 		Helper.clickItem(CoreSearchPage.firstSearchResult);
 

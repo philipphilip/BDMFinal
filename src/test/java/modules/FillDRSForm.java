@@ -3,8 +3,8 @@ package modules;
 import org.apache.commons.lang3.RandomStringUtils;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
+
+import helpers.Helper;
 import pageobjects.CoreControls;
 import pageobjects.CoreDRSPage;
 
@@ -16,9 +16,8 @@ public class FillDRSForm {
 
 	public static void Execute(WebDriver driver) throws Throwable {
 		PageFactory.initElements(driver, CoreDRSPage.class);
-		WebDriverWait waitForTabsMenue = new WebDriverWait(driver, 10000);
-		CoreDRSPage.FuneralDirectorTelephone = waitForTabsMenue
-				.until(ExpectedConditions.elementToBeClickable(CoreDRSPage.FuneralDirectorTelephone));
+
+		Helper.waitFor(CoreDRSPage.FuneralDirectorTelephone);
 		CoreDRSPage.deceasedFamilyName.sendKeys("automate" + FillCODForm.randDeceasedFamilyName);
 		CoreDRSPage.deceasedFirstName.sendKeys("automate" + FillCODForm.randDeceasedFirstName);
 		CoreDRSPage.Sex.sendKeys("Male");

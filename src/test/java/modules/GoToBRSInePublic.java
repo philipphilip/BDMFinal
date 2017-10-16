@@ -10,9 +10,8 @@ public class GoToBRSInePublic {
 	public static void Execute(WebDriver driver) throws Throwable {
 
 		EpublicControls.registerALifeEvent_tab.click();
-		Thread.sleep(3000);
+		Thread.sleep(2000);
 		EpublicControls.birthLink.click();
-		Thread.sleep(3000);
 		Helper.clickItem(EpublicControls.i_agree);
 	}
 }

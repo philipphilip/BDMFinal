@@ -34,6 +34,12 @@ public class EpublicApplicationPage extends BaseClass {
 	@FindBy(id = "coo-applicantDetails-telephoneNo")
 	public static WebElement telephoneNo;
 	
+	@FindBy(id = "coo-applicantDetails-emailAddress")
+	public static WebElement emailIdUser;
+	
+	@FindBy(id = "coo-applicantDetails-emailAddress-guest")
+	public static WebElement emailIdGuestUser;
+	
 	@FindBy(xpath = ".//*/button[contains(text(),'Next')]")
 	public static WebElement nextButton;
 	

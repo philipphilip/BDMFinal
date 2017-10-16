@@ -1,14 +1,11 @@
 package modules;
 
-import helpers.Helper;
-
 import org.apache.commons.lang3.RandomStringUtils;
 import org.junit.Assert;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 
+import helpers.Helper;
 import pageobjects.EregistryANPage;
 import pageobjects.EregistryControls;
 
@@ -26,45 +23,44 @@ public class FillEregistryANForm {
 
 		PageFactory.initElements(driver, EregistryANPage.class);
 				
-		WebDriverWait waitForOrderNumber = new WebDriverWait(driver, 10000);
-		EregistryANPage.adoptionOrderNumber = waitForOrderNumber
-				.until(ExpectedConditions.elementToBeClickable(EregistryANPage.adoptionOrderNumber));
-		
-		Helper.inputItem(EregistryANPage.adoptionOrderNumber, orderNumber);
-		Helper.inputItem(EregistryANPage.dateOfOrderDay, "01");
-		Helper.inputItem(EregistryANPage.dateOfOrderMonth, "09");
-		Helper.inputItem(EregistryANPage.dateOfOrderYear, "2017");
+		Helper.waitFor(EregistryANPage.adoptionOrderNumber);
+		EregistryANPage.adoptionOrderNumber.sendKeys(orderNumber);
+		EregistryANPage.dateOfOrderDay.sendKeys("01");
+		EregistryANPage.dateOfOrderMonth.sendKeys("09");
+		EregistryANPage.dateOfOrderYear.sendKeys("2017");
 		Helper.selectDropDownList(EregistryANPage.adoptionInRespectToAboriginalChild, "No");
-		Helper.inputItem(EregistryANPage.formerFamilyName, "Automated" + familyName);
-		Helper.inputItem(EregistryANPage.formerFirstName, "Automated" + formerFirstName);
-		Helper.inputItem(EregistryANPage.childDateOfBirthDay,"01");
-		Helper.inputItem(EregistryANPage.childDateOfBirthMonth, "09");
-		Helper.inputItem(EregistryANPage.childDateOfBirthYear, "2015");
+		EregistryANPage.formerFamilyName.sendKeys("Automated" + familyName);
+		EregistryANPage.formerFirstName.sendKeys("Automated" + formerFirstName);
+		EregistryANPage.childDateOfBirthDay.sendKeys("01");
+		EregistryANPage.childDateOfBirthMonth.sendKeys("09");
+		EregistryANPage.childDateOfBirthYear.sendKeys("2015");
 		Helper.selectDropDownList(EregistryANPage.sexAtBirth, "Male");
-		Helper.inputItem(EregistryANPage.birthSuburb, "North Melbourne");
-		Helper.inputItem(EregistryANPage.newFamilyName, "Automated" + familyName);
-		Helper.inputItem(EregistryANPage.newFirstName, "Automated" + newFirstName);
+		EregistryANPage.birthSuburb.sendKeys("North Melbourne");
+		EregistryANPage.newFamilyName.sendKeys("Automated" + familyName);
+		EregistryANPage.newFirstName.sendKeys("Automated" + newFirstName);
 		Helper.selectDropDownList(EregistryANPage.parent1RecordAs, "Mother");
-		Helper.inputItem(EregistryANPage.parent1FamilyName, "Automated" + familyName);
-		Helper.inputItem(EregistryANPage.parent1FirstName, "Automated" + parent1FirstName);
-		Helper.inputItem(EregistryANPage.parent1DateOfBirthDay, "01");
-		Helper.inputItem(EregistryANPage.parent1DateOfBirthMonth, "01");
-		Helper.inputItem(EregistryANPage.parent1DateOfBirthYear, "1989");
+		EregistryANPage.parent1FamilyName.sendKeys("Automated" + familyName);
+		EregistryANPage.parent1FamilyNameAtBirth.sendKeys("Automated" + familyName);
+		EregistryANPage.parent1FirstName.sendKeys("Automated" + parent1FirstName);
+		EregistryANPage.parent1DateOfBirthDay.sendKeys("01");
+		EregistryANPage.parent1DateOfBirthMonth.sendKeys("01");
+		EregistryANPage.parent1DateOfBirthYear.sendKeys("1989");
 		Helper.selectDropDownList(EregistryANPage.parent1Occupation, "accountant");
-		Helper.inputItem(EregistryANPage.parent1BirthSuburb, "North Melbourne");
+		EregistryANPage.parent1BirthSuburb.sendKeys("North Melbourne");
 		Helper.selectDropDownList(EregistryANPage.parent2RecordAs, "Father");
-		Helper.inputItem(EregistryANPage.parent2FamilyName, "Automated" + familyName);
-		Helper.inputItem(EregistryANPage.parent2FirstName, "Automated" + parent2FirstName);
-		Helper.inputItem(EregistryANPage.parent2DateOfBirthDay, "01");
-		Helper.inputItem(EregistryANPage.parent2DateOfBirthMonth, "01");
-		Helper.inputItem(EregistryANPage.parent2DateOfBirthYear, "1989");
+		EregistryANPage.parent2FamilyName.sendKeys("Automated" + familyName);
+		EregistryANPage.parent2FamilyNameAtBirth.sendKeys("Automated" + familyName);
+		EregistryANPage.parent2FirstName.sendKeys("Automated" + parent2FirstName);
+		EregistryANPage.parent2DateOfBirthDay.sendKeys("01");
+		EregistryANPage.parent2DateOfBirthMonth.sendKeys("01");
+		EregistryANPage.parent2DateOfBirthYear.sendKeys("1989");
 		Helper.selectDropDownList(EregistryANPage.parent2Occupation, "accountant");
-		Helper.inputItem(EregistryANPage.parent2BirthSuburb, "North Melbourne");
+		EregistryANPage.parent2BirthSuburb.sendKeys("North Melbourne");
 		Helper.selectDropDownList(EregistryANPage.relationshipStatus, "Married");
-		Helper.inputItem(EregistryANPage.dateOfRelationshipDay, "01");
-		Helper.inputItem(EregistryANPage.dateOfRelationshipMonth, "01");
-		Helper.inputItem(EregistryANPage.dateOfRelationshipYear, "2009");
-		Helper.inputItem(EregistryANPage.relationshipSuburb, "North Melbourne");
+		EregistryANPage.dateOfRelationshipDay.sendKeys("01");
+		EregistryANPage.dateOfRelationshipMonth.sendKeys("01");
+		EregistryANPage.dateOfRelationshipYear.sendKeys("2009");
+		EregistryANPage.relationshipSuburb.sendKeys("North Melbourne");
 		Helper.selectDropDownList(EregistryANPage.childrenOfThisRelationshipNumber, "0");
 		Helper.selectDropDownList(EregistryANPage.memoValidated, "Yes");
 		
@@ -77,10 +73,7 @@ public class FillEregistryANForm {
 		EregistryControls.actionList.sendKeys("Add Document");
 		EregistryControls.goButton.click();
 		
-		WebDriverWait waitForDocumentUpload = new WebDriverWait(driver, 10000);
-		EregistryControls.addDocumentType = waitForDocumentUpload
-				.until(ExpectedConditions.elementToBeClickable(EregistryControls.addDocumentType));
-		
+		Helper.waitFor(EregistryControls.addDocumentType);
 		EregistryControls.addDocumentType.sendKeys("Statutory Declaration");
 		EregistryControls.addDocumentName.sendKeys("Adoption");
 
@@ -99,10 +92,8 @@ public class FillEregistryANForm {
 		EregistryControls.adoptionLink.click();
 		EregistryControls.draftList.click();
 		
-		WebDriverWait waitForSearchName = new WebDriverWait(driver, 10000);
-		EregistryControls.adoptionSearchFamilyName = waitForSearchName
-				.until(ExpectedConditions.elementToBeClickable(EregistryControls.adoptionSearchFamilyName));
-		Helper.inputItem(EregistryControls.adoptionSearchFamilyName, "Automated" + familyName);		
+		Helper.waitFor(EregistryControls.adoptionSearchFamilyName);
+		EregistryControls.adoptionSearchFamilyName.sendKeys("Automated" + familyName);		
 		EregistryControls.refreshButton.click();
 		Helper.clickItem(EregistryControls.searchResult1);
 		Helper.clickItem(EregistryControls.submitButton);		

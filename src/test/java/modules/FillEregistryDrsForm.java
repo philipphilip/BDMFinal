@@ -1,13 +1,10 @@
 package modules;
 
-import helpers.Helper;
-
 import org.junit.Assert;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 
+import helpers.Helper;
 import pageobjects.EregistryControls;
 import pageobjects.EregistryDrsPage;
 
@@ -17,14 +14,10 @@ public class FillEregistryDrsForm {
 
 		PageFactory.initElements(driver, EregistryDrsPage.class);
 
-		WebDriverWait waitForDeceasedFamilyName = new WebDriverWait(driver, 10000);
-		EregistryDrsPage.familyName = waitForDeceasedFamilyName
-				.until(ExpectedConditions.elementToBeClickable(EregistryDrsPage.familyName));
-
+		Helper.waitFor(EregistryDrsPage.familyName);
+		EregistryDrsPage.familyName.clear();
 		EregistryDrsPage.familyName.sendKeys("Automated" + FillEregistryCodForm.deceasedFamilyName);
 		Helper.selectDropDownList(EregistryDrsPage.familyNameSameAsBirth, "Yes");
-		// EregistryDrsPage.familyNameAtBirth,"Automated" +
-		// FillEregistryCodForm.deceasedFamilyName);
 		EregistryDrsPage.givenName.sendKeys("Automated" + FillEregistryCodForm.deceasedGivenName);
 		EregistryDrsPage.sex.sendKeys("Female");
 		EregistryDrsPage.dateOfDeathType.sendKeys("On");
@@ -36,8 +29,8 @@ public class FillEregistryDrsForm {
 		EregistryDrsPage.birthMonth.sendKeys("07");
 		EregistryDrsPage.birthYear.sendKeys("1937");
 		EregistryDrsPage.deathWhere.sendKeys("Hospital");
-		EregistryDrsPage.hospitalName.sendKeys("Abel Tasman Village");
-		EregistryDrsPage.hospitalTownSuburbCity.sendKeys("Wollongong");
+		EregistryDrsPage.hospitalName.sendKeys("Acute Centre Beechworth");
+		EregistryDrsPage.hospitalTownSuburbCity.sendKeys("BEECHWORTH");
 		EregistryDrsPage.birthSuburb.sendKeys("ringwood");
 		EregistryDrsPage.residenceLine1.sendKeys("22 station st");
 		EregistryDrsPage.residenceSuburb.sendKeys("ringwood");
@@ -47,17 +40,20 @@ public class FillEregistryDrsForm {
 		EregistryDrsPage.relationship.sendKeys("Married");
 		EregistryDrsPage.relationshipSuburb.sendKeys("ringwood");
 		EregistryDrsPage.relationshipAge.sendKeys("20");
+		EregistryDrsPage.spouseFamilyName.clear();
 		EregistryDrsPage.spouseFamilyName.sendKeys("Smith");
 		EregistryDrsPage.spouseGivenName.sendKeys("Tom");
 		Helper.selectDropDownList(EregistryDrsPage.relationshipPartnersSex, "Female");
 		EregistryDrsPage.numberPreviousRelationships.sendKeys("0");
 		EregistryDrsPage.numberOfChildren.sendKeys("0");
 		EregistryDrsPage.parent1Type.sendKeys("Mother");
+		EregistryDrsPage.parent1FamilyName.clear();
 		EregistryDrsPage.parent1FamilyName.sendKeys("Automated" + FillEregistryCodForm.deceasedFamilyName);
 		Helper.selectDropDownList(EregistryDrsPage.parent1FamilyNameSameAsBirth, "Yes");
 		EregistryDrsPage.parent1GivenName.sendKeys("Automated" + FillEregistryCodForm.motherGivenName);
 		EregistryDrsPage.parent1Occupation.sendKeys("accountant");
 		EregistryDrsPage.parent2Type.sendKeys("Father");
+		EregistryDrsPage.parent2FamilyName.clear();
 		EregistryDrsPage.parent2FamilyName.sendKeys("Automated" + FillEregistryCodForm.deceasedFamilyName);
 		Helper.selectDropDownList(EregistryDrsPage.parent2FamilyNameSameAsBirth, "Yes");
 		EregistryDrsPage.parent2GivenName.sendKeys("Automated" + FillEregistryCodForm.motherGivenName);
@@ -65,6 +61,7 @@ public class FillEregistryDrsForm {
 		EregistryDrsPage.under18.sendKeys("No");
 		EregistryDrsPage.numberSibling.sendKeys("0");
 		EregistryDrsPage.informantRelationship.sendKeys("Sibling");
+		EregistryDrsPage.informantFamilyName.clear();
 		EregistryDrsPage.informantFamilyName.sendKeys("Automated" + FillEregistryCodForm.deceasedFamilyName);
 		EregistryDrsPage.informantGivenName.sendKeys("David");
 		EregistryDrsPage.informantLine1.sendKeys("22 station rd");
@@ -88,9 +85,8 @@ public class FillEregistryDrsForm {
 		EregistryDrsPage.deathCertifiedBy.sendKeys("Coroner");
 		EregistryDrsPage.coronerSuburb.sendKeys("ringwood");
 		Helper.clickItem(EregistryControls.saveButton);
-		WebDriverWait waitForStatusBanner = new WebDriverWait(driver, 10000);
-		EregistryControls.drsMessage = waitForStatusBanner
-				.until(ExpectedConditions.elementToBeClickable(EregistryControls.drsMessage));
+
+		Helper.waitFor(EregistryControls.drsMessage);
 		String drsSavedMessage;
 		Thread.sleep(3000);
 		drsSavedMessage = EregistryControls.drsMessage.getText();

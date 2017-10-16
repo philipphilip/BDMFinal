@@ -1,18 +1,12 @@
 package step_definitions;
 
-import java.io.File;
 import java.net.MalformedURLException;
-import java.net.URL;
 
 import org.openqa.selenium.OutputType;
-import org.openqa.selenium.Platform;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebDriverException;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.firefox.FirefoxDriver;
-import org.openqa.selenium.remote.DesiredCapabilities;
-import org.openqa.selenium.remote.RemoteWebDriver;
 
 import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.ExtentTest;
@@ -20,12 +14,6 @@ import com.aventstack.extentreports.ExtentTest;
 import cucumber.api.Scenario;
 import cucumber.api.java.After;
 import cucumber.api.java.Before;
-
-import org.junit.BeforeClass;
-import org.openqa.selenium.*;
-import org.openqa.selenium.chrome.ChromeDriver;
-
-import java.net.MalformedURLException;
 
 public class Hooks {
 	public static WebDriver driver;
