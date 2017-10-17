@@ -26,6 +26,7 @@ public class FillNOBForm {
 
 		Helper.waitFor(CoreNobPage.notifier_email);
 		CoreNobPage.mothersFamilyName.sendKeys("Automated" + randChildFamilyName);
+		CoreNobPage.mothersFamilyNameSameAsBirth.sendKeys("Yes");
 		CoreNobPage.mothersGivenName_Core.sendKeys("Automated" + randparent1FirstName);
 		CoreNobPage.mothersDOBDay.sendKeys("25");
 		CoreNobPage.mothersDOBMonth.sendKeys("12");

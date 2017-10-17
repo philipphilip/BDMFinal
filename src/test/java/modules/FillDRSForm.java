@@ -19,6 +19,7 @@ public class FillDRSForm {
 
 		Helper.waitFor(CoreDRSPage.FuneralDirectorTelephone);
 		CoreDRSPage.deceasedFamilyName.sendKeys("automate" + FillCODForm.randDeceasedFamilyName);
+		CoreDRSPage.familyNameSameToFamilyNameAtBirth.sendKeys("Yes");
 		CoreDRSPage.deceasedFirstName.sendKeys("automate" + FillCODForm.randDeceasedFirstName);
 		CoreDRSPage.Sex.sendKeys("Male");
 		CoreDRSPage.DateOfDeathDay.sendKeys("30");
