@@ -1,9 +1,7 @@
 package modules;
 
 import org.apache.commons.lang3.RandomStringUtils;
-import org.apache.xmlbeans.impl.xb.xsdschema.Public;
 import org.junit.Assert;
-import org.omg.CORBA.PRIVATE_MEMBER;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
@@ -20,7 +18,7 @@ public class FillAdoptionForm {
 	public static String adoptionParent1FamilyName = RandomStringUtils.randomAlphabetic(6);
 	public static String adoptionParent1FirstGivenName = RandomStringUtils.randomAlphabetic(6);
 
-	public static void Execute(WebDriver driver) throws Exception {
+	public static void Execute(WebDriver driver) throws Throwable {
 
 		PageFactory.initElements(driver, AdoptionPage.class);
 		AdoptionPage.dateReceivedAtRegistry.clear();

@@ -86,8 +86,7 @@ public class FillEregistryCodForm {
 		EregistryControls.draftList.click();
 		EregistryControls.codSearchFamilyName.sendKeys("Automated" + deceasedFamilyName);
 		
-		Helper.waitFor(EregistryControls.refreshButton);
-		EregistryControls.refreshButton.click();
+		Helper.clickItem(EregistryControls.refreshButton);
 		Helper.clickItem(EregistryControls.searchResult1);
 		Helper.clickItem(EregistryControls.submitButton);
 		Helper.clickItem(EregistryControls.submitButton);

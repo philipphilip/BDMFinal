@@ -51,6 +51,7 @@ public class FilltheBRSInEpublic {
 		Helper.waitFor(EpublicBrsPage.relationship);
 		EpublicBrsPage.relationship.sendKeys("Married");
 		EpublicBrsPage.relationshipDate.sendKeys("01/01/2010");
+		EpublicBrsPage.relationshipDate.sendKeys(Keys.TAB);
 		EpublicBrsPage.relationshipSuburb.sendKeys("Melbourne");
 		Helper.clickItem(EpublicControls.nextButton);
 		Helper.clickItem(EpublicControls.nextButton);
@@ -75,6 +76,8 @@ public class FilltheBRSInEpublic {
 		Helper.clickItem(EpublicControls.proceedButtonOnBRS);
 		Helper.clickItem(EpublicControls.orderACertificate);
 		Helper.clickItem(EpublicControls.proceedButtonOnBRS);
+		Helper.waitFor(EpublicControls.certificateQuantity);
+		EpublicControls.certificateQuantity.clear();
 		EpublicControls.certificateQuantity.sendKeys("1");
 		Helper.clickItem(EpublicControls.proceedButtonOnBRS);
 		Helper.clickItem(EpublicControls.checkoutButton);

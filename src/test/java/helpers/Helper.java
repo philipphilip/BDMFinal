@@ -89,7 +89,7 @@ public class Helper {
 	}
 
 	public static void waitFor(WebElement field) throws Throwable {
-		WebDriverWait waitForField = new WebDriverWait(Hooks.driver, 10);
+		WebDriverWait waitForField = new WebDriverWait(Hooks.driver, 30);
 		field = waitForField
 				.until(ExpectedConditions.elementToBeClickable(field));
 	}
