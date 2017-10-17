@@ -53,8 +53,8 @@ public class FillBCApplicationForm {
 		ApplicationPage.placeOfBirthSuburbTownCity.sendKeys("Armidale");
 		Helper.clickItem(CoreControls.nextButton);
 		Helper.clickItem(ApplicationPage.clickOnTable);
-		Thread.sleep(3000);
-		Helper.clickItem(ApplicationPage.submitApplication);
+		Helper.clickItem(CoreControls.noMatchButton);
+		Helper.clickItem(CoreControls.submitButton);
 		System.out.println("Application Submitted");
 		Thread.sleep(3000);
 		String successMessage = ApplicationPage.successMessage.getText();
@@ -71,9 +71,9 @@ public class FillBCApplicationForm {
 		Helper.clickItem(ApplicationPage.saveTransactionButton);
 		Thread.sleep(3000);
 		CoreControls.printForm();
-		Thread.sleep(3000);
+		// Thread.sleep(3000);
 		Helper.clickItem(ApplicationPage.generateCertificateButton);
-		Thread.sleep(3000);
+		// Thread.sleep(3000);
 		Helper.clickItem(ApplicationPage.printCertificateButton);
 		System.out.println("Print form has initiated successfully");
 		Thread.sleep(3000);

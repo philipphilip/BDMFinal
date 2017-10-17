@@ -22,14 +22,19 @@ public class FilltheApplicationInEpublic {
 		PageFactory.initElements(driver, EpublicApplicationPage.class);
 		
 		Helper.waitFor(EpublicApplicationPage.applicantFamilyName);
+		EpublicApplicationPage.applicantFamilyName.clear();
 		EpublicApplicationPage.applicantFamilyName.sendKeys("Automated" + familyName);
+		EpublicApplicationPage.applicantGivenName.clear();
 		EpublicApplicationPage.applicantGivenName.sendKeys("Automated" + applicantGivenName);
 		EpublicApplicationPage.applicantDateOfBirth.sendKeys("01/01/1990");
 		EpublicApplicationPage.applicantDateOfBirth.sendKeys(Keys.TAB);
+		EpublicApplicationPage.streetNo.clear();
 		EpublicApplicationPage.streetNo.sendKeys("22 station st");
+		EpublicApplicationPage.suburb.clear();
 		EpublicApplicationPage.suburb.sendKeys("ringwood");
-		EpublicApplicationPage.state.sendKeys("VIC");
+		EpublicApplicationPage.postcode.clear();
 		EpublicApplicationPage.postcode.sendKeys("3333");
+		EpublicApplicationPage.telephoneNo.clear();
 		EpublicApplicationPage.telephoneNo.sendKeys("99995555");
 				
 		try {
@@ -41,8 +46,8 @@ public class FilltheApplicationInEpublic {
 		}
 		
 		Helper.clickItem(EpublicApplicationPage.nextButton);
-		Helper.waitFor(EpublicApplicationPage.typeOfCertificate);
-		EpublicApplicationPage.typeOfCertificate.sendKeys("Birth");
+//		Helper.waitFor(EpublicApplicationPage.typeOfCertificate);
+//		EpublicApplicationPage.typeOfCertificate.sendKeys("Birth");
 		Helper.waitFor(EpublicApplicationPage.birthType);
 		EpublicApplicationPage.birthType.sendKeys("On");
 		EpublicApplicationPage.placezOfBirth.sendKeys("ringwood");

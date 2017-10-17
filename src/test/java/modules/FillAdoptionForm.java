@@ -1,9 +1,7 @@
 package modules;
 
 import org.apache.commons.lang3.RandomStringUtils;
-import org.apache.xmlbeans.impl.xb.xsdschema.Public;
 import org.junit.Assert;
-import org.omg.CORBA.PRIVATE_MEMBER;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;

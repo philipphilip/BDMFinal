@@ -22,11 +22,11 @@ Feature: All Core site testings.
     #And I sign in "Core"
     #Then I fill in the "BR" form
 #
-  #Scenario: Request a Birth certificate
-    #Given I open "Core" website
-    #And I sign in "Core"
-    #And I navigate to "Application" new form
-    #Then I fill in the "Birth Application" form
+  Scenario: Request a Birth certificate
+    Given I open "Core" website
+    And I sign in "Core"
+    And I navigate to "Application" new form
+    Then I fill in the "Birth Application" form
 #
   #Scenario: Navigate to COD and fill the form
     #Given I open "Core" website
@@ -80,17 +80,17 @@ Feature: All Core site testings.
     #And I navigate to "Change of Name" new form
     #Then I fill in the "Change of Name" form
 #
-  Scenario: Navigate to Adoption form and fill the form
-    Given I open "Core" website
-    And I sign in "Core"
-    And I navigate to "Adoption Notification" new form
-    Then I fill in the "Adoption Notification" form
-
-  Scenario: Submut a Change of Sex Notifications in core
-    Given I open "Core" website
-    And I sign in "Core"
-    And I navigate to "Change of Sex Notification" new form
-    Then I fill in the "Change of Sex" form
+  #Scenario: Navigate to Adoption form and fill the form
+    #Given I open "Core" website
+    #And I sign in "Core"
+    #And I navigate to "Adoption Notification" new form
+    #Then I fill in the "Adoption Notification" form
+#
+  #Scenario: Submut a Change of Sex Notifications in core
+    #Given I open "Core" website
+    #And I sign in "Core"
+    #And I navigate to "Change of Sex Notification" new form
+    #Then I fill in the "Change of Sex" form
 
   #Scenario: Test task creation and closure (Test creation and completion of tasks using NOB)
     #Given I open "Core" website

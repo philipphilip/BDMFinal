@@ -42,19 +42,22 @@ public class Helper {
 	}
 
 	public static void clickItem(WebElement item) throws Throwable {
-		int i = 0;
-		while(i<=20) {
-			i++;
+
+		int count = 0;
+		int maxTries = 15;
+		while (true) {
 			try {
 				WebDriverWait wait = new WebDriverWait(Hooks.driver, 1);
 				wait.until(ExpectedConditions.visibilityOf(item));
 				wait.until(ExpectedConditions.elementToBeClickable(item));
 				((JavascriptExecutor) Hooks.driver).executeScript("arguments[0].scrollIntoView(true);", item);
-			    Thread.sleep(500);
+				Thread.sleep(500);
 				item.click();
 				break;
 			} catch (Exception e) {
 				Thread.sleep(100);
+				if (++count == maxTries)
+					throw e;
 			}
 		}
 	}
@@ -89,9 +92,7 @@ public class Helper {
 	}
 
 	public static void waitFor(WebElement field) throws Throwable {
-		WebDriverWait waitForField = new WebDriverWait(Hooks.driver, 10);
-		field = waitForField
-				.until(ExpectedConditions.elementToBeClickable(field));
+		WebDriverWait waitForField = new WebDriverWait(Hooks.driver, 15);
+		field = waitForField.until(ExpectedConditions.elementToBeClickable(field));
 	}
 }
-
