@@ -51,14 +51,9 @@ public class FillDCApplicationForm {
 		ApplicationPage.deathDetailsGivenNames.sendKeys("asdfas");
 		ApplicationPage.placeOfDeathSuburbTownCity.sendKeys("Melbourne");
 		Helper.clickItem(CoreControls.nextButton);
-		Thread.sleep(3000);
 		Helper.clickItem(ApplicationPage.noMatchButton);
-		Thread.sleep(3000);
 		ApplicationPage.validateform();
-		Thread.sleep(3000);
-		Thread.sleep(3000);
 		Helper.clickItem(CoreControls.nextButton);
-		Thread.sleep(2000);
 		Helper.clickItem(ApplicationPage.submitApplication);
 		Thread.sleep(3000);
 		String successMessage = ApplicationPage.successMessage.getText();

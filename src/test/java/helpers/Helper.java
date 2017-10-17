@@ -43,10 +43,10 @@ public class Helper {
 
 	public static void clickItem(WebElement item) throws Throwable {
 		int i = 0;
-		while(i<=30) {
+		while(i<=20) {
 			i++;
 			try {
-				WebDriverWait wait = new WebDriverWait(Hooks.driver, 30);
+				WebDriverWait wait = new WebDriverWait(Hooks.driver, 1);
 				wait.until(ExpectedConditions.visibilityOf(item));
 				wait.until(ExpectedConditions.elementToBeClickable(item));
 				((JavascriptExecutor) Hooks.driver).executeScript("arguments[0].scrollIntoView(true);", item);

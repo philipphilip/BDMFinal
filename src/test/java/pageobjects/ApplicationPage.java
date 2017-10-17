@@ -315,6 +315,9 @@ public class ApplicationPage extends BaseClass {
 	@FindBy(id = "cosSubjectDetails-parent2Details-familyNameAtBirth")
 	public static WebElement parent2FamilyNameAtBirth;
 
+	@FindBy(xpath = ".//*/table/tbody/tr/th[1]")
+	public static WebElement clickOnTable;
+
 	public static void validateform() throws Throwable {
 		Thread.sleep(3000);
 		boolean formHasErrors = errorBaner.getText().equals("There are validation errors in your application.");
@@ -324,7 +327,7 @@ public class ApplicationPage extends BaseClass {
 			Thread.sleep(3000);
 			acceptionReason.sendKeys("Court Order");
 			reasonComment.sendKeys("any reason");
-			Helper.clickItem(overrideButton2);
+			overrideButton2.click();
 			System.out.println("There were validation errors that got overridden");
 		} else {
 			System.out.println("There are no validation errors");

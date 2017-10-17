@@ -60,6 +60,7 @@ public class FillRRSApplicationForm {
 		ApplicationPage.relSubject2BirthYear.sendKeys("1990");
 		Helper.clickItem(CoreControls.nextButton);
 		Thread.sleep(3000);
+		Helper.clickItem(ApplicationPage.submitApplication);
 //		Helper.clickItem(ApplicationPage.noMatchButton);
 //		Thread.sleep(3000);
 //		ApplicationPage.validateform();

@@ -4,19 +4,19 @@ Feature: All Core site testings.
     #Given I open "Core" website
     #And I sign in "Core"
     #Then I sign out
-
+#
   #Scenario: Navigate to NOB and fill the form
     #Given I open "Core" website
     #And I sign in "Core"
     #And I navigate to "NOB" new form
     #Then I fill in the "NOB" form
-
+#
   #Scenario: Navigate to BRS and fill the form
     #Given I open "Core" website
     #And I sign in "Core"
     #And I navigate to "BRS" new form
     #Then I fill in the "BRS" form
-
+#
   #Scenario: Check the automatic creation of Birth Registration
     #Given I open "Core" website
     #And I sign in "Core"
@@ -28,17 +28,17 @@ Feature: All Core site testings.
     #And I navigate to "Application" new form
     #Then I fill in the "Birth Application" form
 #
-  Scenario: Navigate to COD and fill the form
-    Given I open "Core" website
-    And I login "Core" as user "admin2" password "Friday17"
-    And I navigate to "COD" new form
-    Then I fill in the "COD" form
-
-  Scenario: Navigate to DRS and fill the form
-    Given I open "Core" website
-    And I sign in "Core"
-    And I navigate to "DRS" new form
-    Then I fill in the "DRS" form
+  #Scenario: Navigate to COD and fill the form
+    #Given I open "Core" website
+    #And I login "Core" as user "admin2" password "Friday17"
+    #And I navigate to "COD" new form
+    #Then I fill in the "COD" form
+#
+  #Scenario: Navigate to DRS and fill the form
+    #Given I open "Core" website
+    #And I sign in "Core"
+    #And I navigate to "DRS" new form
+    #Then I fill in the "DRS" form
 #
   #Scenario: Check the automatic creation of Death Registration
     #Given I open "Core" website
@@ -80,18 +80,18 @@ Feature: All Core site testings.
     #And I navigate to "Change of Name" new form
     #Then I fill in the "Change of Name" form
 #
-  #Scenario: Navigate to Adoption form and fill the form
-    #Given I open "Core" website
-    #And I sign in "Core"
-    #And I navigate to "Adoption Notification" new form
-    #Then I fill in the "Adoption Notification" form
-#
-  #Scenario: Submut a Change of Sex Notifications in core
-    #Given I open "Core" website
-    #And I sign in "Core"
-    #And I navigate to "Change of Sex Notification" new form
-    #Then I fill in the "Change of Sex" form
-#
+  Scenario: Navigate to Adoption form and fill the form
+    Given I open "Core" website
+    And I sign in "Core"
+    And I navigate to "Adoption Notification" new form
+    Then I fill in the "Adoption Notification" form
+
+  Scenario: Submut a Change of Sex Notifications in core
+    Given I open "Core" website
+    And I sign in "Core"
+    And I navigate to "Change of Sex Notification" new form
+    Then I fill in the "Change of Sex" form
+
   #Scenario: Test task creation and closure (Test creation and completion of tasks using NOB)
     #Given I open "Core" website
     #And I sign in "Core"
