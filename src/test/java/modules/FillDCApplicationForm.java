@@ -15,7 +15,8 @@ public class FillDCApplicationForm {
 	public static void Execute(WebDriver driver) throws Throwable {
 
 		PageFactory.initElements(driver, ApplicationPage.class);
-		Thread.sleep(1000);
+
+		Helper.waitFor(ApplicationPage.dateReceivedAtRegistry);
 		ApplicationPage.dateReceivedAtRegistry.sendKeys("01/08/2017");
 		ApplicationPage.dateReceivedAtRegistry.sendKeys(Keys.TAB);
 		ApplicationPage.dateReceivedAtRegistry.sendKeys(Keys.TAB);
@@ -51,16 +52,10 @@ public class FillDCApplicationForm {
 		ApplicationPage.deathDetailsGivenNames.sendKeys("asdfas");
 		ApplicationPage.placeOfDeathSuburbTownCity.sendKeys("Melbourne");
 		Helper.clickItem(CoreControls.nextButton);
-		Thread.sleep(3000);
 		Helper.clickItem(ApplicationPage.noMatchButton);
-		Thread.sleep(3000);
 		ApplicationPage.validateform();
-		Thread.sleep(3000);
-		Thread.sleep(3000);
 		Helper.clickItem(CoreControls.nextButton);
-		Thread.sleep(2000);
 		Helper.clickItem(ApplicationPage.submitApplication);
-		Thread.sleep(3000);
 		String successMessage = ApplicationPage.successMessage.getText();
 		Assert.assertTrue("Application for death certificate Failed", successMessage.contains("successfully saved"));
 	}

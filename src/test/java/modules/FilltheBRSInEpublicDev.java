@@ -48,6 +48,7 @@ public class FilltheBRSInEpublicDev {
 		EpublicBrsPage.parent2GivenName.sendKeys("Automated" + motherFirstName);
 		Helper.clickItem(EpublicControls.nextButton);
 		Helper.clickItem(EpublicControls.nextButton);
+		Helper.waitFor(EpublicBrsPage.relationship);
 		EpublicBrsPage.relationship.sendKeys("Married");
 		EpublicBrsPage.relationshipDate.sendKeys("01/01/2010");
 		EpublicBrsPage.relationshipSuburb.sendKeys("Melbourne");
