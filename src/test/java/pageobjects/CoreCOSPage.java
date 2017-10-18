@@ -15,43 +15,36 @@ public class CoreCOSPage extends BaseClass {
 
 	@FindBy(id = "additionalNotificationDetails-cosnType")
 	public static WebElement notificationType;
-	
+
 	@FindBy(id = "appSearch-searchBy")
 	public static WebElement searchBy;
-	
-	
+
 	@FindBy(id = "appSearch-familyName")
 	public static WebElement appSearchFamilyName;
-	
+
 	@FindBy(id = "appSearch-firstGivenName")
 	public static WebElement appSearchFirstGivenName;
 
-	
 	@FindBy(id = "appSearch-otherGivenNames")
 	public static WebElement appSearcOtherGivenNames;
-	
-	
+
 	@FindBy(id = "appSearch-dateOfBirth-day")
 	public static WebElement appSearchDOBDay;
 
 	@FindBy(id = "appSearch-dateOfBirth-month")
 	public static WebElement appSearchDOBMonth;
-	
+
 	@FindBy(id = "appSearch-dateOfBirth-year")
 	public static WebElement appSearchDOBYear;
-	
+
 	@FindBy(xpath = ".//input[@value = 'Search']")
 	public static WebElement cosSearchButton;
-	
-	
-	
-	
-	
-	
-	
-	
+
 	@FindBy(xpath = ".//a[text() = 'Additional Notification Details (User Entered)']")
 	public static WebElement additionaDetails;
+
+	@FindBy(id = "subjectDetails-currentName-familyName")
+	public static WebElement familyName;
 
 	@FindBy(id = "subjectDetails-currentName-firstGivenName")
 	public static WebElement firstGivenName;
@@ -70,6 +63,18 @@ public class CoreCOSPage extends BaseClass {
 
 	@FindBy(id = "subjectDetails-birthDetails-sex")
 	public static WebElement subjectSex;
+
+	@FindBy(id = "parent1Details-familyName")
+	public static WebElement parent1FamilyName;
+
+	@FindBy(id = "parent1Details-familyNameSameToFamilyNameAtBirth")
+	public static WebElement parent1FamilyNameSameToFamilyNameAtBirth;
+
+	@FindBy(id = "parent2Details-familyName")
+	public static WebElement parent2FamilyName;
+
+	@FindBy(id = "parent2Details-familyNameSameToFamilyNameAtBirth")
+	public static WebElement parent2FamilyNameSameToFamilyNameAtBirth;
 
 	@FindBy(id = "parent1Details-dateOfBirth-day")
 	public static WebElement parent1DOBDay;
@@ -116,6 +121,9 @@ public class CoreCOSPage extends BaseClass {
 	@FindBy(id = "changeOfNameDetails-changeOfNameLodged")
 	public static WebElement changeOfNameLodged;
 
+	@FindBy(id = "medicalPractitioner1Details-name-familyName")
+	public static WebElement medicalPractitioner1FamilyName;
+
 	@FindBy(id = "medicalPractitioner1Details-name-firstGivenName")
 	public static WebElement medicalPractitionerFirstGivenName;
 
@@ -130,6 +138,9 @@ public class CoreCOSPage extends BaseClass {
 
 	@FindBy(id = "medicalPractitioner1Details-telephoneNo")
 	public static WebElement medicalPractitionerTelephoneNo;
+
+	@FindBy(id = "medicalPractitioner2Details-name-familyName")
+	public static WebElement medicalPractitioner2FamilyGivenName;
 
 	@FindBy(id = "medicalPractitioner2Details-name-firstGivenName")
 	public static WebElement medicalPractitioner2FirstGivenName;

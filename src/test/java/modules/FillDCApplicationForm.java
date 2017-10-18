@@ -53,9 +53,10 @@ public class FillDCApplicationForm {
 		ApplicationPage.placeOfDeathSuburbTownCity.sendKeys("Melbourne");
 		Helper.clickItem(CoreControls.nextButton);
 		Helper.clickItem(ApplicationPage.noMatchButton);
-		ApplicationPage.validateform();
+		// ApplicationPage.validateform();
+		CoreControls.validateForm();
 		Helper.clickItem(CoreControls.nextButton);
-		Helper.clickItem(ApplicationPage.submitApplication);
+		Helper.clickItem(CoreControls.submitButton);
 		String successMessage = ApplicationPage.successMessage.getText();
 		Assert.assertTrue("Application for death certificate Failed", successMessage.contains("successfully saved"));
 	}

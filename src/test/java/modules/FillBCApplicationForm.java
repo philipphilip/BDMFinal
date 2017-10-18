@@ -52,8 +52,9 @@ public class FillBCApplicationForm {
 		ApplicationPage.birthDetailsGivenName.sendKeys("Automated" + FillNOBForm.randChildFirstName);
 		ApplicationPage.placeOfBirthSuburbTownCity.sendKeys("Armidale");
 		Helper.clickItem(CoreControls.nextButton);
-		Thread.sleep(3000);
-		Helper.clickItem(ApplicationPage.submitApplication);
+		Helper.clickItem(ApplicationPage.clickOnTable);
+		Helper.clickItem(CoreControls.noMatchButton);
+		Helper.clickItem(CoreControls.submitButton);
 		System.out.println("Application Submitted");
 		Thread.sleep(3000);
 		String successMessage = ApplicationPage.successMessage.getText();
@@ -62,16 +63,17 @@ public class FillBCApplicationForm {
 		System.out.println("Create Transaction initiated");
 		Helper.waitFor(ApplicationPage.paidCheckbox);
 		ApplicationPage.paidCheckbox.sendKeys(Keys.SPACE);
-		//THIS PART OF CODE IS ADDED TO FAIL THE TEST AS PAYMENT GATEWAY IS NOT AVAILABLE
+		// THIS PART OF CODE IS ADDED TO FAIL THE TEST AS PAYMENT GATEWAY IS NOT
+		// AVAILABLE
 		String checkBoxText = ApplicationPage.paidCheckbox.getText();
 		Assert.assertTrue("Payment gateway is inactive", checkBoxText.contains("REMOVE"));
-		//END OF CODE TO FAIL TEST AS PAYMENT GATEWAY IS NOT AVAILABLE
+		// END OF CODE TO FAIL TEST AS PAYMENT GATEWAY IS NOT AVAILABLE
 		Helper.clickItem(ApplicationPage.saveTransactionButton);
 		Thread.sleep(3000);
 		CoreControls.printForm();
-		Thread.sleep(3000);
+		// Thread.sleep(3000);
 		Helper.clickItem(ApplicationPage.generateCertificateButton);
-		Thread.sleep(3000);
+		// Thread.sleep(3000);
 		Helper.clickItem(ApplicationPage.printCertificateButton);
 		System.out.println("Print form has initiated successfully");
 		Thread.sleep(3000);

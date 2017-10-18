@@ -55,7 +55,7 @@ public class FillCOSRegForm {
 		//ApplicationPage.tabletitle.click();
 		CoreControls.noMatchButton.click();
 		Thread.sleep(1000);
-		CoreControls.submitApplicationButton.click();
+		CoreControls.submitButton.click();
 
 	}
 
