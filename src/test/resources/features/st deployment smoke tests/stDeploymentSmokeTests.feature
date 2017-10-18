@@ -9,7 +9,8 @@ Feature: Smoke tests on Development environment for deployment to System Test En
 
   Scenario: Navigate to NOB and fill the form
     When I open "Core Dev" website
-    And I sign in "Core"
+    #And I sign in "Core"
+    And I login "Core" as user "admin2" password "Friday17"
     And I navigate to "NOB" new form
     Then I fill in the "NOB" form
 

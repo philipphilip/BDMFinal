@@ -68,25 +68,31 @@ public class EpublicApplicationPage extends BaseClass {
 	public static WebElement childGivenName;
 	
 	@FindBy(id = "coo-birth-parent1-type")
-	public static WebElement parentOneType;
+	public static WebElement parent1Type;
 	
 	@FindBy(id = "coo-birth-parent1-familyName")
 	public static WebElement parent1FamilyName;
 	
 	@FindBy(id = "coo-birth-parent1-firstGivenName")
-	public static WebElement parentOneGivenName;
+	public static WebElement parent1GivenName;
+	
+	@FindBy(id = "coo-birth-parent1-familyName-same-as-at-birth0")
+	public static WebElement parent1FamilyNameSameAsBirth;
 	
 	@FindBy(id = "coo-birth-parent1-familyNameAtBirth")
 	public static WebElement parent1FamilyNametAtBirth;
 	
 	@FindBy(id = "coo-birth-parent2-type")
-	public static WebElement parentTwoType;
+	public static WebElement parent2Type;
 	
 	@FindBy(id = "coo-birth-parent2-familyName")
 	public static WebElement parent2FamilyName;
 	
+	@FindBy(id = "coo-birth-parent2-familyName-same-as-at-birth0")
+	public static WebElement parent2FamilyNameSameAsBirth;
+	
 	@FindBy(id = "coo-birth-parent2-firstGivenName")
-	public static WebElement parentTwoGivenName;
+	public static WebElement parent2GivenName;
 	
 	@FindBy(id = "coo-birth-parent2-familyNameAtBirth")
 	public static WebElement parent2FamilyNameAtBirth;
