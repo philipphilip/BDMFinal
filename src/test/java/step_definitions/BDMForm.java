@@ -136,6 +136,12 @@ public class BDMForm {
 			driver.get("https://web-st.objectconsulting.com.au/eregistry/");
 		} else if (website.equals("Core Old UI")) {
 			driver.get("https://core-st.objectconsulting.com.au/cbdm/login");
+		} else if (website.equals("Core Demo")) {
+			driver.get("http://10.22.1.42/core/login");
+		} else if (website.equals("ePublic Demo")) {
+			driver.get("http://10.22.1.42/epublic/");
+		} else if (website.equals("eRegistry Demo")) {
+			driver.get("http://10.22.1.42/eregistry/");
 		}
 		driver.manage().window().maximize();
 	}

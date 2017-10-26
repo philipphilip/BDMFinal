@@ -13,9 +13,9 @@ public class CoreOldUiSystemParametersPage extends BaseClass {
 	@FindBy(id = "id61")
 	public static WebElement relationshipRegistrationCoolingOffPeriod;
 	
-	@FindBy(id = "idcf")
+	@FindBy(id = "idd7")
 	public static WebElement submitButton;
 	
-	@FindBy(id = "id128")
+	@FindBy(id = "id134")
 	public static WebElement saveMessage;
 }

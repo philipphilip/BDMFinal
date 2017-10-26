@@ -40,13 +40,13 @@ public class EregistryDrsPage extends BaseClass {
 	@FindBy(id = "deceasedDetails-relevantDates-dateOfBirth-type")
 	public static WebElement dateOfBirthType;
 
-	@FindBy(id = "deceasedDetails-relevantDates-dateOfBirth-day")
+	@FindBy(id = "deceasedDetails-relevantDates-dateOfBirth-dateExact-day")
 	public static WebElement birthDay;
 
-	@FindBy(id = "deceasedDetails-relevantDates-dateOfBirth-month")
+	@FindBy(id = "deceasedDetails-relevantDates-dateOfBirth-dateExact-month")
 	public static WebElement birthMonth;
 
-	@FindBy(id = "deceasedDetails-relevantDates-dateOfBirth-year")
+	@FindBy(id = "deceasedDetails-relevantDates-dateOfBirth-dateExact-year")
 	public static WebElement birthYear;
 
 	@FindBy(id = "deceasedDetails-placeOfDeath-whereDidDeathOccur")
@@ -81,6 +81,15 @@ public class EregistryDrsPage extends BaseClass {
 
 	@FindBy(id = "deceasedRelationshipDetails-registrationPlace-suburb")
 	public static WebElement relationshipSuburb;
+	
+	@FindBy(id = "deceasedRelationshipDetails-yearOfRelationship-day")
+	public static WebElement relationshipDay;
+	
+	@FindBy(id = "deceasedRelationshipDetails-yearOfRelationship-month")
+	public static WebElement relationshipMonth;
+	
+	@FindBy(id = "deceasedRelationshipDetails-yearOfRelationship-year")
+	public static WebElement relationshipYear;
 
 	@FindBy(id = "deceasedRelationshipDetails-ageAtCommencement")
 	public static WebElement relationshipAge;

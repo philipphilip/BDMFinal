@@ -63,11 +63,11 @@ public class FillBCApplicationForm {
 		System.out.println("Create Transaction initiated");
 		Helper.waitFor(ApplicationPage.paidCheckbox);
 		ApplicationPage.paidCheckbox.sendKeys(Keys.SPACE);
-		// THIS PART OF CODE IS ADDED TO FAIL THE TEST AS PAYMENT GATEWAY IS NOT
-		// AVAILABLE
-		String checkBoxText = ApplicationPage.paidCheckbox.getText();
-		Assert.assertTrue("Payment gateway is inactive", checkBoxText.contains("REMOVE"));
-		// END OF CODE TO FAIL TEST AS PAYMENT GATEWAY IS NOT AVAILABLE
+//		// THIS PART OF CODE IS ADDED TO FAIL THE TEST AS PAYMENT GATEWAY IS NOT
+//		// AVAILABLE
+//		String checkBoxText = ApplicationPage.paidCheckbox.getText();
+//		Assert.assertTrue("Payment gateway is inactive", checkBoxText.contains("REMOVE"));
+//		// END OF CODE TO FAIL TEST AS PAYMENT GATEWAY IS NOT AVAILABLE
 		Helper.clickItem(ApplicationPage.saveTransactionButton);
 		Thread.sleep(3000);
 		CoreControls.printForm();

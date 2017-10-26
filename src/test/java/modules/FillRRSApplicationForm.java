@@ -59,15 +59,18 @@ public class FillRRSApplicationForm {
 		ApplicationPage.relSubject2BirthMonth.sendKeys("01");
 		ApplicationPage.relSubject2BirthYear.sendKeys("1990");
 		Helper.clickItem(CoreControls.nextButton);
-		// Thread.sleep(3000);
+		Helper.waitFor(CoreControls.firstRadioButtonMatch);
+		CoreControls.matchToFirstRadioButton();
+		Helper.clickItem(CoreControls.validateCheckBox);
+		Helper.clickItem(CoreControls.overrideButton);
+		Helper.waitFor(CoreControls.acceptionReason);
+		CoreControls.acceptionReason.sendKeys("Court Order");
+		CoreControls.reasonComment.sendKeys("any reason");
+		Helper.clickItem(CoreControls.overrideButton2);
+		Helper.clickItem(CoreControls.nextButton);
 		Helper.clickItem(CoreControls.submitButton);
-		// Helper.clickItem(ApplicationPage.noMatchButton);
-		// Thread.sleep(3000);
-		// ApplicationPage.validateform();
-		// Thread.sleep(3000);
-		// Helper.clickItem(CoreControls.nextButton);
-		// Thread.sleep(3000);
-		Thread.sleep(3000);
+		Helper.waitFor(ApplicationPage.successMessage);
+		Thread.sleep(1000);
 		String successMessage = ApplicationPage.successMessage.getText();
 		Assert.assertTrue("Application for Relationship Registration Failed",
 				successMessage.contains("successfully saved"));

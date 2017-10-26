@@ -131,7 +131,8 @@ public class CoreControls extends BaseClass {
 	@FindBy(xpath = ".//*/a[text()='Application']")
 	public static WebElement application;
 
-	@FindBy(xpath = ".//matching-panel/div[1]//tr[2]/td[1]/input")
+//	@FindBy(xpath = ".//matching-panel/div[1]//tr[2]/td[1]/input")
+	@FindBy(xpath = ".//tr[2]/td[1]/input")
 	public static WebElement firstRadioButtonMatch;
 
 	// @FindBy(xpath =

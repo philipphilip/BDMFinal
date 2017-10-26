@@ -75,6 +75,12 @@ public class EregistryCodPage extends BaseClass {
 
 	@FindBy(id = "dateOfDeath-dateOfDeath-onDate-year")
 	public static WebElement deathDateYear;
+	
+	@FindBy(id = "dateOfDeath-ageAtDeath")
+	public static WebElement ageAtDeath;
+	
+	@FindBy(id = "dateOfDeath-units")
+	public static WebElement ageAtDeathUnits;
 
 	@FindBy(id = "placeOfDeath-whereDidDeathOccur")
 	public static WebElement deathOccur;

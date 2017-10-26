@@ -247,6 +247,30 @@ public class EregistryControls extends BaseClass {
 	@FindBy(xpath = "//*[@id=\"errorsInDetail\"]/tr[41]/td[3]")
 	public static WebElement validationErrorRow41;
 	
+	@FindBy(xpath = "//*[@id=\"errorsInDetail\"]/tr[42]/td[3]")
+	public static WebElement validationErrorRow42;
+	
+	@FindBy(xpath = "//*[@id=\"errorsInDetail\"]/tr[43]/td[3]")
+	public static WebElement validationErrorRow43;
+	
+	@FindBy(xpath = "//*[@id=\"errorsInDetail\"]/tr[44]/td[3]")
+	public static WebElement validationErrorRow44;
+	
+	@FindBy(xpath = "//*[@id=\"errorsInDetail\"]/tr[45]/td[3]")
+	public static WebElement validationErrorRow45;
+	
+	@FindBy(xpath = "//*[@id=\"errorsInDetail\"]/tr[46]/td[3]")
+	public static WebElement validationErrorRow46;
+	
+	@FindBy(xpath = "//*[@id=\"errorsInDetail\"]/tr[47]/td[3]")
+	public static WebElement validationErrorRow47;
+	
+	@FindBy(xpath = "//*[@id=\"errorsInDetail\"]/tr[48]/td[3]")
+	public static WebElement validationErrorRow48;
+	
+	@FindBy(xpath = "//*[@id=\"errorsInDetail\"]/tr[49]/td[3]")
+	public static WebElement validationErrorRow49;
+	
 	@FindBy(xpath = ".//input[@value = 'Back to Form']")
 	public static WebElement backToFormButton;
 	
@@ -288,8 +312,7 @@ public class EregistryControls extends BaseClass {
 	
 	public static void uploadAttachmentToLocal() throws Throwable {
 		InputStream inputStream = EregistryControls.class.getClassLoader().getResourceAsStream("testData/Attachment1.pdf");
-	       System.out.println(inputStream);
-	       
+	       	       
 	       OutputStream outputStream;
 	       try {
 	    	   String userHome = System.getProperty("user.home");

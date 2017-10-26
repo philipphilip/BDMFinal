@@ -22,7 +22,7 @@ public class CoreProductsPage extends BaseClass {
 	@FindBy(xpath = ".//select[@title='The Type of this product']")
 	public static WebElement productType;
 
-	@FindBy(xpath = ".//select[@title='Select the Registratin for the subject search in application']")
+	@FindBy(xpath = ".//select[@title='Select the Registration for the subject search in application']")
 	public static WebElement underlyingRegistration;
 
 	@FindBy(xpath = ".//select[@title='Select Cost Centre']")

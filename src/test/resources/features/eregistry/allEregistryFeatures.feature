@@ -1,6 +1,6 @@
 Feature: All eRegistry tests
 
-  # Create DRS, COD and Death Application in eRegistry and submit to Core. Search for them in Core and make them compliant if not already.
+  #eRegistry: Submit COD to Core (includes Search for the COD in Core and make it compliant)
   Scenario: Create a COD in eRegistry and submit to Core
     Given I open "eRegistry" website
     When I sign in "eRegistry"
@@ -8,6 +8,7 @@ Feature: All eRegistry tests
     And I navigate to "COD" in "eRegistry"
     Then I can fill and submit the "COD" form in "eRegistry"
 
+  #eRegistry: Create a DRS in eRegistry and submit to Core (includes Search for the DRS in Core and make it compliant)
   Scenario: Create a DRS in eRegistry and submit to Core
     Given I open "eRegistry" website
     When I sign in "eRegistry"
@@ -15,6 +16,7 @@ Feature: All eRegistry tests
     And I navigate to "DRS" in "eRegistry"
     Then I can fill and submit the "DRS" form in "eRegistry"
 
+  #eRegistry: Create a Death Certificate in eRegistry and submit to Core (Search for the Application in Core and validate if it is compliant)
   Scenario: Create a Death Certificate in eRegistry and submit to Core
     Given I open "eRegistry" website
     When I sign in "eRegistry"
@@ -44,7 +46,7 @@ Feature: All eRegistry tests
   Scenario: Create an adoption notification in eRegistry and submit to Core
     Given I open "eRegistry" website
     When I sign in "eRegistry"
-    And I select stakeholder as "Find Adoption"
+    And I select stakeholder as "FIND (Adoption Service - Govt)"
     And I navigate to "AN" in "eRegistry"
     Then I can fill and submit the "AN" form in "eRegistry"
 

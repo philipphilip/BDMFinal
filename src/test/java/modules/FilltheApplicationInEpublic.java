@@ -82,8 +82,10 @@ public class FilltheApplicationInEpublic {
 		Thread.sleep(1000);
 		Helper.clickItem(EpublicControls.submitInPersonButton);
 		String confirmationNumber;
+		Thread.sleep(1000);
 		Helper.waitFor(EpublicControls.brsCompletionBanner);
 		confirmationNumber = EpublicControls.brsCompletionBanner.getText();
+		System.out.println(confirmationNumber);
 		Assert.assertTrue("Application submission with POI is not successful", confirmationNumber.contains("Completion"));
 		System.out.println("The Birth Application number created along with POI/DPOI is: " + EpublicControls.brsOrderNumber.getText());
 	}
