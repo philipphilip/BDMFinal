@@ -12,12 +12,10 @@ public class CoreDRSPage extends BaseClass {
 
 	@FindBy(id = "deceasedDetails-name-familyName")
 	public static WebElement deceasedFamilyName;
-	
-	
+
 	@FindBy(id = "deceasedDetails-name-familyNameSameToFamilyNameAtBirth")
 	public static WebElement familyNameSameToFamilyNameAtBirth;
 
-	
 	@FindBy(id = "deceasedDetails-name-firstGivenName")
 	public static WebElement deceasedFirstName;
 

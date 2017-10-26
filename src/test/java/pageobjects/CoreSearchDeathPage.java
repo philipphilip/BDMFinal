@@ -14,7 +14,7 @@ public class CoreSearchDeathPage extends BaseClass {
 	@FindBy(id = "deceasedDetails-name-familyName")
 	public static WebElement deceasedFasmiulyName;
 
-	@FindBy(xpath = ".//death-registration-page//tr[2]/td[3]/div")
+	@FindBy(xpath = ".//death-registration-page//tr/td[3]/div")
 	public static WebElement deceasedFasmiulyNameInSearchResults;
 
 }

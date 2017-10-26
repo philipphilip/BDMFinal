@@ -15,8 +15,7 @@ public class CoreCodPage extends BaseClass {
 
 	@FindBy(id = "deceasedDetails-name-deceasedName-familyName")
 	public static WebElement deceasedFamilyName;
-	
-	
+
 	@FindBy(id = "deceasedDetails-name-deceasedName-familyNameSameToFamilyNameAtBirth")
 	public static WebElement familyNameSameToFamilyNameAtBirth;
 

@@ -19,7 +19,7 @@ public class CoreSearchBirthsPage extends BaseClass {
 	@FindBy(id = "subjectsDetails-name-familyName")
 	public static WebElement childFamilyName;
 
-	@FindBy(xpath = ".//birth-registration-page//tr[2]/td[2]/div")
+	@FindBy(xpath = ".//birth-registration-page//tr/td[2]/div")
 	public static WebElement childFamilyNameInSeachResults;
 
 }

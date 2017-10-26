@@ -70,4 +70,16 @@ public class TemplatesPages extends BaseClass {
 	@FindBy(id = "tinyMceId_ifr")
 	public static WebElement emailBody;
 
+	@FindBy(id = "document-type")
+	public static WebElement docType;
+
+	@FindBy(xpath = ".//*/button[text() = 'Save']")
+	public static WebElement saveCorro;
+
+	@FindBy(id = "correspondence-brandingTemplate")
+	public static WebElement brandingTemplate;
+
+	@FindBy(id = "correspondence-watermarkTemplate")
+	public static WebElement watermarkTemplate;
+
 }

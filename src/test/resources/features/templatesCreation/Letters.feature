@@ -1,0 +1,40 @@
+Feature: Creating Correspondence Templates Placeholders for Letters.
+
+  Scenario Outline: Create Letter Placeholders
+    Given I am on CORE Admin site
+    When I want to create a "Letter corro" template
+    And I want to make the title "<Template Name>" and the description "<Template Description>" and the "<Life Event>" and the "<doc type>"
+    And I want the letter to have the "<Branding Templates>" and the Signature Block to be "<Watermark Templates>"
+    And I make the boy text "<Letter Corro Body>"
+    Then I can save the template placeholder
+
+    Examples: 
+      | Template Id | Template Name           | Template Description                              | Life Event | doc type | Letter Corro Body               | Branding Templates | Watermark Templates |
+      | BR-Letter1  | Letter - BRS Part1 Recd | Template for Notifying that BRS Part1 is received | Births     | BRS      | THe letter text body of letter1 | AR5                | abi                 |
+      #| BR-Letter2  | Letter - Request BR Part2                                 | Template for requesting BRS Part2                                                                                                                         | THe letter text body of letter2  |
+      #| BR-Letter3  | Letter - BRS Part2 Recd                                   | Template for acknowledge that BRS Part2 is received                                                                                                       | THe letter text body of letter3  |
+      #| BR-Letter4  | Letter to Noify BR is Complete - No Cert                  | Template to notify that BR is compete - No Cert                                                                                                           | THe letter text body of letter4  |
+      #| BR-Letter5  | Letter to Noify BR is Complete - With Cert                | Template to notify that BR is compete - Cert Ordered dispatched                                                                                           | THe letter text body of letter5  |
+      #| BR-Letter6  | Letter to seek Additional Info - Birth Registration       | Template to notify that additional information is required to proceed with Birth Registration assessment                                                  | THe letter text body of letter6  |
+      #| BR-Letter7  | Letter to Noify BR Certificate is Complete                | Template to notify that BR Certificate is complete                                                                                                        | THe letter text body of letter7  |
+      #| BR-Letter9  | Letter to seek Additional Info - BR Certificate           | Template to notify that additional information is required to proceed with Birth Ceritifcate application assessment                                       | THe letter text body of letter8  |
+      #| BR-Letter10 | Letter - Donor treatment is not held in Victoria.         | Template to advice that details of the donor treatment is not held in Victoria.                                                                           | THe letter text body of letter9  |
+      #| BR-Letter11 | Letter - child name (prohibited name)                     | Template to advise that Child Name is a probihited name                                                                                                   | THe letter text body of letter10 |
+      #| BR-Letter12 | Letter - Parentage dispute                                | Template to advise that Parentage dispute is indicated on BRS submission                                                                                  | THe letter text body of letter11 |
+      #| BR-Letter13 | Letter - DHS for BRS                                      | Template to advise DHS to submit BRS                                                                                                                      | THe letter text body of letter12 |
+      #| BR-Letter14 | Letter - BRS Part2 Not Recd                               | Template to inform that BRS Part2 is not yet received                                                                                                     | THe letter text body of letter13 |
+      #| BR-Letter15 | Letter - BRS Part2 Not Recd                               | Template to inform that BR is registered without Parent2 details                                                                                          | THe letter text body of letter14 |
+      #| BR-Letter16 | Letter - BR and NOB discripencies                         | Template to inform that information in BRS and NOB is not same                                                                                            | THe letter ext body of letter15  |
+      #| DR-Letter4  | Letter to Noify DR is Complete - No Cert                  | Template to Correspond with the Informant provided by the Funeral Director advising the completion of registration and Death certificate  can be ordered. | THe letter text body of letter16 |
+      #| DR-Letter5  | Letter to Noify DR is Complete - With Cert                | Template to Correspond with the Informant provided by the Funeral Director advising the completion of registration and Death certificate will be mailed.  | THe letter text body of letter17 |
+      #| DR-Letter6  | Letter to seek Additional Info - Death Registration       | Template to notify that additional information is required to proceed with Death Registration assessment                                                  | THe letter text body of letter18 |
+      #| DR-Letter7  | Letter to Noify BR Certificate is Complete                | Template to notify that DR Certificate is complete                                                                                                        | THe letter text body of letter19 |
+      #| DR-Letter8  | Letter to seek Additional Info - DR Certificate           | Template to notify that additional information is required to proceed with Death  Certificate application assessment                                      | THe letter text body of letter20 |
+      #| DR-Letter9  | Letter Request to FD for DRS submission                   | Template to request FD to submit DRS                                                                                                                      | THe letter text body of letter21 |
+      #| DR-Letter10 | Letter Request for MP for MCCD submission                 | Template to request Doctor to submit COD                                                                                                                  | THe letter text body of letter22 |
+      #| DR-Letter11 | Letter Request for DRS submission                         | Template to request Family Members to submit DRS                                                                                                          | THe letter text body of letter23 |
+      #| DR-Letter12 | Letter Request for DRS submission                         | Template to request FD to submit DRS                                                                                                                      | THe letter text body of letter24 |
+      #| DR-Letter13 | Letter Request for Medical Practioner for MCCD submission | Template to request Doctor to submit COD                                                                                                                  | THe letter text body of letter25 |
+      #| DR-Letter14 | Letter to Medical Practioner - Eligibility                | Template to request Doctor to submit COD                                                                                                                  | THe letter text body of letter26 |
+      #| DR-Letter15 | Letter - COD and NOB discripencies                        | Template to Corrospond with Doctor (MCCPD) and Hospital (NOB) to advise that information on MCCPD inconsistent with NOB or BR or BRS                      | THe letter text body of letter27 |
+#

@@ -10,8 +10,6 @@ public class AdoptionPage extends BaseClass {
 		super(driver);
 	}
 
-	
-	
 	@FindBy(id = "adoptionDetails-dateReceivedAtRegistry")
 	public static WebElement dateReceivedAtRegistry;
 		
