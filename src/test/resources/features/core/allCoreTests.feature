@@ -94,7 +94,7 @@ Feature: All Core site testings.
 
   Scenario: Test task creation and closure (Test creation and completion of tasks using NOB)
     Given I open "Core" website
-    And I sign in "Core demo"
+    And I sign in "Core"
     And I navigate to "NOB" new form
     Then I fill in the "NOB for Tasks" form
 
@@ -115,27 +115,28 @@ Feature: All Core site testings.
     When I sign in "Core Admin UI"
     And I navigate to "Create internal user" in "Core Admin UI"
     Then I can fill and submit the "Create internal user" form in "Core Admin UI"
+
   #=========================================================================
-  #Scenario: Request a Death certificate
-  #Given I open "Core Old UI" website
-  #When I sign in "Core Old UI"
-  #And I navigate to "System Parameters" new form
-  #Then I fill in the "Relationship Registration Parameter" form
-  #
-  #Scenario: Create a Relationship Notification in Core
-  #Given I open "Core" website
-  #When I sign in "Core"
-  #And I navigate to "RN" new form
-  #Then I fill in the "RN" form
-  #
-  #Scenario: Create a Relationship Registration Service Application
-  #Given I open "Core" website
-  #When I sign in "Core"
-  #And I navigate to "Application" new form
-  #Then I fill in the "Relationship Application" form
-  #
-  #Scenario: Search for the Surrogacy Notification in Core
-  #Given I open "Core" website
-  #When I sign in "Core"
-  #And I navigate to "Search SN" in "Core"
-  #Then I search for "RR" form created in "Core"
+  Scenario: Request a Death certificate
+    Given I open "Core Old UI" website
+    When I sign in "Core Old UI"
+    And I navigate to "System Parameters" new form
+    Then I fill in the "Relationship Registration Parameter" form
+
+  Scenario: Create a Relationship Notification in Core
+    Given I open "Core" website
+    When I sign in "Core"
+    And I navigate to "RN" new form
+    Then I fill in the "RN" form
+
+  Scenario: Create a Relationship Registration Service Application
+    Given I open "Core" website
+    When I sign in "Core"
+    And I navigate to "Application" new form
+    Then I fill in the "Relationship Application" form
+
+  Scenario: Search for the Surrogacy Notification in Core
+    Given I open "Core" website
+    When I sign in "Core"
+    And I navigate to "Search SN" in "Core"
+    Then I search for "RR" form created in "Core"

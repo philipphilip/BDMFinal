@@ -40,6 +40,9 @@ public class CoreRNPage extends BaseClass {
 	@FindBy(id = "applicant1Details-applicantsName-familyName")
 	public static WebElement applicant1FamilyName;
 	
+	@FindBy(id = "applicant1Details-applicantsName-familyNameSameToFamilyNameAtBirth")
+	public static WebElement applicant1FamiliyNameSameAsBirth;
+	
 	@FindBy(id = "applicant1Details-applicantsName-familyNameAtBirth")
 	public static WebElement applicant1FamilyNameAtBirth;
 	
@@ -88,6 +91,9 @@ public class CoreRNPage extends BaseClass {
 	@FindBy(id = "applicant1Details-parent1-familyName")
 	public static WebElement applicant1Parent1FamilyName;
 	
+	@FindBy(id = "applicant1Details-parent1-familyNameSameToFamilyNameAtBirth")
+	public static WebElement applicant1Parent1FamilyNameSameAsBirth;
+	
 	@FindBy(id = "applicant1Details-parent1-familyNameAtBirth")
 	public static WebElement applicant1Parent1FamilyNameAtBirth;
 	
@@ -99,6 +105,9 @@ public class CoreRNPage extends BaseClass {
 	
 	@FindBy(id = "applicant1Details-parent2-familyName")
 	public static WebElement applicant1Parent2FamilyName;
+	
+	@FindBy(id = "applicant1Details-parent2-familyNameSameToFamilyNameAtBirth")
+	public static WebElement applicant1Parent2FamilyNameSameAsBirth;
 	
 	@FindBy(id = "applicant1Details-parent2-familyNameAtBirth")
 	public static WebElement applicant1Parent2FamilyNameAtBirth;
@@ -138,6 +147,9 @@ public class CoreRNPage extends BaseClass {
 	
 	@FindBy(id = "applicant2Details-applicantsName-familyName")
 	public static WebElement applicant2FamilyName;
+	
+	@FindBy (id = "applicant2Details-applicantsName-familyNameSameToFamilyNameAtBirth")
+	public static WebElement applicant2FamilyNameSameAsBirth;
 	
 	@FindBy(id = "applicant2Details-applicantsName-familyNameAtBirth")
 	public static WebElement applicant2FamilyNameAtBirth;
@@ -187,6 +199,9 @@ public class CoreRNPage extends BaseClass {
 	@FindBy(id = "applicant2Details-parent1-familyName")
 	public static WebElement applicant2Parent1FamilyName;
 	
+	@FindBy(id = "applicant2Details-parent1-familyNameSameToFamilyNameAtBirth")
+	public static WebElement applicant2Parent1FamilyNameSameAsBirth;
+	
 	@FindBy(id = "applicant2Details-parent1-familyNameAtBirth")
 	public static WebElement applicant2Parent1FamilyNameAtBirth;
 	
@@ -198,6 +213,9 @@ public class CoreRNPage extends BaseClass {
 	
 	@FindBy(id = "applicant2Details-parent2-familyName")
 	public static WebElement applicant2Parent2FamilyName;
+	
+	@FindBy(id = "applicant2Details-parent2-familyNameSameToFamilyNameAtBirth")
+	public static WebElement applicant2Parent2FamlyNameSameAsBirth;
 	
 	@FindBy(id = "applicant2Details-parent2-familyNameAtBirth")
 	public static WebElement applicant2Parent2FamilyNameAtBirth;

@@ -20,11 +20,9 @@ public class FillEregistryDrsForm {
 		Helper.selectDropDownList(EregistryDrsPage.familyNameSameAsBirth, "Yes");
 		EregistryDrsPage.givenName.sendKeys("Automated" + FillEregistryCodForm.deceasedGivenName);
 		EregistryDrsPage.sex.sendKeys("Female");
-		EregistryDrsPage.dateOfDeathType.sendKeys("On");
 		EregistryDrsPage.deathDay.sendKeys("07");
 		EregistryDrsPage.deathMonth.sendKeys("07");
 		EregistryDrsPage.deathYear.sendKeys("2017");
-		EregistryDrsPage.dateOfBirthType.sendKeys("On");
 		EregistryDrsPage.birthDay.sendKeys("07");
 		EregistryDrsPage.birthMonth.sendKeys("07");
 		EregistryDrsPage.birthYear.sendKeys("1937");
@@ -35,10 +33,13 @@ public class FillEregistryDrsForm {
 		EregistryDrsPage.residenceLine1.sendKeys("22 station st");
 		EregistryDrsPage.residenceSuburb.sendKeys("ringwood");
 		EregistryDrsPage.residencePostcode.sendKeys("3333");
-		EregistryDrsPage.occupation.sendKeys("Bank Officer");
+		EregistryDrsPage.occupation.sendKeys("Accountant");
 		EregistryDrsPage.aboriginal.sendKeys("Neither Aboriginal or Torres Strait Islander");
 		EregistryDrsPage.relationship.sendKeys("Married");
 		EregistryDrsPage.relationshipSuburb.sendKeys("ringwood");
+		EregistryDrsPage.relationshipDay.sendKeys("01");
+		EregistryDrsPage.relationshipMonth.sendKeys("01");
+		EregistryDrsPage.relationshipYear.sendKeys("1957");
 		EregistryDrsPage.relationshipAge.sendKeys("20");
 		EregistryDrsPage.spouseFamilyName.clear();
 		EregistryDrsPage.spouseFamilyName.sendKeys("Smith");
@@ -69,14 +70,12 @@ public class FillEregistryDrsForm {
 		EregistryDrsPage.informantPostcode.sendKeys("3333");
 		EregistryDrsPage.informantSameasPostalAddress.sendKeys("Yes");
 		EregistryDrsPage.informantTelephone.sendKeys("99998888");
-		Thread.sleep(3000);
 		EregistryDrsPage.methodOfDisposal.sendKeys("Buried");
-		Thread.sleep(3000);
 		EregistryDrsPage.disposalDay.sendKeys("08");
 		EregistryDrsPage.disposalMonth.sendKeys("07");
 		EregistryDrsPage.disposalYear.sendKeys("2017");
-		Thread.sleep(3000);
 		EregistryDrsPage.methodOfDisposal.sendKeys("Buried");
+		Helper.waitFor(EregistryDrsPage.cemeteryName);
 		EregistryDrsPage.within30Days.sendKeys("Yes");
 		EregistryDrsPage.cemeteryName.sendKeys("Melbourne General Cemetery");
 		EregistryDrsPage.cemeteryLine1.sendKeys("122 station rd");
@@ -88,16 +87,18 @@ public class FillEregistryDrsForm {
 
 		Helper.waitFor(EregistryControls.drsMessage);
 		String drsSavedMessage;
-		Thread.sleep(3000);
+		Thread.sleep(2000);
 		drsSavedMessage = EregistryControls.drsMessage.getText();
 		Assert.assertTrue("result message not found",
 				drsSavedMessage.contains("This Death Registration Statement has been successfully saved"));
 		EregistryControls.deathsLink.click();
 		EregistryControls.draftList.click();
 		EregistryControls.drsSearchFamilyName.sendKeys("Automated" + FillEregistryCodForm.deceasedFamilyName);
-
+		Thread.sleep(1000);
+		Helper.waitFor(EregistryControls.refreshButton);
 		EregistryControls.refreshButton.click();
-		Helper.clickItem(EregistryControls.searchResult1);
+		Helper.waitFor(EregistryControls.searchResult1);
+		EregistryControls.searchResult1.click();
 		Helper.clickItem(EregistryControls.submitButton);
 		Helper.clickItem(EregistryControls.submitButton);
 		EregistryControls.assertAll();

@@ -4,6 +4,7 @@ import org.junit.Assert;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
 
+import helpers.Helper;
 import pageobjects.CoreSearchPage;
 
 
@@ -13,9 +14,10 @@ public class FillBRSCoreSearchForm {
 		
 		PageFactory.initElements(driver, CoreSearchPage.class);
 
+		Helper.waitFor(CoreSearchPage.subjectFamilyName);
 		CoreSearchPage.subjectFamilyName.sendKeys("Automated" + FilltheBRSInEpublic.brsFamilyName);
 		CoreSearchPage.searchButton.click();
-		CoreSearchPage.firstSearchResult.click();
+		Helper.clickItem(CoreSearchPage.firstSearchResult);
 		
 		String brsFamilyName;
 		Thread.sleep(3000);

@@ -22,13 +22,13 @@ public class FillEregistryCertificatesForm {
 		Thread.sleep(3000);
 		Helper.selectDropDownList(EregistryCertificatesPage.keyword, "Death Standard 1");
 		EregistryCertificatesPage.quantity.sendKeys("1");
-		Helper.selectDropDownList(EregistryCertificatesPage.reasonCertificateRequired, "Administration");
 		Helper.clickItem(EregistryControls.nextButton);
 		Helper.selectDropDownList(EregistryCertificatesPage.dateOfDeathType, "On");
 		EregistryCertificatesPage.dateOfDeathDay.sendKeys("07");
 		EregistryCertificatesPage.dateOfDeathMonth.sendKeys("07");
 		EregistryCertificatesPage.dateOfDeathYear.sendKeys("2017");
 		EregistryCertificatesPage.placeOfDeathSuburb.sendKeys("Wollongong");
+		Helper.selectDropDownList(EregistryCertificatesPage.reasonCertificateRequired, "Administration");
 		EregistryCertificatesPage.deceasedFamilyName.sendKeys("Automated" + FillEregistryCodForm.deceasedFamilyName);
 		EregistryCertificatesPage.deceasedGivenName.sendKeys("Automated" + FillEregistryCodForm.deceasedGivenName);
 		EregistryCertificatesPage.deceasedFamilyNameAtBirth.sendKeys("Automated" + FillEregistryCodForm.deceasedFamilyName);
@@ -47,7 +47,7 @@ public class FillEregistryCertificatesForm {
 		String applicantFamilyName;
 		Thread.sleep(1000);
 		applicantFamilyName = EregistryCertificatesPage.applicantFamilyName.getText();
-		Thread.sleep(2000);
+		Thread.sleep(1000);
 		
 		Helper.clickItem(EregistryControls.nextButton);
 		Helper.selectDropDownList(EregistryCertificatesPage.sendToPassportOffice, "No");
@@ -66,7 +66,8 @@ public class FillEregistryCertificatesForm {
 		EregistryControls.certificatesLink.click();
 		EregistryControls.draftList.click();
 		EregistryCertificatesPage.subject1NameDrafts.sendKeys("Automated" + FillEregistryCodForm.deceasedFamilyName);
-		Thread.sleep(3000);
+		Thread.sleep(1000);
+		Helper.waitFor(EregistryControls.refreshButton);
 		EregistryControls.refreshButton.click();
 		Helper.clickItem(EregistryControls.searchResult1);
 		Helper.clickItem(EregistryControls.submitButton);

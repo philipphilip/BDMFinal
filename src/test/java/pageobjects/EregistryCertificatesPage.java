@@ -19,7 +19,7 @@ public class EregistryCertificatesPage extends BaseClass {
 	@FindBy(id = "productDetails-productDetails-quantity")
 	public static WebElement quantity;
 	
-	@FindBy(id = "productDetails-productDetails-reasonCertificateIsRequired")
+	@FindBy(id = "death-applicationDetails-reasonCertRequired")
 	public static WebElement reasonCertificateRequired;
 	
 	@FindBy(xpath = "//*[@id=\"applicantDetails\"]/div/div[2]/div/div/cge-text-input[1]/div/div")
@@ -43,7 +43,7 @@ public class EregistryCertificatesPage extends BaseClass {
 	@FindBy(id = "deathSubjectDetails-deceasedDetails-familyName")
 	public static WebElement deceasedFamilyName;
 	
-	@FindBy(id = "deathSubjectDetails-deceasedDetails-givenNames")
+	@FindBy(id = "deathSubjectDetails-deceasedDetails-firstGivenName")
 	public static WebElement deceasedGivenName;
 	
 	@FindBy(id = "deathSubjectDetails-deceasedDetails-familyNameAtBirth")
@@ -64,7 +64,7 @@ public class EregistryCertificatesPage extends BaseClass {
 	@FindBy(id = "deathSubjectDetails-parent1Details-familyName")
 	public static WebElement parent1FamilyName;
 	
-	@FindBy(id = "deathSubjectDetails-parent1Details-givenNames")
+	@FindBy(id = "deathSubjectDetails-parent1Details-firstGivenName")
 	public static WebElement parent1GivenName;
 	
 	@FindBy(id = "deathSubjectDetails-parent1Details-familyNameAtBirth")

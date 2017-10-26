@@ -24,26 +24,18 @@ public class FillEregistryCodForm {
 		EregistryCodPage.familyName.clear();
 		EregistryCodPage.familyName.sendKeys("Automated" + deceasedFamilyName);
 		EregistryCodPage.familyNameSameAsBirth.sendKeys("Yes");
-		// EregistryCodPage.familyNameAtBirth,"Automated" + deceasedFamilyName);
 		EregistryCodPage.givenName.sendKeys("Automated" + deceasedGivenName);
 		EregistryCodPage.sex.sendKeys("Female");
 		Helper.selectDropDownList(EregistryCodPage.aboriginal, "Neither Aboriginal or Torres Strait Islander");
 		Helper.selectDropDownList(EregistryCodPage.confirmName, "Medical Records");
-		EregistryCodPage.dateOfBirthType.sendKeys("On");
 		EregistryCodPage.dateOfBirthDay.sendKeys("07");
 		EregistryCodPage.dateOfBirthMonth.sendKeys("07");
 		EregistryCodPage.dateOfBirthYear.sendKeys("1937");
-		EregistryCodPage.motherFamilyName.clear();
-		EregistryCodPage.motherFamilyName.sendKeys("Automated" + deceasedFamilyName);
-		EregistryCodPage.motherFamilyNameSameAsBirth.sendKeys("Yes");
-		EregistryCodPage.motherGivenName.sendKeys("Automated" + motherGivenName);
-		EregistryCodPage.motherDateOfBirthDay.sendKeys("07");
-		EregistryCodPage.motherDateOfBirthMonth.sendKeys("07");
-		EregistryCodPage.motherDateOfBirthYear.sendKeys("1900");
-		EregistryCodPage.deathDateType.sendKeys("On");
 		EregistryCodPage.deathDateDay.sendKeys("07");
 		EregistryCodPage.deathDateMonth.sendKeys("07");
 		EregistryCodPage.deathDateYear.sendKeys("2017");
+		EregistryCodPage.ageAtDeath.sendKeys("80");
+		Helper.selectDropDownList(EregistryCodPage.ageAtDeathUnits, "Years");
 		EregistryCodPage.deathOccur.sendKeys("Hospital");
 		Helper.selectDropDownList(EregistryCodPage.hospitalName, "Acute Centre Beechworth");
 		Helper.selectDropDownList(EregistryCodPage.hospitalTown, "BEECHWORTH");
@@ -73,7 +65,7 @@ public class FillEregistryCodForm {
 		EregistryCodPage.under18.sendKeys("No");
 		EregistryCodPage.telephoneNo.clear();
 		EregistryCodPage.telephoneNo.sendKeys("99998888");
-		EregistryCodPage.declaration.sendKeys("Yes");
+		EregistryCodPage.declaration.sendKeys("No");
 		Helper.clickItem(EregistryControls.saveButton);
 
 		Helper.waitFor(EregistryControls.codMessage);
@@ -85,8 +77,10 @@ public class FillEregistryCodForm {
 		EregistryControls.codLink.click();
 		EregistryControls.draftList.click();
 		EregistryControls.codSearchFamilyName.sendKeys("Automated" + deceasedFamilyName);
-		
-		Helper.clickItem(EregistryControls.refreshButton);
+		Thread.sleep(1000);
+		Helper.waitFor(EregistryControls.refreshButton);
+		EregistryControls.refreshButton.click();
+		Helper.waitFor(EregistryControls.searchResult1);
 		Helper.clickItem(EregistryControls.searchResult1);
 		Helper.clickItem(EregistryControls.submitButton);
 		Helper.clickItem(EregistryControls.submitButton);

@@ -55,10 +55,11 @@ public class FillDRSForm {
 		CoreDRSPage.informantAddressPostcode.sendKeys("3000");
 		CoreDRSPage.postalAddressSameAsResidential.sendKeys("Yes");
 		CoreDRSPage.informantEmail.sendKeys("asdfsds@kadflgj.com");
+		CoreDRSPage.methodOfDisposal.sendKeys("Buried");
 		CoreDRSPage.DateOfDisposalOrSentOverseasDay.sendKeys("07");
 		CoreDRSPage.DateOfDisposalOrSentOverseasMonth.sendKeys("08");
 		CoreDRSPage.DateOfDisposalOrSentOverseasYear.sendKeys("2017");
-		CoreDRSPage.methodOfDisposal.sendKeys("Burial");
+		CoreDRSPage.methodOfDisposal.sendKeys("Buried");
 		CoreDRSPage.remainsDisposedOffWithin30Days.sendKeys("Yes");
 		CoreDRSPage.nameOfCemetery.sendKeys("Melbourne General Cemetery");
 		CoreDRSPage.cemeteryAddressLine1.sendKeys("1000 DonyBrock Rd");

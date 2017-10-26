@@ -14,12 +14,13 @@ public class FillRRCoreSearchForm {
 		
 		PageFactory.initElements(driver, CoreSearchPage.class);
 		
+		Thread.sleep(60000); //One minute wait for the scheduler to run for auto creation of Relationship Registration
 		CoreSearchPage.relationshipApplicant1FamilyName.sendKeys("Auto" + FillRNForm.applicant1FamilyName);
 		Helper.clickItem(CoreSearchPage.searchButton);
 		Helper.clickItem(CoreSearchPage.firstSearchResult);
 
 		String registrationStatus;
-		Thread.sleep(3000);
+		Helper.waitFor(CoreSearchPage.notificationStatus);
 		registrationStatus = CoreSearchPage.notificationStatus.getText();
 		Assert.assertTrue("result message not found", registrationStatus.contains("Registered"));
 

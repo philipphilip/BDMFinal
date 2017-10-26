@@ -4,8 +4,6 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
-import helpers.Helper;
-
 public class ApplicationPage extends BaseClass {
 
 	public ApplicationPage(WebDriver driver) {

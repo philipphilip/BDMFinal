@@ -36,7 +36,7 @@ public class FillRNForm {
 		CoreRNPage.applicant2DateSubmittedYear.sendKeys("2017");
 		CoreRNPage.typeOfRelationship.sendKeys("Domestic");
 		CoreRNPage.applicant1FamilyName.sendKeys("Auto" + applicant1FamilyName);
-		CoreRNPage.applicant1FamilyNameAtBirth.sendKeys("Auto" + applicant1FamilyName);
+		CoreRNPage.applicant1FamiliyNameSameAsBirth.sendKeys("Yes");
 		CoreRNPage.applicant1FirstName.sendKeys("Auto" + applicant1GivenName);
 		CoreRNPage.applicant1Sex.sendKeys("Male");
 		CoreRNPage.applicant1BirthDay.sendKeys("01");
@@ -52,11 +52,11 @@ public class FillRNForm {
 		CoreRNPage.applicant1Phone.sendKeys("0454545450");
 		CoreRNPage.applicant1Parent1Type.sendKeys("Mother");
 		CoreRNPage.applicant1Parent1FamilyName.sendKeys("Auto" + applicant1FamilyName);
-		CoreRNPage.applicant1Parent1FamilyNameAtBirth.sendKeys("Auto" + applicant1FamilyName);
+		CoreRNPage.applicant1Parent1FamilyNameSameAsBirth.sendKeys("Yes");
 		CoreRNPage.applicant1Parent1FirstName.sendKeys("Auto" + applicant1MotherFirstName);
 		CoreRNPage.applicant1Parent2Type.sendKeys("Father");
 		CoreRNPage.applicant1Parent2FamilyName.sendKeys("Auto" + applicant1FamilyName);
-		CoreRNPage.applicant1Parent2FamilyNameAtBirth.sendKeys("Auto" + applicant1FamilyName);
+		CoreRNPage.applicant1Parent2FamilyNameSameAsBirth.sendKeys("Yes");
 		CoreRNPage.applicant1Parent2FirstName.sendKeys("Auto" + applicant1FatherFirstName);
 		CoreRNPage.applicant1DateOfRelationshipDay.sendKeys("01");
 		CoreRNPage.applicant1DateOfRelationshipMonth.sendKeys("01");
@@ -67,9 +67,8 @@ public class FillRNForm {
 		CoreRNPage.applicant2ContactFamilyName.sendKeys("Auto" + applicant2FamilyName);
 		CoreRNPage.applicant2ContactFirstName.sendKeys("Auto" + applicant2FirstName);
 		CoreRNPage.applicant2ContactPhone.sendKeys("0454545450");
-		CoreRNPage.applicant1HowPoiVerified.sendKeys("DPOI");
 		CoreRNPage.applicant2FamilyName.sendKeys("Auto" + applicant2FamilyName);
-		CoreRNPage.applicant2FamilyNameAtBirth.sendKeys("Auto" + applicant2FamilyName);
+		CoreRNPage.applicant2FamilyNameSameAsBirth.sendKeys("Yes");
 		CoreRNPage.applicant2FirstName.sendKeys("Auto" + applicant2FirstName);
 		CoreRNPage.applicant2Sex.sendKeys("Female");
 		CoreRNPage.applicant2BirthDay.sendKeys("01");
@@ -85,26 +84,13 @@ public class FillRNForm {
 		CoreRNPage.applicant2Phone.sendKeys("0454545450");
 		CoreRNPage.applicant2Parent1Type.sendKeys("Mother");
 		CoreRNPage.applicant2Parent1FamilyName.sendKeys("Auto" + applicant2FamilyName);
-		CoreRNPage.applicant2Parent1FamilyNameAtBirth.sendKeys("Auto" + applicant2FamilyName);
+		CoreRNPage.applicant2Parent1FamilyNameSameAsBirth.sendKeys("Yes");
 		CoreRNPage.applicant2Parent1FirstName.sendKeys("Auto" + applicant2MotherFirstName);
 		CoreRNPage.applicant2Parent2Type.sendKeys("Father");
 		CoreRNPage.applicant2Parent2FamilyName.sendKeys("Auto" + applicant2FamilyName);
-		CoreRNPage.applicant2Parent2FamilyNameAtBirth.sendKeys("Auto" + applicant2FamilyName);
+		CoreRNPage.applicant2Parent2FamlyNameSameAsBirth.sendKeys("Yes");
 		CoreRNPage.applicant2Parent2FirstName.sendKeys("Auto" + applicant2FatherFirstName);
-		CoreRNPage.applicant2DateOfRelationshipDay.sendKeys("01");
-		CoreRNPage.applicant2DateOfRelationshipMonth.sendKeys("01");
-		CoreRNPage.applicant2DateOfRelationshipYear.sendKeys("2015");
-		CoreRNPage.applicant2RelCelebrationDay.sendKeys("01");
-		CoreRNPage.applicant2RelCelebrationMonth.sendKeys("01");
-		CoreRNPage.applicant2RelCelebrationYear.sendKeys("2015");
-		CoreRNPage.applicant2HowPoiVerified.sendKeys("DPOI");
 		CoreControls.validateForm();
 		CoreControls.overrideExceptionsOnform();
-//		CoreControls.actionList.sendKeys("Match to Application");
-//		Helper.clickItem(CoreControls.go);
-//		Thread.sleep(3000);
-//		Helper.clickItem(CoreControls.firstRadioButtonMatch);
-//		Helper.clickItem(CoreControls.matchButton);
-//		Thread.sleep(3000);
 	}
 }
