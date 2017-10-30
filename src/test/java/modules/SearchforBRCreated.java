@@ -18,7 +18,7 @@ public class SearchforBRCreated {
 		Helper.clickItem(CoreControls.birthRegistrationSearch);
 		CoreSearchBirthsPage.childFamilyName.sendKeys("Automated" + FillNOBForm.randChildFamilyName);
 		Helper.clickItem(CoreControls.searchButton);
-		Thread.sleep(2000);
+		Thread.sleep(5000);
 		boolean thereAreSearchResults = CoreSearchBirthsPage.childFamilyNameInSeachResults.isDisplayed();
 		Assert.assertTrue("There are no Search results matching the Birth Registration", thereAreSearchResults);
 		nameInSearch = CoreSearchBirthsPage.childFamilyNameInSeachResults.getText();

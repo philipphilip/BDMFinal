@@ -44,20 +44,22 @@ public class FillDCApplicationForm {
 		ApplicationPage.deliveryAddressCopyFrom.sendKeys("Smith");
 		Helper.clickItem(CoreControls.nextButton);
 		ApplicationPage.matchType.sendKeys("Detailed Criteria");
-		ApplicationPage.dateOfDeathTypeDay.sendKeys("12");
-		ApplicationPage.dateOfDeathTypeMonth.sendKeys("05");
+		ApplicationPage.dateOfDeathTypeDay.sendKeys("30");
+		ApplicationPage.dateOfDeathTypeMonth.sendKeys("07");
 		ApplicationPage.dateOfDeathTypeYear.sendKeys("2017");
-		ApplicationPage.deathDetailsFamilyName.sendKeys("adsfa");
-		ApplicationPage.deathDetailsFamilyNameAtBirth.sendKeys("adsfa");
-		ApplicationPage.deathDetailsGivenNames.sendKeys("asdfas");
-		ApplicationPage.placeOfDeathSuburbTownCity.sendKeys("Melbourne");
+		ApplicationPage.deathDetailsFamilyName.sendKeys("automate" + FillCODForm.randDeceasedFamilyName);
+		ApplicationPage.deathDetailsFamilyNameAtBirth.sendKeys("automate" + FillCODForm.randDeceasedFamilyName);
+		ApplicationPage.deathDetailsGivenNames.sendKeys("automate" + FillCODForm.randDeceasedFirstName);
+		ApplicationPage.placeOfDeathSuburbTownCity.sendKeys("Wollongong");
 		Helper.clickItem(CoreControls.nextButton);
-		Helper.clickItem(ApplicationPage.noMatchButton);
-		// ApplicationPage.validateform();
-		CoreControls.validateForm();
+		CoreControls.matchToFirstRadioButton();
+		// Helper.clickItem(ApplicationPage.noMatchButton);
+		// CoreControls.validateForm();
 		Helper.clickItem(CoreControls.nextButton);
 		Helper.clickItem(CoreControls.submitButton);
+		Thread.sleep(3000);
 		String successMessage = ApplicationPage.successMessage.getText();
+		System.out.println(successMessage);
 		Assert.assertTrue("Application for death certificate Failed", successMessage.contains("successfully saved"));
 	}
 }

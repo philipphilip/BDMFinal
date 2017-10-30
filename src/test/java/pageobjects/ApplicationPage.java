@@ -145,10 +145,7 @@ public class ApplicationPage extends BaseClass {
 	@FindBy(xpath = ".//*/input[@value='No matches']")
 	public static WebElement noMatchButton;
 
-	// @FindBy(xpath = ".//*/input[@value='Submit Application']")
-	// public static WebElement submitApplication;
-
-	@FindBy(xpath = ".//*/div[@class='alert-full']/alert/div")
+	@FindBy(xpath = ".//*//div[contains(text(), 'successfully')]")
 	public static WebElement successMessage;
 
 	@FindBy(xpath = ".//div[contains(text(), 'You may now proceed.')]")
@@ -156,9 +153,6 @@ public class ApplicationPage extends BaseClass {
 
 	@FindBy(xpath = ".//*[@id='error-message']/div/div")
 	public static WebElement errorBaner;
-
-	// @FindBy(xpath = ".//th[1]/input")
-	// public static WebElement validateCheckBox;
 
 	@FindBy(xpath = ".//input[@value='Override']")
 	public static WebElement overrideButton;
@@ -315,22 +309,4 @@ public class ApplicationPage extends BaseClass {
 
 	@FindBy(xpath = ".//*/table/tbody/tr/th[1]")
 	public static WebElement clickOnTable;
-
-	// public static void validateform() throws Throwable {
-	// Thread.sleep(3000);
-	// boolean formHasErrors = errorBaner.getText().equals("There are validation
-	// errors in your application.");
-	// if (formHasErrors) {
-	// Helper.clickItem(validateCheckBox);
-	// Helper.clickItem(overrideButton);
-	// Thread.sleep(3000);
-	// acceptionReason.sendKeys("Court Order");
-	// reasonComment.sendKeys("any reason");
-	// overrideButton2.click();
-	// System.out.println("There were validation errors that got overridden");
-	// } else {
-	// System.out.println("There are no validation errors");
-	// }
-	// }
-
 }

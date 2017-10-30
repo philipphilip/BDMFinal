@@ -21,10 +21,10 @@ public class CoreNobPage extends BaseClass {
 
 	@FindBy(id = "birthMothersDetails-name-familyName")
 	public static WebElement mothersFamilyName;
-	
+
 	@FindBy(id = "birthMothersDetails-name-familyNameSameToFamilyNameAtBirth")
 	public static WebElement mothersFamilyNameSameAsBirth;
-	
+
 	@FindBy(id = "birthMothersDetails-name-familyNameAtBirth")
 	public static WebElement mothersFamilyNameAtBirth;
 
@@ -47,7 +47,7 @@ public class CoreNobPage extends BaseClass {
 	public static WebElement aboriginal_or_torres_strait_islander_origin;
 
 	@FindBy(xpath = ".//*/a[contains(text(),'of Birth')]")
-	WebElement contry;
+	public static WebElement contry;
 
 	@FindBy(id = "birthMothersDetails-residentialAddress-line1")
 	public static WebElement street_and_number;
@@ -59,7 +59,7 @@ public class CoreNobPage extends BaseClass {
 	public static WebElement suburb;
 
 	@FindBy(id = ".//*/a[contains(text(),'of Birth')]")
-	WebElement state_territoty;
+	public static WebElement state_territoty;
 
 	@FindBy(xpath = "//*/input[@id='birthMothersDetails-residentialAddress-postcode']")
 	public static WebElement postcode;
@@ -87,13 +87,13 @@ public class CoreNobPage extends BaseClass {
 
 	@FindBy(id = "birthDetails-childsDetails-bornAlive")
 	public static WebElement chiled_born_alive;
-	
+
 	@FindBy(id = "birthDetails-childsDetails-gestationPeriod")
 	public static WebElement gestationPeriod;
 
 	@FindBy(id = "birthDetails-childsDetails-weight")
 	public static WebElement weight;
-				  
+
 	@FindBy(id = "birthDetails-childsDetails-multipleBirth")
 	public static WebElement multiple_Birth;
 
@@ -118,39 +118,18 @@ public class CoreNobPage extends BaseClass {
 	@FindBy(id = "notifierDetails-name-firstGivenName")
 	public static WebElement notifier_given_name;
 
-//	@FindBy(id = ".//*/a[contains(text(),'of Birth')]")
-//	public static WebElement notifier_country;
-//
-//	@FindBy(id = ".//*/a[contains(text(),'of Birth')]")
-//	public static WebElement notifier_address_line_one;
-//
-//	@FindBy(id = ".//*/a[contains(text(),'of Birth')]")
-//	public static WebElement notifier_address_line_two;
-//
-//	@FindBy(id = ".//*/a[contains(text(),'of Birth')]")
-//	public static WebElement notifier_suburb_town_city;
-//
-//	@FindBy(id = ".//*/a[contains(text(),'of Birth')]")
-//	public static WebElement notifier_state_territotry;
-//
-//	@FindBy(id = ".//*/a[contains(text(),'of Birth')]")
-//	WebElement notifier_postcode;
-//
-//	@FindBy(id = ".//*/a[contains(text(),'of Birth')]")
-//	WebElement notifier_telephone_no;
-
 	@FindBy(id = "notifierDetails-contactDetails-emailAddress")
 	public static WebElement notifier_email;
 
 	@FindBy(id = ".//*/div[2]/form/input[1]")
-	static WebElement view_errors_button;
+	public static WebElement view_errors_button;
 
 	@FindBy(xpath = ".//*/a[contains(text(),'of Birth')]")
-	WebElement discard_button;
+	public static WebElement discard_button;
 
 	@FindBy(xpath = ".//*/input[1]")
 	public static WebElement back_to_form;
-	
+
 	public static void View_NOB_Form_Errors() {
 		view_errors_button.click();
 	}

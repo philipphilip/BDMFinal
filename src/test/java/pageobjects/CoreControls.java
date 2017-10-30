@@ -93,14 +93,6 @@ public class CoreControls extends BaseClass {
 	@FindBy(id = "actionMenu")
 	public static WebElement actionList;
 
-	// @FindBy(xpath =
-	// "/html/body/app/ng-component/div[2]/main/div/brs-page/override-popup/base-popup/div/div/div/div[2]/div/form/cge-dropdown-ref/div/div[2]/select")
-	// public static WebElement coreBrsReasonCodeList;
-	//
-	// @FindBy(xpath =
-	// "/html/body/app/ng-component/div[2]/main/div/brs-page/override-popup/base-popup/div/div/div/div[2]/div/form/cge-text-area/div/div[2]/cge-wrapped-text-area/textarea")
-	// public static WebElement coreBrsReasonComments;
-
 	@FindBy(xpath = ".//*/input[@value = 'Check For Duplicates']")
 	public static WebElement checkForDuplicatesButton;
 
@@ -131,19 +123,8 @@ public class CoreControls extends BaseClass {
 	@FindBy(xpath = ".//*/a[text()='Application']")
 	public static WebElement application;
 
-//	@FindBy(xpath = ".//matching-panel/div[1]//tr[2]/td[1]/input")
-	@FindBy(xpath = ".//tr[2]/td[1]/input")
+	@FindBy(xpath = ".//*/div[1]//tr[2]/td[1]/input ")
 	public static WebElement firstRadioButtonMatch;
-
-	// @FindBy(xpath =
-	// ".//application-wiz-match-results/div[2]//tr[2]/td[1]/input")
-	// public static WebElement firstRadioButtonMatchApplication;
-	//
-	// @FindBy(xpath = ".//matching-panel//tr[2]/td[1]/input")
-	// public static WebElement firstRadioButtonMatchCON;
-
-	// @FindBy(xpath = ".//input[@value = 'Match with selected Notification']")
-	// public static WebElement matchButtonApplicationCON;
 
 	@FindBy(xpath = ".//input[contains(@value, 'Match with')]")
 	public static WebElement matchButtonApplication;
@@ -153,9 +134,6 @@ public class CoreControls extends BaseClass {
 
 	@FindBy(xpath = ".//*/input[@value='Next']")
 	public static WebElement nextButton;
-
-	// @FindBy(xpath = ".//input[@value = 'Submit Application']")
-	// public static WebElement submitButton;
 
 	@FindBy(xpath = "//*[@id='error-message']/div/div")
 	public static WebElement registrationCreatedMessage;
@@ -296,11 +274,9 @@ public class CoreControls extends BaseClass {
 	}
 
 	public static void matchToFirstRadioButton() throws Throwable {
-		Thread.sleep(2000);
+		Helper.waitFor(firstRadioButtonMatch);
 		firstRadioButtonMatch.click();
 		matchButtonApplication.click();
-		// firstRadioButtonMatchCON.click();
-		// matchButtonApplicationCON.click();
 	}
 
 	public static void proceedDuplicates() throws Throwable {

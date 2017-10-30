@@ -142,6 +142,7 @@ public class BDMForm {
 			driver.get("http://10.22.1.42/epublic/");
 		} else if (website.equals("eRegistry Demo")) {
 			driver.get("http://10.22.1.42/eregistry/");
+
 		}
 		driver.manage().window().maximize();
 	}
@@ -407,20 +408,10 @@ public class BDMForm {
 			FillCOSRegForm.Execute(driver);
 		} else if (formName.equals("BRS for SMS & Email correspondence")) {
 			FillBRSForSMSAndEmailCorrespondenceForm.Execute(driver);
-		} else if (formName.equals("Adoption Notification")){
+		} else if (formName.equals("Adoption Notification")) {
 			FillAdoptionForm.Execute(driver);
 		}
 	}
-
-	// @When("^I view errors on the form \"(.*?)\" form$")
-	// public void i_submit_blank_form(String arg1) throws Throwable {
-	//
-	// if (arg1.equals("NOB")) {
-	// CoreNobPage.View_NOB_Form_Errors();
-	// } else if (arg1.equals("BRS")) {
-	// CoreBrsPage.view_BRS_Form_Errors();
-	// }
-	// }
 
 	@Then("^I search for \"([^\"]*)\" form created in \"([^\"]*)\"$")
 	public void i_search_for_form(String form, String site) throws Throwable {

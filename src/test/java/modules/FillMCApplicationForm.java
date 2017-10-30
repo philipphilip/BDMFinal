@@ -54,9 +54,7 @@ public class FillMCApplicationForm {
 		ApplicationPage.brideDOBMonth.sendKeys("05");
 		ApplicationPage.brideDOBYear.sendKeys("1983");
 		Helper.clickItem(CoreControls.nextButton);
-		// Helper.clickItem(CoreControls.submitButton);
-		Helper.clickItem(ApplicationPage.noMatchButton);
-		Helper.clickItem(CoreControls.nextButton);
+		CoreControls.matchToFirstRadioButton();
 		Helper.clickItem(CoreControls.submitButton);
 	}
 }

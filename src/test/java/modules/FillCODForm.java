@@ -73,7 +73,6 @@ public class FillCODForm {
 		CoreCodPage.medicalPractitionerAHPRANumber.sendKeys("123456");
 		CoreCodPage.DidYouAcquireOrAnticipateAnyBenefitByReasonOfThisDeath.sendKeys("No");
 		Thread.sleep(2000);
-//		CoreControls.editForm();
 		CoreControls.validateForm();
 		Thread.sleep(2000);
 		CoreControls.overrideExceptionsOnform();
