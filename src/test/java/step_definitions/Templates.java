@@ -33,7 +33,7 @@ public class Templates {
 		datamap.add(sampleData);
 	}
 
-	private static String baseURL = "http://10.22.1.200/admin";
+	private static String baseURL = "http://10.22.1.110/admin";
 
 	@Given("^I am on CORE Admin site$")
 	public void i_am_on_CORE_Admin_site() throws Throwable {
@@ -73,9 +73,12 @@ public class Templates {
 			String signatureBlock) throws Throwable {
 		PageFactory.initElements(driver, TemplatesPages.class);
 
-		TemplatesPages.relatedSms.sendKeys(relatedSMS);
-		TemplatesPages.signatureBlock.sendKeys(signatureBlock);
-
+		if (relatedSMS != null) {
+			TemplatesPages.relatedSms.sendKeys(relatedSMS);
+		}
+		if (signatureBlock != null) {
+			TemplatesPages.signatureBlock.sendKeys(signatureBlock);
+		}
 	}
 
 	@When("^I want the letter to have the \"([^\"]*)\" and the Signature Block to be \"([^\"]*)\"$")
@@ -99,17 +102,24 @@ public class Templates {
 			TemplatesPages.templateName.sendKeys(title);
 			TemplatesPages.templateDescription.sendKeys(description);
 			TemplatesPages.subSystem.sendKeys("CBDM Core");
-			TemplatesPages.lifeEvent.sendKeys(lifeEvent);
+			if (lifeEvent != null && lifeEvent.length() > 0) {
+				System.out.println("-------The value of Life Event here is: " + lifeEvent);
+				TemplatesPages.lifeEvent.sendKeys(lifeEvent);
+				Thread.sleep(2000);
+				TemplatesPages.docType.sendKeys(docType);
+			}
 			TemplatesPages.appBeforeSending.sendKeys("No");
-			TemplatesPages.docType.sendKeys(docType);
 
 		} else {
 			TemplatesPages.templateName.sendKeys(title);
 			TemplatesPages.templateDescription.sendKeys(description);
 			TemplatesPages.subSystem.sendKeys("CBDM Core");
 			TemplatesPages.appBeforeSending.sendKeys("No");
-			TemplatesPages.lifeEvent.sendKeys(lifeEvent);
-			TemplatesPages.docType.sendKeys(docType);
+			if (lifeEvent != null && lifeEvent.length() > 0) {
+				TemplatesPages.lifeEvent.sendKeys(lifeEvent);
+				TemplatesPages.docType.sendKeys(docType);
+			}
+			TemplatesPages.appBeforeSending.sendKeys("No");
 
 		}
 	}
@@ -125,6 +135,7 @@ public class Templates {
 		PageFactory.initElements(driver, TemplatesPages.class);
 		Helper.clickItem(TemplatesPages.templateEditorTab);
 		TemplatesPages.emailSubject.sendKeys(emailsubject);
+		System.out.println("----The email subject is: " + emailsubject);
 	}
 
 	@When("^I make the boy text \"([^\"]*)\"$")
