@@ -264,7 +264,7 @@ public class BDMForm {
 			} else if (tab.equals("Create Correspondence Template")) {
 				Helper.waitFor(CoreControls.templateManagement);
 				CoreControls.templateManagement.click();
-				CoreControls.correpondenceTemplatesLink.click();
+				Helper.clickItem(CoreControls.correpondenceTemplatesLink);
 				Helper.clickItem(CoreControls.createNewTemplateButton);
 			}
 		}
