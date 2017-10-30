@@ -33,7 +33,7 @@ public class FillEregistryDrsForm {
 		EregistryDrsPage.residenceLine1.sendKeys("22 station st");
 		EregistryDrsPage.residenceSuburb.sendKeys("ringwood");
 		EregistryDrsPage.residencePostcode.sendKeys("3333");
-		EregistryDrsPage.occupation.sendKeys("Accountant");
+		EregistryDrsPage.occupation.sendKeys("Gardener");
 		EregistryDrsPage.aboriginal.sendKeys("Neither Aboriginal or Torres Strait Islander");
 		EregistryDrsPage.relationship.sendKeys("Married");
 		EregistryDrsPage.relationshipSuburb.sendKeys("ringwood");

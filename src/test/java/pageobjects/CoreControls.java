@@ -225,8 +225,8 @@ public class CoreControls extends BaseClass {
 	@FindBy(xpath = "//button[text()='Select Recipients']")
 	public static WebElement selectRecipientsButton;
 
-	@FindBy(xpath = "//recipients-popup//li[1]/input")
-	public static WebElement recipientFirstCheckBox;
+	@FindBy(xpath = ".//recipients-popup//li[3]/input")
+	public static WebElement recepientCheckBox;
 
 	@FindBy(xpath = "//button[text()='Ok']")
 	public static WebElement okButton;
@@ -257,6 +257,12 @@ public class CoreControls extends BaseClass {
 
 	@FindBy(xpath = "//correspondences-inner-panel//tr[3]/td[6]/div/div")
 	public static WebElement smsStatus;
+	
+	@FindBy(id = "correspondence-comment")
+	public static WebElement approveSendCorrespondenceComment;
+	
+	@FindBy(xpath = ".//correspondence-approve-popup//button[text() = 'Submit']")
+	public static WebElement corroPopupSubmitButton;
 
 	public static void saveForm() throws Exception {
 		actionList.sendKeys("Save");
