@@ -85,37 +85,6 @@ Feature: All Core site testings.
     And I sign in "Core"
     And I navigate to "Adoption Notification" new form
     Then I fill in the "Adoption Notification" form
-
-  Scenario: Submut a Change of Sex Notifications in core
-    Given I open "Core" website
-    And I sign in "Core"
-    And I navigate to "Change of Sex Notification" new form
-    Then I fill in the "Change of Sex" form
-
-  Scenario: Test task creation and closure (Test creation and completion of tasks using NOB)
-    Given I open "Core" website
-    And I sign in "Core"
-    And I navigate to "NOB" new form
-    Then I fill in the "NOB for Tasks" form
-
-  Scenario: Create SMS & Email correspondence templates (Test SMS&EMail correspondence: Create SMS and Email correspondence templates, create BRS and send correspondence using the newly created templates)
-    Given I open "Core Admin UI" website
-    When I sign in "Core Admin UI"
-    And I navigate to "Create Correspondence Template" in "Core Admin UI"
-    Then I can fill and submit the "Create SMS & EMail correspondence templates" form in "Core Admin UI"
-
-  Scenario: Navigate to BRS and fill the form for SMS & Email correspondence
-    Given I open "Core" website
-    And I sign in "Core"
-    And I navigate to "BRS" new form
-    Then I fill in the "BRS for SMS & Email correspondence" form
-
-  Scenario: Create an Internal User in Core Admin UI (Test creation of an internal user: Create an internal user in Core Admin UI)
-    Given I open "Core Admin UI" website
-    When I sign in "Core Admin UI"
-    And I navigate to "Create internal user" in "Core Admin UI"
-    Then I can fill and submit the "Create internal user" form in "Core Admin UI"
-
   #=========================================================================
   #Scenario: Request a Death certificate
     #Given I open "Core Old UI" website

@@ -13,7 +13,7 @@ public class FillBRSForm {
 
 		PageFactory.initElements(driver, CoreBrsPage.class);
 		PageFactory.initElements(driver, CoreControls.class);
-		Helper.waitFor(CoreBrsPage.informant2_emailAddress);
+		Helper.waitFor(CoreBrsPage.whyIsntTheParentOfChildCompletingTheForm);
 		CoreBrsPage.whyIsntTheParentOfChildCompletingTheForm.sendKeys("Parent whereabouts unknown");
 		CoreBrsPage.childs_familyName.sendKeys("Automated" + FillNOBForm.randChildFamilyName);
 
@@ -69,18 +69,31 @@ public class FillBRSForm {
 		CoreBrsPage.dateOfRelationshipRegistrationMonth.sendKeys("10");
 		CoreBrsPage.dateOfRelationshipRegistrationYear.sendKeys("1999");
 		CoreBrsPage.childrenOfThisRelationship_Suburb.sendKeys("Carlton");
-		CoreBrsPage.informant1_relationshipToSubject.sendKeys("Stakeholder");
+		CoreBrsPage.informant1_relationshipToSubject.sendKeys("Other");
+		CoreBrsPage.informant1RelationshipDescription.sendKeys("asdf");
+		CoreBrsPage.informant1_familyName.clear();
 		CoreBrsPage.informant1_familyName.sendKeys("auto" + FillNOBForm.randTextInformnt1_fmlyN);
+		CoreBrsPage.informant1_firstGivenName.clear();
 		CoreBrsPage.informant1_firstGivenName.sendKeys("auto" + FillNOBForm.randTextInformant1_fstGvnN);
+		CoreBrsPage.informant1_DOB_day.clear();
 		CoreBrsPage.informant1_DOB_day.sendKeys("12");
+		CoreBrsPage.informant1_DOB_month.clear();
 		CoreBrsPage.informant1_DOB_month.sendKeys("05");
+		CoreBrsPage.informant1_DOB_year.clear();
 		CoreBrsPage.informant1_DOB_year.sendKeys("1970");
+		CoreBrsPage.informant1_residentialAddress_line1.clear();
 		CoreBrsPage.informant1_residentialAddress_line1.sendKeys("21 Canning st");
+		CoreBrsPage.informant1_residentialAddress_suburb.clear();
 		CoreBrsPage.informant1_residentialAddress_suburb.sendKeys("North Melbounre");
+		CoreBrsPage.informant1_residentialAddress_postcode.clear();
 		CoreBrsPage.informant1_residentialAddress_postcode.sendKeys("3052");
+		CoreBrsPage.informant1_contactAddress_line1.clear();
 		CoreBrsPage.informant1_contactAddress_line1.sendKeys("21 Canning st");
+		CoreBrsPage.informant1_contactAddress_suburb.clear();
 		CoreBrsPage.informant1_contactAddress_suburb.sendKeys("North Melbounre");
+		CoreBrsPage.informant1_contactAddress_postcode.clear();
 		CoreBrsPage.informant1_contactAddress_postcode.sendKeys("3053");
+		CoreBrsPage.informant1_emailAddress.clear();
 		CoreBrsPage.informant1_emailAddress.sendKeys("john.smith@info.com");
 		CoreBrsPage.informant2_relationshipToSubject.sendKeys("Other");
 		CoreBrsPage.informant2RelationshipToSubject.sendKeys("xyz");

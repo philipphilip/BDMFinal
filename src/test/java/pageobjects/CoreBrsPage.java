@@ -328,6 +328,9 @@ public class CoreBrsPage extends BaseClass {
 	@FindBy(id = "informant1Details-relationshipToSubject")
 	public static WebElement informant1_relationshipToSubject;
 
+	@FindBy(id = "informant1Details-relationshipToSubject-descriptioninformant1Details-relationshipToSubject")
+	public static WebElement informant1RelationshipDescription;
+
 	@FindBy(id = "informant1Details-name-familyName")
 	public static WebElement informant1_familyName;
 
