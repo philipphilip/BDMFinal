@@ -13,7 +13,7 @@ public class FillBRSForm {
 
 		PageFactory.initElements(driver, CoreBrsPage.class);
 		PageFactory.initElements(driver, CoreControls.class);
-		Helper.waitFor(CoreBrsPage.informant2_emailAddress);
+		Helper.waitFor(CoreBrsPage.whyIsntTheParentOfChildCompletingTheForm);
 		CoreBrsPage.whyIsntTheParentOfChildCompletingTheForm.sendKeys("Parent whereabouts unknown");
 		CoreBrsPage.childs_familyName.sendKeys("Automated" + FillNOBForm.randChildFamilyName);
 

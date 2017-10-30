@@ -134,6 +134,9 @@ public class EpublicControls extends BaseClass {
 	@FindBy(xpath = ".//p[3]")
 	public static WebElement brsOrderNumber;
 	
+	@FindBy(xpath = ".//p[2]")
+	public static WebElement certOrderNumber;
+	
 	public static void duplicatePayProcess() throws Throwable {
 		try {
 			boolean duplicatePayment = EpublicControls.duplicateCheckBox.isDisplayed();

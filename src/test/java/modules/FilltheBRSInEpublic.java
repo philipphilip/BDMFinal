@@ -61,16 +61,7 @@ public class FilltheBRSInEpublic {
 		Helper.clickItem(EpublicControls.nextButton);		
 		Helper.waitFor(EpublicBrsPage.informantRelationship);
 		EpublicBrsPage.informantRelationship.sendKeys("Parent");
-//		EpublicBrsPage.informantFamilyName.sendKeys("Automated" + brsFamilyName);
-//		EpublicBrsPage.informantGivenName.sendKeys("Automated" + motherFirstName);
-//		EpublicBrsPage.informantDateOfBirth.sendKeys("02/02/1980");
-//		EpublicBrsPage.informantDateOfBirth.sendKeys(Keys.TAB);
-//		Thread.sleep(1000);
-//		EpublicBrsPage.informantAddressLine1.sendKeys("22 station rd");
-//		EpublicBrsPage.informantAddressSuburb.sendKeys("ringwood");
-//		EpublicBrsPage.informantAddressPostcode.sendKeys("3333");
 		Helper.clickItem(EpublicBrsPage.SameAsResidentialAddress);
-//		EpublicBrsPage.informantContactEmail.sendKeys("my@email.com");
 		Helper.clickItem(EpublicControls.continueButton);
 		Helper.clickItem(EpublicControls.closeButton);
 		Helper.clickItem(EpublicControls.proceedButtonOnBRS);
@@ -87,9 +78,9 @@ public class FilltheBRSInEpublic {
 //		Wait for the Westpac bank payments page to load
 		EpublicControls.payNowProcess();
 		
-		Thread.sleep(5000);
+		Thread.sleep(1000);
 		Helper.clickItem(EpublicControls.submitInPersonButton);
-				
+		Thread.sleep(1000);
 		String confirmationNumber;
 		Helper.waitFor(EpublicControls.brsCompletionBanner);
 		confirmationNumber = EpublicControls.brsCompletionBanner.getText();
