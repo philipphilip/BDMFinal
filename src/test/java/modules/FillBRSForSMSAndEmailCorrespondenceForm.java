@@ -50,7 +50,7 @@ public class FillBRSForSMSAndEmailCorrespondenceForm {
 		CoreBrsPage.parent2ParticipationDetails_familyName.sendKeys("Smith");
 		CoreBrsPage.parent2ParticipationDetails_firstGivenName.sendKeys("Automated" + FillNOBForm.randparent2FirstName);
 		CoreBrsPage.parent2ParticipationDetails_emailAddress.sendKeys("billing@test.com");
-		CoreBrsPage.isThereADisputeOfParentage.sendKeys("Yes");
+		CoreBrsPage.secondParentAgreeWtihParentage.sendKeys("Yes");
 		CoreBrsPage.isThereADisputeOfChildsName.sendKeys("No");
 		CoreBrsPage.parent2_recordAs.sendKeys("Father");
 		CoreBrsPage.parent2_familyName.sendKeys("Automated" + FillNOBForm.randChildFamilyName);

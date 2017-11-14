@@ -31,7 +31,7 @@ public class FillNOBForm {
 		CoreNobPage.mothersDOBDay.sendKeys("25");
 		CoreNobPage.mothersDOBMonth.sendKeys("12");
 		CoreNobPage.mothersDOBYear.sendKeys("1989");
-		CoreNobPage.aboriginal_or_torres_strait_islander_origin.sendKeys("Decline to reply");
+		CoreNobPage.aboriginal_or_torres_strait_islander_origin.sendKeys("Not Stated");
 		CoreNobPage.street_and_number.sendKeys("12");
 		CoreNobPage.address_line_two.sendKeys("Canning st");
 		CoreNobPage.suburb.sendKeys("North Melbourne");
@@ -42,6 +42,7 @@ public class FillNOBForm {
 		CoreNobPage.chiled_time_of_birth.sendKeys("9:59");
 		CoreNobPage.chiled_sex_at_birth.sendKeys("male");
 		CoreNobPage.chiled_born_alive.sendKeys("Yes");
+		CoreNobPage.weight.sendKeys("3300");
 		CoreNobPage.multiple_Birth.sendKeys("Yes");
 		CoreNobPage.birthOrder.sendKeys("1");
 		CoreNobPage.birthOrderOf.sendKeys("2");

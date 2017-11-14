@@ -26,10 +26,10 @@ public class FillDCApplicationForm {
 		ApplicationPage.reasonCertificateIsRequired.sendKeys("Administration");
 		ApplicationPage.productCode.sendKeys("DRS");
 		Thread.sleep(1000);
-		ApplicationPage.relationshipToSubject.sendKeys("Child");
 		ApplicationPage.productCode.sendKeys("DS1");
 		ApplicationPage.productDetailsTemplate.sendKeys("DR Certificate");
 		Helper.clickItem(CoreControls.nextButton);
+		ApplicationPage.relationshipToSubject.sendKeys("Parent");
 		ApplicationPage.applicantFamilyName.sendKeys("Smith");
 		ApplicationPage.applicantGivenName.sendKeys("asdfa");
 		ApplicationPage.applicantDOBDay.sendKeys("14");
@@ -48,13 +48,11 @@ public class FillDCApplicationForm {
 		ApplicationPage.dateOfDeathTypeMonth.sendKeys("07");
 		ApplicationPage.dateOfDeathTypeYear.sendKeys("2017");
 		ApplicationPage.deathDetailsFamilyName.sendKeys("automate" + FillCODForm.randDeceasedFamilyName);
-		ApplicationPage.deathDetailsFamilyNameAtBirth.sendKeys("automate" + FillCODForm.randDeceasedFamilyName);
+		ApplicationPage.deathDetailsIsFamilyNameSameAtBirth.sendKeys("Yes");
+		// ApplicationPage.deathDetailsFamilyNameAtBirth.sendKeys("automate" + FillCODForm.randDeceasedFamilyName);
 		ApplicationPage.deathDetailsGivenNames.sendKeys("automate" + FillCODForm.randDeceasedFirstName);
 		ApplicationPage.placeOfDeathSuburbTownCity.sendKeys("Wollongong");
-		Helper.clickItem(CoreControls.nextButton);
 		CoreControls.matchToFirstRadioButton();
-		// Helper.clickItem(ApplicationPage.noMatchButton);
-		// CoreControls.validateForm();
 		Helper.clickItem(CoreControls.nextButton);
 		Helper.clickItem(CoreControls.submitButton);
 		Thread.sleep(3000);

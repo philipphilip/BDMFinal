@@ -21,16 +21,12 @@ public class FillBCApplicationForm {
 		ApplicationPage.dateReceivedAtRegistry.sendKeys(Keys.TAB);
 		Thread.sleep(1000);
 		ApplicationPage.productCode.sendKeys("BS1");
-		System.out.println("Product 'Birth Standard 1' selected");
 		Thread.sleep(1000);
-		ApplicationPage.reasonCertificateIsRequired.sendKeys("Administration");
-		ApplicationPage.productCode.sendKeys("BRS");
+		ApplicationPage.reasonCertificateIsRequired.sendKeys("Legal");
 		Thread.sleep(1000);
-		ApplicationPage.relationshipToSubject.sendKeys("Parent 1");
-		ApplicationPage.productCode.sendKeys("BS1");
-		ApplicationPage.productDetailsTemplate.sendKeys("BR Certificate");
-		System.out.println("Certificate Template 'BR Certificate' selected");
+		ApplicationPage.productDetailsTemplate.sendKeys("Birth-Tan-test");
 		CoreControls.nextButton.click();
+		ApplicationPage.relationshipToSubject.sendKeys("Child");
 		ApplicationPage.applicantFamilyName.sendKeys("Automated" + FillNOBForm.randChildFamilyName);
 		ApplicationPage.applicantGivenName.sendKeys("Automated" + FillNOBForm.randparent1FirstName);
 		ApplicationPage.applicantDOBDay.sendKeys("25");
@@ -41,43 +37,18 @@ public class FillBCApplicationForm {
 		ApplicationPage.applicantAddressPostcode.sendKeys("3000");
 		ApplicationPage.applicantPhoneNumber.sendKeys("0456487956");
 		Helper.clickItem(CoreControls.nextButton);
-		ApplicationPage.deliveryMethod.sendKeys("StandardPOST");
-		ApplicationPage.deliveryAddressCopyFrom.sendKeys("Automated" + FillNOBForm.randChildFamilyName);
-		Helper.clickItem(CoreControls.nextButton);
 		ApplicationPage.matchType.sendKeys("Detailed Criteria");
 		ApplicationPage.dateOfBirthDay.sendKeys("01");
 		ApplicationPage.dateOfBirthMonth.sendKeys("08");
 		ApplicationPage.dateOfBirthYear.sendKeys("2017");
+		ApplicationPage.placeOfBirthSuburbTownCity.sendKeys("Armidale");
 		ApplicationPage.birthDetailsFamilyName.sendKeys("Automated" + FillNOBForm.randChildFamilyName);
 		ApplicationPage.birthDetailsGivenName.sendKeys("Automated" + FillNOBForm.randChildFirstName);
-		ApplicationPage.placeOfBirthSuburbTownCity.sendKeys("Armidale");
 		Helper.clickItem(CoreControls.nextButton);
 		Helper.clickItem(ApplicationPage.clickOnTable);
-		Helper.clickItem(CoreControls.noMatchButton);
 		Helper.clickItem(CoreControls.submitButton);
-		System.out.println("Application Submitted");
 		Thread.sleep(3000);
 		String successMessage = ApplicationPage.successMessage.getText();
 		Assert.assertTrue("Application for birth certificate Failed", successMessage.contains("successfully saved"));
-		Helper.clickItem(ApplicationPage.createTransactionButton);
-		System.out.println("Create Transaction initiated");
-		Helper.waitFor(ApplicationPage.paidCheckbox);
-		ApplicationPage.paidCheckbox.sendKeys(Keys.SPACE);
-//		// THIS PART OF CODE IS ADDED TO FAIL THE TEST AS PAYMENT GATEWAY IS NOT
-//		// AVAILABLE
-//		String checkBoxText = ApplicationPage.paidCheckbox.getText();
-//		Assert.assertTrue("Payment gateway is inactive", checkBoxText.contains("REMOVE"));
-//		// END OF CODE TO FAIL TEST AS PAYMENT GATEWAY IS NOT AVAILABLE
-		Helper.clickItem(ApplicationPage.saveTransactionButton);
-		Thread.sleep(3000);
-		CoreControls.printForm();
-		// Thread.sleep(3000);
-		Helper.clickItem(ApplicationPage.generateCertificateButton);
-		// Thread.sleep(3000);
-		Helper.clickItem(ApplicationPage.printCertificateButton);
-		System.out.println("Print form has initiated successfully");
-		Thread.sleep(3000);
-		String pageHeader = ApplicationPage.pageHeader.getText();
-		Assert.assertTrue("Printing the certificate failed", pageHeader.contains("Application"));
 	}
 }

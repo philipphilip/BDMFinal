@@ -22,17 +22,18 @@ public class FillCODForm {
 		CoreCodPage.familyNameSameToFamilyNameAtBirth.sendKeys("Yes");
 		CoreCodPage.deceasedfirstName.sendKeys("automate" + randDeceasedFirstName);
 		CoreCodPage.sex.sendKeys("Male");
-		CoreCodPage.aboriginalOrTorresStraitIslanderOrigin.sendKeys("Decline to Reply");
+		CoreCodPage.aboriginalOrTorresStraitIslanderOrigin.sendKeys("Not Stated");
 		CoreCodPage.howDidYouConfirmTheNameOfTtheDeceased.sendKeys("Medical Records");
 		CoreCodPage.dateOfBirthType.sendKeys("On");
 		CoreCodPage.deceasedDOBDay.sendKeys("12");
 		CoreCodPage.deceasedDOBMonth.sendKeys("03");
 		CoreCodPage.deceasedDOBYear.sendKeys("1980");
-		CoreCodPage.mothersFamilyName.sendKeys("automate" + randDeceasedFamilyName);
-		CoreCodPage.mothersFirstName.sendKeys("automate" + randparentOneGivenName);
-		CoreCodPage.mothersDOBDay.sendKeys("02");
-		CoreCodPage.mothersDOBMonth.sendKeys("02");
-		CoreCodPage.mothersDOBYear.sendKeys("1945");
+		// CoreCodPage.mothersFamilyName.sendKeys("automate" + randDeceasedFamilyName);
+		// CoreCodPage.mothersFirstName.sendKeys("automate" +
+		// randparentOneGivenName);
+		// CoreCodPage.mothersDOBDay.sendKeys("02");
+		// CoreCodPage.mothersDOBMonth.sendKeys("02");
+		// CoreCodPage.mothersDOBYear.sendKeys("1945");
 		CoreCodPage.dateOfDeathDay.sendKeys("30");
 		CoreCodPage.dateOfDeathMonth.sendKeys("07");
 		CoreCodPage.dateOfDeathYear.sendKeys("2017");

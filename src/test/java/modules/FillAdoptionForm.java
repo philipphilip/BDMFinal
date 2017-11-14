@@ -70,7 +70,7 @@ public class FillAdoptionForm {
 		AdoptionPage.memoValidated.sendKeys("Yes");
 		CoreControls.validateForm();
 		CoreControls.overrideExceptionsOnform();
-		Thread.sleep(2000);
+		Thread.sleep(5000);
 		String banermessage = CoreControls.successMessage.getText();
 		Assert.assertTrue("Error Baner is not saying BR created",
 				banermessage.equals("This Birth Registration has been successfully registered."));

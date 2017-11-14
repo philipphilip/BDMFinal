@@ -47,7 +47,7 @@ public class FillCONForm {
 		CoreCONPage.relationshipToSubject.sendKeys("Parent 1");
 		CoreCONPage.relationshipToSubject.sendKeys("jaslkfjs");
 		CoreCONPage.declarationFromApplicant.sendKeys("Yes");
-		CoreCONPage.rightToResideInAus.sendKeys("Australian Citizenship Certificate");
+		// CoreCONPage.rightToResideInAus.sendKeys("Australian Citizenship Certificate");
 		CoreCONPage.isGuarantorNeeded.sendKeys("No");
 		CoreControls.validateForm();
 		CoreControls.overrideExceptionsOnform();

@@ -34,7 +34,7 @@ public class ApplicationPage extends BaseClass {
 	@FindBy(id = "applicantDetails-applicantDetails-familyName")
 	public static WebElement applicantFamilyName;
 
-	@FindBy(id = "applicantDetails-applicantDetails-givenNames")
+	@FindBy(id = "applicantDetails-applicantDetails-firstGivenName")
 	public static WebElement applicantGivenName;
 
 	@FindBy(id = "applicantDetails-applicantDetails-dateOfBirth-day")
@@ -130,13 +130,16 @@ public class ApplicationPage extends BaseClass {
 	@FindBy(id = "subjectDetails-marriageBrideDetails-dateOfBirth-on-year")
 	public static WebElement brideDOBYear;
 
-	@FindBy(id = "subjectDetails-subjectDeathDetails-familyName")
+	@FindBy(id = "subjectDetails-subjectDeathDetails-familyNamedeathSubjectName")
 	public static WebElement deathDetailsFamilyName;
+
+	@FindBy(id = "subjectDetails-subjectDeathDetails-familyNameSameToFamilyNameAtBirthdeathSubjectName")
+	public static WebElement deathDetailsIsFamilyNameSameAtBirth;
 
 	@FindBy(id = "subjectDetails-subjectDeathDetails-familyNameAtBirth")
 	public static WebElement deathDetailsFamilyNameAtBirth;
 
-	@FindBy(id = "subjectDetails-subjectDeathDetails-givenNames")
+	@FindBy(id = "subjectDetails-subjectDeathDetails-firstGivenNamedeathSubjectName")
 	public static WebElement deathDetailsGivenNames;
 
 	@FindBy(id = "subjectDetails-subjectDeathDetails-placeOfDeathSuburbTownCity")
@@ -175,10 +178,10 @@ public class ApplicationPage extends BaseClass {
 	@FindBy(id = "subjectDetails-dateOfEvent-dateOfBirth-on-year")
 	public static WebElement dateOfBirthYear;
 
-	@FindBy(id = "subjectDetails-subjectBirthDetails-familyName")
+	@FindBy(id = "subjectDetails-subjectBirthDetails-familyNamebirthSubjectName")
 	public static WebElement birthDetailsFamilyName;
 
-	@FindBy(id = "subjectDetails-subjectBirthDetails-givenNames")
+	@FindBy(id = "subjectDetails-subjectBirthDetails-firstGivenNamebirthSubjectName")
 	public static WebElement birthDetailsGivenName;
 
 	@FindBy(id = "subjectDetails-subjectBirthDetails-placeOfBirthSuburbTownCity")
