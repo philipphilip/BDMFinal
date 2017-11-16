@@ -9,7 +9,6 @@ import helpers.Helper;
 import pageobjects.CoreBrsPage;
 import pageobjects.CoreControls;
 
-
 public class FillBRSForSMSAndEmailCorrespondenceForm {
 
 	public static void Execute(WebDriver driver) throws Throwable {
@@ -98,7 +97,7 @@ public class FillBRSForSMSAndEmailCorrespondenceForm {
 		CoreBrsPage.informant1_emailAddress.sendKeys("vybhav.madadi@objectconsulting.com.au");
 		CoreBrsPage.informant1_telephoneNo.clear();
 		CoreBrsPage.informant1_telephoneNo.sendKeys("+61450043234");
-		CoreBrsPage.informant2_relationshipToSubject.sendKeys("Parent 2");
+		CoreBrsPage.informant2RelationshipToSubject.sendKeys("Parent 2");
 		CoreBrsPage.informant2_familyName.clear();
 		CoreBrsPage.informant2_familyName.sendKeys("auto" + FillNOBForm.randTextInformant2_fmlyN);
 		CoreBrsPage.informant2_firstGivenName.clear();
@@ -135,27 +134,27 @@ public class FillBRSForSMSAndEmailCorrespondenceForm {
 		Helper.clickItem(CoreControls.okButton);
 		Thread.sleep(1000);
 		CoreControls.correspondenceSubject.sendKeys("Test SMS & Email correspondence: please ignore");
-		CoreControls.template.sendKeys("AUTO-"+FillSMSEmailCorrespondenceForm.tempName+"-EMAIL");
+		CoreControls.template.sendKeys("AUTO-" + FillSMSEmailCorrespondenceForm.tempName + "-EMAIL");
 		Helper.clickItem(CoreControls.loadTemplateButton);
 		Thread.sleep(1000);
 		Helper.clickItem(CoreControls.approveAndSendButton);
 		Helper.clickItem(CoreControls.corroPopupSubmitButton);
-		
+
 		Thread.sleep(2000);
 		String correspondenceConfirmation = CoreControls.errorBaner.getText();
 		Assert.assertTrue("Correspondence was not sent", correspondenceConfirmation.equals("Correspondence sent."));
-		
+
 		Thread.sleep(2000);
-		
+
 		Helper.clickItem(CoreControls.correspondencesTab);
 		Helper.clickItem(CoreControls.expandCorrespondenceSent);
-		
-//		Thread.sleep(2000);
+
+		// Thread.sleep(2000);
 		Helper.waitFor(CoreControls.emailStatus);
 		String emailStatus = CoreControls.emailStatus.getText();
 		Assert.assertTrue("Email correspondence failed.", emailStatus.equals("Sent"));
 		System.out.println("Email correspondence was sent successfully");
-		
+
 		String smsStatus = CoreControls.smsStatus.getText();
 		Assert.assertTrue("SMS correspondence failed.", smsStatus.equals("Sent"));
 		System.out.println("SMS correspondence was sent successfully");
