@@ -11,7 +11,6 @@ public class GoToBRSForm {
 		CoreControls.clickNewTab();
 		Helper.clickItem(CoreControls.newBirth);
 		Helper.clickItem(CoreControls.newBRS);
-
 	}
 
 }

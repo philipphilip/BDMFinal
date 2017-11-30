@@ -198,7 +198,8 @@ public class MNPage extends BaseClass {
 
 	@FindBy(id = "partiesIdentification-groomsIdentification-documentNumber")
 	public static WebElement groomsIdentificationDocumentNumber;
-
+	
+	
 	@FindBy(id = "partiesIdentification-groomsIdentification-issueOfDocumentsS425a")
 	public static WebElement groomsIdentificationIssueOfDocumentsS425a;
 

@@ -6,6 +6,7 @@ import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
 
+import helpers.Helper;
 import pageobjects.AdoptionPage;
 import pageobjects.CoreControls;
 
@@ -21,6 +22,8 @@ public class FillAdoptionForm {
 	public static void Execute(WebDriver driver) throws Throwable {
 
 		PageFactory.initElements(driver, AdoptionPage.class);
+
+		Helper.waitFor(AdoptionPage.dateReceivedAtRegistry);
 		AdoptionPage.dateReceivedAtRegistry.clear();
 		AdoptionPage.dateReceivedAtRegistry.sendKeys("04/03/1999");
 		AdoptionPage.dateReceivedAtRegistry.sendKeys(Keys.TAB);
@@ -67,8 +70,9 @@ public class FillAdoptionForm {
 		AdoptionPage.memoValidated.sendKeys("Yes");
 		CoreControls.validateForm();
 		CoreControls.overrideExceptionsOnform();
-		Thread.sleep(2000);
+		Thread.sleep(5000);
 		String banermessage = CoreControls.successMessage.getText();
-		Assert.assertTrue("Error Baner is not saying BR created", banermessage.equals("This Birth Registration has been successfully registered."));
+		Assert.assertTrue("Error Baner is not saying BR created",
+				banermessage.equals("This Birth Registration has been successfully registered."));
 	}
 }

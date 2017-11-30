@@ -12,5 +12,6 @@ public class GoToNOBForm {
 		Helper.clickItem(CoreControls.newBirth);
 		Helper.clickItem(CoreControls.newNOB);
 
+
 	}
 }

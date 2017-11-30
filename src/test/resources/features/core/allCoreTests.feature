@@ -17,8 +17,8 @@ Feature: All Core site testings.
 #    And I login "Core" as user "Carl.Ruz" password "oSWCjm1vvCjOHnrniMAW"
     And I navigate to "BRS" new form
     Then I fill in the "BRS" form
-
-  Scenario: Check the automatic creation of Birth Registration
+#
+  Scenario: Search for a Birth Registration
     Given I open "Core" website
     And I sign in "Core"
     Then I fill in the "BR" form
@@ -47,60 +47,59 @@ Feature: All Core site testings.
     And I sign in "Core"
     Then I fill in the "DR" form
 
-  Scenario: Request a Death certificate
-    Given I open "Core" website
-    And I sign in "Core"
-    And I navigate to "Application" new form
-    Then I fill in the "Death Application" form
-
-  Scenario: Navigate to Marriage page and fill the form
-    Given I open "Core" website
-    And I sign in "Core"
-    And I navigate to "MN" new form
-    Then I fill in the "MN" form
-
-  Scenario: Create a Marriage Registratio
-    Given I open "Core" website
-    And I login "Core" as user "admin2" password "Friday17"
-#    And I login "Core" as user "Carl.Ruz" password "oSWCjm1vvCjOHnrniMAW"
-    Then I fill in the "MR" form
-
-  Scenario: Request a Marriage Certificate
-    Given I open "Core" website
-    And I sign in "Core"
-    And I navigate to "Application" new form
-    Then I fill in the "Marriage Certificate request" form
-
+  #Scenario: Request a Death certificate
+    #Given I open "Core" website
+    #And I sign in "Core"
+    #And I navigate to "Application" new form
+    #Then I fill in the "Death Application" form
+#
+  #Scenario: Navigate to Marriage page and fill the form
+    #Given I open "Core" website
+    #And I sign in "Core"
+    #And I navigate to "MN" new form
+    #Then I fill in the "MN" form
+#
+  #Scenario: Create a Marriage Registratio
+    #Given I open "Core" website
+    #And I login "Core" as user "admin2" password "Friday17"
+    #Then I fill in the "MR" form
+#
+  #Scenario: Request a Marriage Certificate
+    #Given I open "Core" website
+    #And I sign in "Core"
+    #And I navigate to "Application" new form
+    #Then I fill in the "Marriage Certificate request" form
+#
   #Scenario: Sign in as a Admin and create a Product
     #Given I open "Core Admin UI" website
     #When I sign in "Core Admin UI"
     #And I navigate to "New Product" new form
     #Then I fill in the "New Product" form
-
-  Scenario: Submut a Change of Name Notifications in core
-    Given I open "Core" website
-    And I sign in "Core"
-    And I navigate to "Change of Name" new form
-    Then I fill in the "Change of Name" form
-
-  Scenario: Navigate to Adoption form and fill the form
-    Given I open "Core" website
-    And I sign in "Core"
-    And I navigate to "Adoption Notification" new form
-    Then I fill in the "Adoption Notification" form
-
-  Scenario: Submut a Change of Sex Notifications in core
-    Given I open "Core" website
-    And I sign in "Core"
-    And I navigate to "Change of Sex Notification" new form
-    Then I fill in the "Change of Sex" form
-
-  Scenario: Test task creation and closure (Test creation and completion of tasks using NOB)
-    Given I open "Core" website
-    And I sign in "Core"
-    And I navigate to "NOB" new form
-    Then I fill in the "NOB for Tasks" form
-
+#
+  #Scenario: Submut a Change of Name Notifications in core
+    #Given I open "Core" website
+    #And I sign in "Core"
+    #And I navigate to "Change of Name" new form
+    #Then I fill in the "Change of Name" form
+#
+  #Scenario: Navigate to Adoption form and fill the form
+    #Given I open "Core" website
+    #And I sign in "Core"
+    #And I navigate to "Adoption Notification" new form
+    #Then I fill in the "Adoption Notification" form
+#
+  #Scenario: Submut a Change of Sex Notifications in core
+    #Given I open "Core" website
+    #And I sign in "Core"
+    #And I navigate to "Change of Sex Notification" new form
+    #Then I fill in the "Change of Sex" form
+#
+  #Scenario: Test task creation and closure (Test creation and completion of tasks using NOB)
+    #Given I open "Core" website
+    #And I sign in "Core"
+    #And I navigate to "NOB" new form
+    #Then I fill in the "NOB for Tasks" form
+#
   #Scenario: Create SMS & Email correspondence templates (Test SMS&EMail correspondence: Create SMS and Email correspondence templates, create BRS and send correspondence using the newly created templates)
     #Given I open "Core Admin UI" website
     #When I sign in "Core Admin UI"
@@ -118,28 +117,3 @@ Feature: All Core site testings.
     #When I sign in "Core Admin UI"
     #And I navigate to "Create internal user" in "Core Admin UI"
     #Then I can fill and submit the "Create internal user" form in "Core Admin UI"
-
-  #=========================================================================
-  #Scenario: Request a Death certificate
-    #Given I open "Core Old UI" website
-    #When I sign in "Core Old UI"
-    #And I navigate to "System Parameters" new form
-    #Then I fill in the "Relationship Registration Parameter" form
-#
-  #Scenario: Create a Relationship Notification in Core
-    #Given I open "Core" website
-    #When I sign in "Core"
-    #And I navigate to "RN" new form
-    #Then I fill in the "RN" form
-#
-  #Scenario: Create a Relationship Registration Service Application
-    #Given I open "Core" website
-    #When I sign in "Core"
-    #And I navigate to "Application" new form
-    #Then I fill in the "Relationship Application" form
-#
-  #Scenario: Search for the Surrogacy Notification in Core
-    #Given I open "Core" website
-    #When I sign in "Core"
-    #And I navigate to "Search SN" in "Core"
-    #Then I search for "RR" form created in "Core"

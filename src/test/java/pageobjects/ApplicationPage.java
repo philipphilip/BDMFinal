@@ -34,7 +34,7 @@ public class ApplicationPage extends BaseClass {
 	@FindBy(id = "applicantDetails-applicantDetails-familyName")
 	public static WebElement applicantFamilyName;
 
-	@FindBy(id = "applicantDetails-applicantDetails-givenNames")
+	@FindBy(id = "applicantDetails-applicantDetails-firstGivenName")
 	public static WebElement applicantGivenName;
 
 	@FindBy(id = "applicantDetails-applicantDetails-dateOfBirth-day")
@@ -132,11 +132,14 @@ public class ApplicationPage extends BaseClass {
 
 	@FindBy(id = "subjectDetails-subjectDeathDetails-familyName")
 	public static WebElement deathDetailsFamilyName;
+				  
+	@FindBy(id = "subjectDetails-subjectDeathDetails-familyNameSameToFamilyNameAtBirth")
+	public static WebElement deathDetailsIsFamilyNameSameAtBirth;
 
 	@FindBy(id = "subjectDetails-subjectDeathDetails-familyNameAtBirth")
 	public static WebElement deathDetailsFamilyNameAtBirth;
 
-	@FindBy(id = "subjectDetails-subjectDeathDetails-givenNames")
+	@FindBy(id = "subjectDetails-subjectDeathDetails-firstGivenName")
 	public static WebElement deathDetailsGivenNames;
 
 	@FindBy(id = "subjectDetails-subjectDeathDetails-placeOfDeathSuburbTownCity")
@@ -178,7 +181,7 @@ public class ApplicationPage extends BaseClass {
 	@FindBy(id = "subjectDetails-subjectBirthDetails-familyName")
 	public static WebElement birthDetailsFamilyName;
 
-	@FindBy(id = "subjectDetails-subjectBirthDetails-givenNames")
+	@FindBy(id = "subjectDetails-subjectBirthDetails-firstGivenName")
 	public static WebElement birthDetailsGivenName;
 
 	@FindBy(id = "subjectDetails-subjectBirthDetails-placeOfBirthSuburbTownCity")

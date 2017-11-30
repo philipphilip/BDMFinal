@@ -1,14 +1,13 @@
 package helpers;
 
-import java.util.List;
-
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
-
 import step_definitions.Hooks;
+
+import java.util.List;
 
 public class Helper {
 
@@ -96,3 +95,15 @@ public class Helper {
 		field = waitForField.until(ExpectedConditions.elementToBeClickable(field));
 	}
 }
+
+
+
+
+
+
+
+
+
+
+
+

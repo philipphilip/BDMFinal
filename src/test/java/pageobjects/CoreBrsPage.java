@@ -90,6 +90,14 @@ public class CoreBrsPage extends BaseClass {
 
 	@FindBy(id = "parent1Details-name-familyName")
 	public static WebElement parent1_familyName;
+	
+	
+	
+	@FindBy(id = "parent1Details-name-familyNameSameToFamilyNameAtBirth")
+	public static WebElement parent1_IsFamilyNameSameAtBirth;
+	
+	
+	
 
 	@FindBy(id = "parent1Details-name-familyNameAtBirth")
 	public static WebElement parent1_familyNameAtBirth;
@@ -191,7 +199,7 @@ public class CoreBrsPage extends BaseClass {
 	public static WebElement parent2ParticipationDetails_mobileNumber;
 
 	@FindBy(id = "parentageDisputeDeclaration-isThereADisputeOfParentage")
-	public static WebElement isThereADisputeOfParentage;
+	public static WebElement secondParentAgreeWtihParentage;
 
 	@FindBy(id = "parentageDisputeDeclaration-name-familyName")
 	public static WebElement parentageDispute_familyName;
@@ -328,6 +336,10 @@ public class CoreBrsPage extends BaseClass {
 	@FindBy(id = "informant1Details-relationshipToSubject")
 	public static WebElement informant1_relationshipToSubject;
 
+				  
+	@FindBy(id = "informant1Details-relationshipToSubject-descriptioninformant1Details-relationshipToSubject")
+	public static WebElement informant1RelationshipDescription;
+
 	@FindBy(id = "informant1Details-name-familyName")
 	public static WebElement informant1_familyName;
 
@@ -371,10 +383,10 @@ public class CoreBrsPage extends BaseClass {
 	public static WebElement informant1_emailAddress;
 
 	@FindBy(id = "informant2Details-relationshipToSubject")
-	public static WebElement informant2_relationshipToSubject;
+	public static WebElement informant2RelationshipToSubject;
 
 	@FindBy(id = "informant2Details-relationshipToSubject-descriptioninformant2Details-relationshipToSubject")
-	public static WebElement informant2RelationshipToSubject;
+	public static WebElement informant2RelationshipDescription;
 
 	@FindBy(id = "informant2Details-name-familyName")
 	public static WebElement informant2_familyName;

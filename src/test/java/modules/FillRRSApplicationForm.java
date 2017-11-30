@@ -24,9 +24,10 @@ public class FillRRSApplicationForm {
 		ApplicationPage.reasonCertificateIsRequired.sendKeys("Administration");
 		ApplicationPage.productCode.sendKeys("DRS");
 		Thread.sleep(1000);
-		ApplicationPage.relationshipToSubject.sendKeys("Self");
+		
 		ApplicationPage.productCode.sendKeys("RRS");
 		Helper.clickItem(CoreControls.nextButton);
+		ApplicationPage.relationshipToSubject.sendKeys("Self");
 		ApplicationPage.applicantFamilyName.sendKeys("Auto" + FillRNForm.applicant1FamilyName);
 		ApplicationPage.applicantGivenName.sendKeys("Auto" + FillRNForm.applicant1GivenName);
 		ApplicationPage.applicantDOBDay.sendKeys("01");

@@ -4,6 +4,7 @@ import org.apache.commons.lang3.RandomStringUtils;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
 
+
 import helpers.Helper;
 import pageobjects.CoreControls;
 import pageobjects.CoreNobPage;
@@ -25,8 +26,10 @@ public class FillNOBForm {
 		PageFactory.initElements(driver, CoreNobPage.class);
 
 		Helper.waitFor(CoreNobPage.notifier_email);
+		Helper.clickItem(CoreNobPage.mothersFamilyName);
 		CoreNobPage.mothersFamilyName.sendKeys("Automated" + randChildFamilyName);
 		CoreNobPage.mothersFamilyNameSameAsBirth.sendKeys("Yes");
+		Helper.clickItem(CoreNobPage.mothersGivenName_Core);
 		CoreNobPage.mothersGivenName_Core.sendKeys("Automated" + randparent1FirstName);
 		CoreNobPage.mothersDOBDay.sendKeys("25");
 		CoreNobPage.mothersDOBMonth.sendKeys("12");
@@ -42,12 +45,14 @@ public class FillNOBForm {
 		CoreNobPage.chiled_time_of_birth.sendKeys("9:59");
 		Helper.selectDropDownList(CoreNobPage.chiled_sex_at_birth, "male");
 		CoreNobPage.chiled_born_alive.sendKeys("Yes");
+		CoreNobPage.weight.sendKeys("3300");
 		CoreNobPage.multiple_Birth.sendKeys("Yes");
 		CoreNobPage.birthOrder.sendKeys("1");
 		CoreNobPage.birthOrderOf.sendKeys("2");
 		Helper.selectDropDownList(CoreNobPage.hospital_name, "Ballina District Hospital");
 		Helper.selectDropDownList(CoreNobPage.Hospital_town_suburb, "Armidale");
 		CoreNobPage.notifier_family_name.sendKeys("auto" + randTextInformant2_fmlyN);
+		Helper.clickItem(CoreNobPage.notifier_given_name);
 		CoreNobPage.notifier_given_name.sendKeys("auto" + randparent2FirstName);
 		CoreNobPage.notifier_email.sendKeys("john.smith@info.com");
 		CoreControls.validateForm();

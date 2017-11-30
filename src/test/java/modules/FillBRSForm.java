@@ -31,6 +31,7 @@ public class FillBRSForm {
 		Helper.selectDropDownList(CoreBrsPage.hospitalTownSuburbCity, "WODONGA");
 		Helper.selectDropDownList(CoreBrsPage.parent1_recordAs, "Mother");
 		CoreBrsPage.parent1_familyName.sendKeys("Automated" + FillNOBForm.randChildFamilyName);
+		CoreBrsPage.parent1_IsFamilyNameSameAtBirth.sendKeys("No");
 		CoreBrsPage.parent1_familyNameAtBirth.sendKeys("Automated" + FillNOBForm.randMotherFamilyNameAtBirth);
 		CoreBrsPage.parent1_firstGivenName.sendKeys("Automated" + FillNOBForm.randparent1FirstName);
 		CoreBrsPage.parent1_dateOfBirth_day.sendKeys("25");
@@ -39,15 +40,18 @@ public class FillBRSForm {
 		Helper.selectDropDownList(CoreBrsPage.parent1_occupation, "Accountant");
 		Helper.selectDropDownList(CoreBrsPage.parent1_aboriginal, "No");
 		CoreBrsPage.parent1_placeOfBirth_suburbTownCity.sendKeys("Coburg");
-		CoreBrsPage.parent1_usualPlaceOfResidence_line1.sendKeys("12 Canning St");
-		CoreBrsPage.parent1_usualPlaceOfResidence_Suburb.sendKeys("North Melbourne");
+		CoreBrsPage.parent1_usualPlaceOfResidence_line1.sendKeys("12 CanningSt");
+		CoreBrsPage.parent1_usualPlaceOfResidence_Suburb.sendKeys("NorthMelbourne");
 		CoreBrsPage.parent1_usualPlaceOfResidence_postcode.sendKeys("3051");
 		CoreBrsPage.parent1_emailAddress.sendKeys("info@test.com");
 		CoreBrsPage.doYouparent1HaveAnySafetyConcernsFromParent2BeingContacted.sendKeys("No");
-		CoreBrsPage.parent2ParticipationDetails_familyName.sendKeys("Smith");
+		CoreBrsPage.parent2ParticipationDetails_familyName.sendKeys("Automated" + FillNOBForm.randChildFamilyName);
 		CoreBrsPage.parent2ParticipationDetails_firstGivenName.sendKeys("Automated" + FillNOBForm.randparent2FirstName);
 		CoreBrsPage.parent2ParticipationDetails_emailAddress.sendKeys("billing@test.com");
-		CoreBrsPage.isThereADisputeOfParentage.sendKeys("Yes");
+		CoreBrsPage.secondParentAgreeWtihParentage.sendKeys("Yes");
+//		CoreBrsPage.parentageDispute_dateOfBirth_day.sendKeys("12");
+//		CoreBrsPage.parentageDispute_dateOfBirth_month.sendKeys("05");
+//		CoreBrsPage.parentageDispute_dateOfBirth_year.sendKeys("1970");
 		CoreBrsPage.isThereADisputeOfChildsName.sendKeys("No");
 		Helper.selectDropDownList(CoreBrsPage.parent2_recordAs, "Father");
 		CoreBrsPage.parent2_familyName.sendKeys("Automated" + FillNOBForm.randChildFamilyName);
@@ -69,7 +73,8 @@ public class FillBRSForm {
 		CoreBrsPage.dateOfRelationshipRegistrationMonth.sendKeys("10");
 		CoreBrsPage.dateOfRelationshipRegistrationYear.sendKeys("1999");
 		CoreBrsPage.childrenOfThisRelationship_Suburb.sendKeys("Carlton");
-		CoreBrsPage.informant1_relationshipToSubject.sendKeys("Stakeholder");
+		CoreBrsPage.informant1_relationshipToSubject.sendKeys("Other");
+		CoreBrsPage.informant1RelationshipDescription.sendKeys("asdf");
 		CoreBrsPage.informant1_familyName.clear();
 		CoreBrsPage.informant1_familyName.sendKeys("auto" + FillNOBForm.randTextInformnt1_fmlyN);
 		CoreBrsPage.informant1_firstGivenName.clear();
@@ -94,7 +99,7 @@ public class FillBRSForm {
 		CoreBrsPage.informant1_contactAddress_postcode.sendKeys("3053");
 		CoreBrsPage.informant1_emailAddress.clear();
 		CoreBrsPage.informant1_emailAddress.sendKeys("john.smith@info.com");
-		Helper.selectDropDownList(CoreBrsPage.informant2_relationshipToSubject, "Parent");
+		Helper.selectDropDownList(CoreBrsPage.informant2RelationshipToSubject, "Parent");
 		CoreBrsPage.informant2_familyName.clear();
 		CoreBrsPage.informant2_familyName.sendKeys("auto" + FillNOBForm.randTextInformant2_fmlyN);
 		CoreBrsPage.informant2_firstGivenName.clear();
@@ -105,6 +110,8 @@ public class FillBRSForm {
 		CoreBrsPage.informant2_DOB_month.sendKeys("06");
 		CoreBrsPage.informant2_DOB_year.clear();
 		CoreBrsPage.informant2_DOB_year.sendKeys("1971");
+		CoreBrsPage.parent2_aboriginal.sendKeys("Aboriginal");
+		CoreBrsPage.parent2Details_deceased.sendKeys("Yes");
 		CoreBrsPage.informant2_residentialAddress_line1.clear();
 		CoreBrsPage.informant2_residentialAddress_line1.sendKeys("22 Canning st");
 		CoreBrsPage.informant2_residentialAddress_suburb.clear();
@@ -121,6 +128,7 @@ public class FillBRSForm {
 		CoreBrsPage.informant2_emailAddress.sendKeys("adfd@ss.com");
 		CoreControls.validateForm();
 		CoreControls.overrideExceptionsOnform();
+
 		// CoreControls.matchToFirstRadioButton();
 	}
 }

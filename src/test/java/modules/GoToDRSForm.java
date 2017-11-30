@@ -8,6 +8,7 @@ public class GoToDRSForm {
 
 	public static void Execute(WebDriver driver, String arg1) throws Throwable {
 		CoreControls.clickNewTab();
+		CoreControls.selectFromDeath.click();
 		CoreControls.newDRS.click();
 	}
 

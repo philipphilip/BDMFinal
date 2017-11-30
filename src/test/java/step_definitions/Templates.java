@@ -107,7 +107,6 @@ public class Templates {
 				TemplatesPages.docType.sendKeys(docType);
 			}
 			TemplatesPages.appBeforeSending.sendKeys("No");
-
 		} else {
 			TemplatesPages.templateName.sendKeys(title);
 			TemplatesPages.templateDescription.sendKeys(description);
@@ -133,6 +132,7 @@ public class Templates {
 		PageFactory.initElements(driver, TemplatesPages.class);
 		Helper.clickItem(TemplatesPages.templateEditorTab);
 		TemplatesPages.emailSubject.sendKeys(emailsubject);
+		TemplatesPages.emailBody.sendKeys(" This is content of a email correspondence template");
 		System.out.println("----The email subject is: " + emailsubject);
 	}
 
@@ -144,6 +144,7 @@ public class Templates {
 		TemplatesPages.rightMargin.sendKeys("20");
 		TemplatesPages.bottomMargin.sendKeys("20");
 		TemplatesPages.leftMargin.sendKeys("20");
+		TemplatesPages.emailBody.sendKeys(" This is content of a letter correspondence template");
 	}
 
 	@When("^I make the boy text \"([^\"]*)\" with template body \"([^\"]*)\"$")

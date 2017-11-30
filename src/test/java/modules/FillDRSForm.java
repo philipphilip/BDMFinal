@@ -2,6 +2,8 @@ package modules;
 
 import org.apache.commons.lang3.RandomStringUtils;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
 import helpers.Helper;
@@ -40,11 +42,15 @@ public class FillDRSForm {
 		Helper.selectDropDownList(CoreDRSPage.relationshipStatusAtTimeOfDeath, "Not in a Relationship");
 		Helper.selectDropDownList(CoreDRSPage.parentsOfDeceasedType, "Father");
 		CoreDRSPage.parentOneFamilyName.sendKeys("automate" + FillCODForm.randDeceasedFamilyName);
-		CoreDRSPage.parentOneFamilyNameAtBirth.sendKeys("automate" + FillCODForm.randDeceasedFamilyName);
+		CoreDRSPage.parentOneFamilyNameSameToFamilyNameAtBirth.sendKeys("Yes");
+		// CoreDRSPage.parentOneFamilyNameAtBirth.sendKeys("automate" +
+		// FillCODForm.randDeceasedFamilyName);
 		CoreDRSPage.parentOneFirstName.sendKeys("automate" + FillCODForm.randparentOneGivenName);
 		CoreDRSPage.parentsTwoOfDeceasedType.sendKeys("Mother");
 		CoreDRSPage.parentTwoFamilyName.sendKeys("automate" + FillCODForm.randDeceasedFamilyName);
-		CoreDRSPage.parentTwoFamilyNameAtBirth.sendKeys("automate" + randparentTwoFamilyNameAtBirth);
+		CoreDRSPage.parentTwoFamilyNameSameToFamilyNameAtBirth.sendKeys("Yes");
+		// CoreDRSPage.parentTwoFamilyNameAtBirth.sendKeys("automate" +
+		// randparentTwoFamilyNameAtBirth);
 		CoreDRSPage.parentTwoFirstName.sendKeys("automate" + randparentTwoGivenName);
 		CoreDRSPage.WasTheDeceasedUnder18.sendKeys("No");
 		Helper.selectDropDownList(CoreDRSPage.informantRelationshipToSubject, "Sibling");

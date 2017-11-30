@@ -23,10 +23,11 @@ public class FillMCApplicationForm {
 		ApplicationPage.reasonCertificateIsRequired.sendKeys("Administration");
 		ApplicationPage.productCode.sendKeys("MS1");
 		Thread.sleep(1000);
-		ApplicationPage.relationshipToSubject.sendKeys("Self");
+		
 		ApplicationPage.productCode.sendKeys("MS1");
 		ApplicationPage.productDetailsTemplate.sendKeys("MR Certificate");
 		Helper.clickItem(CoreControls.nextButton);
+		ApplicationPage.relationshipToSubject.sendKeys("Self");
 		ApplicationPage.applicantFamilyName.sendKeys("automatic" + FillMNForm.groomsFamilyName);
 		ApplicationPage.applicantGivenName.sendKeys("automatic" + FillMNForm.groomsGivenName);
 		ApplicationPage.applicantDOBDay.sendKeys("12");
