@@ -18,11 +18,27 @@ public class CoreControls extends BaseClass {
 	@FindBy(xpath = "//*/a[text()='Birth Registration Statement']")
 	public static WebElement newBRS;
 
+	@FindBy(xpath = "//*/a[text()='Birth']")
+	public static WebElement birthDropDown;
+	
+	
+	@FindBy(xpath = "//*/li[4]//a[text()='Birth']")
+	public static WebElement birthDropDownInSearch;
+
+	@FindBy(xpath = "//*/a[text()='Birth']")
+	public static WebElement searchForBirth;
+
+	@FindBy(xpath = "//*/li[4]//a[text()='Death']")
+	public static WebElement deathDropDownInSearch;
+
 	@FindBy(xpath = "//*/a[text()='Notice of Birth']")
 	public static WebElement newNOB;
 
 	@FindBy(xpath = "//*/a[text()='Death Registration Statement']")
 	public static WebElement newDRS;
+
+	@FindBy(xpath = "//*/a[text()='Death']")
+	public static WebElement selectFromDeath;
 
 	@FindBy(xpath = "//*/a[text()='Cause of Death']")
 	public static WebElement newCOD;
@@ -51,7 +67,7 @@ public class CoreControls extends BaseClass {
 	@FindBy(xpath = ".//a[text() = 'Notice of Birth Search']")
 	public static WebElement nobSearch;
 
-	@FindBy(xpath = ".//a[text() = 'Birth Registration Search']")
+	@FindBy(xpath = ".//a[text() = 'Birth Registration']")
 	public static WebElement birthRegistrationSearch;
 
 	@FindBy(xpath = ".//a[text() = 'Cause of Death Search']")
@@ -72,7 +88,7 @@ public class CoreControls extends BaseClass {
 	@FindBy(xpath = ".//a[text() = 'Relationship Registration Search']")
 	public static WebElement relationshipRegistrationSearch;
 
-	@FindBy(xpath = ".//*/a[text() = 'Death Registration Search']")
+	@FindBy(xpath = ".//*/a[text() = 'Death Registration']")
 	public static WebElement deathRegistrationSearch;
 
 	@FindBy(xpath = ".//a[text() = 'Birth Registration Statement Search']")
@@ -98,6 +114,9 @@ public class CoreControls extends BaseClass {
 
 	@FindBy(xpath = ".//input[contains( @value, 'Proceed')]")
 	public static WebElement proceedToReviewButton;
+
+	@FindBy(xpath = ".//input[contains( @value, 'Continue')]")
+	public static WebElement continueDeathChecl;
 
 	@FindBy(id = "error-message")
 	public static WebElement coreResultMessage;
@@ -257,10 +276,10 @@ public class CoreControls extends BaseClass {
 
 	@FindBy(xpath = "//correspondences-inner-panel//tr[3]/td[6]/div/div")
 	public static WebElement smsStatus;
-	
+
 	@FindBy(id = "correspondence-comment")
 	public static WebElement approveSendCorrespondenceComment;
-	
+
 	@FindBy(xpath = ".//correspondence-approve-popup//button[text() = 'Submit']")
 	public static WebElement corroPopupSubmitButton;
 
@@ -309,8 +328,12 @@ public class CoreControls extends BaseClass {
 			Thread.sleep(2000);
 			checkForDuplicatesButton.click();
 			Thread.sleep(2000);
-			proceedDuplicates();
+			// proceedDuplicates();
 			Thread.sleep(2000);
+			try {
+				Helper.clickItem(continueDeathChecl);
+			} catch (Exception e) {
+			}
 			try {
 				Helper.clickItem(submitButton);
 			} catch (Exception e) {

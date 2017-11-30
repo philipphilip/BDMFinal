@@ -10,7 +10,7 @@ Feature: Creating Correspondence Templates Placeholders for Emails.
 
     Examples: 
       | Template Name | Template Description                                              | Life Event | Document Type | Related SMS Template | Email Subject                                          | Signature block    |  |
-      #| BR-Email1     | Corro Template for Notifying that BRS Part 1 is received                                                       |            |               | GR-SMS1              | Registration of Birth - BRS Part 1 Received             | BR-EmailSignature |  |
+      | BR-Email1     | Corro Template for Notifying that BRS Part 1 is received          |            |               | GR-SMS1              | Registration of Birth - BRS Part 1 Received            | BR-EmailSignature  |  |
       #| BR-Email2     | Corro Template for requesting BRS Part 2                                                                       |            |               | GR-SMS1              | Registration of Birth - BRS Part 2 required             | BR-EmailSignature |  |
       #| BR-Email2A    | Corro Template for resend for requesting BRS Part 2                                                            |            |               | GR-SMS1              | Registration of Birth - BRS Part 2 required             | BR-EmailSignature |  |
       #| BR-Email3     | Corro Template for acknowledge that BRS Part 2 is received                                                     |            |               | GR-SMS1              | Registration of Birth - BRS Part 2 Received             | BR-EmailSignature |  |

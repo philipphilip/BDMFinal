@@ -23,9 +23,7 @@ Feature: Creating Correspondence Templates Placeholders for Emails.
       | BR-Email11    | Corro Template to advise that Parentage dispute is indicated on BRS submission                                 | Births     | BRS           | GR-SMS1              | Registration of Birth - Parentage Dispute               | BR-EmailSignature |
 
       
-      
-      
-        #| BR-Letter1    | Corro Template for Notifying that BRS Part 1 is received | Births    | BRS           | BR-LetterBranding |
+      #| BR-Letter1    | Corro Template for Notifying that BRS Part 1 is received | Births    | BRS           | BR-LetterBranding |
       #| BR-Letter2    | Corro Template for requesting BRS Part 2                 | Births    | BRS           | BR-LetterBranding |
       #| BR-Letter3               | Corro Template for acknowledge that BRS Part 2 is received                                                                                                  | Births             | BRS                    | BR-LetterBranding    |
       #| BR-Letter4               | Corro Template to notify that BR is compete - No Cert                                                                                                       | Births             | BRS                    | BR-LetterBranding    |

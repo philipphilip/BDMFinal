@@ -4,6 +4,7 @@ import org.apache.commons.lang3.RandomStringUtils;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
 
+import cucumber.runtime.io.Helpers;
 import helpers.Helper;
 import pageobjects.CoreControls;
 import pageobjects.CoreNobPage;
@@ -25,12 +26,15 @@ public class FillNOBForm {
 		PageFactory.initElements(driver, CoreNobPage.class);
 
 		Helper.waitFor(CoreNobPage.notifier_email);
+		Helper.clickItem(CoreNobPage.mothersFamilyName);
 		CoreNobPage.mothersFamilyName.sendKeys("Automated" + randChildFamilyName);
 		CoreNobPage.mothersFamilyNameSameAsBirth.sendKeys("Yes");
+		Helper.clickItem(CoreNobPage.mothersGivenName_Core);
 		CoreNobPage.mothersGivenName_Core.sendKeys("Automated" + randparent1FirstName);
 		CoreNobPage.mothersDOBDay.sendKeys("25");
 		CoreNobPage.mothersDOBMonth.sendKeys("12");
 		CoreNobPage.mothersDOBYear.sendKeys("1989");
+		Helper.clickItem(CoreNobPage.aboriginal_or_torres_strait_islander_origin);
 		CoreNobPage.aboriginal_or_torres_strait_islander_origin.sendKeys("Not Stated");
 		CoreNobPage.street_and_number.sendKeys("12");
 		CoreNobPage.address_line_two.sendKeys("Canning st");
@@ -46,9 +50,11 @@ public class FillNOBForm {
 		CoreNobPage.multiple_Birth.sendKeys("Yes");
 		CoreNobPage.birthOrder.sendKeys("1");
 		CoreNobPage.birthOrderOf.sendKeys("2");
-		CoreNobPage.hospital_name.sendKeys("Ballina District Hospital");
+		CoreNobPage.hospital_name.sendKeys("Acute Centre Beechworth");
 		CoreNobPage.Hospital_town_suburb.sendKeys("Armidale");
+		Helper.clickItem(CoreNobPage.notifier_family_name);
 		CoreNobPage.notifier_family_name.sendKeys("auto" + randTextInformant2_fmlyN);
+		Helper.clickItem(CoreNobPage.notifier_given_name);
 		CoreNobPage.notifier_given_name.sendKeys("auto" + randparent2FirstName);
 		CoreNobPage.notifier_email.sendKeys("john.smith@info.com");
 		CoreControls.validateForm();

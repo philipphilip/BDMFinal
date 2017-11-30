@@ -34,7 +34,9 @@ public class FillMNForm {
 		MNPage.placeOfMarriageSuburb.sendKeys("Carlton");
 		MNPage.placeOfMarriagePostcode.sendKeys("3053");
 		MNPage.marriageRites.sendKeys("TBC");
+		Helper.clickItem(MNPage.groomsNameFamilyName);
 		MNPage.groomsNameFamilyName.sendKeys("automatic" + groomsFamilyName);
+		Helper.clickItem(MNPage.groomsNameFirstGivenName);
 		MNPage.groomsNameFirstGivenName.sendKeys("automatic" + groomsGivenName);
 		MNPage.groomsGender.sendKeys("Male");
 		MNPage.groomsOccupation.sendKeys("accountant");

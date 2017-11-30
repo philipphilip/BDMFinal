@@ -21,13 +21,13 @@ public class FillBRSForm {
 		CoreBrsPage.childs_DOB_day.sendKeys("01");
 		CoreBrsPage.childs_DOB_month.sendKeys("08");
 		CoreBrsPage.childs_DOB_year.sendKeys("2017");
-		CoreBrsPage.sexAtBirth.sendKeys("mail");
+		CoreBrsPage.sexAtBirth.sendKeys("Male");
 		CoreBrsPage.child_born_Alive.sendKeys("Yes");
 		CoreBrsPage.multipleBirth.sendKeys("Yes");
 		CoreBrsPage.birthOrder.sendKeys("1");
 		CoreBrsPage.birthOrderOf.sendKeys("2");
 		CoreBrsPage.childs_weight.sendKeys("3300");
-		CoreBrsPage.hospitalName.sendKeys("Ballina District Hospital");
+		CoreBrsPage.hospitalName.sendKeys("Acute Centre Beechworth");
 		CoreBrsPage.hospitalTownSuburbCity.sendKeys("Armidale");
 		CoreBrsPage.parent1_recordAs.sendKeys("Mother");
 		CoreBrsPage.parent1_familyName.sendKeys("Automated" + FillNOBForm.randChildFamilyName);
@@ -41,8 +41,8 @@ public class FillBRSForm {
 		CoreBrsPage.parent1_occupation.sendKeys("accountant");
 		CoreBrsPage.parent1_aboriginal.sendKeys("Decline to Reply");
 		CoreBrsPage.parent1_placeOfBirth_suburbTownCity.sendKeys("Coburg");
-		CoreBrsPage.parent1_usualPlaceOfResidence_line1.sendKeys("12 Canning St");
-		CoreBrsPage.parent1_usualPlaceOfResidence_Suburb.sendKeys("North Melbourne");
+		CoreBrsPage.parent1_usualPlaceOfResidence_line1.sendKeys("12 CanningSt");
+		CoreBrsPage.parent1_usualPlaceOfResidence_Suburb.sendKeys("NorthMelbourne");
 		CoreBrsPage.parent1_usualPlaceOfResidence_postcode.sendKeys("3051");
 		CoreBrsPage.parent1_emailAddress.sendKeys("info@test.com");
 		CoreBrsPage.doYouparent1HaveAnySafetyConcernsFromParent2BeingContacted.sendKeys("No");
@@ -50,9 +50,9 @@ public class FillBRSForm {
 		CoreBrsPage.parent2ParticipationDetails_firstGivenName.sendKeys("Automated" + FillNOBForm.randparent2FirstName);
 		CoreBrsPage.parent2ParticipationDetails_emailAddress.sendKeys("billing@test.com");
 		CoreBrsPage.secondParentAgreeWtihParentage.sendKeys("Yes");
-		CoreBrsPage.parentageDispute_dateOfBirth_day.sendKeys("12");
-		CoreBrsPage.parentageDispute_dateOfBirth_month.sendKeys("05");
-		CoreBrsPage.parentageDispute_dateOfBirth_year.sendKeys("1970");
+//		CoreBrsPage.parentageDispute_dateOfBirth_day.sendKeys("12");
+//		CoreBrsPage.parentageDispute_dateOfBirth_month.sendKeys("05");
+//		CoreBrsPage.parentageDispute_dateOfBirth_year.sendKeys("1970");
 		CoreBrsPage.isThereADisputeOfChildsName.sendKeys("No");
 		CoreBrsPage.parent2_recordAs.sendKeys("Father");
 		CoreBrsPage.parent2_familyName.sendKeys("Automated" + FillNOBForm.randChildFamilyName);
@@ -68,7 +68,7 @@ public class FillBRSForm {
 		CoreBrsPage.parent2_usualPlaceOfResidence_suburb.sendKeys("Fawkner");
 		CoreBrsPage.parent2_usualPlaceOfResidence_postcode.sendKeys("3060");
 		CoreBrsPage.parent2_emailAddress.sendKeys("billing@test.com");
-		CoreBrsPage.parentageDispute_familyName.sendKeys("Automated" + FillNOBForm.randChildFamilyName);
+		//CoreBrsPage.parentageDispute_familyName.sendKeys("Automated" + FillNOBForm.randChildFamilyName);
 		CoreBrsPage.relationshipStatus.sendKeys("Married");
 		CoreBrsPage.dateOfRelationshipRegistrationDay.sendKeys("10");
 		CoreBrsPage.dateOfRelationshipRegistrationMonth.sendKeys("10");
@@ -112,6 +112,8 @@ public class FillBRSForm {
 		CoreBrsPage.informant2_DOB_month.sendKeys("06");
 		CoreBrsPage.informant2_DOB_year.clear();
 		CoreBrsPage.informant2_DOB_year.sendKeys("1971");
+		CoreBrsPage.parent2_aboriginal.sendKeys("Aboriginal");
+		CoreBrsPage.parent2Details_deceased.sendKeys("Yes");
 		CoreBrsPage.informant2_residentialAddress_line1.clear();
 		CoreBrsPage.informant2_residentialAddress_line1.sendKeys("22 Canning st");
 		CoreBrsPage.informant2_residentialAddress_suburb.clear();
@@ -128,6 +130,7 @@ public class FillBRSForm {
 		CoreBrsPage.informant2_emailAddress.sendKeys("adfd@ss.com");
 		CoreControls.validateForm();
 		CoreControls.overrideExceptionsOnform();
+
 		// CoreControls.matchToFirstRadioButton();
 	}
 }

@@ -14,18 +14,16 @@ public class SearchforBRCreated {
 
 		Helper.waitFor(CoreControls.searchTab);
 		Helper.clickItem(CoreControls.searchTab);
-		// Thread.sleep(2000);
+		Helper.clickItem(CoreControls.birthDropDownInSearch);
 		Helper.clickItem(CoreControls.birthRegistrationSearch);
-		Thread.sleep(2000);
-		CoreSearchBirthsPage.childFamilyName.sendKeys("AutomatedGDnxKe");
+		Helper.clickItem(CoreSearchBirthsPage.childFamilyName);
+		CoreSearchBirthsPage.childFamilyName.sendKeys("Automated" + FillNOBForm.randChildFamilyName);
 		Helper.clickItem(CoreControls.searchButton);
 		Thread.sleep(3000);
 		boolean thereAreSearchResults = CoreSearchBirthsPage.childFamilyNameInSeachResults.isDisplayed();
 		Assert.assertTrue("There are no Search results matching the Birth Registration", thereAreSearchResults);
-		// nameInSearch = "AutomatedGDnxKe";
-		// Thread.sleep(2000);
-		// Assert.assertTrue("The Birth Registration could not be found in
-		// Search for BR",
-		// nameInSearch.contains(FillNOBForm.randChildFamilyName));
+		nameInSearch = CoreSearchBirthsPage.childFamilyNameInSeachResults.getText();
+		Assert.assertTrue("The Birth Registration could not be found in Search for BR",
+				nameInSearch.contains(FillNOBForm.randChildFamilyName));
 	}
 }

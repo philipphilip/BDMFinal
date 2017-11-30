@@ -21,13 +21,13 @@ public class FillDCApplicationForm {
 		ApplicationPage.dateReceivedAtRegistry.sendKeys(Keys.TAB);
 		ApplicationPage.dateReceivedAtRegistry.sendKeys(Keys.TAB);
 		Thread.sleep(1000);
-		ApplicationPage.productCode.sendKeys("DS1");
+		ApplicationPage.productCode.sendKeys("DAC");
 		Thread.sleep(1000);
 		ApplicationPage.reasonCertificateIsRequired.sendKeys("Administration");
-		ApplicationPage.productCode.sendKeys("DRS");
+		ApplicationPage.productCode.sendKeys("DAC");
 		Thread.sleep(1000);
-		ApplicationPage.productCode.sendKeys("DS1");
-		ApplicationPage.productDetailsTemplate.sendKeys("DR Certificate");
+		ApplicationPage.productCode.sendKeys("DAC");
+//		ApplicationPage.productDetailsTemplate.sendKeys("DR Certificate");
 		Helper.clickItem(CoreControls.nextButton);
 		ApplicationPage.relationshipToSubject.sendKeys("Parent");
 		ApplicationPage.applicantFamilyName.sendKeys("Smith");
@@ -52,7 +52,10 @@ public class FillDCApplicationForm {
 		// ApplicationPage.deathDetailsFamilyNameAtBirth.sendKeys("automate" + FillCODForm.randDeceasedFamilyName);
 		ApplicationPage.deathDetailsGivenNames.sendKeys("automate" + FillCODForm.randDeceasedFirstName);
 		ApplicationPage.placeOfDeathSuburbTownCity.sendKeys("Wollongong");
-		CoreControls.matchToFirstRadioButton();
+		CoreControls.nextButton.click();
+//		CoreControls.matchToFirstRadioButton();
+		CoreControls.overrideExceptionsOnform();
+	
 		Helper.clickItem(CoreControls.nextButton);
 		Helper.clickItem(CoreControls.submitButton);
 		Thread.sleep(3000);
