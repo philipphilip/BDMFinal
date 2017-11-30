@@ -31,7 +31,7 @@ public class FillNOBForm {
 		CoreNobPage.mothersDOBDay.sendKeys("25");
 		CoreNobPage.mothersDOBMonth.sendKeys("12");
 		CoreNobPage.mothersDOBYear.sendKeys("1989");
-		CoreNobPage.aboriginal_or_torres_strait_islander_origin.sendKeys("Decline to reply");
+		Helper.selectDropDownList(CoreNobPage.aboriginal_or_torres_strait_islander_origin, "No");
 		CoreNobPage.street_and_number.sendKeys("12");
 		CoreNobPage.address_line_two.sendKeys("Canning st");
 		CoreNobPage.suburb.sendKeys("North Melbourne");
@@ -40,13 +40,13 @@ public class FillNOBForm {
 		CoreNobPage.chiledDOBMoth.sendKeys("08");
 		CoreNobPage.chiledDOBYear.sendKeys("2017");
 		CoreNobPage.chiled_time_of_birth.sendKeys("9:59");
-		CoreNobPage.chiled_sex_at_birth.sendKeys("male");
+		Helper.selectDropDownList(CoreNobPage.chiled_sex_at_birth, "male");
 		CoreNobPage.chiled_born_alive.sendKeys("Yes");
 		CoreNobPage.multiple_Birth.sendKeys("Yes");
 		CoreNobPage.birthOrder.sendKeys("1");
 		CoreNobPage.birthOrderOf.sendKeys("2");
-		CoreNobPage.hospital_name.sendKeys("Ballina District Hospital");
-		CoreNobPage.Hospital_town_suburb.sendKeys("Armidale");
+		Helper.selectDropDownList(CoreNobPage.hospital_name, "Ballina District Hospital");
+		Helper.selectDropDownList(CoreNobPage.Hospital_town_suburb, "Armidale");
 		CoreNobPage.notifier_family_name.sendKeys("auto" + randTextInformant2_fmlyN);
 		CoreNobPage.notifier_given_name.sendKeys("auto" + randparent2FirstName);
 		CoreNobPage.notifier_email.sendKeys("john.smith@info.com");

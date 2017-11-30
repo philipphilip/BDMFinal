@@ -46,25 +46,25 @@ public class FilltheApplicationInEpublic {
 		}
 		
 		Helper.clickItem(EpublicApplicationPage.nextButton);
-//		Helper.waitFor(EpublicApplicationPage.typeOfCertificate);
-//		EpublicApplicationPage.typeOfCertificate.sendKeys("Birth");
 		Helper.waitFor(EpublicApplicationPage.birthType);
 		EpublicApplicationPage.birthType.sendKeys("On");
 		EpublicApplicationPage.placezOfBirth.sendKeys("ringwood");
 		EpublicApplicationPage.relationship.sendKeys("Parent");
-		EpublicApplicationPage.reason.sendKeys("Administration");
+		Helper.selectDropDownList(EpublicApplicationPage.reason, "Administration");
 		EpublicApplicationPage.childFamilyName.clear();
 		EpublicApplicationPage.childFamilyName.sendKeys("Automated" + familyName);
 		EpublicApplicationPage.childGivenName.clear();
 		EpublicApplicationPage.childGivenName.sendKeys("Automated" + childGivenName);
 		EpublicApplicationPage.parent1Type.sendKeys("Mother");
 		EpublicApplicationPage.parent1FamilyName.sendKeys("Automated" + familyName);
+		EpublicApplicationPage.parent1FamilyNametAtBirth.sendKeys("Automated" + familyName);
 		EpublicApplicationPage.parent1GivenName.sendKeys("Automated" + applicantGivenName);
-		Helper.clickItem(EpublicApplicationPage.parent1FamilyNameSameAsBirth);
+//		Helper.clickItem(EpublicApplicationPage.parent1FamilyNameSameAsBirth);
 		EpublicApplicationPage.parent2Type.sendKeys("Father");
 		EpublicApplicationPage.parent2FamilyName.sendKeys("Automated" + familyName);
+		EpublicApplicationPage.parent2FamilyNameAtBirth.sendKeys("Automated" + familyName);
 		EpublicApplicationPage.parent2GivenName.sendKeys("Automated" + parentGivenName);
-		Helper.clickItem(EpublicApplicationPage.parent2FamilyNameSameAsBirth);
+//		Helper.clickItem(EpublicApplicationPage.parent2FamilyNameSameAsBirth);
 		// input DOB at last, otherwise value will be removed
 		EpublicApplicationPage.dayOfBirth.clear();
 		EpublicApplicationPage.dayOfBirth.sendKeys("20/07/2017");
@@ -87,7 +87,7 @@ public class FilltheApplicationInEpublic {
 		confirmationNumber = EpublicControls.brsCompletionBanner.getText();
 		System.out.println(confirmationNumber);
 		Helper.waitFor(EpublicControls.certOrderNumber);
-		Assert.assertTrue("Application submission with POI is not successful", confirmationNumber.contains("Completion"));
+		Assert.assertTrue("Application submission with POI is not successful", confirmationNumber.contains("completion"));
 		System.out.println("The Birth Application number created along with POI/DPOI is: " + EpublicControls.certOrderNumber.getText());
 	}
 }

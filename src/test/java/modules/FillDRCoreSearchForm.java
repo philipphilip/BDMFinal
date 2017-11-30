@@ -13,7 +13,8 @@ public class FillDRCoreSearchForm {
 	public static void Execute(WebDriver driver) throws Throwable {
 		
 		PageFactory.initElements(driver, CoreSearchPage.class);
-
+		
+		Helper.waitFor(CoreSearchPage.searchButton);
 		CoreSearchPage.deceasedFamilyName.sendKeys("Automated"  + FillEregistryCodForm.deceasedFamilyName);
 		Helper.clickItem(CoreSearchPage.searchButton);
 		Helper.clickItem(CoreSearchPage.firstSearchResult);

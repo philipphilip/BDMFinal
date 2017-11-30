@@ -12,7 +12,8 @@ public class FillApplicationCoreSearchForm {
 	public static void Execute(WebDriver driver) throws Throwable {
 
 		PageFactory.initElements(driver, CoreSearchPage.class);
-
+		
+		Helper.waitFor(CoreSearchPage.searchButton);
 		CoreSearchPage.itemNumber.sendKeys(
 				FillEregistryCertificatesForm.certificateNotificationNumber.substring(0, 5));
 		System.out

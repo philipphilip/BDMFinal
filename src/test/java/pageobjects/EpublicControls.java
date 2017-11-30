@@ -125,7 +125,7 @@ public class EpublicControls extends BaseClass {
 	@FindBy(id = "confirmButton")
 	public static WebElement paymentConfirmButton;
 	
-	@FindBy(xpath = ".//*/button[contains(text(),'Submit in Person')]")
+	@FindBy(xpath = ".//*/button[contains(text(),'Submit in person')]")
 	public static WebElement submitInPersonButton;
 	
 	@FindBy(xpath = ".//h1")

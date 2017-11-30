@@ -72,7 +72,8 @@ public class EregistryControls extends BaseClass {
 	@FindBy(xpath = ".//input[@value = 'Refresh']")
 	public static WebElement refreshButton;
 	
-	@FindBy(xpath = "//*[contains(@id, 'checkone')]")
+//	@FindBy(xpath = "//*[contains(@id, 'checkone')]")
+	@FindBy(xpath = ".//tr[2]/td[1]//*[contains(@id, 'checkone')]")
 	public static WebElement searchResult1;
 	
 	@FindBy(xpath = ".//input[@value = 'Submit']")
