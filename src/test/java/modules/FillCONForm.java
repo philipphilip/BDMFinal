@@ -39,8 +39,8 @@ public class FillCONForm {
 		CoreCONPage.hasBeenDeclaredBankrupt.sendKeys("No");
 		CoreCONPage.hasBeenArrestedChargedOnBailOrConvictedOfFraud.sendKeys("No");
 		CoreCONPage.isPrisonerOnParoleOrRegisteredSexOffender.sendKeys("No");
-		CoreCONPage.isOriginalCertSubmitted.sendKeys("Yes");
-		CoreCONPage.numOfCertsIssued.sendKeys("1341324");
+		// CoreCONPage.isOriginalCertSubmitted.sendKeys("Yes");
+		CoreCONPage.numOfCertsIssued.sendKeys("1");
 		CoreCONPage.reasonForChangingTheName.sendKeys("I just want another one");
 		CoreCONPage.allIdentityDocumentsAreInCurrentName.sendKeys("Yes");
 		CoreCONPage.numberOfPreviousChangesOfName.sendKeys("0");
@@ -48,7 +48,7 @@ public class FillCONForm {
 		CoreCONPage.relationshipToSubject.sendKeys("jaslkfjs");
 		CoreCONPage.declarationFromApplicant.sendKeys("Yes");
 		// CoreCONPage.rightToResideInAus.sendKeys("Australian Citizenship Certificate");
-		CoreCONPage.isGuarantorNeeded.sendKeys("No");
+		//CoreCONPage.isGuarantorNeeded.sendKeys("No");
 		CoreControls.validateForm();
 		CoreControls.overrideExceptionsOnform();
 		CoreControls.matchToFirstRadioButton();

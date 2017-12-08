@@ -21,6 +21,7 @@ public class FillCODForm {
 		CoreCodPage.deceasedFamilyName.sendKeys("automate" + randDeceasedFamilyName);
 		CoreCodPage.familyNameSameToFamilyNameAtBirth.sendKeys("Yes");
 		CoreCodPage.deceasedfirstName.sendKeys("automate" + randDeceasedFirstName);
+		CoreCodPage.deceasedOtherGivenName.sendKeys("automate" + randDeceasedFirstName);
 		CoreCodPage.sex.sendKeys("Male");
 		CoreCodPage.aboriginalOrTorresStraitIslanderOrigin.sendKeys("Not Stated");
 		CoreCodPage.howDidYouConfirmTheNameOfTtheDeceased.sendKeys("Medical Records");

@@ -36,7 +36,7 @@ public class MNPage extends BaseClass {
 
 	@FindBy(id = "marriageDetails-placeOfMarriage-marriageRites")
 	public static WebElement marriageRites;
-
+				  
 	@FindBy(id = "groomDetails-groomsName-familyName")
 	public static WebElement groomsNameFamilyName;
 

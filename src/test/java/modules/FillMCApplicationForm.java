@@ -13,7 +13,7 @@ public class FillMCApplicationForm {
 	public static void Execute(WebDriver driver) throws Throwable {
 
 		PageFactory.initElements(driver, ApplicationPage.class);
-		Thread.sleep(1000);
+		Thread.sleep(3000);
 		ApplicationPage.dateReceivedAtRegistry.sendKeys("01/09/2017");
 		ApplicationPage.dateReceivedAtRegistry.sendKeys(Keys.TAB);
 		ApplicationPage.dateReceivedAtRegistry.sendKeys(Keys.TAB);
@@ -23,7 +23,6 @@ public class FillMCApplicationForm {
 		ApplicationPage.reasonCertificateIsRequired.sendKeys("Administration");
 		ApplicationPage.productCode.sendKeys("MS1");
 		Thread.sleep(1000);
-		
 		ApplicationPage.productCode.sendKeys("MS1");
 		ApplicationPage.productDetailsTemplate.sendKeys("MR Certificate");
 		Helper.clickItem(CoreControls.nextButton);
@@ -56,6 +55,8 @@ public class FillMCApplicationForm {
 		ApplicationPage.brideDOBYear.sendKeys("1983");
 		Helper.clickItem(CoreControls.nextButton);
 		CoreControls.matchToFirstRadioButton();
+		CoreControls.overrideExceptionsOnApplication();
+		Helper.clickItem(CoreControls.nextButton);
 		Helper.clickItem(CoreControls.submitButton);
 	}
 }

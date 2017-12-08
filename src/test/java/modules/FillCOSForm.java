@@ -5,6 +5,7 @@ import org.junit.Assert;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
 
+import helpers.Helper;
 import pageobjects.CoreCOSPage;
 import pageobjects.CoreControls;
 
@@ -31,7 +32,7 @@ public class FillCOSForm {
 		// Thread.sleep(1000);
 		// CoreControls.matchToFirstRadioButton();
 
-		CoreCOSPage.additionaDetails.click();
+		Helper.clickItem(CoreCOSPage.additionaDetails);
 		CoreCOSPage.familyName.sendKeys("Auto" + FillAdoptionForm.childsNewNameFamilyName);
 		CoreCOSPage.firstGivenName.sendKeys("Auto" + FillAdoptionForm.childsNewNameFirstGivenName);
 		CoreCOSPage.subjectDOBDay.sendKeys("12");
@@ -73,6 +74,6 @@ public class FillCOSForm {
 		CoreControls.overrideExceptionsOnform();
 		Thread.sleep(2000);
 		String alerMessage = CoreCOSPage.alertMessage.getText();
-		Assert.assertTrue(alerMessage.equals("The notification does not have a linked application"));
+		Assert.assertTrue(alerMessage.equals("The notification does not have a linked service application"));
 	}
 }

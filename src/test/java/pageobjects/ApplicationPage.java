@@ -25,7 +25,7 @@ public class ApplicationPage extends BaseClass {
 	@FindBy(id = "applicationDetails-applicationDetails-relationshipToSubject")
 	public static WebElement relationshipToSubject;
 
-	@FindBy(id = "productDetails-productDetails-template")
+	@FindBy(xpath = "//*[@id='productDetails-productDetails-template' or @id='productDetails-productDetails-template0' or @id='productDetails-productDetails-template1']")
 	public static WebElement productDetailsTemplate;
 
 	@FindBy(id = "productDetails-productDetails-submittedWithNotification")
@@ -102,8 +102,8 @@ public class ApplicationPage extends BaseClass {
 
 	@FindBy(id = "subjectDetails-marriageGroomDetails-familyName")
 	public static WebElement groomFamilyName;
-
-	@FindBy(id = "subjectDetails-marriageGroomDetails-givenNames")
+				  
+	@FindBy(id = "subjectDetails-marriageGroomDetails-firstGivenName")
 	public static WebElement groomGivenName;
 
 	@FindBy(id = "subjectDetails-marriageGroomDetails-dateOfBirth-on-day")
@@ -118,7 +118,7 @@ public class ApplicationPage extends BaseClass {
 	@FindBy(id = "subjectDetails-marriageBrideDetails-familyName")
 	public static WebElement brideFamilyName;
 
-	@FindBy(id = "subjectDetails-marriageBrideDetails-givenNames")
+	@FindBy(id = "subjectDetails-marriageBrideDetails-firstGivenName")
 	public static WebElement brideGivenName;
 
 	@FindBy(id = "subjectDetails-marriageBrideDetails-dateOfBirth-on-day")
@@ -132,7 +132,10 @@ public class ApplicationPage extends BaseClass {
 
 	@FindBy(id = "subjectDetails-subjectDeathDetails-familyName")
 	public static WebElement deathDetailsFamilyName;
-				  
+
+	@FindBy(id = "subjectDetails-subjectDeathDetails-otherGivenNames")
+	public static WebElement deathDetailsOtherGivenNames;
+
 	@FindBy(id = "subjectDetails-subjectDeathDetails-familyNameSameToFamilyNameAtBirth")
 	public static WebElement deathDetailsIsFamilyNameSameAtBirth;
 

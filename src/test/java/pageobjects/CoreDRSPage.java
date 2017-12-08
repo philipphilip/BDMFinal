@@ -19,6 +19,9 @@ public class CoreDRSPage extends BaseClass {
 	@FindBy(id = "deceasedDetails-name-firstGivenName")
 	public static WebElement deceasedFirstName;
 
+	@FindBy(id = "deceasedDetails-name-otherGivenNames")
+	public static WebElement deceasedOtherGivenNames;
+
 	@FindBy(id = "deceasedDetails-sex")
 	public static WebElement Sex;
 
@@ -75,12 +78,9 @@ public class CoreDRSPage extends BaseClass {
 
 	@FindBy(id = "parentsOfDeceased-parentOne-familyName")
 	public static WebElement parentOneFamilyName;
-	
-	
-	
+
 	@FindBy(id = "parentsOfDeceased-parentOne-familyNameSameToFamilyNameAtBirth")
 	public static WebElement parentOneFamilyNameSameToFamilyNameAtBirth;
-	
 
 	@FindBy(id = "parentsOfDeceased-parentOne-familyNameAtBirth")
 	public static WebElement parentOneFamilyNameAtBirth;
@@ -93,13 +93,9 @@ public class CoreDRSPage extends BaseClass {
 
 	@FindBy(id = "parentsOfDeceased-parentTwo-familyName")
 	public static WebElement parentTwoFamilyName;
-	
-				  
+
 	@FindBy(id = "parentsOfDeceased-parentTwo-familyNameSameToFamilyNameAtBirth")
 	public static WebElement parentTwoFamilyNameSameToFamilyNameAtBirth;
-	
-	
-	
 
 	@FindBy(id = "parentsOfDeceased-parentTwo-familyNameAtBirth")
 	public static WebElement parentTwoFamilyNameAtBirth;

@@ -23,6 +23,7 @@ public class FillDRSForm {
 		CoreDRSPage.deceasedFamilyName.sendKeys("automate" + FillCODForm.randDeceasedFamilyName);
 		CoreDRSPage.familyNameSameToFamilyNameAtBirth.sendKeys("Yes");
 		CoreDRSPage.deceasedFirstName.sendKeys("automate" + FillCODForm.randDeceasedFirstName);
+		CoreDRSPage.deceasedOtherGivenNames.sendKeys("automate" + FillCODForm.randDeceasedFirstName);
 		CoreDRSPage.Sex.sendKeys("Male");
 		CoreDRSPage.DateOfDeathDay.sendKeys("30");
 		CoreDRSPage.DateOfDeathMoth.sendKeys("07");

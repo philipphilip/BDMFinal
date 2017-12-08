@@ -15,8 +15,9 @@ public class SearchForMNAndMakeMR {
 
 		Helper.waitFor(CoreControls.searchTab);
 		Helper.clickItem(CoreControls.searchTab);
-		Helper.clickItem(CoreControls.merriageRegistrationSearch);
-		Thread.sleep(1000);
+		Helper.clickItem(CoreControls.marriageDropDownInSearch);
+		Helper.clickItem(CoreControls.marriageRegistrationInSearch);
+		Thread.sleep(3000);
 		MNPage.groomsNameFamilyName.sendKeys("automatic" + FillMNForm.groomsFamilyName);
 		Helper.clickItem(CoreControls.searchButton);
 		Thread.sleep(1000);

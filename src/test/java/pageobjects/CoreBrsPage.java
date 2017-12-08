@@ -90,14 +90,9 @@ public class CoreBrsPage extends BaseClass {
 
 	@FindBy(id = "parent1Details-name-familyName")
 	public static WebElement parent1_familyName;
-	
-	
-	
+
 	@FindBy(id = "parent1Details-name-familyNameSameToFamilyNameAtBirth")
 	public static WebElement parent1_IsFamilyNameSameAtBirth;
-	
-	
-	
 
 	@FindBy(id = "parent1Details-name-familyNameAtBirth")
 	public static WebElement parent1_familyNameAtBirth;
@@ -336,7 +331,6 @@ public class CoreBrsPage extends BaseClass {
 	@FindBy(id = "informant1Details-relationshipToSubject")
 	public static WebElement informant1_relationshipToSubject;
 
-				  
 	@FindBy(id = "informant1Details-relationshipToSubject-descriptioninformant1Details-relationshipToSubject")
 	public static WebElement informant1RelationshipDescription;
 

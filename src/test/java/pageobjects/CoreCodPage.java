@@ -22,6 +22,9 @@ public class CoreCodPage extends BaseClass {
 	@FindBy(id = "deceasedDetails-name-deceasedName-firstGivenName")
 	public static WebElement deceasedfirstName;
 
+	@FindBy(id = "deceasedDetails-name-deceasedName-otherGivenNames")
+	public static WebElement deceasedOtherGivenName;
+
 	@FindBy(id = "deceasedDetails-name-sex")
 	public static WebElement sex;
 

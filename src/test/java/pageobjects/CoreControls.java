@@ -20,8 +20,7 @@ public class CoreControls extends BaseClass {
 
 	@FindBy(xpath = "//*/a[text()='Birth']")
 	public static WebElement birthDropDown;
-	
-	
+
 	@FindBy(xpath = "//*/li[4]//a[text()='Birth']")
 	public static WebElement birthDropDownInSearch;
 
@@ -46,8 +45,17 @@ public class CoreControls extends BaseClass {
 	@FindBy(xpath = "//*/a[text()='Relationship Notification']")
 	public static WebElement newRN;
 
+	@FindBy(xpath = "//*[@id='navbar']/ul[1]/li[3]/ul/li[4]/a")
+	public static WebElement marriageDropDown;
+
+	@FindBy(xpath = "//*[@id='navbar']/ul[1]/li[4]/ul/li[9]/ul/li[3]/a")
+	public static WebElement marriageRegistrationInSearch;
+
 	@FindBy(xpath = "//*/a[text()='Marriage Notification']")
 	public static WebElement newMR;
+
+	@FindBy(xpath = "//*[@id='navbar']/ul[1]/li[4]/ul/li[9]/a")
+	public static WebElement marriageDropDownInSearch;
 
 	@FindBy(xpath = "//a[text() = 'Change of Name Notification']")
 	public static WebElement ChangeOfNameNotification;
@@ -348,6 +356,27 @@ public class CoreControls extends BaseClass {
 				Helper.clickItem(submitButton);
 			} catch (Exception e) {
 			}
+			System.out.println("There are no validation errors");
+		}
+	}
+
+	public static void overrideExceptionsOnApplication() throws Throwable {
+		Thread.sleep(5000);
+		boolean formHasErrors = errorBaner.getText().contains("are validation errors");
+		if (formHasErrors) {
+			validateCheckBox.click();
+			overrideButton.click();
+			Thread.sleep(3000);
+			acceptionReason.sendKeys("Court Order");
+			reasonComment.sendKeys("any reason");
+			overrideButton2.click();
+			Thread.sleep(2000);
+			System.out.println("There were validation errors that got overridden");
+		} else {
+			checkForDuplicatesButton.click();
+			Thread.sleep(2000);
+			proceedDuplicates();
+			Thread.sleep(2000);
 			System.out.println("There are no validation errors");
 		}
 	}
