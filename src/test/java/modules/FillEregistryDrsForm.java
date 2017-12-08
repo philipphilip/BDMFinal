@@ -70,11 +70,11 @@ public class FillEregistryDrsForm {
 		EregistryDrsPage.informantPostcode.sendKeys("3333");
 		EregistryDrsPage.informantSameasPostalAddress.sendKeys("Yes");
 		EregistryDrsPage.informantTelephone.sendKeys("99998888");
-		EregistryDrsPage.methodOfDisposal.sendKeys("Buried");
+		Helper.selectDropDownList(EregistryDrsPage.methodOfDisposal, "Buried");
 		EregistryDrsPage.disposalDay.sendKeys("08");
 		EregistryDrsPage.disposalMonth.sendKeys("07");
 		EregistryDrsPage.disposalYear.sendKeys("2017");
-		EregistryDrsPage.methodOfDisposal.sendKeys("Buried");
+		Helper.selectDropDownList(EregistryDrsPage.methodOfDisposal, "Buried");
 		Helper.waitFor(EregistryDrsPage.cemeteryName);
 		EregistryDrsPage.within30Days.sendKeys("Yes");
 		EregistryDrsPage.cemeteryName.sendKeys("Melbourne General Cemetery");
@@ -98,7 +98,7 @@ public class FillEregistryDrsForm {
 		Helper.waitFor(EregistryControls.refreshButton);
 		EregistryControls.refreshButton.click();
 		Helper.waitFor(EregistryControls.searchResult1);
-		EregistryControls.searchResult1.click();
+		Helper.clickItem(EregistryControls.searchResult1);
 		Helper.clickItem(EregistryControls.submitButton);
 		Helper.clickItem(EregistryControls.submitButton);
 		EregistryControls.assertAll();

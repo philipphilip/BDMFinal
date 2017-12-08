@@ -22,7 +22,7 @@ public class FillEregistryNobForm {
 		EregistryNobPage.birthMotherDateOfBirthDay.sendKeys("25");
 		EregistryNobPage.birthMotherDateOfBirthMonth.sendKeys("12");
 		EregistryNobPage.birthMotherDateOfBirthYear.sendKeys("1989");
-		Helper.selectDropDownList(EregistryNobPage.birthMotherAboriginality, "Decline to reply");
+		Helper.selectDropDownList(EregistryNobPage.birthMotherAboriginality, "No");
 		EregistryNobPage.birthMotherResidentialAddressLine1.sendKeys("12 Canning st");
 		EregistryNobPage.birthMotherResidentialAddressSuburb.sendKeys("North Melbourne");
 		EregistryNobPage.birthMotherResidentialAddressPostcode.sendKeys("3051");
@@ -37,8 +37,8 @@ public class FillEregistryNobForm {
 		Helper.selectDropDownList(EregistryNobPage.multiplebirth, "Yes");
 		EregistryNobPage.birthOrder.sendKeys("1");
 		EregistryNobPage.birthOrderOf.sendKeys("2");
-		Helper.selectDropDownList(EregistryNobPage.birthHospitalName, "Ballina District Hospital");
-		Helper.selectDropDownList(EregistryNobPage.birthHospitalSuburb, "Armidale");
+		Helper.selectDropDownList(EregistryNobPage.birthHospitalName, "Albury Wodonga Health");
+		Helper.selectDropDownList(EregistryNobPage.birthHospitalSuburb, "WODONGA");
 		Helper.clickItem(EregistryControls.validateButton);
 		Helper.clickItem(EregistryControls.saveButton);
 		
@@ -47,7 +47,10 @@ public class FillEregistryNobForm {
 		
 		Helper.waitFor(EregistryControls.nobSearchFamilyName);
 		EregistryControls.nobSearchFamilyName.sendKeys("Automated" + FillNOBForm.randChildFamilyName);		
+		Thread.sleep(1000);
+		Helper.waitFor(EregistryControls.refreshButton);
 		EregistryControls.refreshButton.click();
+		Helper.waitFor(EregistryControls.searchResult1);
 		Helper.clickItem(EregistryControls.searchResult1);
 		Helper.clickItem(EregistryControls.submitButton);		
 		Helper.clickItem(EregistryControls.submitButton);

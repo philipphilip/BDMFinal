@@ -16,7 +16,7 @@ public class SearchforBRCreated {
 		Helper.clickItem(CoreControls.searchTab);
 		Helper.clickItem(CoreControls.birthDropDownInSearch);
 		Helper.clickItem(CoreControls.birthRegistrationSearch);
-		Helper.clickItem(CoreSearchBirthsPage.childFamilyName);
+		Helper.waitFor(CoreSearchBirthsPage.childFamilyName);
 		CoreSearchBirthsPage.childFamilyName.sendKeys("Automated" + FillNOBForm.randChildFamilyName);
 		Helper.clickItem(CoreControls.searchButton);
 		Thread.sleep(3000);

@@ -1,94 +1,16 @@
 package step_definitions;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.support.PageFactory;
-
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 import helpers.Helper;
-import modules.CoreAdminSignInAction;
-import modules.CoreOldUISignInAction;
-import modules.EpublicSignInAction;
-import modules.EregistrySignInAction;
-import modules.FillANCoreSearchForm;
-import modules.FillAdoptionForm;
-import modules.FillApplicationCoreSearchForm;
-import modules.FillBCApplicationForm;
-import modules.FillBRSCoreSearchForm;
-import modules.FillBRSForSMSAndEmailCorrespondenceForm;
-import modules.FillBRSForm;
-import modules.FillCODCoreSearchForm;
-import modules.FillCODForm;
-import modules.FillCONForm;
-import modules.FillCOSForm;
-import modules.FillCOSRegForm;
-import modules.FillCreateInternalUserForm;
-import modules.FillDCApplicationForm;
-import modules.FillDRCoreSearchForm;
-import modules.FillDRSCoreSearchForm;
-import modules.FillDRSForm;
-import modules.FillEregistryANForm;
-import modules.FillEregistryCertificatesForm;
-import modules.FillEregistryCodForm;
-import modules.FillEregistryDrsForm;
-import modules.FillEregistryNobForm;
-import modules.FillEregistrySNForm;
-import modules.FillMCApplicationForm;
-import modules.FillMNForm;
-import modules.FillNOBForm;
-import modules.FillNOBFormForTasks;
-import modules.FillNewProductForm;
-import modules.FillRNForm;
-import modules.FillRRCoreSearchForm;
-import modules.FillRRSApplicationForm;
-import modules.FillRelationshipRegistrationParameterForm;
-import modules.FillSMSEmailCorrespondenceForm;
-import modules.FillSNCoreSearchForm;
-import modules.FillePublicApplicationCoreSearchForm;
-import modules.FilltheApplicationInEpublic;
-import modules.FilltheBRSInEpublic;
-import modules.FilltheBRSInEpublicDev;
-import modules.GoToAdoptionForm;
-import modules.GoToApplicationForm;
-import modules.GoToApplicationInePublic;
-import modules.GoToBRSForm;
-import modules.GoToBRSInePublic;
-import modules.GoToCODForm;
-import modules.GoToCONFor;
-import modules.GoToCOSForm;
-import modules.GoToDRSForm;
-import modules.GoToMNForm;
-import modules.GoToNOBForm;
-import modules.GoToRNForm;
-import modules.GoToSystemParameters;
-import modules.GotToNewProductForm;
-import modules.SearchAndMakeCodCompliant;
-import modules.SearchAndMakeDrsCompliant;
-import modules.SearchForMNAndMakeMR;
-import modules.SearchforBRCreated;
-import modules.SearchforCreatedDeathCertificate;
-import modules.SignInAction;
-import modules.SignoutAction;
-import modules.ValidateTheCODFormInEregistry;
-import modules.ValidateTheCONForOverseasAdult;
-import modules.ValidateTheCONForOverseasChild;
-import modules.ValidateTheCONForVicAdult;
-import modules.ValidateTheCONForVicChild;
-import modules.ValidateTheDRSFormInEregistry;
-import pageobjects.AutomationHomePage;
-import pageobjects.CoreBrsPage;
-import pageobjects.CoreControls;
-import pageobjects.CoreLoginPage;
-import pageobjects.CoreNobPage;
-import pageobjects.CoreSearchBirthsPage;
-import pageobjects.EpublicControls;
-import pageobjects.EpublicLoginPage;
-import pageobjects.EregistryControls;
-import pageobjects.EregistryLoginPage;
+import modules.*;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.PageFactory;
+import pageobjects.*;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
 
 public class BDMForm {
 	public WebDriver driver;
@@ -142,8 +64,11 @@ public class BDMForm {
 			driver.get("http://10.22.1.42/epublic/");
 		} else if (website.equals("eRegistry Demo")) {
 			driver.get("http://10.22.1.42/eregistry/");
-
-		}
+		} else if (website.equals("Core Config")) {
+			driver.get("http://10.22.1.110/core/login");
+		} else if (website.equals("Core SIT")) {
+			driver.get("http://www.sit.rio.bdm.vic.gov.au/core/login");
+		} 
 		driver.manage().window().maximize();
 	}
 
@@ -263,8 +188,9 @@ public class BDMForm {
 				Helper.clickItem(CoreControls.createNewCoreUserButton);
 			} else if (tab.equals("Create Correspondence Template")) {
 				Helper.waitFor(CoreControls.templateManagement);
-				CoreControls.templateManagement.click();
+				Helper.clickItem(CoreControls.templateManagement);
 				Helper.clickItem(CoreControls.correpondenceTemplatesLink);
+				Helper.waitFor(CoreControls.createNewTemplateButton);
 				Helper.clickItem(CoreControls.createNewTemplateButton);
 			}
 		}

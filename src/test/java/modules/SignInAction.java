@@ -11,8 +11,8 @@ public class SignInAction {
 
 		CoreLoginPage.username.sendKeys("admin");
 		CoreLoginPage.password.sendKeys("Friday17");
-		// CoreLoginPage.username.sendKeys("objectadmin");
-		// CoreLoginPage.password.sendKeys("EipPSZAG0SDXebOW2gd3");
+//		 CoreLoginPage.username.sendKeys("objectadmin");
+//		 CoreLoginPage.password.sendKeys("EipPSZAG0SDXebOW2gd3");
 
 		Helper.clickItem(CoreLoginPage.signin_button);
 

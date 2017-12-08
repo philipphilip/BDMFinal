@@ -1,9 +1,11 @@
 Feature: All Core site testings.
 
+
   Scenario: Sign in and sign out
     Given I open "Core" website
     And I sign in "Core"
     Then I sign out
+
 
   Scenario: Navigate to NOB and fill the form
     Given I open "Core" website
@@ -14,6 +16,7 @@ Feature: All Core site testings.
   Scenario: Navigate to BRS and fill the form
     Given I open "Core" website
     And I login "Core" as user "admin2" password "Friday17"
+    And I login "Core" as user "Carl.Ruz" password "oSWCjm1vvCjOHnrniMAW"
     And I navigate to "BRS" new form
     Then I fill in the "BRS" form
 
@@ -37,6 +40,7 @@ Feature: All Core site testings.
   Scenario: Navigate to DRS and fill the form
     Given I open "Core" website
     And I login "Core" as user "admin2" password "Friday17"
+    And I login "Core" as user "Carl.Ruz" password "oSWCjm1vvCjOHnrniMAW"
     And I navigate to "DRS" new form
     Then I fill in the "DRS" form
 
@@ -44,6 +48,7 @@ Feature: All Core site testings.
     Given I open "Core" website
     And I sign in "Core"
     Then I fill in the "DR" form
+
 
   Scenario: Request a Death certificate
     Given I open "Core" website
@@ -82,6 +87,31 @@ Feature: All Core site testings.
 
 
 ###########Below is some outdated tests that need to be looked at latter#################
+
+
+  #Scenario: Request a Death certificate
+    #Given I open "Core" website
+    #And I sign in "Core"
+    #And I navigate to "Application" new form
+    #Then I fill in the "Death Application" form
+#
+  #Scenario: Navigate to Marriage page and fill the form
+    #Given I open "Core" website
+    #And I sign in "Core"
+    #And I navigate to "MN" new form
+    #Then I fill in the "MN" form
+#
+  #Scenario: Create a Marriage Registratio
+    #Given I open "Core" website
+    #And I login "Core" as user "admin2" password "Friday17"
+    #Then I fill in the "MR" form
+#
+  #Scenario: Request a Marriage Certificate
+    #Given I open "Core" website
+    #And I sign in "Core"
+    #And I navigate to "Application" new form
+    #Then I fill in the "Marriage Certificate request" form
+#
 
   #Scenario: Sign in as a Admin and create a Product
     #Given I open "Core Admin UI" website

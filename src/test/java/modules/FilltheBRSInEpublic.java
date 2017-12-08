@@ -84,7 +84,7 @@ public class FilltheBRSInEpublic {
 		String confirmationNumber;
 		Helper.waitFor(EpublicControls.brsCompletionBanner);
 		confirmationNumber = EpublicControls.brsCompletionBanner.getText();
-		Assert.assertTrue("BRS submission with POI is not successful", confirmationNumber.contains("Completion"));
+		Assert.assertTrue("BRS submission with POI is not successful", confirmationNumber.contains("completion"));
 		Helper.waitFor(EpublicControls.brsOrderNumber);
 		System.out.println("The BRS order number created along with POI/DPOI is: " + EpublicControls.brsOrderNumber.getText());
 	}

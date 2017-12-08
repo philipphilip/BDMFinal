@@ -21,11 +21,18 @@ public class FillCODForm {
 		CoreCodPage.deceasedFamilyName.sendKeys("automate" + randDeceasedFamilyName);
 		CoreCodPage.familyNameSameToFamilyNameAtBirth.sendKeys("Yes");
 		CoreCodPage.deceasedfirstName.sendKeys("automate" + randDeceasedFirstName);
+<<<<<<< HEAD
 		CoreCodPage.deceasedOtherGivenName.sendKeys("automate" + randDeceasedFirstName);
 		CoreCodPage.sex.sendKeys("Male");
 		CoreCodPage.aboriginalOrTorresStraitIslanderOrigin.sendKeys("Not Stated");
 		CoreCodPage.howDidYouConfirmTheNameOfTtheDeceased.sendKeys("Medical Records");
 		CoreCodPage.dateOfBirthType.sendKeys("On");
+=======
+		Helper.selectDropDownList(CoreCodPage.sex, "Male");
+		Helper.selectDropDownList(CoreCodPage.aboriginalOrTorresStraitIslanderOrigin, "Decline to Reply");
+		Helper.selectDropDownList(CoreCodPage.howDidYouConfirmTheNameOfTtheDeceased, "Medical Records");
+		Helper.selectDropDownList(CoreCodPage.dateOfBirthType, "On");
+>>>>>>> e21d4449f7be8c817ff84175a671626843ef8f7e
 		CoreCodPage.deceasedDOBDay.sendKeys("12");
 		CoreCodPage.deceasedDOBMonth.sendKeys("03");
 		CoreCodPage.deceasedDOBYear.sendKeys("1980");
@@ -38,11 +45,11 @@ public class FillCODForm {
 		CoreCodPage.dateOfDeathDay.sendKeys("30");
 		CoreCodPage.dateOfDeathMonth.sendKeys("07");
 		CoreCodPage.dateOfDeathYear.sendKeys("2017");
-		CoreCodPage.whereDidDeathOccur.sendKeys("Hospital");
-		CoreCodPage.placeOfDeathHospitalName.sendKeys("Albury Base Hospital");
-		CoreCodPage.placeOfDeathHhospitalSuburb.sendKeys("Wollongong");
+		Helper.selectDropDownList(CoreCodPage.whereDidDeathOccur, "Hospital");
+		Helper.selectDropDownList(CoreCodPage.placeOfDeathHospitalName, "Albury Base Hospital");
+		Helper.selectDropDownList(CoreCodPage.placeOfDeathHhospitalSuburb, "Wollongong");
 		CoreCodPage.IsThisDeathRreportableInAccordanceWithSections10or13.sendKeys("No");
-		CoreCodPage.didYouExamineTheDeceasedsBodyAfterBeath.sendKeys("NO");
+		CoreCodPage.didYouExamineTheDeceasedsBodyAfterBeath.sendKeys("No");
 		CoreCodPage.wereYouResponsibleForProvidingMedicalCareToDeceasedImmediatelyDeforeDeath.sendKeys("Yes");
 		CoreCodPage.dateLastSeenAliveDay.sendKeys("03");
 		CoreCodPage.dateLastSeenAliveMonth.sendKeys("04");
@@ -56,7 +63,7 @@ public class FillCODForm {
 		CoreCodPage.numberOfConditionsOther.sendKeys("0");
 		CoreCodPage.IsThereCardiacPacemakerOrBatteryPoweredDeviceInTheBody.sendKeys("No");
 		CoreCodPage.wasPostMortemHeld.sendKeys("No");
-		CoreCodPage.WhoIsOrganisingDisposalOfDeceasedRemains.sendKeys("Funeral Director");
+		Helper.selectDropDownList(CoreCodPage.WhoIsOrganisingDisposalOfDeceasedRemains, "Funeral Director");
 		CoreCodPage.funeralDirectorIDNumber.sendKeys("2452345");
 		CoreCodPage.funeralDirectorFamilyName.sendKeys("asdfasjs");
 		CoreCodPage.funeralDirectorBusinessName.sendKeys("The xyz");

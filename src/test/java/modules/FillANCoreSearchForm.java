@@ -14,6 +14,7 @@ public class FillANCoreSearchForm {
 		
 		PageFactory.initElements(driver, CoreSearchPage.class);
 		
+		Helper.waitFor(CoreSearchPage.searchButton);
 		CoreSearchPage.adoptedChildFormerFamilyName.sendKeys("Automated" + FillEregistryANForm.familyName);
 		Helper.clickItem(CoreSearchPage.searchButton);
 		Helper.clickItem(CoreSearchPage.firstSearchResult);

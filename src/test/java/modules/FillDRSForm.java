@@ -23,25 +23,28 @@ public class FillDRSForm {
 		CoreDRSPage.deceasedFamilyName.sendKeys("automate" + FillCODForm.randDeceasedFamilyName);
 		CoreDRSPage.familyNameSameToFamilyNameAtBirth.sendKeys("Yes");
 		CoreDRSPage.deceasedFirstName.sendKeys("automate" + FillCODForm.randDeceasedFirstName);
+
 		CoreDRSPage.deceasedOtherGivenNames.sendKeys("automate" + FillCODForm.randDeceasedFirstName);
 		CoreDRSPage.Sex.sendKeys("Male");
+
 		CoreDRSPage.DateOfDeathDay.sendKeys("30");
 		CoreDRSPage.DateOfDeathMoth.sendKeys("07");
 		CoreDRSPage.DateOfDeathYear.sendKeys("2017");
 		CoreDRSPage.deceasedDOBDay.sendKeys("12");
 		CoreDRSPage.deceasedDOBMonth.sendKeys("03");
 		CoreDRSPage.deceasedDOBYear.sendKeys("1980");
-		CoreDRSPage.placeOfDeath.sendKeys("Hospital");
-		CoreDRSPage.hospitalName.sendKeys("Albury Base Hospital");
-		CoreDRSPage.hospitalTown.sendKeys("Wollongong");
+		Helper.selectDropDownList(CoreDRSPage.placeOfDeath, "Hospital");
+		Helper.selectDropDownList(CoreDRSPage.hospitalName, "Albury Base Hospital");
+		Helper.selectDropDownList(CoreDRSPage.hospitalTown, "Wollongong");
 		CoreDRSPage.usualAddressLine1.sendKeys("12 " + randaddressLine1 + " st");
 		CoreDRSPage.usualAddressSuburb.sendKeys("Testing");
 		CoreDRSPage.usualAddressPostcode.sendKeys("3000");
 		CoreDRSPage.placeOfBirthSuburb.sendKeys("Sydny");
-		CoreDRSPage.occupationDuringWorkingLife.sendKeys("accouintant");
-		CoreDRSPage.aboriginalOrTorresStraitIslanderOrigin.sendKeys("Neither Aboriginal or Torres Strait Islander");
-		CoreDRSPage.relationshipStatusAtTimeOfDeath.sendKeys("Not in a Relationship");
-		CoreDRSPage.parentsOfDeceasedType.sendKeys("Father");
+		Helper.selectDropDownList(CoreDRSPage.occupationDuringWorkingLife, "Accountant");
+		Helper.selectDropDownList(CoreDRSPage.aboriginalOrTorresStraitIslanderOrigin,
+				"Neither Aboriginal or Torres Strait Islander");
+		Helper.selectDropDownList(CoreDRSPage.relationshipStatusAtTimeOfDeath, "Not in a Relationship");
+		Helper.selectDropDownList(CoreDRSPage.parentsOfDeceasedType, "Father");
 		CoreDRSPage.parentOneFamilyName.sendKeys("automate" + FillCODForm.randDeceasedFamilyName);
 		CoreDRSPage.parentOneFamilyNameSameToFamilyNameAtBirth.sendKeys("Yes");
 		// CoreDRSPage.parentOneFamilyNameAtBirth.sendKeys("automate" +
@@ -54,7 +57,7 @@ public class FillDRSForm {
 		// randparentTwoFamilyNameAtBirth);
 		CoreDRSPage.parentTwoFirstName.sendKeys("automate" + randparentTwoGivenName);
 		CoreDRSPage.WasTheDeceasedUnder18.sendKeys("No");
-		CoreDRSPage.informantRelationshipToSubject.sendKeys("Sibling");
+		Helper.selectDropDownList(CoreDRSPage.informantRelationshipToSubject, "Sibling");
 		CoreDRSPage.informatFamilyName.sendKeys("asdfA");
 		CoreDRSPage.informatFirstName.sendKeys("fallksjgflag");
 		CoreDRSPage.informantAddressLine1.sendKeys("32 asdjfs st");
@@ -62,13 +65,13 @@ public class FillDRSForm {
 		CoreDRSPage.informantAddressPostcode.sendKeys("3000");
 		CoreDRSPage.postalAddressSameAsResidential.sendKeys("Yes");
 		CoreDRSPage.informantEmail.sendKeys("asdfsds@kadflgj.com");
-		CoreDRSPage.methodOfDisposal.sendKeys("Buried");
+		Helper.selectDropDownList(CoreDRSPage.methodOfDisposal, "Buried");
 		CoreDRSPage.DateOfDisposalOrSentOverseasDay.sendKeys("07");
 		CoreDRSPage.DateOfDisposalOrSentOverseasMonth.sendKeys("08");
 		CoreDRSPage.DateOfDisposalOrSentOverseasYear.sendKeys("2017");
-		CoreDRSPage.methodOfDisposal.sendKeys("Buried");
+		Helper.selectDropDownList(CoreDRSPage.methodOfDisposal, "Buried");
 		CoreDRSPage.remainsDisposedOffWithin30Days.sendKeys("Yes");
-		CoreDRSPage.nameOfCemetery.sendKeys("Melbourne General Cemetery");
+		Helper.selectDropDownList(CoreDRSPage.nameOfCemetery, "Melbourne General Cemetery");
 		CoreDRSPage.cemeteryAddressLine1.sendKeys("1000 DonyBrock Rd");
 		CoreDRSPage.cemeterySuburb.sendKeys("DonyBrock");
 		CoreDRSPage.cemeteryPostcode.sendKeys("3700");
